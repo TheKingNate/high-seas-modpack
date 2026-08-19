@@ -599,6 +599,10 @@ hash = "c4fbd9c73b90d8fb2060ad2cf8fcaf8de6a2aee090fe090c857aaa9e6ff0cbd0"
 metafile = true
 
 [[files]]
+file = "shaderpacks/ComplementaryReimagined_r5.8.1 + EuphoriaPatches_1.9.3.txt"
+hash = "6eabf61c0ed020af0816eed5e9ffe14c1c89e5388fdb77e89352d7a533db5bbb"
+
+[[files]]
 file = "shaderpacks/complementary-reimagined.pw.toml"
 hash = "ea258ed5bf495d9017eeadc3cbf9bd67b1e672d843826bc077135548b5bc699e"
 metafile = true
