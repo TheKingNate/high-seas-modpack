@@ -1,9 +1,17 @@
 hash-format = "sha256"
 
 [[files]]
+file = "config/valkyrienskies/valkyrienskies-server.toml"
+hash = "eedc463d4b59b69169491f396251fcfaa3dfa92e8e0b9b042e269073904d58f1"
+
+[[files]]
 file = "mods/3dskinlayers.pw.toml"
 hash = "f9a59df2232ac145a6d3d5a8d170860afd36610150bd115c65fdd8ab26812c5f"
 metafile = true
+
+[[files]]
+file = "mods/Eureka-VS2-Fabric-MC1.20.1-v3.2.0.jar"
+hash = "bf00a87398577260d303e7b8dc2fb22389d3681c514d89c4235ae2f6540ad36e"
 
 [[files]]
 file = "mods/ae2.pw.toml"
