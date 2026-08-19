@@ -1,0 +1,13 @@
+name = "Jade VS"
+filename = "Jade-VS-fabric-1.20.1-1.3.0.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/zNKzjsZM/versions/8dq4mgVE/Jade-VS-fabric-1.20.1-1.3.0.jar"
+hash-format = "sha512"
+hash = "0426d3306eac7dea85d6bffc6c84d28bac3272ebe49c0bb3425dc6733b071c2f7a468cb2ab357dd5034cf4947fb5860181842a3ae424d39c7d44c31be35ef116"
+
+[update]
+[update.modrinth]
+mod-id = "zNKzjsZM"
+version = "8dq4mgVE"

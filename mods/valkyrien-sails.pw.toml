@@ -1,0 +1,13 @@
+name = "Valkyrien Sails"
+filename = "vs_sails-1.20.1-0.3.1-fabric.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "9e37ac243d4d729b776ae9496a0ca5fc4efd0c72"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 7947313
+project-id = 1278593

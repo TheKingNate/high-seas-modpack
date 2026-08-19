@@ -1,0 +1,13 @@
+name = "Valkyrien Skies + Supplementaries Cannon Fix"
+filename = "vs_sup_fix-1.20.1-fabric-2.0.1.jar"
+side = "server"
+
+[download]
+url = "https://cdn.modrinth.com/data/lvoGABiq/versions/P0i1fCx3/vs_sup_fix-1.20.1-fabric-2.0.1.jar"
+hash-format = "sha512"
+hash = "351403158f13c13664c93f256403e357f3128477285cd62bbc06b70c1ebcb06586cd65840becf3a8970a9633805cc3f146e76a58f776f5f65881f41120d2b608"
+
+[update]
+[update.modrinth]
+mod-id = "lvoGABiq"
+version = "P0i1fCx3"

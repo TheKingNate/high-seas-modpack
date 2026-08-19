@@ -1,0 +1,13 @@
+name = "VS Safe and Sound"
+filename = "vsafe-fabric-1201-1.1.1.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/7vKnSQkd/versions/atIaEIcQ/vsafe-fabric-1201-1.1.1.jar"
+hash-format = "sha512"
+hash = "5349852542ae3e5e183d77b80ed7c08a5a15a00daff5703314b30ea811ed68f55d818a08fae45b12424d0a90c84a7712a0d7cf247ed6c81a6055ff35cb917c6a"
+
+[update]
+[update.modrinth]
+mod-id = "7vKnSQkd"
+version = "atIaEIcQ"

@@ -1,0 +1,13 @@
+name = "VLib"
+filename = "vlib-1.20.1-0.1.1+fabric.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "6f982ff1cffc70df747faa8c7ceb7c26d13ccc3a"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 7378596
+project-id = 1265893

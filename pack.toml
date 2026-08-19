@@ -1,0 +1,13 @@
+name = "High Seas"
+author = "TheKingNate"
+version = "1.0.0"
+pack-format = "packwiz:1.1.0"
+
+[index]
+file = "index.toml"
+hash-format = "sha256"
+hash = "21117d846a8912981f6cff8e23cb1b1cf2079dcb4fd379b7b477703680d22626"
+
+[versions]
+fabric = "0.19.3"
+minecraft = "1.20.1"

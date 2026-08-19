@@ -1,0 +1,13 @@
+name = "Valkyrien Relogs"
+filename = "valkyrienrelogs-shiprespawn-0.3.0.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "94e17cc38137a38a9011cc223bee5578bc80e78a"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 5813803
+project-id = 1011712
