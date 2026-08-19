@@ -1,0 +1,186 @@
+{
+	id: "7C83BC05469C80B5"
+	group: ""
+	icon: "minecraft:amethyst_shard"
+	default_quest_shape: ""
+	filename: "arcana"
+	title: "Arcana"
+	subtitle: ["Light magic"]
+	order_index: 8
+	quests: [
+		{
+			x: 0.0d
+			y: 0.0d
+			id: "87DF0665BC87A150"
+			title: "Binding Table"
+			description: ["Craft a Spell Binding Table.", "", "2 amethyst shards, 1 gold ingot, 1 book, 3 polished diorite.", "Surround it with bookshelves like an enchanting table."]
+			tasks: [
+				{
+					id: "3769E0D28CB85E75"
+					type: "item"
+					item: "minecraft:amethyst_shard"
+					count: 2
+				}
+			]
+			rewards: [
+				{
+					id: "00D6DB1043360259"
+					type: "xp"
+					xp: 60
+				},
+				{
+					id: "BBC35F3B9F282253"
+					type: "command"
+					title: "3 Skill Points"
+					command: "/puffish_skills points add @p combat 3"
+					player_command: false
+				}
+			]
+		}
+		{
+			x: 2.0d
+			y: 0.0d
+			id: "54D897CF7A946896"
+			title: "Ammunition"
+			description: ["Craft runes. They are the fuel; keep a stack on you."]
+			dependencies: ["87DF0665BC87A150"]
+			tasks: [
+				{
+					id: "0291631ECF086376"
+					type: "checkmark"
+					title: "Craft runes"
+				}
+			]
+			rewards: [
+				{
+					id: "959D6A3D943EAC57"
+					type: "xp"
+					xp: 40
+				},
+				{
+					id: "FC9703B0C4CB3D61"
+					type: "command"
+					title: "2 Skill Points"
+					command: "/puffish_skills points add @p combat 2"
+					player_command: false
+				}
+			]
+		}
+		{
+			x: 4.0d
+			y: 0.0d
+			id: "6B0D946C89BBA0E0"
+			title: "Wand"
+			description: ["Craft a wand."]
+			dependencies: ["54D897CF7A946896"]
+			tasks: [
+				{
+					id: "E8D505F6BDCB5316"
+					type: "checkmark"
+					title: "Craft a wand"
+				}
+			]
+			rewards: [
+				{
+					id: "29C5D8817CA91392"
+					type: "xp"
+					xp: 60
+				},
+				{
+					id: "29C7437C334D4955"
+					type: "command"
+					title: "3 Skill Points"
+					command: "/puffish_skills points add @p combat 3"
+					player_command: false
+				}
+			]
+		}
+		{
+			x: 6.0d
+			y: 0.0d
+			id: "42A55FD9B8BDCFFA"
+			title: "First Spell"
+			description: ["Bind a spell to a spell book."]
+			dependencies: ["6B0D946C89BBA0E0"]
+			tasks: [
+				{
+					id: "1F421B94D66C3FF1"
+					type: "checkmark"
+					title: "Bind your first spell"
+				}
+			]
+			rewards: [
+				{
+					id: "09CD20FDC6935F17"
+					type: "xp"
+					xp: 80
+				},
+				{
+					id: "346EC4153D16CB92"
+					type: "command"
+					title: "4 Skill Points"
+					command: "/puffish_skills points add @p combat 4"
+					player_command: false
+				}
+			]
+		}
+		{
+			x: 8.0d
+			y: 0.0d
+			id: "AE6AB01ABC57C0FD"
+			title: "Tower"
+			description: ["Raid a Wizard Tower."]
+			dependencies: ["42A55FD9B8BDCFFA"]
+			tasks: [
+				{
+					id: "EEFCFA510A920638"
+					type: "checkmark"
+					title: "Raid a Wizard Tower"
+				}
+			]
+			rewards: [
+				{
+					id: "095A3D4489F83C23"
+					type: "xp"
+					xp: 150
+				},
+				{
+					id: "F087D24923FA242A"
+					type: "command"
+					title: "6 Skill Points"
+					command: "/puffish_skills points add @p combat 6"
+					player_command: false
+				}
+			]
+		}
+		{
+			x: 10.0d
+			y: 0.0d
+			id: "0D1902534BDF03BB"
+			title: "Specialise"
+			description: ["Unlock a Simply Skills specialisation."]
+			dependencies: ["AE6AB01ABC57C0FD"]
+			tasks: [
+				{
+					id: "42570BD06C885B72"
+					type: "checkmark"
+					title: "Unlock a specialisation"
+				}
+			]
+			rewards: [
+				{
+					id: "9D64C72911E742BB"
+					type: "xp"
+					xp: 200
+				},
+				{
+					id: "60B2E1A1B6D066B8"
+					type: "command"
+					title: "8 Skill Points"
+					command: "/puffish_skills points add @p combat 8"
+					player_command: false
+				}
+			]
+		}
+	]
+}

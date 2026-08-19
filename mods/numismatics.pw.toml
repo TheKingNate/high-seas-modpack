@@ -1,0 +1,13 @@
+name = "Create: Numismatics"
+filename = "CreateNumismatics-1.0.15+fabric-mc1.20.1.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/Jdbbtt0i/versions/SJpLT0Bq/CreateNumismatics-1.0.15%2Bfabric-mc1.20.1.jar"
+hash-format = "sha512"
+hash = "942e864837be870ea9584fd95a1bf43e05445f45286ca41f9b2774c89a9248067c3b3be9ba1a15641ea59ae870307f07670331b8473d743b0479f3d7ef294ed1"
+
+[update]
+[update.modrinth]
+mod-id = "Jdbbtt0i"
+version = "SJpLT0Bq"

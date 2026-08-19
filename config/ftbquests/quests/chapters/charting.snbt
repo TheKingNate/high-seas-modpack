@@ -1,0 +1,156 @@
+{
+	id: "006058659056F06D"
+	group: ""
+	icon: "minecraft:filled_map"
+	default_quest_shape: ""
+	filename: "charting"
+	title: "Charting"
+	subtitle: ["Wander"]
+	order_index: 2
+	quests: [
+		{
+			x: 0.0d
+			y: 0.0d
+			id: "5CC84C5A16BD3FA1"
+			title: "Ruins"
+			description: ["Find a Structory ruin."]
+			tasks: [
+				{
+					id: "897E52933A011FE2"
+					type: "checkmark"
+					title: "Find a Structory ruin"
+				}
+			]
+			rewards: [
+				{
+					id: "BB551AEB037D5126"
+					type: "xp"
+					xp: 30
+				},
+				{
+					id: "E617FBEAD8DFC649"
+					type: "command"
+					title: "2 Skill Points"
+					command: "/puffish_skills points add @p combat 2"
+					player_command: false
+				}
+			]
+		}
+		{
+			x: 2.0d
+			y: 0.0d
+			id: "5D4C6FE9B4021DC1"
+			title: "Somewhere Inhabited"
+			description: ["Find a Towns and Towers settlement."]
+			dependencies: ["5CC84C5A16BD3FA1"]
+			tasks: [
+				{
+					id: "DF4C35AC8CF0A76B"
+					type: "checkmark"
+					title: "Find a Towns and Towers settlement"
+				}
+			]
+			rewards: [
+				{
+					id: "5862F68CCFE49962"
+					type: "xp"
+					xp: 30
+				},
+				{
+					id: "C47A6C25B739AA5B"
+					type: "command"
+					title: "2 Skill Points"
+					command: "/puffish_skills points add @p combat 2"
+					player_command: false
+				}
+			]
+		}
+		{
+			x: 4.0d
+			y: 0.0d
+			id: "737CA415C523542D"
+			title: "Three Coasts"
+			description: ["Visit three biomes you have not seen before."]
+			dependencies: ["5D4C6FE9B4021DC1"]
+			tasks: [
+				{
+					id: "F42BCA47AFD29E22"
+					type: "checkmark"
+					title: "Visit 3 new biomes"
+				}
+			]
+			rewards: [
+				{
+					id: "48181D3157518DB4"
+					type: "xp"
+					xp: 40
+				},
+				{
+					id: "90612E486026B66F"
+					type: "command"
+					title: "2 Skill Points"
+					command: "/puffish_skills points add @p combat 2"
+					player_command: false
+				}
+			]
+		}
+		{
+			x: 6.0d
+			y: 0.0d
+			id: "DEACD24DD83D6EA7"
+			title: "Underground"
+			description: ["Clear a YUNG's dungeon."]
+			dependencies: ["737CA415C523542D"]
+			tasks: [
+				{
+					id: "BB7436222984D996"
+					type: "checkmark"
+					title: "Clear a YUNG's dungeon"
+				}
+			]
+			rewards: [
+				{
+					id: "B874231A69B1FFD5"
+					type: "xp"
+					xp: 50
+				},
+				{
+					id: "9595C786FFEB826B"
+					type: "command"
+					title: "3 Skill Points"
+					command: "/puffish_skills points add @p combat 3"
+					player_command: false
+				}
+			]
+		}
+		{
+			x: 8.0d
+			y: 0.0d
+			id: "518DBA3F7DF2BE95"
+			title: "The Board"
+			description: ["Complete a bounty from a Bountiful board.", "", "These repeat forever. When you do not know what to do,", "this is the answer."]
+			dependencies: ["DEACD24DD83D6EA7"]
+			tasks: [
+				{
+					id: "5AEA96811EC0007F"
+					type: "checkmark"
+					title: "Complete a Bountiful bounty"
+				}
+			]
+			rewards: [
+				{
+					id: "A0545ACEC31A54E3"
+					type: "xp"
+					xp: 40
+				},
+				{
+					id: "E806770916080D52"
+					type: "command"
+					title: "2 Skill Points"
+					command: "/puffish_skills points add @p combat 2"
+					player_command: false
+				}
+			]
+		}
+	]
+}

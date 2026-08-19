@@ -1,0 +1,135 @@
+{
+	id: "A46402BDED62E5E3"
+	group: ""
+	icon: "minecraft:heart_of_the_sea"
+	default_quest_shape: ""
+	filename: "below"
+	title: "Below"
+	subtitle: ["The ocean has a floor"]
+	order_index: 4
+	quests: [
+		{
+			x: 0.0d
+			y: 0.0d
+			id: "19DC641A1003628D"
+			title: "Lungs"
+			description: ["Craft Hybrid Aquatic diving armor."]
+			tasks: [
+				{
+					id: "92FF784C093922B4"
+					type: "checkmark"
+					title: "Craft diving armor"
+				}
+			]
+			rewards: [
+				{
+					id: "FDC1B25017667379"
+					type: "xp"
+					xp: 60
+				},
+				{
+					id: "B64C43C340A14948"
+					type: "command"
+					title: "3 Skill Points"
+					command: "/puffish_skills points add @p combat 3"
+					player_command: false
+				}
+			]
+		}
+		{
+			x: 2.0d
+			y: 0.0d
+			id: "F4B9373B46CBD32C"
+			title: "Sunken"
+			description: ["Find a Hopo underwater ruin."]
+			dependencies: ["19DC641A1003628D"]
+			tasks: [
+				{
+					id: "1983502C8FD129A9"
+					type: "checkmark"
+					title: "Find an underwater ruin"
+				}
+			]
+			rewards: [
+				{
+					id: "F8CC273B1315E575"
+					type: "xp"
+					xp: 50
+				},
+				{
+					id: "376C8404D65EF529"
+					type: "command"
+					title: "2 Skill Points"
+					command: "/puffish_skills points add @p combat 2"
+					player_command: false
+				}
+			]
+		}
+		{
+			x: 4.0d
+			y: 0.0d
+			id: "AEDBE2FA4F160E9C"
+			title: "The Monument"
+			description: ["Reach an ocean monument."]
+			dependencies: ["F4B9373B46CBD32C"]
+			tasks: [
+				{
+					id: "2FF5C465590EAE87"
+					type: "item"
+					item: "minecraft:prismarine_shard"
+					count: 16
+				}
+			]
+			rewards: [
+				{
+					id: "B2652D4BBF92719F"
+					type: "xp"
+					xp: 80
+				},
+				{
+					id: "D3CF126258176DD3"
+					type: "command"
+					title: "3 Skill Points"
+					command: "/puffish_skills points add @p combat 3"
+					player_command: false
+				}
+			]
+		}
+		{
+			x: 6.0d
+			y: 0.0d
+			id: "DDE8F487D25289E6"
+			title: "Salvaged Air"
+			description: ["Collect 8 nautilus shells."]
+			dependencies: ["AEDBE2FA4F160E9C"]
+			tasks: [
+				{
+					id: "8E24C2BD36AEB802"
+					type: "item"
+					item: "minecraft:nautilus_shell"
+					count: 8
+				}
+			]
+			rewards: [
+				{
+					id: "C443C321540F5D84"
+					type: "xp"
+					xp: 60
+				},
+				{
+					id: "F8497A5BC63F3D20"
+					type: "item"
+					item: "minecraft:heart_of_the_sea"
+					count: 1
+				},
+				{
+					id: "710EB8EC5668A047"
+					type: "command"
+					title: "3 Skill Points"
+					command: "/puffish_skills points add @p combat 3"
+					player_command: false
+				}
+			]
+		}
+	]
+}

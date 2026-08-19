@@ -1,0 +1,127 @@
+{
+	id: "85AFE5F06B50E1BC"
+	group: ""
+	icon: "minecraft:oak_boat"
+	default_quest_shape: ""
+	filename: "shipwright"
+	title: "Shipwright"
+	subtitle: ["Everything else is gated behind this"]
+	order_index: 1
+	quests: [
+		{
+			x: 0.0d
+			y: 0.0d
+			id: "55309D6432336848"
+			title: "The Helm"
+			description: ["Craft a Ship Helm.", "This is the single most important block in the pack."]
+			tasks: [
+				{
+					id: "1F33B91D019019BD"
+					type: "checkmark"
+					title: "Craft a Ship Helm"
+				}
+			]
+			rewards: [
+				{
+					id: "EF9BFC80CE7818CF"
+					type: "xp"
+					xp: 40
+				},
+				{
+					id: "4EE6957A4E3166E3"
+					type: "command"
+					title: "3 Skill Points"
+					command: "/puffish_skills points add @p combat 3"
+					player_command: false
+				}
+			]
+		}
+		{
+			x: 2.0d
+			y: 0.0d
+			id: "91001F758A3716BE"
+			title: "Assemble"
+			description: ["Build a hull, place the helm, shift-right-click to assemble.", "", "Start small. Large hulls ride the waves far more gently --", "a raft will show you the swell, a galleon will not."]
+			dependencies: ["55309D6432336848"]
+			tasks: [
+				{
+					id: "6C610F5D4B98EC0C"
+					type: "checkmark"
+					title: "Assemble your first ship"
+				}
+			]
+			rewards: [
+				{
+					id: "9DADCCA6A4FB60DA"
+					type: "xp"
+					xp: 60
+				},
+				{
+					id: "4347D3BEF1F2CA1C"
+					type: "command"
+					title: "3 Skill Points"
+					command: "/puffish_skills points add @p combat 3"
+					player_command: false
+				}
+			]
+		}
+		{
+			x: 4.0d
+			y: 0.0d
+			id: "464BF863203F0640"
+			title: "Under Sail"
+			description: ["Craft and mount a sail.", "Wind changes direction over time and picks up in storms."]
+			dependencies: ["91001F758A3716BE"]
+			tasks: [
+				{
+					id: "DD6C0A706667EA93"
+					type: "checkmark"
+					title: "Mount a sail on your ship"
+				}
+			]
+			rewards: [
+				{
+					id: "16D1CAF79D2AD202"
+					type: "xp"
+					xp: 40
+				},
+				{
+					id: "3E9DF44B75FFAF14"
+					type: "command"
+					title: "2 Skill Points"
+					command: "/puffish_skills points add @p combat 2"
+					player_command: false
+				}
+			]
+		}
+		{
+			x: 6.0d
+			y: 0.0d
+			id: "82B1282A5E3283EF"
+			title: "Blue Water"
+			description: ["Sail 1000 blocks from spawn."]
+			dependencies: ["464BF863203F0640"]
+			tasks: [
+				{
+					id: "589FC551C2CCA06C"
+					type: "checkmark"
+					title: "Sail 1000 blocks"
+				}
+			]
+			rewards: [
+				{
+					id: "381D73E5731EA7A5"
+					type: "xp"
+					xp: 80
+				},
+				{
+					id: "8EA237C3D613CBD0"
+					type: "command"
+					title: "4 Skill Points"
+					command: "/puffish_skills points add @p combat 4"
+					player_command: false
+				}
+			]
+		}
+	]
+}

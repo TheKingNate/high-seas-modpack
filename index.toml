@@ -1,12 +1,68 @@
 hash-format = "sha256"
 
 [[files]]
+file = "config/ftbquests/quests/chapter_groups.snbt"
+hash = "e57d8311aec9f524911ed1313cabf138bb7fa5a2d3ba985a00a2a267ff35ef78"
+
+[[files]]
+file = "config/ftbquests/quests/chapters/arcana.snbt"
+hash = "6b029545309a0379f23970d4af929925e4924590ba9f488e3b577062a7074ab3"
+
+[[files]]
+file = "config/ftbquests/quests/chapters/below.snbt"
+hash = "bc19da279511c4d605c278f4b0cb6fd2235dadbecab8fffc8dab90afbaf09893"
+
+[[files]]
+file = "config/ftbquests/quests/chapters/beyond.snbt"
+hash = "6c7c5d02fd7b03513a9bb1a4383e97a337f8561867049a20671de2a56d4f8429"
+
+[[files]]
+file = "config/ftbquests/quests/chapters/castaway.snbt"
+hash = "6111cfdc3629f3dd5282038ca0756bc9ee77ee3f142ba7748678b5e0ace20f2a"
+
+[[files]]
+file = "config/ftbquests/quests/chapters/charting.snbt"
+hash = "05b08152b033da5e3f53be4734a2d1e41fe0a33f0d2fe87d9ba55f92027f02f9"
+
+[[files]]
+file = "config/ftbquests/quests/chapters/provision.snbt"
+hash = "5b2a661d1fe212225e114f102eeb3d5b1502eb59f19aa7e429ce5ab74f4cf9df"
+
+[[files]]
+file = "config/ftbquests/quests/chapters/salvage.snbt"
+hash = "0614f3ed41684f0a4bfca2ded8e6b0e4ccaf5f71f4fa347ff34998e7597f036e"
+
+[[files]]
+file = "config/ftbquests/quests/chapters/shipwright.snbt"
+hash = "72b9280e04ffad9071adbca9494a9909b7dc3df1073c2e305b7db12222e7d38e"
+
+[[files]]
+file = "config/ftbquests/quests/chapters/the_deep.snbt"
+hash = "cbb94078011a0c6752ce42da78bbcd7e66a56d9a5726ab8f511c346cc4cf95f9"
+
+[[files]]
+file = "config/ftbquests/quests/chapters/the_forge.snbt"
+hash = "4033ec68ee8dfd7cb79ce80e8c9ee19c7745e863e6687f110570d088517f8a0b"
+
+[[files]]
+file = "config/ftbquests/quests/chapters/the_network.snbt"
+hash = "ff23a1495920d8f0aa380a81082c0836c9c0f661da36e3a1782d82ba88ab3837"
+
+[[files]]
+file = "config/ftbquests/quests/data.snbt"
+hash = "25068f828a32bea65ad83c1bda71498570af080836e9b97ca66cd03d78c93c7f"
+
+[[files]]
 file = "config/iris.properties"
 hash = "d55255b4e4dbee81f080ad8c617f5d4c01e2ea246cc49725de2d0db24e601da5"
 
 [[files]]
 file = "config/valkyrienskies/valkyrienskies-server.toml"
 hash = "eedc463d4b59b69169491f396251fcfaa3dfa92e8e0b9b042e269073904d58f1"
+
+[[files]]
+file = "make-quests.py"
+hash = "b1b42821ae42eed982fe2b110952898ffe68e75398c1fc4c9f810d9f1e54f7e5"
 
 [[files]]
 file = "mods/3dskinlayers.pw.toml"
@@ -54,7 +110,7 @@ metafile = true
 
 [[files]]
 file = "mods/architectury-api.pw.toml"
-hash = "e12dce3e543168379a2856c66064ee2001e6420a9dfc6163f37b78e518947456"
+hash = "2492a7266fab4c2ff411612180974b98510afb66a18e640f4de63ad615dd1e9e"
 metafile = true
 
 [[files]]
@@ -229,7 +285,7 @@ metafile = true
 
 [[files]]
 file = "mods/fabric-api.pw.toml"
-hash = "5cbcd9395c1788ed7a1356e392a4483a30d903312faffd9795c6dee9afba3fac"
+hash = "0488c9ea9abac1f21fc3b1911f97de3c375083985c89b332136fe9c948c06b8e"
 metafile = true
 
 [[files]]
@@ -280,6 +336,11 @@ metafile = true
 [[files]]
 file = "mods/fragmentum.pw.toml"
 hash = "77cefdee0e11fd22a8de11f02763cbfe06ee5b0edadac151cda51b61749927e3"
+metafile = true
+
+[[files]]
+file = "mods/ftb-chunks-fabric.pw.toml"
+hash = "d93a794cc3b114b049f4fb2616a76a5c3e0e6da668bd4a8f367637dc69f40ddb"
 metafile = true
 
 [[files]]
@@ -510,6 +571,11 @@ metafile = true
 [[files]]
 file = "mods/nullscape.pw.toml"
 hash = "e5e76b305f6e8fd611fb70695f42014c62e5f46b926d626eaf5ca0c78e394c5c"
+metafile = true
+
+[[files]]
+file = "mods/numismatics.pw.toml"
+hash = "7ebf197c43f662a98d2064d3b46e399e1929d6e6f55ba2bc46ada0d48e56aaa1"
 metafile = true
 
 [[files]]

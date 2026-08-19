@@ -1,0 +1,185 @@
+{
+	id: "CED759B550A772D1"
+	group: ""
+	icon: "minecraft:redstone"
+	default_quest_shape: ""
+	filename: "the_network"
+	title: "The Network"
+	subtitle: ["Your half"]
+	order_index: 7
+	quests: [
+		{
+			x: 0.0d
+			y: 0.0d
+			id: "E243B873487ED330"
+			title: "Certus"
+			description: ["Collect 16 certus quartz."]
+			tasks: [
+				{
+					id: "F83A0AACE0B7979D"
+					type: "checkmark"
+					title: "Collect 16 certus quartz"
+				}
+			]
+			rewards: [
+				{
+					id: "AE778EDCE478A4D7"
+					type: "xp"
+					xp: 40
+				},
+				{
+					id: "18C2E5E110068A56"
+					type: "command"
+					title: "2 Skill Points"
+					command: "/puffish_skills points add @p mining 2"
+					player_command: false
+				}
+			]
+		}
+		{
+			x: 2.0d
+			y: 0.0d
+			id: "0462A054FDB3D360"
+			title: "Controller"
+			description: ["Craft an ME Controller."]
+			dependencies: ["E243B873487ED330"]
+			tasks: [
+				{
+					id: "05BC776DAA617D1C"
+					type: "checkmark"
+					title: "Craft an ME Controller"
+				}
+			]
+			rewards: [
+				{
+					id: "5530131D0CDBE568"
+					type: "xp"
+					xp: 100
+				},
+				{
+					id: "BDF851BCD8FB7544"
+					type: "command"
+					title: "4 Skill Points"
+					command: "/puffish_skills points add @p mining 4"
+					player_command: false
+				}
+			]
+		}
+		{
+			x: 4.0d
+			y: 0.0d
+			id: "9F65D090FE82F4B4"
+			title: "Wireless"
+			description: ["Craft a wireless terminal."]
+			dependencies: ["0462A054FDB3D360"]
+			tasks: [
+				{
+					id: "A5CADE0150EFB5F8"
+					type: "checkmark"
+					title: "Craft a wireless terminal"
+				}
+			]
+			rewards: [
+				{
+					id: "6E35FC1A8D0CEBB4"
+					type: "xp"
+					xp: 80
+				},
+				{
+					id: "75034041218347AA"
+					type: "command"
+					title: "3 Skill Points"
+					command: "/puffish_skills points add @p mining 3"
+					player_command: false
+				}
+			]
+		}
+		{
+			x: 6.0d
+			y: 0.0d
+			id: "3ED85DB4799CD812"
+			title: "Autocraft"
+			description: ["Autocraft something with more than one step."]
+			dependencies: ["9F65D090FE82F4B4"]
+			tasks: [
+				{
+					id: "42E0C28636200947"
+					type: "checkmark"
+					title: "Autocraft a multi-step recipe"
+				}
+			]
+			rewards: [
+				{
+					id: "C51BDF869E2D0CFF"
+					type: "xp"
+					xp: 150
+				},
+				{
+					id: "C8222A37567DA1EA"
+					type: "command"
+					title: "6 Skill Points"
+					command: "/puffish_skills points add @p mining 6"
+					player_command: false
+				}
+			]
+		}
+		{
+			x: 8.0d
+			y: 0.0d
+			id: "52D7A62C2E1739CC"
+			title: "Reactor"
+			description: ["Build a Powah reactor."]
+			dependencies: ["3ED85DB4799CD812"]
+			tasks: [
+				{
+					id: "A823374C4FF59045"
+					type: "checkmark"
+					title: "Build a Powah reactor"
+				}
+			]
+			rewards: [
+				{
+					id: "D1387B616A60AD7D"
+					type: "xp"
+					xp: 200
+				},
+				{
+					id: "27F5E04FC0E43C4F"
+					type: "command"
+					title: "8 Skill Points"
+					command: "/puffish_skills points add @p mining 8"
+					player_command: false
+				}
+			]
+		}
+		{
+			x: 10.0d
+			y: 0.0d
+			id: "DFE38576AC8552CC"
+			title: "Grid"
+			description: ["Move power across a distance with Flux Networks."]
+			dependencies: ["52D7A62C2E1739CC"]
+			tasks: [
+				{
+					id: "7BF8ED7CDBA65719"
+					type: "checkmark"
+					title: "Move power with Flux Networks"
+				}
+			]
+			rewards: [
+				{
+					id: "B62F61E7548F935A"
+					type: "xp"
+					xp: 120
+				},
+				{
+					id: "39709BDF90DD46AE"
+					type: "command"
+					title: "5 Skill Points"
+					command: "/puffish_skills points add @p mining 5"
+					player_command: false
+				}
+			]
+		}
+	]
+}

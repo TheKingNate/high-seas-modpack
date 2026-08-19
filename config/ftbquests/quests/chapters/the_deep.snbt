@@ -1,0 +1,127 @@
+{
+	id: "C7F69EAA0A3A62A5"
+	group: ""
+	icon: "minecraft:prismarine_crystals"
+	default_quest_shape: ""
+	filename: "the_deep"
+	title: "The Deep"
+	subtitle: ["Optional. Bring a friend."]
+	order_index: 6
+	quests: [
+		{
+			x: 0.0d
+			y: 0.0d
+			id: "6A2DA1A937093051"
+			title: "Ship Graveyard"
+			description: ["Enter the Aquamirae ship graveyard.", "", "Do not come here before you have diving gear."]
+			tasks: [
+				{
+					id: "E080D45CAFE7F11C"
+					type: "checkmark"
+					title: "Enter the ship graveyard"
+				}
+			]
+			rewards: [
+				{
+					id: "92FBEA1EFC649B37"
+					type: "xp"
+					xp: 100
+				},
+				{
+					id: "43ADAB23341294E1"
+					type: "command"
+					title: "4 Skill Points"
+					command: "/puffish_skills points add @p combat 4"
+					player_command: false
+				}
+			]
+		}
+		{
+			x: 2.0d
+			y: 0.0d
+			id: "25732169E29CEB6A"
+			title: "Something In The Dark"
+			description: ["Survive an Anglerfish."]
+			dependencies: ["6A2DA1A937093051"]
+			tasks: [
+				{
+					id: "A20D5B9A5D1E2C2E"
+					type: "checkmark"
+					title: "Survive an Anglerfish"
+				}
+			]
+			rewards: [
+				{
+					id: "5619293439030D04"
+					type: "xp"
+					xp: 120
+				},
+				{
+					id: "A8A866AFFE74E8AA"
+					type: "command"
+					title: "5 Skill Points"
+					command: "/puffish_skills points add @p combat 5"
+					player_command: false
+				}
+			]
+		}
+		{
+			x: 4.0d
+			y: 0.0d
+			id: "6E39656595BE538B"
+			title: "Cornelia"
+			description: ["Kill the Ghost of Captain Cornelia."]
+			dependencies: ["25732169E29CEB6A"]
+			tasks: [
+				{
+					id: "BDE5CFF0443EE807"
+					type: "checkmark"
+					title: "Kill Captain Cornelia"
+				}
+			]
+			rewards: [
+				{
+					id: "874FBCC98B4DA7A6"
+					type: "xp"
+					xp: 300
+				},
+				{
+					id: "DB10ABFB9EEFCA9C"
+					type: "command"
+					title: "10 Skill Points"
+					command: "/puffish_skills points add @p combat 10"
+					player_command: false
+				}
+			]
+		}
+		{
+			x: 6.0d
+			y: 0.0d
+			id: "94E959FA09F4B022"
+			title: "Deep City"
+			description: ["Clear a Hopo deep ocean city."]
+			dependencies: ["6E39656595BE538B"]
+			tasks: [
+				{
+					id: "C6F24BA92CA24B37"
+					type: "checkmark"
+					title: "Clear a deep ocean city"
+				}
+			]
+			rewards: [
+				{
+					id: "2CD79AA21B449037"
+					type: "xp"
+					xp: 150
+				},
+				{
+					id: "0CD8E96C533FF4C8"
+					type: "command"
+					title: "6 Skill Points"
+					command: "/puffish_skills points add @p combat 6"
+					player_command: false
+				}
+			]
+		}
+	]
+}

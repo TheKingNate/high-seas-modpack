@@ -1,0 +1,156 @@
+{
+	id: "B801204A93362BC5"
+	group: ""
+	icon: "minecraft:end_crystal"
+	default_quest_shape: ""
+	filename: "beyond"
+	title: "Beyond"
+	subtitle: ["Endgame"]
+	order_index: 10
+	quests: [
+		{
+			x: 0.0d
+			y: 0.0d
+			id: "9E33556077134985"
+			title: "Hot Rock"
+			description: ["Enter the Nether."]
+			tasks: [
+				{
+					id: "8F5ECEF7CA3A7BFE"
+					type: "dimension"
+					dimension: "minecraft:the_nether"
+				}
+			]
+			rewards: [
+				{
+					id: "865EBCE206221CB3"
+					type: "xp"
+					xp: 60
+				},
+				{
+					id: "2BA34C768AC2DD05"
+					type: "command"
+					title: "3 Skill Points"
+					command: "/puffish_skills points add @p combat 3"
+					player_command: false
+				}
+			]
+		}
+		{
+			x: 2.0d
+			y: 0.0d
+			id: "2512012775D6338D"
+			title: "Incendium"
+			description: ["Find an Incendium structure."]
+			dependencies: ["9E33556077134985"]
+			tasks: [
+				{
+					id: "F7A27BE228CF4B5C"
+					type: "checkmark"
+					title: "Find an Incendium structure"
+				}
+			]
+			rewards: [
+				{
+					id: "99D78CB12DC5E513"
+					type: "xp"
+					xp: 120
+				},
+				{
+					id: "B334094D364BCA27"
+					type: "command"
+					title: "5 Skill Points"
+					command: "/puffish_skills points add @p combat 5"
+					player_command: false
+				}
+			]
+		}
+		{
+			x: 4.0d
+			y: 0.0d
+			id: "E3187309AB4D26BC"
+			title: "The End"
+			description: ["Enter the End."]
+			dependencies: ["2512012775D6338D"]
+			tasks: [
+				{
+					id: "563049374366E4CF"
+					type: "dimension"
+					dimension: "minecraft:the_end"
+				}
+			]
+			rewards: [
+				{
+					id: "157B719DF8C6E58B"
+					type: "xp"
+					xp: 100
+				},
+				{
+					id: "34ADCD9F7331D599"
+					type: "command"
+					title: "4 Skill Points"
+					command: "/puffish_skills points add @p combat 4"
+					player_command: false
+				}
+			]
+		}
+		{
+			x: 6.0d
+			y: 0.0d
+			id: "8822EC1015AD13EF"
+			title: "Nullscape"
+			description: ["Find a Moog's End structure."]
+			dependencies: ["E3187309AB4D26BC"]
+			tasks: [
+				{
+					id: "CE611C4ABB06AAEE"
+					type: "checkmark"
+					title: "Find a Moog's End structure"
+				}
+			]
+			rewards: [
+				{
+					id: "B274A7306CFED97E"
+					type: "xp"
+					xp: 150
+				},
+				{
+					id: "BA32F7D59F28C5A5"
+					type: "command"
+					title: "6 Skill Points"
+					command: "/puffish_skills points add @p combat 6"
+					player_command: false
+				}
+			]
+		}
+		{
+			x: 8.0d
+			y: 0.0d
+			id: "F6194E2AA67676A8"
+			title: "Something Enormous"
+			description: ["Kill a Bosses of Mass Destruction boss."]
+			dependencies: ["8822EC1015AD13EF"]
+			tasks: [
+				{
+					id: "473C847A7A302B80"
+					type: "checkmark"
+					title: "Kill a BOMD boss"
+				}
+			]
+			rewards: [
+				{
+					id: "793F7CA1CAD7E5C3"
+					type: "xp"
+					xp: 400
+				},
+				{
+					id: "85765CF14C00A37B"
+					type: "command"
+					title: "12 Skill Points"
+					command: "/puffish_skills points add @p combat 12"
+					player_command: false
+				}
+			]
+		}
+	]
+}

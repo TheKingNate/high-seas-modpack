@@ -1,0 +1,156 @@
+{
+	id: "94F0D11AAEA5D7FD"
+	group: ""
+	icon: "minecraft:bread"
+	default_quest_shape: ""
+	filename: "provision"
+	title: "Provision"
+	subtitle: ["Between fights"]
+	order_index: 9
+	quests: [
+		{
+			x: 0.0d
+			y: 0.0d
+			id: "EDD8C9E423202021"
+			title: "The Pot"
+			description: ["Craft a Farmer's Delight cooking pot."]
+			tasks: [
+				{
+					id: "F45BE730CC34C782"
+					type: "checkmark"
+					title: "Craft a cooking pot"
+				}
+			]
+			rewards: [
+				{
+					id: "1B87AAE65CAF152A"
+					type: "xp"
+					xp: 40
+				},
+				{
+					id: "A68CC1D9D7707C8E"
+					type: "command"
+					title: "2 Skill Points"
+					command: "/puffish_skills points add @p combat 2"
+					player_command: false
+				}
+			]
+		}
+		{
+			x: 2.0d
+			y: 0.0d
+			id: "190B9E91E5673010"
+			title: "Cook"
+			description: ["Cook five different dishes."]
+			dependencies: ["EDD8C9E423202021"]
+			tasks: [
+				{
+					id: "F23DFBF929CAC177"
+					type: "checkmark"
+					title: "Cook 5 different dishes"
+				}
+			]
+			rewards: [
+				{
+					id: "F88CE90E5350E435"
+					type: "xp"
+					xp: 60
+				},
+				{
+					id: "F477E4840BB5CE29"
+					type: "command"
+					title: "3 Skill Points"
+					command: "/puffish_skills points add @p combat 3"
+					player_command: false
+				}
+			]
+		}
+		{
+			x: 4.0d
+			y: 0.0d
+			id: "DE63746404E136F1"
+			title: "Harvest"
+			description: ["Grow ten different Croptopia crops."]
+			dependencies: ["190B9E91E5673010"]
+			tasks: [
+				{
+					id: "C2C4E56254D3BF1C"
+					type: "checkmark"
+					title: "Grow 10 Croptopia crops"
+				}
+			]
+			rewards: [
+				{
+					id: "8E17311435B32809"
+					type: "xp"
+					xp: 80
+				},
+				{
+					id: "395ADA79BE65113E"
+					type: "command"
+					title: "3 Skill Points"
+					command: "/puffish_skills points add @p combat 3"
+					player_command: false
+				}
+			]
+		}
+		{
+			x: 6.0d
+			y: 0.0d
+			id: "E18F1291B06E016A"
+			title: "A Full Net"
+			description: ["Catch six Fish of Thieves species."]
+			dependencies: ["DE63746404E136F1"]
+			tasks: [
+				{
+					id: "8A436E4C93B5E095"
+					type: "checkmark"
+					title: "Catch 6 fish species"
+				}
+			]
+			rewards: [
+				{
+					id: "6C5447F356A14EC8"
+					type: "xp"
+					xp: 60
+				},
+				{
+					id: "CB1886CD230F30A6"
+					type: "command"
+					title: "3 Skill Points"
+					command: "/puffish_skills points add @p combat 3"
+					player_command: false
+				}
+			]
+		}
+		{
+			x: 8.0d
+			y: 0.0d
+			id: "DD2787CF7D67ADCF"
+			title: "Out Of Season"
+			description: ["Harvest a crop that only grows in one season.", "", "Fabric Seasons is installed. The calendar matters."]
+			dependencies: ["E18F1291B06E016A"]
+			tasks: [
+				{
+					id: "0A718C0703DFBCCD"
+					type: "checkmark"
+					title: "Harvest a seasonal crop"
+				}
+			]
+			rewards: [
+				{
+					id: "F358392B17439169"
+					type: "xp"
+					xp: 80
+				},
+				{
+					id: "08CEB27EA5A3F3CC"
+					type: "command"
+					title: "4 Skill Points"
+					command: "/puffish_skills points add @p combat 4"
+					player_command: false
+				}
+			]
+		}
+	]
+}

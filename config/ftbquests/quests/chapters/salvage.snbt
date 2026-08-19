@@ -1,0 +1,191 @@
+{
+	id: "A7AB563045A33D29"
+	group: ""
+	icon: "minecraft:gunpowder"
+	default_quest_shape: ""
+	filename: "salvage"
+	title: "Salvage"
+	subtitle: ["The name on the tin"]
+	order_index: 5
+	quests: [
+		{
+			x: 0.0d
+			y: 0.0d
+			id: "DB772D8A56032ABA"
+			title: "Powder And Shot"
+			description: ["Craft a Supplementaries cannon."]
+			tasks: [
+				{
+					id: "05A6A46ECC9BC30B"
+					type: "checkmark"
+					title: "Craft a cannon"
+				}
+			]
+			rewards: [
+				{
+					id: "F44F51328C3A5F91"
+					type: "xp"
+					xp: 60
+				},
+				{
+					id: "B8AC29FFE1133CFC"
+					type: "command"
+					title: "3 Skill Points"
+					command: "/puffish_skills points add @p combat 3"
+					player_command: false
+				}
+			]
+		}
+		{
+			x: 2.0d
+			y: 0.0d
+			id: "B9B6E4BCD6FABB1C"
+			title: "Broadside"
+			description: ["Mount cannons on your ship."]
+			dependencies: ["DB772D8A56032ABA"]
+			tasks: [
+				{
+					id: "C30E3BC7878F5701"
+					type: "checkmark"
+					title: "Mount a cannon on a ship"
+				}
+			]
+			rewards: [
+				{
+					id: "75EF6BDF930ADA20"
+					type: "xp"
+					xp: 60
+				},
+				{
+					id: "24E7ED48ED2E542C"
+					type: "command"
+					title: "3 Skill Points"
+					command: "/puffish_skills points add @p combat 3"
+					player_command: false
+				}
+			]
+		}
+		{
+			x: 4.0d
+			y: 0.0d
+			id: "6BDE07F9A3584BE4"
+			title: "Silence A Gun"
+			description: ["Kill a pirate cannoneer.", "", "Each cannoneer runs one cannon. Kill them and that gun", "stops firing."]
+			dependencies: ["B9B6E4BCD6FABB1C"]
+			tasks: [
+				{
+					id: "C9E05E56EADE94A0"
+					type: "checkmark"
+					title: "Kill a pirate cannoneer"
+				}
+			]
+			rewards: [
+				{
+					id: "FF6391E9013928B1"
+					type: "xp"
+					xp: 80
+				},
+				{
+					id: "A017DB3ECEF62896"
+					type: "command"
+					title: "4 Skill Points"
+					command: "/puffish_skills points add @p combat 4"
+					player_command: false
+				}
+			]
+		}
+		{
+			x: 6.0d
+			y: 0.0d
+			id: "5B1A60D276E862A6"
+			title: "Dead In The Water"
+			description: ["Kill a pirate helmsman.", "", "The helmsman drives the ship. Kill them and it stops."]
+			dependencies: ["6BDE07F9A3584BE4"]
+			tasks: [
+				{
+					id: "34637ADC985CC072"
+					type: "checkmark"
+					title: "Kill a pirate helmsman"
+				}
+			]
+			rewards: [
+				{
+					id: "8A53E1F25A04DFF7"
+					type: "xp"
+					xp: 100
+				},
+				{
+					id: "7EF40152FFC6485C"
+					type: "command"
+					title: "5 Skill Points"
+					command: "/puffish_skills points add @p combat 5"
+					player_command: false
+				}
+			]
+		}
+		{
+			x: 8.0d
+			y: 0.0d
+			id: "8EBE2AA2363CAA6A"
+			title: "Plunder"
+			description: ["Board a pirate ship and take its cargo."]
+			dependencies: ["5B1A60D276E862A6"]
+			tasks: [
+				{
+					id: "F6E00D554C654CF5"
+					type: "checkmark"
+					title: "Loot a pirate ship"
+				}
+			]
+			rewards: [
+				{
+					id: "B90B5A450900B403"
+					type: "xp"
+					xp: 120
+				},
+				{
+					id: "12E49BE1ABA8A270"
+					type: "item"
+					item: "minecraft:gold_ingot"
+					count: 16
+				},
+				{
+					id: "53CEE2F5ECDC5F57"
+					type: "command"
+					title: "5 Skill Points"
+					command: "/puffish_skills points add @p combat 5"
+					player_command: false
+				}
+			]
+		}
+		{
+			x: 10.0d
+			y: 0.0d
+			id: "FBE9ADD4843E8260"
+			title: "Wrecks"
+			description: ["Find a shipwreck structure."]
+			dependencies: ["8EBE2AA2363CAA6A"]
+			tasks: [
+				{
+					id: "DAFC32F814085F60"
+					type: "checkmark"
+					title: "Find a shipwreck"
+				}
+			]
+			rewards: [
+				{
+					id: "E795B18907E914F9"
+					type: "xp"
+					xp: 50
+				},
+				{
+					id: "5066BBC1207979CE"
+					type: "command"
+					title: "2 Skill Points"
+					command: "/puffish_skills points add @p combat 2"
+					player_command: false
+				}
+			]
+		}
+	]
+}
