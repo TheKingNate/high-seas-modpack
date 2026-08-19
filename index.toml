@@ -508,6 +508,11 @@ hash = "4716b5f3338b4ea22fb4615956b94aaf2c7fff7869d1fa898ffd1fa710b2bc7e"
 metafile = true
 
 [[files]]
+file = "mods/natures-compass.pw.toml"
+hash = "b9b8556a8811636a5d29a99b4d5d6ef049fc8b219babf25ddfd848cae9c1dec7"
+metafile = true
+
+[[files]]
 file = "mods/noisium.pw.toml"
 hash = "e94cfc8b72a467d63c5d7593a433edaf698a3792e0c9b95274751ba6d8435288"
 metafile = true
