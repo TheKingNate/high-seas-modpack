@@ -2,3 +2,4 @@
 *.mrpack
 missing.txt
 *.sh
+.DS_Store

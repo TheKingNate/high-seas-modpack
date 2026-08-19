@@ -1,0 +1,13 @@
+name = "FTB Quests (Fabric)"
+filename = "ftb-quests-fabric-2001.4.22.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "71b6dd3667a082b01db3db6e254312e752628ffc"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 8078537
+project-id = 438496

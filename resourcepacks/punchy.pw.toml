@@ -1,0 +1,13 @@
+name = "Punchy"
+filename = "Punchy 1.19.zip"
+side = "client"
+
+[download]
+url = "https://cdn.modrinth.com/data/F7L1a0BB/versions/rU5QCEDv/Punchy%201.19.zip"
+hash-format = "sha512"
+hash = "9fa731308141713e618bdb65dec59ec3b3d63149a072780a330b2ee98ad1f77450318262215c731c1a682b4bbcbeb5a6042d856a3d251905ab616cfa7f9cca76"
+
+[update]
+[update.modrinth]
+mod-id = "F7L1a0BB"
+version = "rU5QCEDv"
