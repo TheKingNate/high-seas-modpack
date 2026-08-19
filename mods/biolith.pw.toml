@@ -1,0 +1,13 @@
+name = "Biolith"
+filename = "biolith-fabric-1.0.1-beta.1.jar"
+side = "server"
+
+[download]
+url = "https://cdn.modrinth.com/data/iGEl6Crx/versions/NikAXMfS/biolith-fabric-1.0.1-beta.1.jar"
+hash-format = "sha512"
+hash = "5f9b5fbedb7a7afa61653c9ee76c34b0ecd7f65dc4525d50874848587344384298c12ebafbbcb7ddca359e0f4ad27e709d75d02fd32fc60de4d566e801651ca7"
+
+[update]
+[update.modrinth]
+mod-id = "iGEl6Crx"
+version = "NikAXMfS"

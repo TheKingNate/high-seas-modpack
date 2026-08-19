@@ -69,6 +69,11 @@ hash = "9e94089231d50ff38c030369b6b9b8af0c8d9f0b495611ae3b29be18656d35bb"
 metafile = true
 
 [[files]]
+file = "mods/biolith.pw.toml"
+hash = "4809b975accd8a953d03ab47475e51acf3a8c22d774613876e0f660b9790cb3c"
+metafile = true
+
+[[files]]
 file = "mods/bosses-of-mass-destruction.pw.toml"
 hash = "62a06523495d2fe4423080876dbcd631378cf805c20a64c63f3768027b4f8c15"
 metafile = true
@@ -190,7 +195,7 @@ metafile = true
 
 [[files]]
 file = "mods/fabric-language-kotlin.pw.toml"
-hash = "704a42a40185a75cf00b255e8935df11d0311fd9a5506b1c2a1b4ddd03b5919a"
+hash = "2a760e528bf27c3eb4ae7c06200d91ee9c2849295addaa2add05495c7dee9528"
 metafile = true
 
 [[files]]
@@ -206,6 +211,11 @@ metafile = true
 [[files]]
 file = "mods/first-person-model.pw.toml"
 hash = "76ca043c28aefc63dcf6fbe78af28592a8c7a3831ecd5914508da5928b9b7efc"
+metafile = true
+
+[[files]]
+file = "mods/fish-of-thieves.pw.toml"
+hash = "01988223facbdb0293ee499240402ec7fcc4df0df20650058e37f8519fa363f1"
 metafile = true
 
 [[files]]
@@ -259,6 +269,16 @@ hash = "264e085b17e6b29f95c4d3d19e0534808367c2f995fcbc9ca016b7be9e08a196"
 metafile = true
 
 [[files]]
+file = "mods/hopo-better-underwater-ruins.pw.toml"
+hash = "f57d03cf7f86ea07a85d94ac11c15c649a7ec8db67d772845609eca42c7af7d3"
+metafile = true
+
+[[files]]
+file = "mods/hybrid-aquatic.pw.toml"
+hash = "287e46527f9b7314d98b75b5ae3e3447de14f565dd68a1c92b441314715b7722"
+metafile = true
+
+[[files]]
 file = "mods/immediatelyfast.pw.toml"
 hash = "17f893ad645ed3a2f55ccf7519fe4b40f5ff8313b8c929292a92f7de1bca2981"
 metafile = true
@@ -305,7 +325,7 @@ metafile = true
 
 [[files]]
 file = "mods/lithostitched.pw.toml"
-hash = "cf2edd36468834419c61a577760c89ba7b582039c6191bd9b24e25d371dd3a8e"
+hash = "55167e582fd4841cd6c581beb53d341e94285c216e04b1d7bff0068e875be2a6"
 metafile = true
 
 [[files]]
@@ -466,6 +486,11 @@ metafile = true
 [[files]]
 file = "mods/travelersbackpack.pw.toml"
 hash = "2654de955116d6d7ebea6e76d12a1bba7c57d42c169bbcd14c034604826a90ff"
+metafile = true
+
+[[files]]
+file = "mods/trinkets.pw.toml"
+hash = "ffdb79f5bc29f990e5889f5d159a043c7046b8cd8d79f17f54b44d7ccc2b242a"
 metafile = true
 
 [[files]]
