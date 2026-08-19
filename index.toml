@@ -286,7 +286,7 @@ metafile = true
 
 [[files]]
 file = "mods/fabric-api.pw.toml"
-hash = "0488c9ea9abac1f21fc3b1911f97de3c375083985c89b332136fe9c948c06b8e"
+hash = "5cbcd9395c1788ed7a1356e392a4483a30d903312faffd9795c6dee9afba3fac"
 metafile = true
 
 [[files]]
@@ -757,6 +757,11 @@ metafile = true
 [[files]]
 file = "mods/valkyrien-skies-2-unofficial.pw.toml"
 hash = "948d2393320cd9932f0a3229cff5e061f625e1155c0e9f47bc6c58b9bba1694f"
+metafile = true
+
+[[files]]
+file = "mods/vein-mining.pw.toml"
+hash = "c95bcf2a24250de6b9abceb73777a4e1e3f2c5af157176c371f6ed84d067b987"
 metafile = true
 
 [[files]]
