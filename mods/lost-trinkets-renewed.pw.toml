@@ -1,0 +1,13 @@
+name = "Lost Trinkets Renewed"
+filename = "LostTrinkets-20.1.4-mc1.20.1-fabric.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/YXvTD5Ha/versions/5sRNyZUp/LostTrinkets-20.1.4-mc1.20.1-fabric.jar"
+hash-format = "sha512"
+hash = "26038eddd01127f35ab91b657533ac0456862eb437cc3cce1495d09e6e3dc2614acba6bc10194a5c85c2cc9f3b4496784989f4a755a6ccacb02f10d15892120c"
+
+[update]
+[update.modrinth]
+mod-id = "YXvTD5Ha"
+version = "5sRNyZUp"

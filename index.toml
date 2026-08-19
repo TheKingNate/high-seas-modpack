@@ -118,11 +118,6 @@ hash = "0ed502ad7d53ca1936079cb7508b2e085909610ac51337fff2a3ce0fa6dcae28"
 metafile = true
 
 [[files]]
-file = "mods/cataclysmic-origins.pw.toml"
-hash = "0bd449d6ebe0d95ae3d413fe4c7e9f2b2625e7851991a5f09270304ad0ef5983"
-metafile = true
-
-[[files]]
 file = "mods/chunky-pregenerator.pw.toml"
 hash = "8f3e01ad47042d186087576cd17e91f78576295e7ca16fb885550910cb97caa4"
 metafile = true
@@ -370,6 +365,11 @@ metafile = true
 [[files]]
 file = "mods/lithostitched.pw.toml"
 hash = "cf2edd36468834419c61a577760c89ba7b582039c6191bd9b24e25d371dd3a8e"
+metafile = true
+
+[[files]]
+file = "mods/lost-trinkets-renewed.pw.toml"
+hash = "dc89a888b4e378212ad17d75af0ddfc78b618abb92ae0073937ba0debb4b2f04"
 metafile = true
 
 [[files]]
@@ -690,11 +690,6 @@ metafile = true
 [[files]]
 file = "options.txt"
 hash = "6b67694b8ae21e6675b2380f93c4a5a5ec625b555ffc377a79467892d522d1b7"
-
-[[files]]
-file = "resourcepacks/conquest-mca-reborn.pw.toml"
-hash = "b6e7a7e5dfb478d4c68b54a473a35aec8aa4081e2c13c09531356062f2f42a9b"
-metafile = true
 
 [[files]]
 file = "resourcepacks/fresh-animations.pw.toml"
