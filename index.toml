@@ -270,6 +270,11 @@ hash = "9652798b0045301905be00b4bff8c4ded2e8e18c60bcc0bee7521d78f452d7ad"
 metafile = true
 
 [[files]]
+file = "mods/essential.pw.toml"
+hash = "88cef5770a1e489b4c477e358b91e01c0dbc72fc30650e3d453938aaeedb125d"
+metafile = true
+
+[[files]]
 file = "mods/euphoria-patches.pw.toml"
 hash = "93c14684652eae26a5015d4b2663403d5384bcd63e0b196ec042b56cea725a86"
 metafile = true
@@ -625,6 +630,11 @@ hash = "830270b8e5a34f5621720ae09c4cf716a65d8003a30d585c8b817aba1fde9ac8"
 metafile = true
 
 [[files]]
+file = "mods/silk.pw.toml"
+hash = "3159f65be74fdf8c382f2079d9db965972c8612e661f126be522ae37a73c34f8"
+metafile = true
+
+[[files]]
 file = "mods/simple-voice-chat.pw.toml"
 hash = "0be55b277946be6b178bbe559bed59ffa9689f0e36cec3a317b87f5a376bb72f"
 metafile = true
@@ -742,6 +752,11 @@ metafile = true
 [[files]]
 file = "mods/valkyrien-skies-2-unofficial.pw.toml"
 hash = "948d2393320cd9932f0a3229cff5e061f625e1155c0e9f47bc6c58b9bba1694f"
+metafile = true
+
+[[files]]
+file = "mods/veinminer.pw.toml"
+hash = "06d9fff906b545b3634f7e19b5b39b6de11ec1340c24905e02d2f6d06ee341e8"
 metafile = true
 
 [[files]]
