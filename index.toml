@@ -1,6 +1,10 @@
 hash-format = "sha256"
 
 [[files]]
+file = "config/iris.properties"
+hash = "d55255b4e4dbee81f080ad8c617f5d4c01e2ea246cc49725de2d0db24e601da5"
+
+[[files]]
 file = "config/valkyrienskies/valkyrienskies-server.toml"
 hash = "eedc463d4b59b69169491f396251fcfaa3dfa92e8e0b9b042e269073904d58f1"
 
@@ -587,6 +591,10 @@ metafile = true
 file = "mods/yungs-better-ocean-monuments-fabric.pw.toml"
 hash = "42b17d95baef2a67c36a91d3cbdef1a7a0858852792a8fd9b67b1c5ca6960658"
 metafile = true
+
+[[files]]
+file = "options.txt"
+hash = "6b67694b8ae21e6675b2380f93c4a5a5ec625b555ffc377a79467892d522d1b7"
 
 [[files]]
 file = "resourcepacks/fresh-animations.pw.toml"
