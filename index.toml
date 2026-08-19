@@ -28,14 +28,13 @@ hash = "ac1bd3ab117fd4f5a732cbce46ff31cca072dc8e5a5c2a5ac5a5cb9d60f54d5f"
 metafile = true
 
 [[files]]
-file = "mods/alexs-caves-easycraft-unofficial.pw.toml"
-hash = "3383894cd022b4aa8978d170f38239f4442524fc50568563bca50559d709fb14"
-metafile = true
-
-[[files]]
 file = "mods/alexs-mobs-fabric.pw.toml"
 hash = "30b664ff69f4dd118898c32b759478d52a410f68a2857679d2c7a5257d5504e0"
 metafile = true
+
+[[files]]
+file = "mods/alexscaves-2.1.8.jar"
+hash = "878c4b564ddc78b704452addbc1f59109fcf5176022e0b4559e41d61d2062e1b"
 
 [[files]]
 file = "mods/ambientsounds.pw.toml"
