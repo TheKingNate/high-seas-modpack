@@ -1,0 +1,13 @@
+name = "MNS - Moog's Nether Structures"
+filename = "MoogsNetherStructures-1.20-3.0.0.jar"
+side = "server"
+
+[download]
+url = "https://cdn.modrinth.com/data/nGUXvjTa/versions/izQ8BqEu/MoogsNetherStructures-1.20-3.0.0.jar"
+hash-format = "sha512"
+hash = "7e287f1fb3d5721690950bacce0977315ff4aa4c7a669539cfe890bbc60e6af7411528b606b3513bf7f29329fc331f08d3609e04b3a464489bc1621404282572"
+
+[update]
+[update.modrinth]
+mod-id = "nGUXvjTa"
+version = "izQ8BqEu"

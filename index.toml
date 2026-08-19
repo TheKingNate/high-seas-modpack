@@ -28,6 +28,16 @@ hash = "ac1bd3ab117fd4f5a732cbce46ff31cca072dc8e5a5c2a5ac5a5cb9d60f54d5f"
 metafile = true
 
 [[files]]
+file = "mods/alexs-caves-easycraft-unofficial.pw.toml"
+hash = "3383894cd022b4aa8978d170f38239f4442524fc50568563bca50559d709fb14"
+metafile = true
+
+[[files]]
+file = "mods/alexs-mobs-fabric.pw.toml"
+hash = "30b664ff69f4dd118898c32b759478d52a410f68a2857679d2c7a5257d5504e0"
+metafile = true
+
+[[files]]
 file = "mods/ambientsounds.pw.toml"
 hash = "0fa7f4ac8cde533a6aa48bf6c3f959617623f09af2efae3e1c731ea5605c8558"
 metafile = true
@@ -123,6 +133,11 @@ hash = "8f3e01ad47042d186087576cd17e91f78576295e7ca16fb885550910cb97caa4"
 metafile = true
 
 [[files]]
+file = "mods/citadel-fabric.pw.toml"
+hash = "67677a6d3397c44f6e59eda6061ee950fce9feb5a2eb89c3a7e527d478fd773c"
+metafile = true
+
+[[files]]
 file = "mods/cloth-config.pw.toml"
 hash = "41a3dc271859b118417946d2fdb2408523563b2f4f49048073672a342fb1aebf"
 metafile = true
@@ -160,6 +175,11 @@ metafile = true
 [[files]]
 file = "mods/croptopia.pw.toml"
 hash = "019e0ee9198b35b49e5f9154342be6a0441c7ca584747fabd0f949a749d8fbb5"
+metafile = true
+
+[[files]]
+file = "mods/cupboard.pw.toml"
+hash = "e43078e2ac0f7bc71ba1d75b84a615dabc0ebbd81850082794002d208a08e7cf"
 metafile = true
 
 [[files]]
@@ -378,6 +398,16 @@ hash = "cf2edd36468834419c61a577760c89ba7b582039c6191bd9b24e25d371dd3a8e"
 metafile = true
 
 [[files]]
+file = "mods/loot-integrations-moogs-voyager-soaring-end-nether.pw.toml"
+hash = "1d1900af1cdbab0494705ff36698c1bb40eb307df68688d079e5e18e7781a80e"
+metafile = true
+
+[[files]]
+file = "mods/loot-integrations.pw.toml"
+hash = "2b8558c98a77d2aadd14be4ac745f38bbe941663922aaf8cd179fd6bcc003a5b"
+metafile = true
+
+[[files]]
 file = "mods/lost-trinkets-renewed.pw.toml"
 hash = "dc89a888b4e378212ad17d75af0ddfc78b618abb92ae0073937ba0debb4b2f04"
 metafile = true
@@ -388,13 +418,33 @@ hash = "f531a8ee70e9d78ee62a84e3fd18088070dcf8f2cee2384a8aabed16dbfafe6c"
 metafile = true
 
 [[files]]
+file = "mods/mbs-moogs-bountiful-structures.pw.toml"
+hash = "981a9826c7422add7687f745b7402e9d53ca15d1542afd15c7470801460b2276"
+metafile = true
+
+[[files]]
 file = "mods/mega-cells.pw.toml"
 hash = "04a29e3cb3dbcad6824eb388e12d0c114001ce3ba6cc1f47b35f76b44a35ad8f"
 metafile = true
 
 [[files]]
+file = "mods/mes-moogs-end-structures.pw.toml"
+hash = "9a21eef6c1e0f0ddcaf22670892aef9eae3ae8aa50097dbb74b94dacd406dfaa"
+metafile = true
+
+[[files]]
 file = "mods/minecraft-comes-alive-reborn.pw.toml"
 hash = "b21450b468b22e8284ff88d96a8c34aba0c779aa9520dd86d451f402817d2344"
+metafile = true
+
+[[files]]
+file = "mods/mmv-moogs-missing-villages.pw.toml"
+hash = "d733e29a0cea16f9c8412605398eab8798dc4ab196b973536fa7385e68e6847e"
+metafile = true
+
+[[files]]
+file = "mods/mns-moogs-nether-structures.pw.toml"
+hash = "7200918dd833883908a2c175fc8905eeb994ec3d0297a986627392c9168ec7c2"
 metafile = true
 
 [[files]]
@@ -418,6 +468,16 @@ hash = "d7145fd1bd8b4bb6a3b84652a96a68870fb3ab32230f27520bb9362fd17ec39f"
 metafile = true
 
 [[files]]
+file = "mods/moogs-structure-lib.pw.toml"
+hash = "21a2e3b31ac4702a15c6b4994b70ea0b26763ce2ce1f25873276338abf640ca3"
+metafile = true
+
+[[files]]
+file = "mods/moogs-voyager-structures.pw.toml"
+hash = "f8f334d1da1c8f61867668298d17d43cdeaf7ae4e3631f89eb2f1a916f5353ff"
+metafile = true
+
+[[files]]
 file = "mods/moonlight.pw.toml"
 hash = "10d5bc6c3a84329d3db6d491db10f979b880588bd90101c26cfc588ae3ceb5f2"
 metafile = true
@@ -430,6 +490,16 @@ metafile = true
 [[files]]
 file = "mods/mouse-tweaks.pw.toml"
 hash = "1b4f637283c0c4e87d642641338dee78b0357b97fbc62fe69911cee8d0b557dc"
+metafile = true
+
+[[files]]
+file = "mods/mss-moogs-soaring-structures.pw.toml"
+hash = "868117bb93ee0b1b7781372ea036682d03ab74e50380fe7fa5255a55e27865f5"
+metafile = true
+
+[[files]]
+file = "mods/mtr-moogs-temples-reimagined.pw.toml"
+hash = "30cf8ec2e658ebd8d3f694004a4095c15fee422ae7c8a4211cb2415906b3a156"
 metafile = true
 
 [[files]]
