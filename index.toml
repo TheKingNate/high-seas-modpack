@@ -61,10 +61,6 @@ file = "config/valkyrienskies/valkyrienskies-server.toml"
 hash = "eedc463d4b59b69169491f396251fcfaa3dfa92e8e0b9b042e269073904d58f1"
 
 [[files]]
-file = "make-quests.py"
-hash = "b1b42821ae42eed982fe2b110952898ffe68e75398c1fc4c9f810d9f1e54f7e5"
-
-[[files]]
 file = "mods/3dskinlayers.pw.toml"
 hash = "f9a59df2232ac145a6d3d5a8d170860afd36610150bd115c65fdd8ab26812c5f"
 metafile = true
