@@ -129,11 +129,6 @@ hash = "6ec7fc70c84dc7f7f4578a85480264d82336d64ac0d8c95c0fcc55d350f64ab7"
 metafile = true
 
 [[files]]
-file = "mods/croptopia-delight.pw.toml"
-hash = "7c581fd79cf7bff95683e7bfbe4ddf5706888077c1a2b5dcb7af75cdd757e795"
-metafile = true
-
-[[files]]
 file = "mods/croptopia.pw.toml"
 hash = "019e0ee9198b35b49e5f9154342be6a0441c7ca584747fabd0f949a749d8fbb5"
 metafile = true
@@ -325,7 +320,7 @@ metafile = true
 
 [[files]]
 file = "mods/lithostitched.pw.toml"
-hash = "55167e582fd4841cd6c581beb53d341e94285c216e04b1d7bff0068e875be2a6"
+hash = "cf2edd36468834419c61a577760c89ba7b582039c6191bd9b24e25d371dd3a8e"
 metafile = true
 
 [[files]]
