@@ -1,0 +1,13 @@
+name = "Mobbility [Core]"
+filename = "mobbility-fabric-1.0.1.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/Es8xro21/versions/ScNv92LW/mobbility-fabric-1.0.1.jar"
+hash-format = "sha512"
+hash = "00bd6be9f44bf05c86f2c095715cb89f7cb5381f39bb7023a850d31a0d71a73c0d54ff5229d3094b54679dea5d8576ecabcc005d20a2c75f4bc8d963db986a9f"
+
+[update]
+[update.modrinth]
+mod-id = "Es8xro21"
+version = "ScNv92LW"

@@ -54,7 +54,22 @@ metafile = true
 
 [[files]]
 file = "mods/architectury-api.pw.toml"
-hash = "2492a7266fab4c2ff411612180974b98510afb66a18e640f4de63ad615dd1e9e"
+hash = "e12dce3e543168379a2856c66064ee2001e6420a9dfc6163f37b78e518947456"
+metafile = true
+
+[[files]]
+file = "mods/attributes.pw.toml"
+hash = "39793575c70ab9326c32db5c8e9ff30445282b34a8ad8066b63a9face99543f6"
+metafile = true
+
+[[files]]
+file = "mods/azurelib-armor.pw.toml"
+hash = "26a5cee35b797140d098a3e8c039b868edd1779e28d4a2cba1cd73e8ed32ca34"
+metafile = true
+
+[[files]]
+file = "mods/azurelib.pw.toml"
+hash = "031ec19f44a092ae1e435b04b3021ba7f8023892155bb93ecb44aba8a42d018a"
 metafile = true
 
 [[files]]
@@ -83,13 +98,28 @@ hash = "62a06523495d2fe4423080876dbcd631378cf805c20a64c63f3768027b4f8c15"
 metafile = true
 
 [[files]]
+file = "mods/bountiful.pw.toml"
+hash = "88d4b6472c19d1a2afe1b287c052d17559ac96603b8bbbcf82ad7a9068d953e6"
+metafile = true
+
+[[files]]
 file = "mods/cameraoverhaul.pw.toml"
 hash = "27d714fa1a365c8fa6dbbbceaadad0a4f7827e6ea8b7b8b657580b6908995cbc"
 metafile = true
 
 [[files]]
+file = "mods/capitals-a-monarchy-mod-for-mca-reborn.pw.toml"
+hash = "c76caf6b2c30007d105a3f3ef72a2ecef5d25f3dc823fe58d1d368e30eaabe8b"
+metafile = true
+
+[[files]]
 file = "mods/cardinal-components-api.pw.toml"
 hash = "0ed502ad7d53ca1936079cb7508b2e085909610ac51337fff2a3ce0fa6dcae28"
+metafile = true
+
+[[files]]
+file = "mods/cataclysmic-origins.pw.toml"
+hash = "0bd449d6ebe0d95ae3d413fe4c7e9f2b2625e7851991a5f09270304ad0ef5983"
 metafile = true
 
 [[files]]
@@ -198,6 +228,11 @@ hash = "2a760e528bf27c3eb4ae7c06200d91ee9c2849295addaa2add05495c7dee9528"
 metafile = true
 
 [[files]]
+file = "mods/fabric-seasons.pw.toml"
+hash = "ce276e188fa22c4b8e4a99a0558844284fff7d49af2c5e6683290eaa598a7c61"
+metafile = true
+
+[[files]]
 file = "mods/farmers-delight-refabricated.pw.toml"
 hash = "2ad3a56921ccd77b9eb098ae59158d360ad25985fd999cffd872ecd527d79ad3"
 metafile = true
@@ -283,6 +318,11 @@ hash = "17f893ad645ed3a2f55ccf7519fe4b40f5ff8313b8c929292a92f7de1bca2981"
 metafile = true
 
 [[files]]
+file = "mods/incendium.pw.toml"
+hash = "a8a74f82ee352edaf1f4c1a799192ed1ccc2d2aac531c92faa95d22fb28787b6"
+metafile = true
+
+[[files]]
 file = "mods/indium.pw.toml"
 hash = "60adfc1ee75f10a7290e18f3e2b82601a3d3915db0c53dabe08dd17daf1c7d76"
 metafile = true
@@ -305,6 +345,11 @@ metafile = true
 [[files]]
 file = "mods/jade.pw.toml"
 hash = "f8f9110054ac63debff87615f6b4a318b64536f472e427a11c59309948bc82de"
+metafile = true
+
+[[files]]
+file = "mods/kambrik.pw.toml"
+hash = "a06e2f058ccc09999d2437517969b248bc7008ea9e990996b11d7458253784f7"
 metafile = true
 
 [[files]]
@@ -335,6 +380,21 @@ metafile = true
 [[files]]
 file = "mods/mega-cells.pw.toml"
 hash = "04a29e3cb3dbcad6824eb388e12d0c114001ce3ba6cc1f47b35f76b44a35ad8f"
+metafile = true
+
+[[files]]
+file = "mods/minecraft-comes-alive-reborn.pw.toml"
+hash = "d6e082cc751edb793ac6ff0600e39a3b93c55bc0de11209569490d823f1bb75c"
+metafile = true
+
+[[files]]
+file = "mods/mob-player-animator.pw.toml"
+hash = "3be353b92080eff330995040871e15bbd39d0a899f24046547d5f8c76bfec5c3"
+metafile = true
+
+[[files]]
+file = "mods/mobbility.pw.toml"
+hash = "4d3fcfdcf8de71579943314bebc55cfa0192496fe35ab3b79c509f5c4437b7a3"
 metafile = true
 
 [[files]]
@@ -378,6 +438,11 @@ hash = "eaa38d6d245d73e9c6ce9fefba8115687736027c8100ca48d1ae3306a6366b1c"
 metafile = true
 
 [[files]]
+file = "mods/nullscape.pw.toml"
+hash = "e5e76b305f6e8fd611fb70695f42014c62e5f46b926d626eaf5ca0c78e394c5c"
+metafile = true
+
+[[files]]
 file = "mods/owo-lib.pw.toml"
 hash = "df4c4fe3aff1792aa7d19d097d5d1bc0c6e958e6e4ee32dbf148ecac62e1274d"
 metafile = true
@@ -418,6 +483,11 @@ hash = "286cf1d4aca340479b10c51874cd7cbdb13559140c846bbe9270e3f6f8fc528c"
 metafile = true
 
 [[files]]
+file = "mods/runes.pw.toml"
+hash = "d873b4bc94bc5cfe1bdfab5c965264f3183cd66c6f8f22a395e449962cb4d5a3"
+metafile = true
+
+[[files]]
 file = "mods/searchables.pw.toml"
 hash = "830270b8e5a34f5621720ae09c4cf716a65d8003a30d585c8b817aba1fde9ac8"
 metafile = true
@@ -425,6 +495,16 @@ metafile = true
 [[files]]
 file = "mods/simple-voice-chat.pw.toml"
 hash = "0be55b277946be6b178bbe559bed59ffa9689f0e36cec3a317b87f5a376bb72f"
+metafile = true
+
+[[files]]
+file = "mods/simply-skills.pw.toml"
+hash = "33bb17c0cd215430b2d9e1e00a9fff1ded82ffd917971e13c20e4e1f5b629d74"
+metafile = true
+
+[[files]]
+file = "mods/skills.pw.toml"
+hash = "73deded3cdd927161a3f3dbd69227ee97f701be13d1b0a1b7e5422f942a8e9ac"
 metafile = true
 
 [[files]]
@@ -440,6 +520,16 @@ metafile = true
 [[files]]
 file = "mods/sound-physics-remastered.pw.toml"
 hash = "f99dacae134534a8ee4abbe14d02749e2028a25a00b9f87b4c46543e9c66f9f0"
+metafile = true
+
+[[files]]
+file = "mods/spell-engine.pw.toml"
+hash = "6677b688d4d6ac20c1e9fe5df29f1e48931aca9275e0baa946fa278bf0f9f15d"
+metafile = true
+
+[[files]]
+file = "mods/spell-power.pw.toml"
+hash = "b4db824c83bb9476a4b9b13d9a4af28998d9fbf1ad24071514662fd0c81190be"
 metafile = true
 
 [[files]]
@@ -558,6 +648,11 @@ hash = "a4f596b65b72b0c718e35cfb2e1a36e1887438b44a39daeec75a1c725a0441c4"
 metafile = true
 
 [[files]]
+file = "mods/wizards.pw.toml"
+hash = "69169844cae0cbf0314c6dee83ed064659870170253c338cc24066b176e84b0c"
+metafile = true
+
+[[files]]
 file = "mods/xaeros-minimap.pw.toml"
 hash = "46b8966161136f6bd7f4d3ba59f8ed0ddf45fb83816c09098b0efdde333a5887"
 metafile = true
@@ -595,6 +690,11 @@ metafile = true
 [[files]]
 file = "options.txt"
 hash = "6b67694b8ae21e6675b2380f93c4a5a5ec625b555ffc377a79467892d522d1b7"
+
+[[files]]
+file = "resourcepacks/conquest-mca-reborn.pw.toml"
+hash = "b6e7a7e5dfb478d4c68b54a473a35aec8aa4081e2c13c09531356062f2f42a9b"
+metafile = true
 
 [[files]]
 file = "resourcepacks/fresh-animations.pw.toml"
