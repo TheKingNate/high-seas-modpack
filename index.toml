@@ -28,10 +28,6 @@ hash = "ac1bd3ab117fd4f5a732cbce46ff31cca072dc8e5a5c2a5ac5a5cb9d60f54d5f"
 metafile = true
 
 [[files]]
-file = "mods/alexscaves-2.1.8.jar"
-hash = "878c4b564ddc78b704452addbc1f59109fcf5176022e0b4559e41d61d2062e1b"
-
-[[files]]
 file = "mods/ambientsounds.pw.toml"
 hash = "0fa7f4ac8cde533a6aa48bf6c3f959617623f09af2efae3e1c731ea5605c8558"
 metafile = true
