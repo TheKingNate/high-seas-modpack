@@ -80,7 +80,7 @@ metafile = true
 
 [[files]]
 file = "mods/cardinal-components-api.pw.toml"
-hash = "c652306fdcbb41d5acb22b625217b0ab31e4d8e36d61411ba74008c829046d11"
+hash = "0ed502ad7d53ca1936079cb7508b2e085909610ac51337fff2a3ce0fa6dcae28"
 metafile = true
 
 [[files]]
@@ -124,6 +124,16 @@ hash = "6ec7fc70c84dc7f7f4578a85480264d82336d64ac0d8c95c0fcc55d350f64ab7"
 metafile = true
 
 [[files]]
+file = "mods/croptopia-delight.pw.toml"
+hash = "7c581fd79cf7bff95683e7bfbe4ddf5706888077c1a2b5dcb7af75cdd757e795"
+metafile = true
+
+[[files]]
+file = "mods/croptopia.pw.toml"
+hash = "019e0ee9198b35b49e5f9154342be6a0441c7ca584747fabd0f949a749d8fbb5"
+metafile = true
+
+[[files]]
 file = "mods/deeper-oceans.pw.toml"
 hash = "3c49bb544be9bd3f1b11bb98fb096e786665961102075f9baed86b4e641b52de"
 metafile = true
@@ -159,6 +169,11 @@ hash = "d02f8f8da843ad46aa1dfa9967d8fbcfd363d9b0240aec31366ed390122ee369"
 metafile = true
 
 [[files]]
+file = "mods/epherolib.pw.toml"
+hash = "9652798b0045301905be00b4bff8c4ded2e8e18c60bcc0bee7521d78f452d7ad"
+metafile = true
+
+[[files]]
 file = "mods/euphoria-patches.pw.toml"
 hash = "93c14684652eae26a5015d4b2663403d5384bcd63e0b196ec042b56cea725a86"
 metafile = true
@@ -176,6 +191,11 @@ metafile = true
 [[files]]
 file = "mods/fabric-language-kotlin.pw.toml"
 hash = "704a42a40185a75cf00b255e8935df11d0311fd9a5506b1c2a1b4ddd03b5919a"
+metafile = true
+
+[[files]]
+file = "mods/farmers-delight-refabricated.pw.toml"
+hash = "2ad3a56921ccd77b9eb098ae59158d360ad25985fd999cffd872ecd527d79ad3"
 metafile = true
 
 [[files]]
@@ -436,6 +456,16 @@ metafile = true
 [[files]]
 file = "mods/towns-and-towers.pw.toml"
 hash = "7b7108d879e1e1c141b24d0d8fa268a6bbcd5c227875d156fcc62c3beec55f63"
+metafile = true
+
+[[files]]
+file = "mods/travelersbackpack.pw.toml"
+hash = "2654de955116d6d7ebea6e76d12a1bba7c57d42c169bbcd14c034604826a90ff"
+metafile = true
+
+[[files]]
+file = "mods/universal-graves.pw.toml"
+hash = "3850ba97b0333e8a93577e2d6352659e63bdefa295c704b18431ae233b6040e8"
 metafile = true
 
 [[files]]
