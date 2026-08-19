@@ -460,11 +460,6 @@ hash = "f531a8ee70e9d78ee62a84e3fd18088070dcf8f2cee2384a8aabed16dbfafe6c"
 metafile = true
 
 [[files]]
-file = "mods/mbs-moogs-bountiful-structures.pw.toml"
-hash = "981a9826c7422add7687f745b7402e9d53ca15d1542afd15c7470801460b2276"
-metafile = true
-
-[[files]]
 file = "mods/mega-cells.pw.toml"
 hash = "04a29e3cb3dbcad6824eb388e12d0c114001ce3ba6cc1f47b35f76b44a35ad8f"
 metafile = true
@@ -491,7 +486,7 @@ metafile = true
 
 [[files]]
 file = "mods/mob-player-animator.pw.toml"
-hash = "3be353b92080eff330995040871e15bbd39d0a899f24046547d5f8c76bfec5c3"
+hash = "684b6501e19e037c05f2499895a38a3d426d83f34d08bbd1068a7a23406d4c3e"
 metafile = true
 
 [[files]]
