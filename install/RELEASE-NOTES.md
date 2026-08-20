@@ -27,3 +27,11 @@ expected, and it's how you get added. Just say you tried.
 
 You don't need to do anything. The pack updates itself the next
 time you launch.
+
+## Running your own server
+
+Download `setup-server.sh` onto a Linux box and run it:
+
+Installs Fabric, pulls the server-side mods, and writes start,
+update, backup and whitelist helper scripts. Prints the systemd
+unit to paste when it finishes.
