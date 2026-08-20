@@ -1,9 +1,0 @@
-version:3465
-resourcePacks:["fabric","minecraft:supporteatinganimation","file/FreshAnimations_v1.10.4.zip"]
-incompatibleResourcePacks:[]
-graphicsMode:1
-particles:0
-mipmapLevels:4
-biomeBlendRadius:2
-ao:true
-entityShadows:true

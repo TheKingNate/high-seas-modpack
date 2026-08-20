@@ -53,10 +53,6 @@ file = "config/ftbquests/quests/data.snbt"
 hash = "25068f828a32bea65ad83c1bda71498570af080836e9b97ca66cd03d78c93c7f"
 
 [[files]]
-file = "config/iris.properties"
-hash = "d55255b4e4dbee81f080ad8c617f5d4c01e2ea246cc49725de2d0db24e601da5"
-
-[[files]]
 file = "config/valkyrienskies/valkyrienskies-server.toml"
 hash = "eedc463d4b59b69169491f396251fcfaa3dfa92e8e0b9b042e269073904d58f1"
 
@@ -860,10 +856,6 @@ hash = "42b17d95baef2a67c36a91d3cbdef1a7a0858852792a8fd9b67b1c5ca6960658"
 metafile = true
 
 [[files]]
-file = "options.txt"
-hash = "6b67694b8ae21e6675b2380f93c4a5a5ec625b555ffc377a79467892d522d1b7"
-
-[[files]]
 file = "resourcepacks/fresh-animations.pw.toml"
 hash = "6a1556a0e4fcb411b33efafc3382b4abd9a6e671f140dc0d42e9aad2808e24f3"
 metafile = true
@@ -872,10 +864,6 @@ metafile = true
 file = "resourcepacks/punchy.pw.toml"
 hash = "c4fbd9c73b90d8fb2060ad2cf8fcaf8de6a2aee090fe090c857aaa9e6ff0cbd0"
 metafile = true
-
-[[files]]
-file = "shaderpacks/ComplementaryReimagined_r5.8.1 + EuphoriaPatches_1.9.3.txt"
-hash = "6eabf61c0ed020af0816eed5e9ffe14c1c89e5388fdb77e89352d7a533db5bbb"
 
 [[files]]
 file = "shaderpacks/complementary-reimagined.pw.toml"
