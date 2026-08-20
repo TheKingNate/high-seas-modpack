@@ -1,6 +1,6 @@
 # Salvage
 
-A Minecraft **1.20.1 Fabric** modpack. Version **1.0.0**, 160 mods.
+A Minecraft **1.20.1 Fabric** modpack. Version **1.1.1**, 160 mods.
 
 Ships that actually sail, pirates that shoot back, and enough
 tech and magic to keep a small group busy for months.
