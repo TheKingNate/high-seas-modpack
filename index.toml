@@ -461,6 +461,11 @@ hash = "8508e46b7e272d79dc6b3cc0149f9fd132c701369bcb2abb5c35da3ed92b27fb"
 metafile = true
 
 [[files]]
+file = "mods/ledger.pw.toml"
+hash = "3acf17c3380c84a6db100135ad803864eb7f61ad4c5492427381c2129cbb72ac"
+metafile = true
+
+[[files]]
 file = "mods/lithium.pw.toml"
 hash = "75e935b63073ad2104c50baead0898b07ff60c0f465adf796f4a4960db8eae09"
 metafile = true
@@ -483,6 +488,11 @@ metafile = true
 [[files]]
 file = "mods/lost-trinkets-renewed.pw.toml"
 hash = "dc89a888b4e378212ad17d75af0ddfc78b618abb92ae0073937ba0debb4b2f04"
+metafile = true
+
+[[files]]
+file = "mods/luckperms.pw.toml"
+hash = "ed322399f2f703b5cc9f6652d85e8eb215a53c7acbeef27964c0d6af7400561a"
 metafile = true
 
 [[files]]
@@ -691,6 +701,11 @@ hash = "f99dacae134534a8ee4abbe14d02749e2028a25a00b9f87b4c46543e9c66f9f0"
 metafile = true
 
 [[files]]
+file = "mods/spark.pw.toml"
+hash = "44c52091b8a96fb3bed74aaa62715db45d60adeb7ba54364b452e6202fdd812a"
+metafile = true
+
+[[files]]
 file = "mods/spell-engine.pw.toml"
 hash = "6677b688d4d6ac20c1e9fe5df29f1e48931aca9275e0baa946fa278bf0f9f15d"
 metafile = true
@@ -728,6 +743,11 @@ metafile = true
 [[files]]
 file = "mods/terralith.pw.toml"
 hash = "b0978cb7ae7b79c5be89b323ca1bd038f693ff6d11c43dfcbd63953964149af2"
+metafile = true
+
+[[files]]
+file = "mods/textile_backup.pw.toml"
+hash = "df1631f545579648c5163801514a422e02075f5a2f5f1382df7de0d6879e68c5"
 metafile = true
 
 [[files]]
