@@ -186,6 +186,11 @@ hash = "41a3dc271859b118417946d2fdb2408523563b2f4f49048073672a342fb1aebf"
 metafile = true
 
 [[files]]
+file = "mods/collective.pw.toml"
+hash = "0e70a9f05b4b5cafaeed0417a3cfae2dd36bd88cce06a4b688d240d9b90ddfb2"
+metafile = true
+
+[[files]]
 file = "mods/continuity.pw.toml"
 hash = "ca80c5f6b0faca95bbc06192a3da36446ff396b5e6e0304f6779269b60bbdd9d"
 metafile = true
@@ -606,8 +611,8 @@ hash = "7ebf197c43f662a98d2064d3b46e399e1929d6e6f55ba2bc46ada0d48e56aaa1"
 metafile = true
 
 [[files]]
-file = "mods/ore-vein-miner.pw.toml"
-hash = "9bd19e9d7c1b8498318547fea4c42cf2dfc29e92c3f33b8ae6b23b875008bfca"
+file = "mods/ore-harvester.pw.toml"
+hash = "4512257d48b4685627b649ce88e1641b0b617c6fdc2fd997d359475d4fd46db3"
 metafile = true
 
 [[files]]
