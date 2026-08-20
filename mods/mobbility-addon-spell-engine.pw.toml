@@ -1,0 +1,13 @@
+name = "Mobbility [Addon: Spell Engine]"
+filename = "mobbility-addon-spell-engine-1.0.0.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/OYzwiOOZ/versions/uuh1f0Mf/mobbility-addon-spell-engine-1.0.0.jar"
+hash-format = "sha512"
+hash = "eb0a838c0f82efa3cc293cc07a75d8976dcd4669caafb4671cc891a45de56a63b3d85fafb5ba9c3dd3b403ff420ec0f3cf8382305292fe8a2142c56e6852deaa"
+
+[update]
+[update.modrinth]
+mod-id = "OYzwiOOZ"
+version = "uuh1f0Mf"

@@ -112,7 +112,7 @@ metafile = true
 
 [[files]]
 file = "mods/architectury-api.pw.toml"
-hash = "2492a7266fab4c2ff411612180974b98510afb66a18e640f4de63ad615dd1e9e"
+hash = "e12dce3e543168379a2856c66064ee2001e6420a9dfc6163f37b78e518947456"
 metafile = true
 
 [[files]]
@@ -303,6 +303,11 @@ metafile = true
 [[files]]
 file = "mods/fabric-language-kotlin.pw.toml"
 hash = "2a760e528bf27c3eb4ae7c06200d91ee9c2849295addaa2add05495c7dee9528"
+metafile = true
+
+[[files]]
+file = "mods/fabric-seasons-croptopia-compat.pw.toml"
+hash = "f7092c666c91e265ff40e79a37ed3d8401c2740e1c9a06f75e34f97b81b3b8a9"
 metafile = true
 
 [[files]]
@@ -526,6 +531,11 @@ hash = "684b6501e19e037c05f2499895a38a3d426d83f34d08bbd1068a7a23406d4c3e"
 metafile = true
 
 [[files]]
+file = "mods/mobbility-addon-spell-engine.pw.toml"
+hash = "c21b367efac89adfd7699fffe815445ddd0e4b43575cde38d9e1fdf9538d4222"
+metafile = true
+
+[[files]]
 file = "mods/mobbility.pw.toml"
 hash = "4d3fcfdcf8de71579943314bebc55cfa0192496fe35ab3b79c509f5c4437b7a3"
 metafile = true
@@ -738,11 +748,6 @@ metafile = true
 [[files]]
 file = "mods/terralith.pw.toml"
 hash = "b0978cb7ae7b79c5be89b323ca1bd038f693ff6d11c43dfcbd63953964149af2"
-metafile = true
-
-[[files]]
-file = "mods/textile_backup.pw.toml"
-hash = "df1631f545579648c5163801514a422e02075f5a2f5f1382df7de0d6879e68c5"
 metafile = true
 
 [[files]]
