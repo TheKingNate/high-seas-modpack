@@ -761,8 +761,8 @@ hash = "2654de955116d6d7ebea6e76d12a1bba7c57d42c169bbcd14c034604826a90ff"
 metafile = true
 
 [[files]]
-file = "mods/treechop.pw.toml"
-hash = "d4973af17081ec2f1d5aabad778331459612fc95617cda5fbcafa79ea9384c43"
+file = "mods/tree-harvester.pw.toml"
+hash = "d6ddde622109dc5072e84fc6493c44950314594864a74495d898bcefbd3f2e8b"
 metafile = true
 
 [[files]]
