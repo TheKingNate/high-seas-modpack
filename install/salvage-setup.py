@@ -1,24 +1,20 @@
 #!/usr/bin/env python3
 """
-Salvage Setup -- a small window that walks you through installing
-or updating the Salvage modpack.
-
-macOS / Linux:
+Salvage Setup -- installs or updates the Salvage modpack.
 
     python3 salvage-setup.py
 
-It works out whether you need a fresh install or just an update,
-tells you what each step will do before it does it, and waits for
-you to click.
+Shows every step up front, explains what each one does before it
+runs, and reports what happened after.
 """
 
 import json
-import os
 import platform
 import shutil
 import subprocess
 import sys
 import threading
+import time
 import urllib.request
 from pathlib import Path
 
@@ -31,15 +27,12 @@ except ImportError:
         "  Ubuntu/Debian:  sudo apt install -y python3-tk\n"
         "  Fedora:         sudo dnf install -y python3-tkinter\n"
         "  Arch:           sudo pacman -S tk\n\n"
-        "Then run this again. (On macOS it should already be there --\n"
-        "if not, install Python from python.org.)\n"
+        "Then run this again.\n"
     )
     sys.exit(1)
 
-
 REPO = "TheKingNate/high-seas-modpack"
-BRANCH = "release"
-PACK_URL = f"https://raw.githubusercontent.com/{REPO}/{BRANCH}/pack.toml"
+PACK_URL = f"https://raw.githubusercontent.com/{REPO}/release/pack.toml"
 OLD_URL = f"https://raw.githubusercontent.com/{REPO}/main/pack.toml"
 BOOTSTRAP = ("https://github.com/packwiz/packwiz-installer-bootstrap"
              "/releases/latest/download/packwiz-installer-bootstrap.jar")
@@ -48,35 +41,38 @@ INSTANCE = "Salvage"
 MC_VERSION = "1.20.1"
 FABRIC = "0.19.3"
 
-BG = "#1e2128"
-FG = "#e6e6e6"
-DIM = "#9aa0a8"
-ACCENT = "#4a9eff"
+BG = "#1b1e24"
+CARD = "#242832"
+FG = "#eceff4"
+DIM = "#8b93a1"
+ACCENT = "#5aa2ff"
 GOOD = "#5fd18c"
-BAD = "#ff6b6b"
+BAD = "#ff7070"
+
+MAC = platform.system() == "Darwin"
+MONO = "Menlo" if MAC else "monospace"
+UI = "Helvetica Neue" if MAC else "DejaVu Sans"
 
 
-# ---------------------------------------------------------------- util
+class Stop(Exception):
+    def __init__(self, what, todo=""):
+        self.what, self.todo = what, todo
+        super().__init__(what)
 
-def is_mac():
-    return platform.system() == "Darwin"
 
-
-def prism_dirs():
-    home = Path.home()
-    if is_mac():
-        c = [home / "Library/Application Support/PrismLauncher"]
+def prism_candidates():
+    h = Path.home()
+    if MAC:
+        c = [h / "Library/Application Support/PrismLauncher"]
     else:
-        c = [
-            home / ".var/app/org.prismlauncher.PrismLauncher/data/PrismLauncher",
-            home / ".local/share/PrismLauncher",
-        ]
-    c.append(home / "Desktop/PrismLauncher")
+        c = [h / ".var/app/org.prismlauncher.PrismLauncher/data/PrismLauncher",
+             h / ".local/share/PrismLauncher"]
+    c.append(h / "Desktop/PrismLauncher")
     return c
 
 
 def find_prism():
-    for d in prism_dirs():
+    for d in prism_candidates():
         if (d / "instances").is_dir():
             return d
     return None
@@ -84,9 +80,9 @@ def find_prism():
 
 def total_ram_mb():
     try:
-        if is_mac():
-            out = subprocess.check_output(["sysctl", "-n", "hw.memsize"])
-            return int(out) // (1024 * 1024)
+        if MAC:
+            return int(subprocess.check_output(
+                ["sysctl", "-n", "hw.memsize"])) // (1024 * 1024)
         with open("/proc/meminfo") as f:
             for line in f:
                 if line.startswith("MemTotal"):
@@ -97,32 +93,33 @@ def total_ram_mb():
 
 
 def heap_mb():
-    h = total_ram_mb() // 2
-    return max(4096, min(12288, h))
+    return max(4096, min(12288, total_ram_mb() // 2))
 
 
-def find_pack_instances(data_dir, url):
-    hits = []
-    inst_root = data_dir / "instances"
-    if not inst_root.is_dir():
-        return hits
-    for cfg in inst_root.glob("*/instance.cfg"):
+def pack_instances(data, url):
+    out = []
+    if not data:
+        return out
+    root = data / "instances"
+    if not root.is_dir():
+        return out
+    for cfg in root.glob("*/instance.cfg"):
         try:
             if url in cfg.read_text(errors="ignore"):
-                hits.append(cfg)
+                out.append(cfg)
         except Exception:
             pass
-    return hits
+    return out
 
 
 def trash_self():
     me = Path(__file__).resolve()
     try:
-        if is_mac():
+        if MAC:
             shutil.move(str(me), str(Path.home() / ".Trash" / me.name))
         elif shutil.which("gio"):
-            subprocess.run(["gio", "trash", str(me)], check=True,
-                           capture_output=True)
+            subprocess.run(["gio", "trash", str(me)],
+                           check=True, capture_output=True)
         else:
             t = Path.home() / ".local/share/Trash/files"
             t.mkdir(parents=True, exist_ok=True)
@@ -132,246 +129,361 @@ def trash_self():
         return False
 
 
-# ----------------------------------------------------------------- app
+BLURB = {
+    "Get Prism Launcher":
+        "Prism Launcher is the app that runs modded Minecraft.\n\n"
+        "If you already have it, this does nothing. If not, it "
+        "downloads and installs it for you.",
+    "Create the Salvage instance":
+        "Adds an entry in Prism called Salvage, set to Minecraft "
+        "1.20.1 with the Fabric mod loader.\n\n"
+        "It picks how much memory to give Minecraft based on how "
+        "much your computer has.",
+    "Set up automatic updates":
+        "Adds a small file that checks the mod list every time you "
+        "play.\n\nThat means you never have to reinstall or "
+        "re-download anything when the pack changes.",
+    "Look at your current setup":
+        "Finds your existing Salvage instances and reports which "
+        "update channel they're on.\n\nNothing is changed in this "
+        "step.",
+    "Switch to stable updates":
+        "Points your copy at the stable release channel, so you only "
+        "receive changes once they've been tested.\n\nOne line in "
+        "your settings file changes, and a backup is saved first. "
+        "Your world is untouched.",
+    "Verify the updater":
+        "Checks the auto-update file is present and undamaged, and "
+        "re-downloads it if needed.",
+}
+
 
 class App(tk.Tk):
+
     def __init__(self):
         super().__init__()
         self.title("Salvage Setup")
         self.configure(bg=BG)
-        self.geometry("620x520")
-        self.resizable(False, False)
+        self.geometry("660x700")
+        self.minsize(660, 700)
 
         self.prism = None
-        self.mode = None          # "install" or "update"
-        self.step = 0
+        self.mode = None
         self.steps = []
+        self.rows = []
+        self.idx = 0
         self.busy = False
+        self.halted = False
+        self.starting = True
+        self.found = []
 
+        self._style()
         self._build()
-        self._detect()
 
-    # -- layout -----------------------------------------------------
+        self.lift()
+        self.attributes("-topmost", True)
+        self.after(400, lambda: self.attributes("-topmost", False))
+        self.after(250, self._detect)
+
+    def _style(self):
+        s = ttk.Style(self)
+        try:
+            s.theme_use("clam")
+        except tk.TclError:
+            pass
+        s.configure("Go.TButton", font=(UI, 14, "bold"), padding=(30, 12),
+                    background=ACCENT, foreground="#ffffff", borderwidth=0)
+        s.map("Go.TButton",
+              background=[("active", "#4a8ce0"), ("disabled", "#3a4050")],
+              foreground=[("disabled", "#7a818f")])
+        s.configure("Bar.Horizontal.TProgressbar", troughcolor=CARD,
+                    background=ACCENT, borderwidth=0, thickness=4)
+
     def _build(self):
         tk.Label(self, text="Salvage", bg=BG, fg=FG,
-                 font=("Helvetica", 26, "bold")).pack(pady=(24, 0))
+                 font=(UI, 28, "bold")).pack(pady=(22, 0))
         tk.Label(self, text="Minecraft modpack setup", bg=BG, fg=DIM,
-                 font=("Helvetica", 11)).pack(pady=(0, 18))
+                 font=(UI, 11)).pack(pady=(2, 16))
 
-        self.step_lbl = tk.Label(self, text="", bg=BG, fg=ACCENT,
-                                 font=("Helvetica", 10, "bold"))
-        self.step_lbl.pack()
+        self.list_frame = tk.Frame(self, bg=BG)
+        self.list_frame.pack(fill="x", padx=40)
 
-        self.title_lbl = tk.Label(self, text="", bg=BG, fg=FG,
-                                  font=("Helvetica", 15, "bold"),
-                                  wraplength=540)
-        self.title_lbl.pack(pady=(6, 4))
+        card = tk.Frame(self, bg=CARD)
+        card.pack(fill="x", padx=40, pady=(18, 0))
 
-        self.desc_lbl = tk.Label(self, text="", bg=BG, fg=DIM,
-                                 font=("Helvetica", 11), wraplength=540,
-                                 justify="center")
-        self.desc_lbl.pack(pady=(0, 16))
+        self.head = tk.Label(card, text="Starting up", bg=CARD, fg=FG,
+                             font=(UI, 15, "bold"), anchor="w",
+                             wraplength=520, justify="left")
+        self.head.pack(fill="x", padx=20, pady=(16, 6))
 
-        self.btn = tk.Button(self, text="", command=self._go,
-                             font=("Helvetica", 13, "bold"),
-                             bg=ACCENT, fg="#ffffff",
-                             activebackground="#3d86db",
-                             relief="flat", padx=28, pady=10,
-                             highlightthickness=0, bd=0)
-        self.btn.pack()
+        self.body = tk.Label(card, text="Give it a second.", bg=CARD,
+                             fg=DIM, font=(UI, 11), anchor="w",
+                             justify="left", wraplength=520)
+        self.body.pack(fill="x", padx=20, pady=(0, 16))
+
+        self.bar = ttk.Progressbar(self, mode="indeterminate",
+                                   style="Bar.Horizontal.TProgressbar")
+
+        self.btn = ttk.Button(self, text="Please wait...",
+                              style="Go.TButton", command=self._go)
+        self.btn.pack(pady=(18, 4))
+        self.btn.state(["disabled"])
+
+        self.status = tk.Label(self, text="", bg=BG, fg=DIM, font=(UI, 10))
+        self.status.pack()
+
+        tk.Label(self, text="Details", bg=BG, fg=DIM, font=(UI, 9, "bold"),
+                 anchor="w").pack(fill="x", padx=40, pady=(14, 4))
 
         self.log = scrolledtext.ScrolledText(
-            self, height=9, bg="#15171c", fg=DIM, relief="flat",
-            font=("Menlo" if is_mac() else "monospace", 9),
-            wrap="word", padx=10, pady=8, borderwidth=0)
-        self.log.pack(fill="both", expand=True, padx=24, pady=(20, 24))
+            self, height=8, bg="#14161b", fg=DIM, relief="flat",
+            font=(MONO, 9), wrap="word", padx=12, pady=8, borderwidth=0,
+            highlightthickness=0)
+        self.log.pack(fill="both", expand=True, padx=40, pady=(0, 24))
         self.log.configure(state="disabled")
 
-    def say(self, msg, colour=None):
+    # -- checklist ---------------------------------------------------
+    def render_list(self):
+        for w in self.list_frame.winfo_children():
+            w.destroy()
+        self.rows = []
+        for name, _ in self.steps:
+            row = tk.Frame(self.list_frame, bg=BG)
+            row.pack(fill="x", pady=2)
+            mark = tk.Label(row, text="\u25cb", bg=BG, fg=DIM,
+                            font=(UI, 13), width=2)
+            mark.pack(side="left")
+            txt = tk.Label(row, text=name, bg=BG, fg=DIM, font=(UI, 12),
+                           anchor="w")
+            txt.pack(side="left")
+            self.rows.append((mark, txt))
+
+    def mark(self, i, state):
+        if i >= len(self.rows):
+            return
+        mark, txt = self.rows[i]
+        if state == "now":
+            mark.config(text="\u25b8", fg=ACCENT)
+            txt.config(fg=FG, font=(UI, 12, "bold"))
+        elif state == "done":
+            mark.config(text="\u2713", fg=GOOD)
+            txt.config(fg=GOOD, font=(UI, 12))
+        elif state == "fail":
+            mark.config(text="\u2715", fg=BAD)
+            txt.config(fg=BAD, font=(UI, 12, "bold"))
+        self.update_idletasks()
+
+    # -- output ------------------------------------------------------
+    def say(self, msg=""):
         self.log.configure(state="normal")
         self.log.insert("end", msg + "\n")
         self.log.see("end")
         self.log.configure(state="disabled")
         self.update_idletasks()
 
-    def show(self, step_text, title, desc, button):
-        self.step_lbl.config(text=step_text)
-        self.title_lbl.config(text=title)
-        self.desc_lbl.config(text=desc)
-        self.btn.config(text=button, state="normal")
-
-    def working(self, text="Working..."):
-        self.btn.config(text=text, state="disabled")
+    def set_status(self, text):
+        self.status.config(text=text)
         self.update_idletasks()
 
-    def stop(self, what, todo):
-        self.step_lbl.config(text="")
-        self.title_lbl.config(text="Something went wrong", fg=BAD)
-        self.desc_lbl.config(text=what)
-        self.say("")
-        self.say("STOPPED: " + what)
-        if todo:
-            self.say(todo)
-        self.say("Nothing was broken. You can close this and try again.")
-        self.btn.config(text="Close", state="normal",
-                        command=self.destroy, bg="#555a63")
+    def card(self, head, body):
+        self.head.config(text=head, fg=FG)
+        self.body.config(text=body)
+        self.update_idletasks()
 
-    # -- detection --------------------------------------------------
+    # -- detection ---------------------------------------------------
     def _detect(self):
-        self.say("Checking your computer...")
-        self.say(f"  system: {platform.system()} {platform.machine()}")
-        self.say(f"  memory: {total_ram_mb()} MB")
+        self.card("Checking your computer",
+                  "Working out what you already have installed.")
+        self.set_status("looking around...")
+
+        ram = total_ram_mb()
+        self.say(f"System: {platform.system()} {platform.machine()}")
+        self.say(f"Memory: {ram} MB")
 
         self.prism = find_prism()
         if self.prism:
-            self.say(f"  Prism Launcher: {self.prism}")
+            self.say(f"Prism Launcher: found at {self.prism}")
         else:
-            self.say("  Prism Launcher: not installed")
+            self.say("Prism Launcher: not installed")
+            for c in prism_candidates():
+                self.say(f"  looked in {c}")
 
-        existing = []
-        if self.prism:
-            existing = (find_pack_instances(self.prism, OLD_URL)
-                        + find_pack_instances(self.prism, PACK_URL))
+        existing = (pack_instances(self.prism, OLD_URL)
+                    + pack_instances(self.prism, PACK_URL))
 
         if existing:
             self.mode = "update"
-            self.say(f"  found {len(existing)} existing Salvage instance(s)")
+            self.say(f"Existing Salvage instances: {len(existing)}")
+            for c in existing:
+                self.say(f"  {c.parent.name}")
             self.steps = [
-                ("Check what you have", self._s_check_update),
-                ("Point it at the right updates", self._s_switch),
-                ("Make sure the updater is there", self._s_bootstrap_all),
+                ("Look at your current setup", self._s_check),
+                ("Switch to stable updates", self._s_switch),
+                ("Verify the updater", self._s_boot_all),
             ]
+            head = "You already have Salvage"
+            body = ("This points your copy at the stable release channel, "
+                    "so you only get changes once they've been tested.\n\n"
+                    "Your world, settings, keybinds, shaders and video "
+                    "options will not be touched.")
         else:
             self.mode = "install"
+            self.say("No existing Salvage instance -- fresh install")
             self.steps = [
                 ("Get Prism Launcher", self._s_prism),
                 ("Create the Salvage instance", self._s_instance),
-                ("Set up automatic updates", self._s_bootstrap),
+                ("Set up automatic updates", self._s_boot),
             ]
+            head = "Ready to install"
+            body = (f"Three steps. Each one explains itself before it runs, "
+                    f"and nothing happens until you click.\n\n"
+                    f"Your computer has {ram} MB of memory, so Minecraft "
+                    f"will get {heap_mb()} MB.")
 
-        self.say("")
-        self._present()
+        self.say()
+        self.render_list()
+        self.card(head, body)
+        self.set_status("")
+        self.btn.config(text="Start")
+        self.btn.state(["!disabled"])
 
-    # -- step machinery ---------------------------------------------
-    def _present(self):
-        if self.step >= len(self.steps):
-            return self._finish()
-
-        n = self.step + 1
-        total = len(self.steps)
-        name, _ = self.steps[self.step]
-
-        blurbs = {
-            "Get Prism Launcher":
-                ("Prism Launcher is the program that runs modded "
-                 "Minecraft. If you already have it, this does nothing. "
-                 "If not, it downloads it for you."),
-            "Create the Salvage instance":
-                ("This makes a new entry in Prism called Salvage, set to "
-                 "Minecraft 1.20.1 with Fabric, and picks a sensible "
-                 "amount of memory based on your computer."),
-            "Set up automatic updates":
-                ("This adds a small file that fetches the mod list every "
-                 "time you play, so you never have to reinstall anything "
-                 "when the pack changes."),
-            "Check what you have":
-                ("Looks at your existing Salvage setup. Your world, "
-                 "settings and keybinds will not be touched -- only "
-                 "where updates come from."),
-            "Point it at the right updates":
-                ("Switches your copy to the stable release channel, so "
-                 "you only get changes once they've been tested. A "
-                 "backup of your settings file is kept."),
-            "Make sure the updater is there":
-                ("Checks the auto-update file exists and isn't damaged, "
-                 "and re-downloads it if needed."),
-        }
-
-        self.show(f"Step {n} of {total}", name,
-                  blurbs.get(name, ""), "Do this step")
-        self.btn.config(command=self._go, bg=ACCENT)
+    # -- flow --------------------------------------------------------
+    def present(self):
+        if self.idx >= len(self.steps):
+            return self.finish()
+        name, _ = self.steps[self.idx]
+        self.mark(self.idx, "now")
+        self.card(name, BLURB.get(name, ""))
+        self.btn.config(text="Do this step")
+        self.btn.state(["!disabled"])
+        self.set_status(f"step {self.idx + 1} of {len(self.steps)}")
 
     def _go(self):
+        if self.halted:
+            return self.destroy()
         if self.busy:
             return
+        if self.starting:
+            self.starting = False
+            return self.present()
+
         self.busy = True
-        self.working()
-        fn = self.steps[self.step][1]
+        self.btn.state(["disabled"])
+        self.btn.config(text="Working...")
+        self.bar.pack(fill="x", padx=40, pady=(8, 0), before=self.status)
+        self.bar.start(12)
+        self.update_idletasks()
+
+        fn = self.steps[self.idx][1]
         threading.Thread(target=self._run, args=(fn,), daemon=True).start()
 
     def _run(self, fn):
         try:
             fn()
-            self.step += 1
-            self.busy = False
-            self.after(0, self._present)
+            self.after(0, self._ok)
         except Stop as e:
-            self.busy = False
-            self.after(0, lambda: self.stop(e.what, e.todo))
+            what, todo = e.what, e.todo
+            self.after(0, lambda: self._fail(what, todo))
         except Exception as e:
-            self.busy = False
-            self.after(0, lambda: self.stop(
-                f"Unexpected problem: {e}",
-                "Send this whole window to Josh."))
+            msg = str(e)
+            self.after(0, lambda: self._fail(
+                "Unexpected problem: " + msg,
+                "Send a screenshot of this window to Josh."))
 
-    # -- steps: install ---------------------------------------------
+    def _ok(self):
+        self.bar.stop()
+        self.bar.pack_forget()
+        self.mark(self.idx, "done")
+        self.busy = False
+        self.idx += 1
+        self.say()
+        self.present()
+
+    def _fail(self, what, todo):
+        self.bar.stop()
+        self.bar.pack_forget()
+        self.mark(self.idx, "fail")
+        self.busy = False
+        self.halted = True
+        self.head.config(text="Couldn't finish that step", fg=BAD)
+        self.body.config(text=what + (("\n\n" + todo) if todo else ""))
+        self.say()
+        self.say("STOPPED: " + what)
+        if todo:
+            self.say(todo)
+        self.say("Nothing was broken. Close this and try again.")
+        self.set_status("")
+        self.btn.config(text="Close")
+        self.btn.state(["!disabled"])
+
+    # -- steps -------------------------------------------------------
     def _s_prism(self):
         if self.prism:
-            self.say(f"Prism already installed at {self.prism}")
+            self.set_status("already installed")
+            self.say(f"Prism already at {self.prism} -- nothing to do")
+            time.sleep(0.4)
             return
 
-        self.say("Installing Prism Launcher...")
-        if is_mac():
+        if MAC:
             if not shutil.which("brew"):
                 raise Stop(
-                    "Prism Launcher isn't installed, and this script "
-                    "can't install it for you on this Mac.",
-                    "Download it from https://prismlauncher.org/download, "
-                    "open it once, then run this again.")
-            self.say("  using Homebrew (this takes a minute)")
+                    "Prism Launcher isn't installed, and this can't install "
+                    "it for you on this Mac.",
+                    "Download it from prismlauncher.org/download, open it "
+                    "once so it creates its folders, then run this again.")
+            self.set_status("installing via Homebrew, takes a minute...")
+            self.say("Running: brew install --cask prismlauncher")
             r = subprocess.run(["brew", "install", "--cask", "prismlauncher"],
                                capture_output=True, text=True)
             if r.returncode != 0:
+                self.say(r.stderr.strip()[:500])
                 raise Stop("Homebrew couldn't install Prism Launcher.",
-                           "Download it from https://prismlauncher.org/"
-                           "download, then run this again.")
-            self.prism = Path.home() / "Library/Application Support/PrismLauncher"
+                           "Install it yourself from prismlauncher.org, "
+                           "then run this again.")
+            self.prism = (Path.home()
+                          / "Library/Application Support/PrismLauncher")
         else:
             if not shutil.which("flatpak"):
                 raise Stop(
                     "Prism Launcher isn't installed, and flatpak isn't "
                     "either, so this can't install it for you.",
-                    "Install Prism from https://prismlauncher.org/download, "
-                    "open it once, then run this again.")
-            self.say("  using flatpak (this takes a few minutes)")
+                    "Install Prism from prismlauncher.org/download, open it "
+                    "once, then run this again.")
+            self.set_status("installing via flatpak, takes a few minutes...")
+            self.say("Running: flatpak install flathub "
+                     "org.prismlauncher.PrismLauncher")
             r = subprocess.run(
                 ["flatpak", "install", "-y", "--user", "flathub",
                  "org.prismlauncher.PrismLauncher"],
                 capture_output=True, text=True)
             if r.returncode != 0:
+                self.say(r.stderr.strip()[:500])
                 raise Stop("The flatpak install failed.",
-                           "Try running this in a terminal to see why:\n"
+                           "Run this in a terminal to see why:\n"
                            "  flatpak install flathub "
                            "org.prismlauncher.PrismLauncher")
-            self.prism = (Path.home() /
-                          ".var/app/org.prismlauncher.PrismLauncher"
-                          "/data/PrismLauncher")
+            self.prism = (Path.home()
+                          / ".var/app/org.prismlauncher.PrismLauncher"
+                            "/data/PrismLauncher")
 
         self.prism.mkdir(parents=True, exist_ok=True)
-        self.say(f"  done: {self.prism}")
+        self.say(f"Installed. Data folder: {self.prism}")
+        self.set_status("installed")
 
     def _s_instance(self):
         inst = self.prism / "instances" / INSTANCE
         mc = inst / "minecraft"
-        self.say(f"Creating instance at {inst}")
+        self.set_status("creating folders...")
+        self.say(f"Instance folder: {inst}")
 
         try:
             mc.mkdir(parents=True, exist_ok=True)
         except Exception:
             raise Stop(f"Couldn't create a folder at {mc}",
-                       "Check you have permission to write there and "
-                       "that your disk isn't full.")
+                       "Check you have permission to write there, and that "
+                       "your disk isn't full.")
 
+        self.say(f"Minecraft {MC_VERSION} with Fabric {FABRIC}")
         (inst / "mmc-pack.json").write_text(json.dumps({
             "components": [
                 {"important": True, "uid": "net.minecraft",
@@ -382,7 +494,8 @@ class App(tk.Tk):
         }, indent=4))
 
         h = heap_mb()
-        self.say(f"  allocating {h} MB of memory")
+        self.set_status(f"allocating {h} MB of memory")
+        self.say(f"Memory: {h} MB (half of your {total_ram_mb()} MB)")
 
         cfg = inst / "instance.cfg"
         ours = ("InstanceType", "name", "OverrideCommands",
@@ -390,112 +503,120 @@ class App(tk.Tk):
                 "MaxMemAlloc")
         keep = []
         if cfg.exists():
+            self.say("Existing settings found -- keeping anything not ours")
             keep = [l for l in cfg.read_text(errors="ignore").splitlines()
-                    if not l.split("=")[0] in ours]
+                    if l.split("=")[0] not in ours]
 
         keep += [
             "InstanceType=OneSix",
             f"name={INSTANCE}",
             "OverrideCommands=true",
-            f'PreLaunchCommand="$INST_JAVA" -jar '
-            f'"$INST_MC_DIR/packwiz-installer-bootstrap.jar" '
+            'PreLaunchCommand="$INST_JAVA" -jar '
+            '"$INST_MC_DIR/packwiz-installer-bootstrap.jar" '
             f'-g -s client {PACK_URL}',
             "OverrideMemory=true",
             "MinMemAlloc=4096",
             f"MaxMemAlloc={h}",
         ]
         cfg.write_text("\n".join(keep) + "\n")
-        self.say("  instance ready")
+        self.say("Instance created.")
+        self.set_status("done")
 
-    def _s_bootstrap(self):
-        mc = self.prism / "instances" / INSTANCE / "minecraft"
-        self._fetch_bootstrap(mc)
+    def _s_boot(self):
+        self._bootstrap(self.prism / "instances" / INSTANCE / "minecraft")
 
-    # -- steps: update ----------------------------------------------
-    def _s_check_update(self):
-        self.found = (find_pack_instances(self.prism, OLD_URL)
-                      + find_pack_instances(self.prism, PACK_URL))
+    def _s_check(self):
+        self.set_status("scanning your instances...")
+        self.found = (pack_instances(self.prism, OLD_URL)
+                      + pack_instances(self.prism, PACK_URL))
         for c in self.found:
-            self.say(f"  {c.parent.name}")
-        self.say(f"Found {len(self.found)} instance(s). Your worlds and "
-                 f"settings stay exactly as they are.")
+            src = "old" if OLD_URL in c.read_text(errors="ignore") \
+                else "stable"
+            self.say(f"{c.parent.name}: currently on the {src} channel")
+        self.say(f"{len(self.found)} instance(s) to look at.")
+        self.say("Your worlds and settings will not be modified.")
+        self.set_status(f"{len(self.found)} found")
+        time.sleep(0.4)
 
     def _s_switch(self):
-        import time
         changed = 0
         for cfg in self.found:
             text = cfg.read_text(errors="ignore")
             if OLD_URL not in text:
-                self.say(f"  {cfg.parent.name}: already correct")
+                self.say(f"{cfg.parent.name}: already on stable, skipping")
                 continue
-            backup = cfg.with_suffix(
-                f".cfg.backup-{time.strftime('%Y%m%d-%H%M%S')}")
+            stamp = time.strftime("%Y%m%d-%H%M%S")
+            backup = cfg.parent / f"instance.cfg.backup-{stamp}"
             shutil.copy2(cfg, backup)
+            self.say(f"{cfg.parent.name}: settings backed up to "
+                     f"{backup.name}")
             cfg.write_text(text.replace(OLD_URL, PACK_URL))
-            self.say(f"  {cfg.parent.name}: switched (backup saved)")
+            self.say(f"{cfg.parent.name}: now on the stable channel")
             changed += 1
         self.say(f"Changed {changed} instance(s).")
+        self.set_status(f"{changed} switched")
 
-    def _s_bootstrap_all(self):
+    def _s_boot_all(self):
         for cfg in self.found:
-            self._fetch_bootstrap(cfg.parent / "minecraft")
+            self._bootstrap(cfg.parent / "minecraft")
 
-    # -- shared ------------------------------------------------------
-    def _fetch_bootstrap(self, mc):
+    def _bootstrap(self, mc):
         jar = mc / "packwiz-installer-bootstrap.jar"
         if jar.exists() and jar.stat().st_size > 10000:
-            self.say(f"  updater already present in {mc.parent.name}")
+            self.say(f"{mc.parent.name}: updater already there "
+                     f"({jar.stat().st_size // 1024} KB)")
+            self.set_status("already present")
+            time.sleep(0.3)
             return
+
         mc.mkdir(parents=True, exist_ok=True)
-        self.say("  downloading the updater...")
+        self.set_status("downloading the updater from GitHub...")
+        self.say("Downloading packwiz-installer-bootstrap.jar")
         try:
             urllib.request.urlretrieve(BOOTSTRAP, jar)
-        except Exception:
+        except Exception as e:
+            self.say(f"  {e}")
             raise Stop("Couldn't download the updater from GitHub.",
-                       "Check your internet connection and try again. "
-                       "If GitHub is blocked on your network, that's why.")
-        if jar.stat().st_size < 10000:
-            raise Stop("The updater downloaded but looks damaged.",
+                       "Check your internet connection and try again. If "
+                       "GitHub is blocked on your network, that's the cause.")
+        size = jar.stat().st_size
+        if size < 10000:
+            raise Stop(f"The updater downloaded but looks damaged "
+                       f"(only {size} bytes).",
                        "Your network may be interfering with downloads. "
                        "Try a different connection.")
-        self.say("  updater ready")
+        self.say(f"  done, {size // 1024} KB")
+        self.set_status("updater ready")
 
-    # -- finish ------------------------------------------------------
-    def _finish(self):
-        self.step_lbl.config(text="")
-        self.title_lbl.config(text="All done", fg=GOOD)
-
+    def finish(self):
+        self.head.config(text="All done", fg=GOOD)
         if self.mode == "install":
-            msg = ("Open Prism Launcher, sign in with your Microsoft "
-                   "account, then click Salvage and press Launch.\n\n"
-                   "The first launch downloads about 150 mods, so give "
-                   "it several minutes.")
-        else:
-            msg = ("Nothing else to do. Just launch as normal.\n\n"
-                   "Your world, settings, keybinds and shaders were not "
-                   "touched.")
-
-        self.desc_lbl.config(text=msg)
-        self.say("")
-        self.say("Finished.")
-
-        if self.mode == "install":
-            self.say("")
+            self.body.config(text=(
+                "1.  Open Prism Launcher\n"
+                "2.  Sign in with your Microsoft account, top right\n"
+                "3.  Click Salvage, press Launch\n\n"
+                "The first launch downloads about 150 mods, so give it "
+                "several minutes. After that it updates itself."))
+            self.say("Next: open Prism, sign in, launch Salvage.")
+            self.say()
             self.say("Then try joining the server once. It will say you "
                      "aren't whitelisted -- that's expected, and it's how "
-                     "you get added. Just tell Josh you tried.")
+                     "you get added. Just say you tried.")
+        else:
+            self.body.config(text=(
+                "Nothing else to do. Just launch as normal.\n\n"
+                "Your world, settings, keybinds and shaders were left "
+                "exactly as they were. A backup of each settings file is "
+                "saved next to the original."))
+            self.say("Nothing else to do -- launch as normal.")
 
+        self.set_status("")
         if trash_self():
+            self.say()
             self.say("(this setup file has been moved to the trash)")
-
-        self.btn.config(text="Close", command=self.destroy, bg=GOOD)
-
-
-class Stop(Exception):
-    def __init__(self, what, todo=""):
-        self.what = what
-        self.todo = todo
-        super().__init__(what)
+        self.halted = True
+        self.btn.config(text="Close")
+        self.btn.state(["!disabled"])
 
 
 if __name__ == "__main__":
