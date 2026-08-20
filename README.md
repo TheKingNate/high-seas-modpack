@@ -1,101 +1,23 @@
 # Salvage
 
-A Minecraft **1.20.1 Fabric** modpack. Version **1.1.1**, 160 mods.
+Minecraft 1.20.1 Fabric modpack. v1.1.1, 160 mods.
 
-Ships that actually sail, pirates that shoot back, and enough
-tech and magic to keep a small group busy for months.
-
----
-
-## What it is
-
-You start on a beach. You build a hull, mount a helm, and the sea
-becomes the road. Ocean waves physically lift and roll your ship.
-Hostile crewed pirate vessels sail the open water with working
-cannons -- kill the cannoneer to silence a gun, kill the helmsman
-to stop the ship, then board it and take the cargo.
-
-Underneath that there's a full tech stack (Applied Energistics,
-Create, Powah reactors, Flux Networks), a light magic system,
-skill trees, seasons, farming, and sixteen structure mods' worth
-of things to find.
-
-It's built for a small co-op group where people play differently:
-some explore and fight, some build and automate. Both halves have
-depth, and there's a quest book with 11 chapters if you want
-direction.
-
----
+Valkyrien Skies ships with wave physics, hostile pirate vessels,
+Applied Energistics, Create, magic, and sixteen structure mods.
 
 ## Install
 
-**Windows** -- download and right-click -> Run with PowerShell:
+Grab the file for your OS from
+[Releases](../../releases/latest) and run it.
 
-    install/install-salvage.ps1
+- **Windows** — right-click `salvage-setup.ps1` → Run with PowerShell
+- **macOS / Linux** — `python3 salvage-setup.py`
 
-**macOS / Linux** -- download, then in a terminal:
+Installs Prism Launcher if needed, builds the instance, and turns
+on auto-updates. If you already have it installed, it updates your
+setup and leaves your world alone.
 
-    chmod +x install-salvage.sh && ./install-salvage.sh
-
-The installer finds or installs Prism Launcher, builds the
-instance, sets memory based on your RAM, and wires up
-auto-updating. Then open Prism, sign in, and launch.
-
-First launch downloads all the mods. After that the pack updates
-itself every time you play -- you never re-download anything.
-
----
-
-## Joining the server
-
-Try to connect once. You'll be told you aren't whitelisted --
-that's expected, and it's how the admin gets your exact username.
-Say you tried and you'll be added.
-
-Server address: ask.
-
----
-
-## Notes
-
-**Don't put a Waystone on a ship.** Long-distance teleport to a
-waystone on a moving vessel misbehaves.
-
-**Start small.** Large hulls ride the waves gently. A raft shows
-you the swell; a galleon barely moves.
-
-**Shaders** are bundled. If they're off: Options -> Video
-Settings -> Shader Packs -> pick the Complementary +
-EuphoriaPatches entry.
-
-**Distant Horizons** is included. Ships fade out at long range --
-that's a known conflict with the physics mod, not a broken
-install.
-
----
-
-## For the maintainer
-
-    ./push.sh "message"        # export + commit + push to main
-    ./release.sh patch "msg"   # bump version, tag, promote to release
-    ./make-readme.sh           # regenerate this file
-
-Clients and the server follow the `release` branch. Work on
-`main`, promote when stable.
-
-On the server:
-
-    ./update.sh     # pull changes, restart only if mods changed
-    ./restart.sh
-    ./console.sh    # attach to the server console
-    ./pending.sh    # names that tried to join and got rejected
-
----
-
-## Mod list
-
-<details>
-<summary>160 mods</summary>
+## Mods
 
 - [EMF] Entity Model Features [Fabric & Forge]
 - [ETF] Entity Texture Features - [Fabric & Forge]
@@ -257,9 +179,3 @@ On the server:
 - YUNG's Better Desert Temples (Fabric)
 - YUNG's Better Dungeons (Fabric)
 - YUNG's Better Ocean Monuments (Fabric)
-
-</details>
-
----
-
-*Every mod belongs to its author. This pack is just a list.*
