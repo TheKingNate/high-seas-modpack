@@ -10,12 +10,21 @@ Applied Energistics, Create, magic, and sixteen structure mods.
 Grab the file for your OS from
 [Releases](../../releases/latest) and run it.
 
-- **Windows** — right-click `salvage-setup.ps1` → Run with PowerShell
-- **macOS / Linux** — `python3 salvage-setup.py`
+- **Windows** — `Salvage-Setup-Windows.bat`, double-click
+- **macOS** — `Salvage-Setup-Mac.command`, right-click → Open the
+  first time
+- **Linux** — `Salvage-Setup-Linux.sh`
 
-Installs Prism Launcher if needed, builds the instance, and turns
-on auto-updates. If you already have it installed, it updates your
-setup and leaves your world alone.
+Installs Prism Launcher if needed, builds the instance, sets memory,
+and turns on auto-updates. If you already have it installed, it
+converts your setup instead and leaves your world and settings
+alone.
+
+## Server
+
+`setup-server.sh` on the same release page installs a dedicated
+server on Linux — Fabric, server-side mods, and start/update/backup
+scripts.
 
 ## Mods
 

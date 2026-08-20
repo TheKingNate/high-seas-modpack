@@ -196,7 +196,9 @@ function Step-Prism {
     Say "Fetching the latest Prism Launcher release"
     try { $rel = Invoke-RestMethod "https://api.github.com/repos/PrismLauncher/PrismLauncher/releases/latest" }
     catch { Fail "Couldn't reach GitHub to download Prism Launcher." "Check your internet connection, or install Prism yourself from prismlauncher.org and run this again."; return $false }
-    $a = $rel.assets | Where-Object { $_.name -like "*Windows-MSVC-Portable*.zip" } | Select-Object -First 1
+    $a = $rel.assets | Where-Object { $_.name -like "*MinGW-w64-Portable*.zip" } | Select-Object -First 1
+    if (-not $a) { $a = $rel.assets | Where-Object { $_.name -like "*MinGW-w64-Portable*.zip" } | Select-Object -First 1
+    if (-not $a) { $a = $rel.assets | Where-Object { $_.name -like "*Windows-MSVC-Portable*.zip" } | Select-Object -First 1 } }
     if (-not $a) { Fail "Couldn't find a Windows download in the latest Prism release." "Install Prism yourself from prismlauncher.org, then run this again."; return $false }
     $zip = "$env:TEMP\prism.zip"; $dest = "$env:USERPROFILE\Desktop\PrismLauncher"
     Say "  $($a.name)"
