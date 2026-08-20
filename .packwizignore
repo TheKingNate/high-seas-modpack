@@ -1,3 +1,5 @@
+*.md
+*.ps1
+*.py
 *.sh
 missing.txt
-*.py
