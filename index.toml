@@ -306,11 +306,6 @@ hash = "2a760e528bf27c3eb4ae7c06200d91ee9c2849295addaa2add05495c7dee9528"
 metafile = true
 
 [[files]]
-file = "mods/fabric-seasons-croptopia-compat.pw.toml"
-hash = "f7092c666c91e265ff40e79a37ed3d8401c2740e1c9a06f75e34f97b81b3b8a9"
-metafile = true
-
-[[files]]
 file = "mods/fabric-seasons.pw.toml"
 hash = "ce276e188fa22c4b8e4a99a0558844284fff7d49af2c5e6683290eaa598a7c61"
 metafile = true
