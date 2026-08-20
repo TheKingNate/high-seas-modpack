@@ -236,7 +236,7 @@ function Step-Instance {
     $keep += "InstanceType=OneSix"
     $keep += "name=$INSTANCE"
     $keep += "OverrideCommands=true"
-    $keep += "PreLaunchCommand=`"`$INST_JAVA`" -jar `"`$INST_MC_DIR/packwiz-installer-bootstrap.jar`" -g -s client $PACK_URL"
+    $keep += "PreLaunchCommand=\`"`$INST_JAVA\`" -jar \`"`$INST_MC_DIR/packwiz-installer-bootstrap.jar\`" -g -s client $PACK_URL"
     $keep += "OverrideMemory=true"
     $keep += "MinMemAlloc=4096"
     $keep += "MaxMemAlloc=$h"

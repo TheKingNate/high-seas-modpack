@@ -177,7 +177,7 @@ JSON
 InstanceType=OneSix
 name=$INSTANCE
 OverrideCommands=true
-PreLaunchCommand="\$INST_JAVA" -jar "\$INST_MC_DIR/packwiz-installer-bootstrap.jar" -g -s client $PACK_URL
+PreLaunchCommand=\"\$INST_JAVA\" -jar \"\$INST_MC_DIR/packwiz-installer-bootstrap.jar\" -g -s client $PACK_URL
 OverrideMemory=true
 MinMemAlloc=4096
 MaxMemAlloc=$h
