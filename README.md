@@ -1,6 +1,6 @@
 # Salvage
 
-Minecraft 1.20.1 Fabric modpack. v1.1.5, 160 mods.
+Minecraft 1.20.1 Fabric modpack. v1.1.6, 160 mods.
 
 Valkyrien Skies ships with wave physics, hostile pirate vessels,
 Applied Energistics, Create, magic, and sixteen structure mods.
