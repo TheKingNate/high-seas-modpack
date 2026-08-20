@@ -276,6 +276,11 @@ hash = "9652798b0045301905be00b4bff8c4ded2e8e18c60bcc0bee7521d78f452d7ad"
 metafile = true
 
 [[files]]
+file = "mods/essential-commands.pw.toml"
+hash = "21c3264543db261d2b7fca1b0debbae16d11a1945999ff1dfa51551fec381bbf"
+metafile = true
+
+[[files]]
 file = "mods/essential.pw.toml"
 hash = "88cef5770a1e489b4c477e358b91e01c0dbc72fc30650e3d453938aaeedb125d"
 metafile = true
