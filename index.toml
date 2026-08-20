@@ -61,6 +61,11 @@ file = "config/valkyrienskies/valkyrienskies-server.toml"
 hash = "eedc463d4b59b69169491f396251fcfaa3dfa92e8e0b9b042e269073904d58f1"
 
 [[files]]
+file = "globalpacks/datapacks/blazeandcaves-advancements-pack.pw.toml"
+hash = "9ba27f4b83b2653af61c9d642a77ba842be25c51aac8c1e24385c5169ceb9cdd"
+metafile = true
+
+[[files]]
 file = "mods/3dskinlayers.pw.toml"
 hash = "f9a59df2232ac145a6d3d5a8d170860afd36610150bd115c65fdd8ab26812c5f"
 metafile = true
@@ -68,6 +73,11 @@ metafile = true
 [[files]]
 file = "mods/Eureka-VS2-Fabric-MC1.20.1-v3.2.0.jar"
 hash = "bf00a87398577260d303e7b8dc2fb22389d3681c514d89c4235ae2f6540ad36e"
+
+[[files]]
+file = "mods/advancement-plaques-fabric.pw.toml"
+hash = "1a9ac4888b6c071009a64b9e472716b937bda6545e334f3c3ba51b751bf1c7c3"
+metafile = true
 
 [[files]]
 file = "mods/ae2.pw.toml"
@@ -375,6 +385,11 @@ hash = "930bb7150387995f4764a33a41bc1dde3f0e977c0432010e96ea2076fcf6d85d"
 metafile = true
 
 [[files]]
+file = "mods/globalpacks.pw.toml"
+hash = "d5299b6a7d50355b681a4cff6346218bf95e94280593a08d45999454645fce2a"
+metafile = true
+
+[[files]]
 file = "mods/grappling-hook-restitched.pw.toml"
 hash = "264e085b17e6b29f95c4d3d19e0534808367c2f995fcbc9ca016b7be9e08a196"
 metafile = true
@@ -387,6 +402,11 @@ metafile = true
 [[files]]
 file = "mods/hybrid-aquatic.pw.toml"
 hash = "287e46527f9b7314d98b75b5ae3e3447de14f565dd68a1c92b441314715b7722"
+metafile = true
+
+[[files]]
+file = "mods/iceberg-fabric.pw.toml"
+hash = "2c1bac5d5bc9061449e91525e3564883743273cbe2eade645a2a70e8c38a9927"
 metafile = true
 
 [[files]]
@@ -580,6 +600,11 @@ hash = "7ebf197c43f662a98d2064d3b46e399e1929d6e6f55ba2bc46ada0d48e56aaa1"
 metafile = true
 
 [[files]]
+file = "mods/ore-vein-miner.pw.toml"
+hash = "9bd19e9d7c1b8498318547fea4c42cf2dfc29e92c3f33b8ae6b23b875008bfca"
+metafile = true
+
+[[files]]
 file = "mods/owo-lib.pw.toml"
 hash = "df4c4fe3aff1792aa7d19d097d5d1bc0c6e958e6e4ee32dbf148ecac62e1274d"
 metafile = true
@@ -757,11 +782,6 @@ metafile = true
 [[files]]
 file = "mods/valkyrien-skies-2-unofficial.pw.toml"
 hash = "948d2393320cd9932f0a3229cff5e061f625e1155c0e9f47bc6c58b9bba1694f"
-metafile = true
-
-[[files]]
-file = "mods/vein-mining.pw.toml"
-hash = "c95bcf2a24250de6b9abceb73777a4e1e3f2c5af157176c371f6ed84d067b987"
 metafile = true
 
 [[files]]
