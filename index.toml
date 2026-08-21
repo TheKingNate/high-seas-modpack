@@ -53,10 +53,6 @@ file = "config/ftbquests/quests/data.snbt"
 hash = "25068f828a32bea65ad83c1bda71498570af080836e9b97ca66cd03d78c93c7f"
 
 [[files]]
-file = "config/valkyrienskies/valkyrienskies-server.toml"
-hash = "eedc463d4b59b69169491f396251fcfaa3dfa92e8e0b9b042e269073904d58f1"
-
-[[files]]
 file = "globalpacks/datapacks/blazeandcaves-advancements-pack.pw.toml"
 hash = "9ba27f4b83b2653af61c9d642a77ba842be25c51aac8c1e24385c5169ceb9cdd"
 metafile = true
@@ -65,10 +61,6 @@ metafile = true
 file = "mods/3dskinlayers.pw.toml"
 hash = "f9a59df2232ac145a6d3d5a8d170860afd36610150bd115c65fdd8ab26812c5f"
 metafile = true
-
-[[files]]
-file = "mods/Eureka-VS2-Fabric-MC1.20.1-v3.2.0.jar"
-hash = "bf00a87398577260d303e7b8dc2fb22389d3681c514d89c4235ae2f6540ad36e"
 
 [[files]]
 file = "mods/advancement-plaques-fabric.pw.toml"
@@ -201,6 +193,11 @@ hash = "e81c635602878f92af9a9c11b92481b25c7aaf3f68cd015dabf5f67201886401"
 metafile = true
 
 [[files]]
+file = "mods/create-clockwork.pw.toml"
+hash = "f373c7960bfe5d408a3a739b8057d88aa406b8cef9d820848b0645c9fbc6cc1e"
+metafile = true
+
+[[files]]
 file = "mods/create-fabric.pw.toml"
 hash = "f76188c6e4714a70ea367d7f7a566b05c935a9f19e23f0352f4eb0271a985376"
 metafile = true
@@ -296,13 +293,23 @@ hash = "93c14684652eae26a5015d4b2663403d5384bcd63e0b196ec042b56cea725a86"
 metafile = true
 
 [[files]]
+file = "mods/eureka-ships.pw.toml"
+hash = "82e657439af9dfad204bb430fe5808f558be5cc96ca6bf33302b159e92d3c8f1"
+metafile = true
+
+[[files]]
+file = "mods/eureka.pw.toml"
+hash = "7955184c810a890ffc44ab99f0fe9c97bfe4813204df0c4bf3545a8a6d35c29e"
+metafile = true
+
+[[files]]
 file = "mods/explorers-compass.pw.toml"
 hash = "2bb7b96f9b856485b40ae5783f30dee9fb64e666b06445ff094970a434ffe53c"
 metafile = true
 
 [[files]]
 file = "mods/fabric-api.pw.toml"
-hash = "5cbcd9395c1788ed7a1356e392a4483a30d903312faffd9795c6dee9afba3fac"
+hash = "0488c9ea9abac1f21fc3b1911f97de3c375083985c89b332136fe9c948c06b8e"
 metafile = true
 
 [[files]]
@@ -791,8 +798,8 @@ hash = "b24813919fc9fa8dda5acb058fa5d372722b7f6c5eb640418e047ae05c944fec"
 metafile = true
 
 [[files]]
-file = "mods/valkyrien-sails.pw.toml"
-hash = "a6034fa5ed385e2c7adb1e923b3ad5a03186f3f0446cfffb78e7ee847279fc55"
+file = "mods/valkyrien-relogs.pw.toml"
+hash = "6e85d68220f2fb30dee6145afc169b950f67d6be7e0eee3c70b9fff9b0f5ba66"
 metafile = true
 
 [[files]]
@@ -801,8 +808,8 @@ hash = "75ed61638062ede7ff4741b22fbc52d68ffa70827ceac5fca824198095be556f"
 metafile = true
 
 [[files]]
-file = "mods/valkyrien-skies-2-unofficial.pw.toml"
-hash = "948d2393320cd9932f0a3229cff5e061f625e1155c0e9f47bc6c58b9bba1694f"
+file = "mods/valkyrien-skies.pw.toml"
+hash = "00399f9f3b9c8af1087a60bc60e098d93c9858a4d036a713ad1b5aed9b049572"
 metafile = true
 
 [[files]]
