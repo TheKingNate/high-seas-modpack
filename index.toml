@@ -298,11 +298,6 @@ hash = "82e657439af9dfad204bb430fe5808f558be5cc96ca6bf33302b159e92d3c8f1"
 metafile = true
 
 [[files]]
-file = "mods/eureka.pw.toml"
-hash = "7955184c810a890ffc44ab99f0fe9c97bfe4813204df0c4bf3545a8a6d35c29e"
-metafile = true
-
-[[files]]
 file = "mods/explorers-compass.pw.toml"
 hash = "2bb7b96f9b856485b40ae5783f30dee9fb64e666b06445ff094970a434ffe53c"
 metafile = true
