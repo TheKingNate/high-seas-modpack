@@ -2,8 +2,9 @@
 
 Minecraft 1.20.1 Fabric modpack. v1.2.0, 165 mods.
 
-Valkyrien Skies ships with wave physics, hostile pirate vessels,
-Applied Energistics, Create, magic, and sixteen structure mods.
+Buildable, flyable ships from Valkyrien Skies and Clockwork,
+plus Applied Energistics, Create, magic, and sixteen structure
+mods.
 
 ## Install
 
