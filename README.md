@@ -1,6 +1,6 @@
 # Salvage
 
-Minecraft 1.20.1 Fabric modpack. v1.1.9, 163 mods.
+Minecraft 1.20.1 Fabric modpack. v1.2.0, 165 mods.
 
 Valkyrien Skies ships with wave physics, hostile pirate vessels,
 Applied Energistics, Create, magic, and sixteen structure mods.
@@ -51,6 +51,7 @@ scripts.
 - Camera Overhaul
 - Cardinal Components API
 - Chunky (Fabric)
+- Clockwork
 - Cloth Config API
 - Collective
 - Continuity
@@ -73,6 +74,7 @@ scripts.
 - Essential Commands
 - Essential Mod
 - Euphoria Patches
+- Eureka! Ships! for Valkyrien Skies (Forge/Fabric)
 - Explorer's Compass
 - Fabric API
 - Fabric Language Kotlin
@@ -174,9 +176,9 @@ scripts.
 - Trinkets
 - Universal Graves
 - Valkyrien Pirates
-- Valkyrien Sails
+- Valkyrien Relogs
+- Valkyrien Skies
 - Valkyrien Skies + Supplementaries Cannon Fix
-- Valkyrien Skies 2 - Unofficial
 - Visuality
 - VLib
 - VS Safe and Sound
