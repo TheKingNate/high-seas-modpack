@@ -1,0 +1,13 @@
+name = "Create: Tempered Steel"
+filename = "create-tempered-steel-1.3.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/7GYb3g2o/versions/cdTszQUW/create-tempered-steel-1.3.jar"
+hash-format = "sha512"
+hash = "d57326f032c34516457d87620bf25bc21b570bffd7f2b617f2aa725b21748036ed071a488aae30d21ba2affae1c731f38e6c44dc6c6c2457cf40d8979c577ef0"
+
+[update]
+[update.modrinth]
+mod-id = "7GYb3g2o"
+version = "cdTszQUW"

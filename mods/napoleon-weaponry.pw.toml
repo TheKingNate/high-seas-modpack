@@ -1,0 +1,13 @@
+name = "Napoleon Weaponry"
+filename = "napoleonarmory-0.4-1.20.1-fabric.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/1wQbtNIN/versions/crxAEGNL/napoleonarmory-0.4-1.20.1-fabric.jar"
+hash-format = "sha512"
+hash = "13e1abbfd26c68e894845a690ab10db227c8af11f3e13937d96ce6ddb31f156396aa956b6c26f671b96cb5d972c22d28f0204f2f576863a1ff251afc48f58fa6"
+
+[update]
+[update.modrinth]
+mod-id = "1wQbtNIN"
+version = "crxAEGNL"

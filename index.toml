@@ -108,6 +108,11 @@ hash = "e12dce3e543168379a2856c66064ee2001e6420a9dfc6163f37b78e518947456"
 metafile = true
 
 [[files]]
+file = "mods/artillery-armory.pw.toml"
+hash = "66d69168c6b1aee93b103b04b46c430d5bf00f24609fceb59a3e5483c9490ab5"
+metafile = true
+
+[[files]]
 file = "mods/attributes.pw.toml"
 hash = "39793575c70ab9326c32db5c8e9ff30445282b34a8ad8066b63a9face99543f6"
 metafile = true
@@ -193,6 +198,11 @@ hash = "e81c635602878f92af9a9c11b92481b25c7aaf3f68cd015dabf5f67201886401"
 metafile = true
 
 [[files]]
+file = "mods/create-big-cannons.pw.toml"
+hash = "52fa0ade62d5067c9c2fdb0cc70b7e0563ae1cce972ff8cfe47a1f7537b799df"
+metafile = true
+
+[[files]]
 file = "mods/create-clockwork.pw.toml"
 hash = "f373c7960bfe5d408a3a739b8057d88aa406b8cef9d820848b0645c9fbc6cc1e"
 metafile = true
@@ -200,6 +210,11 @@ metafile = true
 [[files]]
 file = "mods/create-fabric.pw.toml"
 hash = "f76188c6e4714a70ea367d7f7a566b05c935a9f19e23f0352f4eb0271a985376"
+metafile = true
+
+[[files]]
+file = "mods/create-tempered-steel.pw.toml"
+hash = "0a1128379ed8eb04e4fd2eb4baae3bb462f52197a3bcad356a66ee3f2b49ca5f"
 metafile = true
 
 [[files]]
@@ -304,7 +319,7 @@ metafile = true
 
 [[files]]
 file = "mods/fabric-api.pw.toml"
-hash = "0488c9ea9abac1f21fc3b1911f97de3c375083985c89b332136fe9c948c06b8e"
+hash = "5cbcd9395c1788ed7a1356e392a4483a30d903312faffd9795c6dee9afba3fac"
 metafile = true
 
 [[files]]
@@ -583,6 +598,11 @@ hash = "30cf8ec2e658ebd8d3f694004a4095c15fee422ae7c8a4211cb2415906b3a156"
 metafile = true
 
 [[files]]
+file = "mods/napoleon-weaponry.pw.toml"
+hash = "ebed0326980c8a9db04abfeae4ec546fd4eec4d30bb6256408c7935857b37e54"
+metafile = true
+
+[[files]]
 file = "mods/naturalist.pw.toml"
 hash = "4716b5f3338b4ea22fb4615956b94aaf2c7fff7869d1fa898ffd1fa710b2bc7e"
 metafile = true
@@ -660,6 +680,11 @@ metafile = true
 [[files]]
 file = "mods/roughly-enough-items.pw.toml"
 hash = "286cf1d4aca340479b10c51874cd7cbdb13559140c846bbe9270e3f6f8fc528c"
+metafile = true
+
+[[files]]
+file = "mods/rpl.pw.toml"
+hash = "8283001de6699f5d588e4f0105e4e0e38b26ecde6cccf372372c1f0e698275c2"
 metafile = true
 
 [[files]]

@@ -1,0 +1,13 @@
+name = "Artillery & Armory"
+filename = "artilleryandarmory-1.0.0.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/d9jw6PYt/versions/IOgDtEWU/artilleryandarmory-1.0.0.jar"
+hash-format = "sha512"
+hash = "1a55fde6d2a13c56adcfe950b7b870f80ad155a2b79cf9d545ba7cdccb75d9ded17d2301eea488bfc113cc8a42d2c9a9d30041375b30f40991bdeb4f33694195"
+
+[update]
+[update.modrinth]
+mod-id = "d9jw6PYt"
+version = "IOgDtEWU"
