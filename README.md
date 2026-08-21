@@ -1,6 +1,6 @@
 # Salvage
 
-Minecraft 1.20.1 Fabric modpack. v1.1.7, 160 mods.
+Minecraft 1.20.1 Fabric modpack. v1.1.8, 161 mods.
 
 Valkyrien Skies ships with wave physics, hostile pirate vessels,
 Applied Energistics, Create, magic, and sixteen structure mods.
@@ -52,6 +52,7 @@ scripts.
 - Cardinal Components API
 - Chunky (Fabric)
 - Cloth Config API
+- Collective
 - Continuity
 - Controlling
 - Create Crafts & Additions
@@ -93,7 +94,6 @@ scripts.
 - Global Packs
 - Grappling Hook: Restitched
 - Hopo Better Underwater Ruins
-- HT's TreeChop
 - Hybrid Aquatic
 - Iceberg [Fabric]
 - ImmediatelyFast
@@ -137,7 +137,7 @@ scripts.
 - Not Enough Animations
 - Nullscape
 - oωo (owo-lib)
-- Ore Vein Miner
+- Ore Harvester
 - Particle Rain
 - playerAnimator
 - Polytone
@@ -168,6 +168,7 @@ scripts.
 - Tom's Simple Storage Mod
 - Towns and Towers
 - Traveler's Backpack
+- Tree Harvester
 - Trinkets
 - Universal Graves
 - Valkyrien Pirates
