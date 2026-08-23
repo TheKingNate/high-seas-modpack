@@ -214,6 +214,11 @@ hash = "9e94089231d50ff38c030369b6b9b8af0c8d9f0b495611ae3b29be18656d35bb"
 metafile = true
 
 [[files]]
+file = "mods/betterweapons.pw.toml"
+hash = "cdb80c6ab8445c12fdccbcef9100657ae2ef65c973bcf7afac32f42475abce5c"
+metafile = true
+
+[[files]]
 file = "mods/biolith.pw.toml"
 hash = "0daca4973f26a1d625e8c65c0d59d1c2f45035c9af5e43e5c7e89d6b7b5816c4"
 metafile = true
@@ -296,6 +301,11 @@ metafile = true
 [[files]]
 file = "mods/createaddition.pw.toml"
 hash = "97fa95db99748805bfb5dd844fee528d6fb67c492e6366681ef657bbc7820a5f"
+metafile = true
+
+[[files]]
+file = "mods/createtools-n-weapons.pw.toml"
+hash = "3d2f2484b74e3deb78c10b7a9f6b5f9690568a53ad9d3b7bd3465f6bb85e61fb"
 metafile = true
 
 [[files]]
@@ -736,6 +746,11 @@ metafile = true
 [[files]]
 file = "mods/mtr-moogs-temples-reimagined.pw.toml"
 hash = "30cf8ec2e658ebd8d3f694004a4095c15fee422ae7c8a4211cb2415906b3a156"
+metafile = true
+
+[[files]]
+file = "mods/musket-mod.pw.toml"
+hash = "386c19ec251ef25cc3a6af409c3293d45fd55b6224f136e459a57a81af9e47f7"
 metafile = true
 
 [[files]]

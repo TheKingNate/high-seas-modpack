@@ -1,0 +1,13 @@
+name = "BetterWeapons"
+filename = "betterweapons-1.1.0.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/6jGXJkhA/versions/PAJI2YtN/betterweapons-1.1.0.jar"
+hash-format = "sha512"
+hash = "26261aa81eec581fd937dce01e3ff915da7c85151e4455499b7b6e5e31adff5230202e67632b017c771d3b143247e5ef3df2d046366e8507434f008a59706436"
+
+[update]
+[update.modrinth]
+mod-id = "6jGXJkhA"
+version = "PAJI2YtN"

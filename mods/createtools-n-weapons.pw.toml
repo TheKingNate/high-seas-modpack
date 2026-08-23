@@ -1,0 +1,13 @@
+name = "Create: Tools n Weapons"
+filename = "create_tools_n_weapons-1.0.1-1.20.1.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/2aBDweGI/versions/WjIYFkRr/create_tools_n_weapons-1.0.1-1.20.1.jar"
+hash-format = "sha512"
+hash = "a66db9f0204ed18ce11b8c1889dd3f928050dce4d93be2ffb26e0e41967886e53cf9d4ea8db1d2cd57488f54620fe1f607b85a7eda0de93521e95271a3b49122"
+
+[update]
+[update.modrinth]
+mod-id = "2aBDweGI"
+version = "WjIYFkRr"
