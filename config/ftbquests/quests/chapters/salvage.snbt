@@ -14,7 +14,6 @@
 			id: "8D13A81803954F41"
 			title: "Powder And Shot"
 			description: ["Craft a Supplementaries cannon."]
-			dependencies: ["0A3D556B349B66CA"]
 			tasks: [
 				{
 					id: "ECE9DB41067E8FA7"
@@ -96,13 +95,6 @@
 					id: "ECDED57BB621EA48"
 					type: "xp"
 					xp: 100
-				},
-				{
-					id: "8CBCD891C0B158B6"
-					type: "command"
-					title: "1 Skill Point"
-					command: "/puffish_skills points add @p tree 1"
-					player_command: false
 				}
 			]
 		}
@@ -153,6 +145,13 @@
 					id: "85F7AC2A1545D2E8"
 					type: "xp"
 					xp: 50
+				},
+				{
+					id: "E262761334AD7F3C"
+					type: "command"
+					title: "2 Skill Points"
+					command: "/puffish_skills points add @p tree 2"
+					player_command: false
 				}
 			]
 		}

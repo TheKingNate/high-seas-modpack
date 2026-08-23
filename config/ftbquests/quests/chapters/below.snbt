@@ -14,7 +14,6 @@
 			id: "2F3B856A6450F88B"
 			title: "Lungs"
 			description: ["Craft Hybrid Aquatic diving armor."]
-			dependencies: ["6670EB122D75D446"]
 			tasks: [
 				{
 					id: "5785A38360AF9547"
@@ -46,13 +45,6 @@
 					id: "25C1242B831A7335"
 					type: "xp"
 					xp: 60
-				},
-				{
-					id: "B85961E22E6D00FE"
-					type: "command"
-					title: "1 Skill Point"
-					command: "/puffish_skills points add @p tree 1"
-					player_command: false
 				}
 			]
 		}
@@ -127,6 +119,13 @@
 					type: "item"
 					item: "minecraft:heart_of_the_sea"
 					count: 1
+				},
+				{
+					id: "4DFE4045C250677D"
+					type: "command"
+					title: "1 Skill Point"
+					command: "/puffish_skills points add @p tree 1"
+					player_command: false
 				}
 			]
 		}

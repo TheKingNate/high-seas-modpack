@@ -14,7 +14,6 @@
 			id: "3D57E293066B57C1"
 			title: "Certus"
 			description: ["Collect 16 certus quartz."]
-			dependencies: ["12C2720033D9CC48"]
 			tasks: [
 				{
 					id: "E236CBEF12705CE0"
@@ -119,13 +118,6 @@
 					id: "63380E10F05A7123"
 					type: "xp"
 					xp: 200
-				},
-				{
-					id: "F4DA04F61CC55034"
-					type: "command"
-					title: "1 Skill Point"
-					command: "/puffish_skills points add @p tree 1"
-					player_command: false
 				}
 			]
 		}
@@ -155,6 +147,13 @@
 					id: "D68C52B395128859"
 					type: "xp"
 					xp: 120
+				},
+				{
+					id: "7986DAF793529794"
+					type: "command"
+					title: "2 Skill Points"
+					command: "/puffish_skills points add @p tree 2"
+					player_command: false
 				}
 			]
 		}

@@ -14,7 +14,6 @@
 			id: "066F353287C29D9F"
 			title: "Ruins"
 			description: ["Find a grassy Structory ruin."]
-			dependencies: ["0A3D556B349B66CA"]
 			tasks: [
 				{
 					id: "159B8918AD8CFB3B"
@@ -103,13 +102,6 @@
 					id: "0E7C65AE7F02A25A"
 					type: "xp"
 					xp: 50
-				},
-				{
-					id: "68C1691C99960851"
-					type: "command"
-					title: "1 Skill Point"
-					command: "/puffish_skills points add @p tree 1"
-					player_command: false
 				}
 			]
 		}
@@ -133,6 +125,13 @@
 					id: "49F59B9AAAD42A2D"
 					type: "xp"
 					xp: 40
+				},
+				{
+					id: "2CCECB75606386E4"
+					type: "command"
+					title: "2 Skill Points"
+					command: "/puffish_skills points add @p tree 2"
+					player_command: false
 				}
 			]
 		}

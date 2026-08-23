@@ -14,7 +14,6 @@
 			id: "650447570BF90F7B"
 			title: "Ship Graveyard"
 			description: ["Enter the Aquamirae ship graveyard.", "", "Do not come here before you have diving gear."]
-			dependencies: ["96B5CFE777BDEC18"]
 			optional: true
 			tasks: [
 				{
@@ -76,13 +75,6 @@
 					id: "4E643DAE0DE813FC"
 					type: "xp"
 					xp: 300
-				},
-				{
-					id: "9D95B72C3BF515A8"
-					type: "command"
-					title: "2 Skill Points"
-					command: "/puffish_skills points add @p tree 2"
-					player_command: false
 				}
 			]
 		}
@@ -106,6 +98,13 @@
 					id: "9A4AC06D5D0B44A2"
 					type: "xp"
 					xp: 150
+				},
+				{
+					id: "B0C16009EA22874E"
+					type: "command"
+					title: "2 Skill Points"
+					command: "/puffish_skills points add @p tree 2"
+					player_command: false
 				}
 			]
 		}

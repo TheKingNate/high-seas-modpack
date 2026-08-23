@@ -110,7 +110,7 @@ def r_item(item, count=1):
 # sources). So the questline must NOT consume the whole 42 or playing the game
 # earns nothing. This is the share quests contribute; the rest is earned.
 # Tune this one number to make quest rewards more or less generous.
-SKILL_POINT_BUDGET = 20          # of the 42-point tree cap
+SKILL_POINT_BUDGET = 30          # of the 42-point tree cap; rest is earned by play
 
 
 def r_skill(n, cat="tree"):
@@ -128,10 +128,18 @@ def scale_skill_rewards():
     (Hare quota) hands out exactly the budget and gives the leftovers to the
     quests with the strongest claim, so the spread follows the original weights.
     """
-    items = [(ch, q, r["_pts"])
-             for ch, _, _, qs in CHAPTERS
-             for (_, _, q, _, _, rewards) in qs
-             for r in rewards if "_pts" in r]
+    # Skill points are a CAPSTONE reward: only the last quest of each chapter is
+    # eligible. With ~300 quests and a 42-point category cap, spreading them
+    # thinner than this makes every individual award meaningless. Everything
+    # else is rewarded with xp and items.
+    items = []
+    for ch, _, _, qs in CHAPTERS:
+        if not qs:
+            continue
+        last_q = qs[-1][2]
+        weight = sum(r["_pts"] for (_, _, _, _, _, rw) in qs
+                     for r in rw if "_pts" in r) or len(qs)
+        items.append((ch, last_q, weight))
     raw = sum(w for _, _, w in items)
     if not raw:
         return 0
@@ -634,21 +642,13 @@ CHAPTERS = [
 # Content-addressed ids are what make this expressible: a chapter can point at
 # another chapter's quest by name, without anyone needing to know its id.
 CHAPTER_GATES = {
-    # chapter        must first complete   in chapter
-    "Shipwright":   ("A Way Back",         "Castaway"),
-    "Provision":    ("Ashore",             "Castaway"),
-    "The Forge":    ("A Way Back",         "Castaway"),
-    "Arcana":       ("A Way Back",         "Castaway"),
-    "Charting":     ("Blue Water",         "Shipwright"),
-    "Salvage":      ("Blue Water",         "Shipwright"),
-    "Below":        ("Three Coasts",       "Charting"),
-    "The Deep":     ("The Monument",       "Below"),
-    "The Network":  ("First Current",      "The Forge"),
-    # a list gates on several prerequisites at once
-    "Beyond":       [("Reactor", "The Network"), ("Specialise", "Arcana")],
-    "Airships":     [("Blue Water", "Shipwright"), ("First Current", "The Forge")],
-    "Ordnance":     [("Powder And Shot", "Salvage"), ("First Current", "The Forge")],
-    "The Aether":   ("Three Coasts", "Charting"),
+    # Deliberately sparse. Progression is STRICT WITHIN a chapter (each quest
+    # depends on the previous one) but LOOSE BETWEEN them - a player should not
+    # be locked out of a mod because they skipped an unrelated one.
+    #
+    # Only the opening tutorial spine is gated. Everything else is open from the
+    # start, so players can pick a mod and go deep on it in any order.
+    "Shipwright":   ("A Way Back", "Castaway"),
 }
 
 # Chapters the pack itself calls optional. Marking the quests optional stops them

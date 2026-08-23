@@ -14,8 +14,6 @@
 			id: "D80CDD42F68FC6F6"
 			title: "The Foundry"
 			description: ["Craft a Basin Foundry Lid.", "", "Cannons are cast, not crafted. This melts the metal."]
-			dependencies: ["8D13A81803954F41", "12C2720033D9CC48"]
-			min_required_dependencies: 1
 			tasks: [
 				{
 					id: "7F69FFFE71B7F41F"
@@ -353,13 +351,6 @@
 					id: "BF5F79EBB2D41AB4"
 					type: "xp"
 					xp: 300
-				},
-				{
-					id: "BB24472B6DAA6C2F"
-					type: "command"
-					title: "1 Skill Point"
-					command: "/puffish_skills points add @p tree 1"
-					player_command: false
 				}
 			]
 		}
@@ -386,8 +377,8 @@
 				{
 					id: "D2C1EC5CEFC08259"
 					type: "command"
-					title: "2 Skill Points"
-					command: "/puffish_skills points add @p tree 2"
+					title: "4 Skill Points"
+					command: "/puffish_skills points add @p tree 4"
 					player_command: false
 				}
 			]

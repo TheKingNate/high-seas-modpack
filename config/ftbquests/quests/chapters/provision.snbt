@@ -14,7 +14,6 @@
 			id: "4A87E2864ED14A84"
 			title: "The Pot"
 			description: ["Craft a Farmer's Delight cooking pot."]
-			dependencies: ["A7F578BD24D816B0"]
 			tasks: [
 				{
 					id: "9BAA59904D758D97"
@@ -231,8 +230,8 @@
 				{
 					id: "005BA31E6FF5BDDA"
 					type: "command"
-					title: "1 Skill Point"
-					command: "/puffish_skills points add @p tree 1"
+					title: "2 Skill Points"
+					command: "/puffish_skills points add @p tree 2"
 					player_command: false
 				}
 			]

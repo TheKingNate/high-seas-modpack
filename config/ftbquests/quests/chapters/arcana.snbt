@@ -14,7 +14,6 @@
 			id: "04219534CBD45D07"
 			title: "Binding Table"
 			description: ["Craft a Spell Binding Table.", "", "2 amethyst shards, 1 gold ingot, 1 book, 3 polished diorite.", "Surround it with bookshelves like an enchanting table."]
-			dependencies: ["8859F7247194C048"]
 			tasks: [
 				{
 					id: "1E770C9841A254C2"
@@ -145,8 +144,8 @@
 				{
 					id: "8D3D793207677457"
 					type: "command"
-					title: "1 Skill Point"
-					command: "/puffish_skills points add @p tree 1"
+					title: "2 Skill Points"
+					command: "/puffish_skills points add @p tree 2"
 					player_command: false
 				}
 			]

@@ -14,7 +14,6 @@
 			id: "525E615CD36F0DEC"
 			title: "Kinetics"
 			description: ["Craft a Create mechanical press."]
-			dependencies: ["8859F7247194C048"]
 			tasks: [
 				{
 					id: "8873961524F59736"

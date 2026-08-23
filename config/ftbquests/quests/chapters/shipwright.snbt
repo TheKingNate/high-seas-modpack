@@ -99,8 +99,8 @@
 				{
 					id: "E87DE4F2124B0D0E"
 					type: "command"
-					title: "1 Skill Point"
-					command: "/puffish_skills points add @p tree 1"
+					title: "2 Skill Points"
+					command: "/puffish_skills points add @p tree 2"
 					player_command: false
 				}
 			]

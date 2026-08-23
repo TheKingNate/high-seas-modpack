@@ -14,7 +14,6 @@
 			id: "10FD8D8B105C2D34"
 			title: "Above The Clouds"
 			description: ["Reach the Aether.", "", "Glowstone frame, water bucket."]
-			dependencies: ["6670EB122D75D446"]
 			tasks: [
 				{
 					id: "405EAE08E1839321"
@@ -296,8 +295,8 @@
 				{
 					id: "01285AD82D2F5EB7"
 					type: "command"
-					title: "2 Skill Points"
-					command: "/puffish_skills points add @p tree 2"
+					title: "4 Skill Points"
+					command: "/puffish_skills points add @p tree 4"
 					player_command: false
 				}
 			]

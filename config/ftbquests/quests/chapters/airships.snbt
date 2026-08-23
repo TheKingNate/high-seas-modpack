@@ -14,8 +14,6 @@
 			id: "DE4348348CC801F9"
 			title: "Lift"
 			description: ["Craft four Balloons.", "", "Eureka balloons are the cheapest way off the water."]
-			dependencies: ["0A3D556B349B66CA", "12C2720033D9CC48"]
-			min_required_dependencies: 1
 			tasks: [
 				{
 					id: "F497B2FF8559C393"
@@ -309,8 +307,8 @@
 				{
 					id: "F2EF03B9A06E7377"
 					type: "command"
-					title: "2 Skill Points"
-					command: "/puffish_skills points add @p tree 2"
+					title: "3 Skill Points"
+					command: "/puffish_skills points add @p tree 3"
 					player_command: false
 				}
 			]
