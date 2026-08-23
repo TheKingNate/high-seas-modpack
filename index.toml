@@ -729,7 +729,7 @@ metafile = true
 
 [[files]]
 file = "mods/salvage-ordnance.pw.toml"
-hash = "49648cad32eb23ddd7507f9fc7fc07c498147aca8d04d28a0e7e9aa4e00c8c3c"
+hash = "8e3088253dd013d452693ac5e8f738c9446573892d3d04ce25e12b0d0e28758e"
 metafile = true
 
 [[files]]
