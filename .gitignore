@@ -1,6 +1,6 @@
 *.zip
 *.mrpack
 missing.txt
-*.sh
 .DS_Store
 .claude/
+salvage-diag.txt

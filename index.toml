@@ -883,11 +883,6 @@ hash = "2c8150979336b3b0acfdee14cf7e5a4b166e66b0b9fffa2104c029b7ceaffc56"
 metafile = true
 
 [[files]]
-file = "mods/vs-crumbles.pw.toml"
-hash = "ddf5f0b3c4c757479d0784a79731e24cf2779654c95b1bb1b38d58b1ae9042d4"
-metafile = true
-
-[[files]]
 file = "mods/vs-grapples.pw.toml"
 hash = "1597dbbe293e23f1f8ac60c8760892f45c737cd4c267e539c2c6759eb2480736"
 metafile = true
