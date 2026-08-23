@@ -1,6 +1,122 @@
 hash-format = "sha256"
 
 [[files]]
+file = ".questcache/AdditionalEnchantedMiner-1.20.1-fabric-20.1.1556.jar"
+hash = "4178c00084a917765af144e515497a2d9552bd06603dc43957b7f14af920f74b"
+
+[[files]]
+file = ".questcache/BuildingWands-fabric-MC1.20.1-3.0.5.jar"
+hash = "482fb2fbd4b96c26976f5bcfbea66f0b6fd0fcadf1298a0d93839315f78da739"
+
+[[files]]
+file = ".questcache/DungeonsArise-1.20.1-2.1.57-fabric-release.jar"
+hash = "e8efd54576797faff7cc221e26a41a097e985baa7889398defb15da4135d7cf8"
+
+[[files]]
+file = ".questcache/LuckPerms-Fabric-5.4.102.jar"
+hash = "ad9f6b3459224b5d88774263bd564215f7084c1f7503d15e0bb2c54aafc41582"
+
+[[files]]
+file = ".questcache/MoogsEndStructures-1.20-2.0.3.jar"
+hash = "9142bde3f2e42e609af29d26626c9904ef21586de00e55d989faba1a6d42cc1b"
+
+[[files]]
+file = ".questcache/MoogsMissingVillages-1.20-2.1.1.jar"
+hash = "c630e895888e0092158d5e87affc4533e593d7af797b248b0d3e7cb4c23b0bcc"
+
+[[files]]
+file = ".questcache/MoogsNetherStructures-1.20-3.0.0.jar"
+hash = "b745fd3cdd8bcee4fa10f38ed44fb3244daeb0c85e4417bbcc9b9aa4587cc79c"
+
+[[files]]
+file = ".questcache/MoogsSoaringStructures-1.20-2.1.0.jar"
+hash = "4e5f49cb8d7f6ba6666c1efe595c227a68bbd9186d861ea2d628bb43475fff27"
+
+[[files]]
+file = ".questcache/MoogsStructureLib-fabric-1.20-3.1.0.jar"
+hash = "df9b0d5d39d55ca35d32501f71dcc09f389020dd00abbf1d5030f58b92a0fb22"
+
+[[files]]
+file = ".questcache/MoogsTemplesReimagined-1.20-1.1.3.jar"
+hash = "08a29426d7b84a7080f7ac33a280905419b18b660d7eda746d236b5cd65579bb"
+
+[[files]]
+file = ".questcache/MoogsVoyagerStructures-1.20-5.0.8.jar"
+hash = "584749f9e963313984dacbfbe0aff32f6a99ddd8c662c18a5b44aba375aa2fb1"
+
+[[files]]
+file = ".questcache/ShipRetrievalService-Fabric-1.0.0.jar"
+hash = "d45f97cb04f3e6d6995335380493f3e44b8925bb651d47b5df823951110ab104"
+
+[[files]]
+file = ".questcache/VSChunkLoader-fabric-1.20.1-2.0.3.jar"
+hash = "81a6a85af51205acb047b104f623ddddd6859522d12069d2ff96e16bdc6debeb"
+
+[[files]]
+file = ".questcache/VSplit-fabric-1.20.1-0.4.0.jar"
+hash = "e84c3b50a38220f57d01f304e9684bd18eefa84be057748b5666bc2adf9f1162"
+
+[[files]]
+file = ".questcache/VersionCheckerMod-2.5.0.jar"
+hash = "47bf2a67d0d538cdd34088bfd3e846b2b02d3d493027fb6e65537e594109468e"
+
+[[files]]
+file = ".questcache/accessories-fabric-1.0.0-beta.48+1.20.1.jar"
+hash = "f3d51950f930de8571f3c5a96bf2e22f491efe261047ad8e5cb8925cb5e526c8"
+
+[[files]]
+file = ".questcache/aether-1.20.1-1.5.2-beta.9-fabric.jar"
+hash = "e88cbeb5816f4cfd7042c98f4cd3ae85222d98757cb6e3c89b27e2d5bc9ad60d"
+
+[[files]]
+file = ".questcache/essential_commands-0.35.3-mc1.20.1.jar"
+hash = "bea91038e3c84382e556553a6375e6ef1e8d97bb41f791321888208f8ad7a212"
+
+[[files]]
+file = ".questcache/explore_ruins_aether-1.0.0-fabric-1.20.1.jar"
+hash = "90a7997d2be0fc80aaddfea484c1b90ea49efabae0c42146198be7b5bc00e0d6"
+
+[[files]]
+file = ".questcache/footprint-1.0.0-beta+1.20.1.jar"
+hash = "4ff2aeb5635cdef04387f4aa677e302ac12e1e78fa05d2e50f29cdb966494c55"
+
+[[files]]
+file = ".questcache/grapplemod-1.99.0+1.20.1.beta.fabric.jar"
+hash = "5ba39a69266c8676974e4c26cb1d9bd5e2b94ef815dc451920f5026e443dd6da"
+
+[[files]]
+file = ".questcache/graves-3.0.3+1.20.1.jar"
+hash = "d606625c99a4e9becf743bf9d889aa1b9d65cce92ceedd158cb33169c695c46f"
+
+[[files]]
+file = ".questcache/noisium-fabric-2.3.0+mc1.20-1.20.1.jar"
+hash = "266ef6f28ee69f91acce6ca991121c21f2944e76f366475778347d90d33b491d"
+
+[[files]]
+file = ".questcache/salvage-compat-1.0.0.jar"
+hash = "2f781393b9e6aa36aad9e07694e1bb7939e28619957126637475692d0facb81e"
+
+[[files]]
+file = ".questcache/salvage-ordnance-1.1.0.jar"
+hash = "f8eb929978147c9507f7e81b62765f58dca86d26c8362d8f8d69988452dd4198"
+
+[[files]]
+file = ".questcache/scalable-cats-force-fabric-3.1.8.jar"
+hash = "c6a1ffc19433e8cdc92a2c1d7304bfa8c4cb1e9590b3b8042e964e6b9620ea9e"
+
+[[files]]
+file = ".questcache/spark-1.10.53-fabric.jar"
+hash = "00c034e684fa4471b41539dc29a8d39cc6f22eb29b2fa423895efc978a391d2d"
+
+[[files]]
+file = ".questcache/vs_sup_fix-1.20.1-fabric-2.0.1.jar"
+hash = "edb6be85c3ae91aa0e4889ad9865f3cdf6f5bc25df2812fc6f0f88686e7d4b35"
+
+[[files]]
+file = ".questcache/vsgrapples-0.1.1.jar"
+hash = "fa2e873e4c19e343fa612fefce911787b83b19a5b0e0a58a8a01d060e870a98b"
+
+[[files]]
 file = "config/ftbquests/quests/chapter_groups.snbt"
 hash = "9ceaa8d34734dc530a2dfb41c02ddf5ba5d254c5b7ff525edc282b5e4f00e502"
 
