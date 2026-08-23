@@ -739,11 +739,6 @@ hash = "30cf8ec2e658ebd8d3f694004a4095c15fee422ae7c8a4211cb2415906b3a156"
 metafile = true
 
 [[files]]
-file = "mods/napoleon-weaponry.pw.toml"
-hash = "ebed0326980c8a9db04abfeae4ec546fd4eec4d30bb6256408c7935857b37e54"
-metafile = true
-
-[[files]]
 file = "mods/naturalist.pw.toml"
 hash = "4716b5f3338b4ea22fb4615956b94aaf2c7fff7869d1fa898ffd1fa710b2bc7e"
 metafile = true
