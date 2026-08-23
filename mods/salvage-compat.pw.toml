@@ -1,0 +1,8 @@
+name = "salvage-compat"
+filename = "salvage-compat-1.0.0.jar"
+side = "both"
+
+[download]
+url = "https://github.com/TheKingNate/salvage-compat/releases/download/v1.0.0/salvage-compat-1.0.0.jar"
+hash-format = "sha256"
+hash = "2f781393b9e6aa36aad9e07694e1bb7939e28619957126637475692d0facb81e"
