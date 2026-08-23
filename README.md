@@ -1,6 +1,6 @@
 # Salvage
 
-Minecraft 1.20.1 Fabric modpack. v1.2.0, 165 mods.
+Minecraft 1.20.1 Fabric modpack. v1.3.0, 219 mods.
 
 Buildable, flyable ships from Valkyrien Skies and Clockwork,
 plus Applied Energistics, Create, magic, and sixteen structure
@@ -29,9 +29,10 @@ scripts.
 
 ## Mods
 
-- [EMF] Entity Model Features [Fabric & Forge]
-- [ETF] Entity Texture Features - [Fabric & Forge]
 - 3D Skin Layers
+- Accessories
+- Additional Enchanted Miner
+- Additional Jewelry
 - Advancement Plaques [Fabric]
 - AE2 Things
 - AmbientSounds 6
@@ -40,15 +41,25 @@ scripts.
 - Applied Energistics 2
 - Applied Energistics 2 Wireless Terminals
 - Aquamirae
+- Arch-RPGMana
+- Archers (RPG Series)
+- Archers Expansion (More RPG Classes)
 - Architectury API
+- Archon
+- Artillery & Armory
+- automatic-potato
 - AzureLib
 - AzureLib Armor
 - Balm
+- Bard (RPG Series Plus)
+- Berserker (More RPG Classes)
 - Better Advancements
 - Better Combat
+- BetterWeapons
 - Biolith
 - Bosses of Mass Destruction
 - Bountiful
+- Building Wands
 - Camera Overhaul
 - Cardinal Components API
 - Chunky (Fabric)
@@ -57,35 +68,46 @@ scripts.
 - Collective
 - Continuity
 - Controlling
+- Create Big Cannons
 - Create Crafts & Additions
 - Create Fabric
 - Create: Numismatics
+- Create: Tempered Steel
+- Create: Tools n Weapons
 - CreativeCore
 - Cristel Lib
 - Croptopia
 - Cupboard
+- Death Knights (RPG Series)
 - Deeper Oceans
 - Distant Horizons
+- Druids of Storm and Spirit
 - Easy Anvils
 - Easy Magic
 - Eating Animation
+- Elemental Wizards (More RPG Classes)
 - Enhanced Block Entities
 - Entity Culling
 - EpheroLib
 - Essential Commands
 - Essential Mod
+- Eternal Attributes
 - Euphoria Patches
 - Eureka! Ships! for Valkyrien Skies (Forge/Fabric)
+- Explore Ruins: The Aether - Dungeons & Structures
 - Explorer's Compass
+- Extra RPG Attributes
 - Fabric API
 - Fabric Language Kotlin
 - Fabric Seasons
+- FakerLib
 - Farmer's Delight Refabricated
 - FerriteCore
 - First-person Model
 - Fish of Thieves
 - Flux Networks [Fabric]
 - Footprint
+- Forcemaster (More RPG Classes)
 - Forge Config API Port
 - Fragmentum
 - FTB Chunks (Fabric)
@@ -93,9 +115,10 @@ scripts.
 - FTB Quests (Fabric)
 - FTB Teams (Fabric)
 - Fzzy Config
+- Gazebos (RPG Series)
 - Geckolib
 - Global Packs
-- Grappling Hook: Restitched
+- Grappling Hook Mod: Restitched
 - Hopo Better Underwater Ruins
 - Hybrid Aquatic
 - Iceberg [Fabric]
@@ -103,14 +126,17 @@ scripts.
 - Incendium Legacy
 - Indium
 - Inventory Particles
+- Invocations
 - Iris Shaders
-- Jade 🔍
 - Jade VS
+- Jade 🔍
+- Jewelry (RPG Series)
 - Kambrik
 - Krypton
 - LambDynamicLights - Dynamic Lights
 - Lithium (Fabric/NeoForge)
 - Lithostitched
+- LNE Wizards Add-On
 - Loot Integrations
 - Loot Integrations: Moog's Voyager, Soaring, End & Nether Structures
 - Lost Trinkets Renewed
@@ -129,19 +155,24 @@ scripts.
 - ModernFix
 - Moog's Structure Lib (moogs_structures)
 - Moonlight Lib
+- More RPG Library
 - MossyLib
 - Mouse Tweaks
 - MSS - Moog's Soaring Structures
 - MTR - Moog's Temples Reimagined
+- Musket Mod
 - MVS - Moog's Voyager Structures
 - Naturalist
 - Nature's Compass
+- Necronomicon API
 - Noisium
 - Not Enough Animations
 - Nullscape
-- oωo (owo-lib)
 - Ore Harvester
+- oωo (owo-lib)
+- Paladins & Priests (RPG Series)
 - Particle Rain
+- Patchouli
 - playerAnimator
 - Polytone
 - Powah!
@@ -149,13 +180,24 @@ scripts.
 - Pufferfish's Attributes
 - Pufferfish's Skills
 - Puzzles Lib
+- Ranged Weapon API
 - Reese's Sodium Options
+- Ritchie's Projectile Library
+- Rogues & Warriors (RPG Series)
 - Roughly Enough Items Fabric/Forge/NeoForge (REI)
+- RPGAttr
+- RPG_SkillPower
+- Rune Essence
 - Runes
+- salvage-compat
+- salvage-ordnance
+- Scalable Cat's Force
 - Searchables
+- Shield API
 - Ship In A Bottle
 - Simple Voice Chat
 - Simply Skills
+- Simply Swords
 - Sodium
 - Sodium Extra
 - Sophisticated Core (Unofficial Fabric port)
@@ -164,12 +206,15 @@ scripts.
 - spark
 - Spell Engine
 - Spell Power Attributes
+- Spellblades and Such
 - Structory
 - Structory: Towers
+- Structure Pool API
 - Subtle Effects
 - Supplementaries
 - Tectonic
 - Terralith
+- The Aether
 - Tom's Simple Storage Mod
 - Towns and Towers
 - Traveler's Backpack
@@ -182,10 +227,15 @@ scripts.
 - Valkyrien Skies + Supplementaries Cannon Fix
 - Visuality
 - VLib
+- VS ChunkLoader
+- VS Grapples
 - VS Safe and Sound
+- VS: Ship Retrieval Service
+- VSplit
 - Wakes
 - Waystones
 - When Dungeons Arise
+- Witcher (More RPG Classes)
 - Wizards (RPG Series)
 - Xaero's Minimap
 - Xaero's World Map
@@ -194,3 +244,7 @@ scripts.
 - YUNG's Better Desert Temples (Fabric)
 - YUNG's Better Dungeons (Fabric)
 - YUNG's Better Ocean Monuments (Fabric)
+- Zenith Attributes Renewed
+- Zenith Renewed
+- [EMF] Entity Model Features [Fabric & Forge]
+- [ETF] Entity Texture Features - [Fabric & Forge]
