@@ -1,8 +1,25 @@
 # salvage-tweaks
 
 A GlobalPacks datapack holding the pack's own overrides of other mods' data.
-Loaded from `globalpacks/datapacks/`, which GlobalPacks adds as a pack source;
-it handles unzipped folders as well as zips, so these files ship as-is.
+
+## The directory matters, do not move this
+
+It must live in `global_packs/required_data/`. GlobalPacks 19.3.7 writes its own
+config to `config/global_packs.toml` and reads only the paths listed there:
+
+    [datapacks]
+    required = ["datapacks/", "resourcepacks/", "global_packs/required_data/"]
+    optional = ["global_packs/optional_data/"]
+
+`globalpacks/datapacks/` - which is where this pack shipped its datapacks until
+2026-08-23 - appears nowhere in that list, so nothing in it ever loaded. That was
+not a silent no-op either: BlazeandCave's Advancements Pack had been shipped there
+since the pack began and had never once loaded. Verified by reading a live player's
+`saves/<world>/advancements/<uuid>.json`, which contained zero `blazeandcave` keys.
+
+GlobalPacks accepts an unzipped folder as readily as a zip: its `IS_VALID_DATA_PACK`
+predicate takes any path with a `data/` directory and a `pack.mcmeta` file, so these
+ship as plain packwiz-indexed files with no archive to build or host.
 
 ## `simplyskills` tree spend cap: 42 -> 70
 

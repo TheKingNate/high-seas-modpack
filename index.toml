@@ -153,16 +153,16 @@ file = "config/ftbquests/quests/data.snbt"
 hash = "25068f828a32bea65ad83c1bda71498570af080836e9b97ca66cd03d78c93c7f"
 
 [[files]]
-file = "globalpacks/datapacks/blazeandcaves-advancements-pack.pw.toml"
+file = "global_packs/required_data/blazeandcaves-advancements-pack.pw.toml"
 hash = "9ba27f4b83b2653af61c9d642a77ba842be25c51aac8c1e24385c5169ceb9cdd"
 metafile = true
 
 [[files]]
-file = "globalpacks/datapacks/salvage-tweaks/data/simplyskills/puffish_skills/categories/tree/category.json"
+file = "global_packs/required_data/salvage-tweaks/data/simplyskills/puffish_skills/categories/tree/category.json"
 hash = "789e257aab2c5f2382afd81bacd3718fc7e9f45c9e1b514b1619434933e7727a"
 
 [[files]]
-file = "globalpacks/datapacks/salvage-tweaks/pack.mcmeta"
+file = "global_packs/required_data/salvage-tweaks/pack.mcmeta"
 hash = "f6f8354f1533eb6be616876f766cb16156f198913b5a667d624d38ee03da0bcc"
 
 [[files]]

@@ -420,10 +420,19 @@ def diagnose(inst, log, progress):
     if mods.is_dir():
         jars = sorted(p for p in mods.rglob("*.jar") if p.is_file())
         r["jars"] = len(jars)
-        for p in jars:
-            rel = p.relative_to(mc).as_posix()
-            if rel not in known:
-                r["orphans"].append(rel)
+        # No usable record means no way to tell a stray jar from a real
+        # one, and calling all of them orphans would quarantine the whole
+        # mods folder. Say so instead; option 2 is the fix for that.
+        if not entries:
+            r["warnings"].append(
+                "cannot tell which mods belong to the pack without a "
+                "readable packwiz.json, so stray files were not looked "
+                "for")
+        else:
+            for p in jars:
+                rel = p.relative_to(mc).as_posix()
+                if rel not in known:
+                    r["orphans"].append(rel)
 
     if data:
         url = OLD_URL if r["channel"] == "main" else PACK_URL
@@ -674,8 +683,9 @@ class Repair(tk.Toplevel):
 
         self.choice = tk.Frame(self, bg=BG)
 
-        tk.Label(self, text="Details", bg=BG, fg=DIM, font=(UI, 9, "bold"),
-                 anchor="w").pack(fill="x", padx=36, pady=(14, 4))
+        self.details = tk.Label(self, text="Details", bg=BG, fg=DIM,
+                                font=(UI, 9, "bold"), anchor="w")
+        self.details.pack(fill="x", padx=36, pady=(14, 4))
         self.out = scrolledtext.ScrolledText(
             self, height=10, bg="#14161b", fg=DIM, relief="flat",
             font=(MONO, 9), wrap="word", padx=12, pady=8, borderwidth=0,
@@ -693,8 +703,20 @@ class Repair(tk.Toplevel):
                    command=self.destroy).pack(side="left", padx=(10, 0))
 
     # -- called from the worker thread -------------------------------
+    def post(self, fn, *args):
+        """Hand work back to the UI thread, quietly if the window is gone.
+
+        The worker outlives a close, and hashing 160 jars is long enough
+        for someone to shut the window halfway through.
+        """
+        try:
+            if self.winfo_exists():
+                self.after(0, fn, *args)
+        except tk.TclError:
+            pass
+
     def log(self, msg=""):
-        self.after(0, self._log, msg)
+        self.post(self._log, msg)
 
     def _log(self, msg):
         self.out.configure(state="normal")
@@ -703,7 +725,7 @@ class Repair(tk.Toplevel):
         self.out.configure(state="disabled")
 
     def progress(self, n, total, label):
-        self.after(0, self._progress, n, total, label)
+        self.post(self._progress, n, total, label)
 
     def _progress(self, n, total, label):
         self.bar.configure(maximum=max(total, 1), value=n)
@@ -721,9 +743,9 @@ class Repair(tk.Toplevel):
         except Exception as e:
             self.log("")
             self.log("Stopped: %s" % e)
-            self.after(0, self._card, "Couldn't finish the check", str(e)
-                       + "\n\nClose this and try again.", BAD)
-            self.after(0, self._offer_close)
+            self.post(self._card, "Couldn't finish the check",
+                      str(e) + "\n\nClose this and try again.", BAD)
+            self.post(self._offer_close)
 
     def _diagnose(self):
         found = salvage_instances()
@@ -731,12 +753,12 @@ class Repair(tk.Toplevel):
             self.log("No Salvage install found on this computer.")
             for d in prism_candidates():
                 self.log("  looked in %s" % (d / "instances"))
-            self.after(0, self._card, "Nothing to check",
-                       "No Salvage instance was found, so there is "
-                       "nothing to report on. If Prism is installed "
-                       "somewhere unusual, say so and it can be added.",
-                       BAD)
-            self.after(0, self._offer_close)
+            self.post(self._card, "Nothing to check",
+                      "No Salvage instance was found, so there is "
+                      "nothing to report on. If Prism is installed "
+                      "somewhere unusual, say so and it can be added.",
+                      BAD)
+            self.post(self._offer_close)
             return
 
         self.log("Found %d instance(s)." % len(found))
@@ -758,7 +780,7 @@ class Repair(tk.Toplevel):
                                    ["nothing (diagnose only)"], self.stamp)
         self.log("")
         self.log("Report written to %s" % self.report)
-        self.after(0, self._diagnosed)
+        self.post(self._diagnosed)
 
     def _diagnosed(self):
         self.bar.configure(value=self.bar["maximum"])
@@ -785,9 +807,15 @@ class Repair(tk.Toplevel):
         self.btn.state(["!disabled"])
 
     def _build_choice(self):
-        self.choice.pack(fill="x", padx=36, pady=(14, 0))
+        # before= matters: pack() appends, and the log and buttons are
+        # already in the order, so without it the options land underneath
+        # them at the bottom of the window.
+        self.choice.pack(fill="x", padx=36, pady=(14, 0),
+                         before=self.details)
 
         if len(self.results) > 1:
+            # Room for one row per instance, so the buttons stay visible.
+            self.geometry("700x%d" % (720 + 26 * len(self.results)))
             tk.Label(self.choice, text="Which instance", bg=BG, fg=DIM,
                      font=(UI, 9, "bold"), anchor="w").pack(fill="x")
             for i, r in enumerate(self.results):
@@ -845,11 +873,11 @@ class Repair(tk.Toplevel):
         except Exception as e:
             self.log("")
             self.log("Stopped: %s" % e)
-            self.after(0, self._card, "Couldn't finish the repair",
-                       "%s\n\nNothing was deleted. Anything already "
-                       "moved is in %s inside the instance."
-                       % (e, QUARANTINE), BAD)
-            self.after(0, self._offer_close)
+            self.post(self._card, "Couldn't finish the repair",
+                      "%s\n\nNothing was deleted. Anything already "
+                      "moved is in %s inside the instance."
+                      % (e, QUARANTINE), BAD)
+            self.post(self._offer_close)
 
     def _repair(self, r, rung):
         mc = r["mc"]
@@ -874,7 +902,12 @@ class Repair(tk.Toplevel):
             changes.append("%s: moved %d file(s) to %s/%s/"
                            % (r["label"], len(moved), QUARANTINE,
                               self.stamp))
-            changes += ["  " + m for m in moved]
+            # Option 3 moves a few hundred files. The quarantine folder
+            # is the real record; the report only needs to be readable.
+            changes += ["  " + f for f in moved[:40]]
+            if len(moved) > 40:
+                changes.append("  ... and %d more, all listed in that "
+                               "folder" % (len(moved) - 40))
         else:
             changes.append("%s: nothing needed moving" % r["label"])
         changes.append("repair option %d was used" % rung)
@@ -883,7 +916,7 @@ class Repair(tk.Toplevel):
         self.log("")
         self.log("Moved %d file(s)." % len(moved))
         self.log("Report updated: %s" % self.report)
-        self.after(0, self._repaired, len(moved))
+        self.post(self._repaired, len(moved))
 
     def _repaired(self, count):
         self.bar.stop()
