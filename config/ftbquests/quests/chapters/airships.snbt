@@ -1,0 +1,319 @@
+{
+	id: "835CCD61C43A6B2A"
+	group: "923242509E887B15"
+	icon: "vs_clockwork:propeller_blade"
+	default_quest_shape: ""
+	filename: "airships"
+	title: "Airships"
+	subtitle: ["The pack's whole point"]
+	order_index: 11
+	quests: [
+		{
+			x: 0.0d
+			y: 0.0d
+			id: "DE4348348CC801F9"
+			title: "Lift"
+			description: ["Craft four Balloons.", "", "Eureka balloons are the cheapest way off the water."]
+			dependencies: ["0A3D556B349B66CA", "12C2720033D9CC48"]
+			min_required_dependencies: 1
+			tasks: [
+				{
+					id: "F497B2FF8559C393"
+					type: "item"
+					item: "vs_eureka:balloon"
+					count: 4L
+				}
+			]
+			rewards: [
+				{
+					id: "A00D595317A79429"
+					type: "xp"
+					xp: 60
+				}
+			]
+		}
+		{
+			x: 2.0d
+			y: 0.0d
+			id: "FD49074DC5E4DB9D"
+			title: "Trim The Boat"
+			description: ["Craft a Ballast.", "", "Balloons push up. Ballast argues back. You want both."]
+			dependencies: ["DE4348348CC801F9"]
+			tasks: [
+				{
+					id: "AE26FB04B15BD5AD"
+					type: "item"
+					item: "vs_eureka:ballast"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "2E978770155475A1"
+					type: "xp"
+					xp: 40
+				}
+			]
+		}
+		{
+			x: 2.0d
+			y: -2.0d
+			id: "2E84C0368EB7C931"
+			title: "Cheap Buoyancy"
+			description: ["Craft sixteen Floaters.", "", "Bulk lift for a hull that isn't worth balloons."]
+			dependencies: ["FD49074DC5E4DB9D"]
+			tasks: [
+				{
+					id: "413DF9EC4D899E70"
+					type: "item"
+					item: "vs_eureka:floater"
+					count: 16L
+				}
+			]
+			rewards: [
+				{
+					id: "844823C289EC38F1"
+					type: "xp"
+					xp: 40
+				}
+			]
+		}
+		{
+			x: 4.0d
+			y: 0.0d
+			id: "F491005662B8A6C9"
+			title: "Hold Her Still"
+			description: ["Craft an Anchor."]
+			dependencies: ["2E84C0368EB7C931"]
+			tasks: [
+				{
+					id: "8131B52CD301720D"
+					type: "item"
+					item: "vs_eureka:anchor"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "38B129149DE1CE09"
+					type: "xp"
+					xp: 40
+				}
+			]
+		}
+		{
+			x: 6.0d
+			y: 0.0d
+			id: "39464BF4A4A8B5A4"
+			title: "Physics Infuser"
+			description: ["Craft a Physics Infuser.", "", "Clockwork starts here. Everything below needs one."]
+			dependencies: ["F491005662B8A6C9"]
+			tasks: [
+				{
+					id: "3AB1613A7D69BC6D"
+					type: "item"
+					item: "vs_clockwork:physics_infuser"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "A89A4A630F86E13F"
+					type: "xp"
+					xp: 80
+				}
+			]
+		}
+		{
+			x: 8.0d
+			y: 0.0d
+			id: "D35D056A1F66B467"
+			title: "First Rotor"
+			description: ["Craft a Jury-rigged Propeller Bearing and four Blades."]
+			dependencies: ["39464BF4A4A8B5A4"]
+			tasks: [
+				{
+					id: "1EB025FD5A9119AB"
+					type: "item"
+					item: "vs_clockwork:juryrigged_propeller_bearing"
+					count: 1L
+				},
+				{
+					id: "707F9846872D0C10"
+					type: "item"
+					item: "vs_clockwork:propeller_blade"
+					count: 4L
+				}
+			]
+			rewards: [
+				{
+					id: "15B513DB5211165C"
+					type: "xp"
+					xp: 100
+				}
+			]
+		}
+		{
+			x: 10.0d
+			y: 0.0d
+			id: "8BE2594723AB1534"
+			title: "Proper Rotor"
+			description: ["Craft a Brass Propeller Bearing and four Wide Blades.", "", "More bite per rotation. Costs more brass."]
+			dependencies: ["D35D056A1F66B467"]
+			tasks: [
+				{
+					id: "353F98F949603D4C"
+					type: "item"
+					item: "vs_clockwork:brass_propeller_bearing"
+					count: 1L
+				},
+				{
+					id: "18323D09C35FA182"
+					type: "item"
+					item: "vs_clockwork:wide_propeller_blade"
+					count: 4L
+				}
+			]
+			rewards: [
+				{
+					id: "9FA6EDD4D943231B"
+					type: "xp"
+					xp: 120
+				}
+			]
+		}
+		{
+			x: 10.0d
+			y: -2.0d
+			id: "9D29457A49DF42DB"
+			title: "Instruments"
+			description: ["Craft an Altimeter and a Gyro.", "", "Knowing which way is up stops being obvious very quickly."]
+			dependencies: ["8BE2594723AB1534"]
+			tasks: [
+				{
+					id: "8B73142625D9718C"
+					type: "item"
+					item: "vs_clockwork:alt_meter"
+					count: 1L
+				},
+				{
+					id: "9C8B3AD39C815C4E"
+					type: "item"
+					item: "vs_clockwork:gyro"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "F9748F5F4BEC3A4F"
+					type: "xp"
+					xp: 80
+				}
+			]
+		}
+		{
+			x: 12.0d
+			y: 0.0d
+			id: "4459ECFD7594EA85"
+			title: "Controls"
+			description: ["Craft a Blade Controller and a Command Seat."]
+			dependencies: ["9D29457A49DF42DB"]
+			tasks: [
+				{
+					id: "9FB6636089554DB3"
+					type: "item"
+					item: "vs_clockwork:blade_controller"
+					count: 1L
+				},
+				{
+					id: "CDA7FD1E2875817C"
+					type: "item"
+					item: "vs_clockwork:command_seat"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "0EFD6B63381DA893"
+					type: "xp"
+					xp: 120
+				}
+			]
+		}
+		{
+			x: 14.0d
+			y: 0.0d
+			id: "3080C0B3846E1578"
+			title: "Power"
+			description: ["Craft a Combustion Engine."]
+			dependencies: ["4459ECFD7594EA85"]
+			tasks: [
+				{
+					id: "F071F4FB3630E7A4"
+					type: "item"
+					item: "vs_clockwork:combustion_engine"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "42A3B95444D2A0AA"
+					type: "xp"
+					xp: 140
+				}
+			]
+		}
+		{
+			x: 16.0d
+			y: 0.0d
+			id: "D4FEBDD377F27E88"
+			title: "Aeronaut"
+			description: ["Craft a pair of Aeronaut Goggles."]
+			dependencies: ["3080C0B3846E1578"]
+			tasks: [
+				{
+					id: "0881385B5035273B"
+					type: "item"
+					item: "vs_clockwork:aeronaut_goggles"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "D8F3987E7E37F44B"
+					type: "xp"
+					xp: 100
+				}
+			]
+		}
+		{
+			x: 18.0d
+			y: 0.0d
+			id: "87896006B6C1C001"
+			title: "Take To The Air"
+			description: ["Assemble an airship and fly it.", "", "Nothing can verify this one. On your honour."]
+			dependencies: ["D4FEBDD377F27E88"]
+			tasks: [
+				{
+					id: "1B9717931B347DB5"
+					type: "checkmark"
+					title: "Fly an airship"
+				}
+			]
+			rewards: [
+				{
+					id: "E2475AF3E6980134"
+					type: "xp"
+					xp: 300
+				},
+				{
+					id: "F2EF03B9A06E7377"
+					type: "command"
+					title: "2 Skill Points"
+					command: "/puffish_skills points add @p tree 2"
+					player_command: false
+				}
+			]
+		}
+	]
+}

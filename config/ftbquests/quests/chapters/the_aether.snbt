@@ -1,0 +1,306 @@
+{
+	id: "E29268CB224C5D2A"
+	group: "923242509E887B15"
+	icon: "aether:ambrosium_shard"
+	default_quest_shape: ""
+	filename: "the_aether"
+	title: "The Aether"
+	subtitle: ["Up, not down"]
+	order_index: 13
+	quests: [
+		{
+			x: 0.0d
+			y: 0.0d
+			id: "10FD8D8B105C2D34"
+			title: "Above The Clouds"
+			description: ["Reach the Aether.", "", "Glowstone frame, water bucket."]
+			dependencies: ["6670EB122D75D446"]
+			tasks: [
+				{
+					id: "405EAE08E1839321"
+					type: "dimension"
+					dimension: "aether:the_aether"
+				}
+			]
+			rewards: [
+				{
+					id: "001D13D0FF1EF838"
+					type: "xp"
+					xp: 150
+				}
+			]
+		}
+		{
+			x: 2.0d
+			y: 0.0d
+			id: "19A4E89CB06C56DA"
+			title: "Ground Stone"
+			description: ["Gather sixteen Holystone."]
+			dependencies: ["10FD8D8B105C2D34"]
+			tasks: [
+				{
+					id: "8CD2DA5EF03FB81E"
+					type: "item"
+					item: "aether:holystone"
+					count: 16L
+				}
+			]
+			rewards: [
+				{
+					id: "48CBFB7BDF200A06"
+					type: "xp"
+					xp: 60
+				}
+			]
+		}
+		{
+			x: 4.0d
+			y: 0.0d
+			id: "4DBE9FC0F195F62E"
+			title: "First Fuel"
+			description: ["Gather four Ambrosium Shards."]
+			dependencies: ["19A4E89CB06C56DA"]
+			tasks: [
+				{
+					id: "73A5B4945BDFBFBE"
+					type: "item"
+					item: "aether:ambrosium_shard"
+					count: 4L
+				}
+			]
+			rewards: [
+				{
+					id: "EBA47591752208F4"
+					type: "xp"
+					xp: 60
+				}
+			]
+		}
+		{
+			x: 6.0d
+			y: 0.0d
+			id: "C8DD128AD80C30B8"
+			title: "Skyroot"
+			description: ["Gather eight Skyroot Logs and craft a Skyroot Pickaxe."]
+			dependencies: ["4DBE9FC0F195F62E"]
+			tasks: [
+				{
+					id: "92141911B5D0731A"
+					type: "item"
+					item: "aether:skyroot_log"
+					count: 8L
+				},
+				{
+					id: "B070D86F4DE89A41"
+					type: "item"
+					item: "aether:skyroot_pickaxe"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "A389ADB1659C2799"
+					type: "xp"
+					xp: 80
+				}
+			]
+		}
+		{
+			x: 8.0d
+			y: 0.0d
+			id: "AB2005B87F303F9F"
+			title: "Harder Stone"
+			description: ["Craft a Holystone Pickaxe."]
+			dependencies: ["C8DD128AD80C30B8"]
+			tasks: [
+				{
+					id: "546C63388782AFFF"
+					type: "item"
+					item: "aether:holystone_pickaxe"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "6C8D805CEC2B867A"
+					type: "xp"
+					xp: 80
+				}
+			]
+		}
+		{
+			x: 10.0d
+			y: 0.0d
+			id: "987C6D758F3974E7"
+			title: "Zanite"
+			description: ["Mine four Zanite Gemstones and craft a Zanite Pickaxe."]
+			dependencies: ["AB2005B87F303F9F"]
+			tasks: [
+				{
+					id: "F16F72DEF4AAEB07"
+					type: "item"
+					item: "aether:zanite_gemstone"
+					count: 4L
+				},
+				{
+					id: "4AB3F27E5CC44E15"
+					type: "item"
+					item: "aether:zanite_pickaxe"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "A1929DBE13FE5C07"
+					type: "xp"
+					xp: 120
+				}
+			]
+		}
+		{
+			x: 10.0d
+			y: -2.0d
+			id: "8568AF441AC3BDD8"
+			title: "Amber"
+			description: ["Find Golden Amber.", "", "It hides in Golden Oak. You need a Zanite axe to get it out."]
+			dependencies: ["987C6D758F3974E7"]
+			tasks: [
+				{
+					id: "A298E0E854AB920B"
+					type: "item"
+					item: "aether:golden_amber"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "4D708D32C8697427"
+					type: "xp"
+					xp: 100
+				}
+			]
+		}
+		{
+			x: 12.0d
+			y: 0.0d
+			id: "03AB6D3F8E5C3280"
+			title: "A Mount"
+			description: ["Obtain a Blue Moa Egg."]
+			dependencies: ["8568AF441AC3BDD8"]
+			tasks: [
+				{
+					id: "618E08501CD29FBA"
+					type: "item"
+					item: "aether:blue_moa_egg"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "34F0C571119E5B3D"
+					type: "xp"
+					xp: 120
+				}
+			]
+		}
+		{
+			x: 14.0d
+			y: 0.0d
+			id: "5F9EF76C0468E2AC"
+			title: "Bronze Dungeon"
+			description: ["Find a Bronze Key."]
+			dependencies: ["03AB6D3F8E5C3280"]
+			tasks: [
+				{
+					id: "5D25C21CF09D43B2"
+					type: "item"
+					item: "aether:bronze_dungeon_key"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "2FE4D4A0280BD338"
+					type: "xp"
+					xp: 160
+				}
+			]
+		}
+		{
+			x: 16.0d
+			y: 0.0d
+			id: "A3D34E3F48C686EA"
+			title: "The Slider"
+			description: ["Kill the Slider."]
+			dependencies: ["5F9EF76C0468E2AC"]
+			tasks: [
+				{
+					id: "86139A8F55EAD53E"
+					type: "kill"
+					entity: "aether:slider"
+					value: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "83D360D1A2B98EA2"
+					type: "xp"
+					xp: 300
+				}
+			]
+		}
+		{
+			x: 18.0d
+			y: 0.0d
+			id: "E7E8599C3FF5B42C"
+			title: "Gravitite"
+			description: ["Craft a Gravitite Pickaxe."]
+			dependencies: ["A3D34E3F48C686EA"]
+			tasks: [
+				{
+					id: "1775503468ED569F"
+					type: "item"
+					item: "aether:gravitite_pickaxe"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "97639AB03E79AFD9"
+					type: "xp"
+					xp: 250
+				}
+			]
+		}
+		{
+			x: 20.0d
+			y: 0.0d
+			id: "30866B58DC0E40A7"
+			title: "The Valkyrie Queen"
+			description: ["Kill the Valkyrie Queen."]
+			dependencies: ["E7E8599C3FF5B42C"]
+			tasks: [
+				{
+					id: "43AAF686F22B3324"
+					type: "kill"
+					entity: "aether:valkyrie_queen"
+					value: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "B87576C71DFF2495"
+					type: "xp"
+					xp: 400
+				},
+				{
+					id: "01285AD82D2F5EB7"
+					type: "command"
+					title: "2 Skill Points"
+					command: "/puffish_skills points add @p tree 2"
+					player_command: false
+				}
+			]
+		}
+	]
+}

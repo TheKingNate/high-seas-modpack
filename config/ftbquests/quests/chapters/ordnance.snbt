@@ -1,0 +1,396 @@
+{
+	id: "D83C20FA13CC2128"
+	group: "AB8CEE6310D5FD25"
+	icon: "createbigcannons:he_shell"
+	default_quest_shape: ""
+	filename: "ordnance"
+	title: "Ordnance"
+	subtitle: ["Guns, and things to put in them"]
+	order_index: 12
+	quests: [
+		{
+			x: 0.0d
+			y: 0.0d
+			id: "D80CDD42F68FC6F6"
+			title: "The Foundry"
+			description: ["Craft a Basin Foundry Lid.", "", "Cannons are cast, not crafted. This melts the metal."]
+			dependencies: ["8D13A81803954F41", "12C2720033D9CC48"]
+			min_required_dependencies: 1
+			tasks: [
+				{
+					id: "7F69FFFE71B7F41F"
+					type: "item"
+					item: "createbigcannons:basin_foundry_lid"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "EC41DB954B4D49A4"
+					type: "xp"
+					xp: 60
+				}
+			]
+		}
+		{
+			x: 2.0d
+			y: 0.0d
+			id: "9BC1C1E81611C31E"
+			title: "Sand"
+			description: ["Gather eight Casting Sand."]
+			dependencies: ["D80CDD42F68FC6F6"]
+			tasks: [
+				{
+					id: "529A845C99DCCFE9"
+					type: "item"
+					item: "createbigcannons:casting_sand"
+					count: 8L
+				}
+			]
+			rewards: [
+				{
+					id: "59B8213DE88A2BED"
+					type: "xp"
+					xp: 40
+				}
+			]
+		}
+		{
+			x: 4.0d
+			y: 0.0d
+			id: "2DB9A1C0B2DD6FBA"
+			title: "First Casting"
+			description: ["Cast a Cast Iron Cannon Barrel."]
+			dependencies: ["9BC1C1E81611C31E"]
+			tasks: [
+				{
+					id: "E01B02671774DD0E"
+					type: "item"
+					item: "createbigcannons:cast_iron_cannon_barrel"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "503AC410076D7D74"
+					type: "xp"
+					xp: 100
+				}
+			]
+		}
+		{
+			x: 6.0d
+			y: 0.0d
+			id: "5B39BB24663674F7"
+			title: "Bore It Out"
+			description: ["Craft a Cannon Drill.", "", "It needs water as well as rotation, and its speed must", "match the lathe."]
+			dependencies: ["2DB9A1C0B2DD6FBA"]
+			tasks: [
+				{
+					id: "8B823DF7E7431B3B"
+					type: "item"
+					item: "createbigcannons:cannon_drill"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "64FC251583604309"
+					type: "xp"
+					xp: 100
+				}
+			]
+		}
+		{
+			x: 8.0d
+			y: 0.0d
+			id: "06F10EB831B26FC7"
+			title: "A Complete Gun"
+			description: ["Cast a chamber and a cannon end.", "", "Barrel, chamber, end. The end is the sealed rear, not the muzzle."]
+			dependencies: ["5B39BB24663674F7"]
+			tasks: [
+				{
+					id: "056F233F857ECEE3"
+					type: "item"
+					item: "createbigcannons:cast_iron_cannon_chamber"
+					count: 1L
+				},
+				{
+					id: "EE250B3E0DEFFBCC"
+					type: "item"
+					item: "createbigcannons:cast_iron_cannon_end"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "40AC49A242BCDF68"
+					type: "xp"
+					xp: 120
+				}
+			]
+		}
+		{
+			x: 10.0d
+			y: 0.0d
+			id: "DA1B97548051734D"
+			title: "Mount It"
+			description: ["Craft a Cannon Mount.", "", "Power the hammer face to assemble. Power the lit face to fire."]
+			dependencies: ["06F10EB831B26FC7"]
+			tasks: [
+				{
+					id: "E84276404C2CC49F"
+					type: "item"
+					item: "createbigcannons:cannon_mount"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "B23F13D07EE95692"
+					type: "xp"
+					xp: 120
+				}
+			]
+		}
+		{
+			x: 12.0d
+			y: 0.0d
+			id: "96770FBF81D3B5A3"
+			title: "Powder And Ram"
+			description: ["Craft eight Powder Charges and a Ram Rod.", "", "Cast iron takes two charges. A third bursts it."]
+			dependencies: ["DA1B97548051734D"]
+			tasks: [
+				{
+					id: "108FDBE122D7B0D1"
+					type: "item"
+					item: "createbigcannons:powder_charge"
+					count: 8L
+				},
+				{
+					id: "D1EF2C00045D0AC3"
+					type: "item"
+					item: "createbigcannons:ram_rod"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "C9251F0EDAEEB43E"
+					type: "xp"
+					xp: 100
+				}
+			]
+		}
+		{
+			x: 14.0d
+			y: 0.0d
+			id: "627AE0FF85589E13"
+			title: "Shells"
+			description: ["Craft four HE and four AP shells."]
+			dependencies: ["96770FBF81D3B5A3"]
+			tasks: [
+				{
+					id: "7DF1D7CFC264CF6C"
+					type: "item"
+					item: "createbigcannons:he_shell"
+					count: 4L
+				},
+				{
+					id: "6292E4004FDDCEDC"
+					type: "item"
+					item: "createbigcannons:ap_shell"
+					count: 4L
+				}
+			]
+			rewards: [
+				{
+					id: "9498C8E0EC96013D"
+					type: "xp"
+					xp: 140
+				}
+			]
+		}
+		{
+			x: 16.0d
+			y: 0.0d
+			id: "92BC867E1831281E"
+			title: "Mark One"
+			description: ["Craft an HE Shell Mk.I and an AP Shell Mk.I.", "", "Needs two charges. A cast iron gun will fire these."]
+			dependencies: ["627AE0FF85589E13"]
+			tasks: [
+				{
+					id: "6113B9114C82AB5C"
+					type: "item"
+					item: "salvage_ordnance:he_shell_mk1"
+					count: 1L
+				},
+				{
+					id: "44780470929067CE"
+					type: "item"
+					item: "salvage_ordnance:ap_shell_mk1"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "2F9F32C9ADB7554F"
+					type: "xp"
+					xp: 160
+				}
+			]
+		}
+		{
+			x: 18.0d
+			y: 0.0d
+			id: "C7E87F0BCF6F4163"
+			title: "Bronze Founding"
+			description: ["Cast a Bronze Cannon Barrel and a Bronze Cannon End.", "", "Bronze takes four charges and up to six barrels."]
+			dependencies: ["92BC867E1831281E"]
+			tasks: [
+				{
+					id: "F7ED61567FB3E211"
+					type: "item"
+					item: "createbigcannons:bronze_cannon_barrel"
+					count: 1L
+				},
+				{
+					id: "A51ADBD5B0097531"
+					type: "item"
+					item: "createbigcannons:bronze_cannon_end"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "89AE485F610C6DA8"
+					type: "xp"
+					xp: 180
+				}
+			]
+		}
+		{
+			x: 20.0d
+			y: 0.0d
+			id: "193CAA8563F8FF1D"
+			title: "Mark Two"
+			description: ["Craft an HE Shell Mk.II and an AP Shell Mk.II.", "", "Three charges. Cast iron cannot fire these."]
+			dependencies: ["C7E87F0BCF6F4163"]
+			tasks: [
+				{
+					id: "0BF7D9D20EFB31F3"
+					type: "item"
+					item: "salvage_ordnance:he_shell_mk2"
+					count: 1L
+				},
+				{
+					id: "4F068E9C1F9514F1"
+					type: "item"
+					item: "salvage_ordnance:ap_shell_mk2"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "6A845CBBFC79DA36"
+					type: "xp"
+					xp: 200
+				}
+			]
+		}
+		{
+			x: 22.0d
+			y: 0.0d
+			id: "D6A692A0A10618F4"
+			title: "Built Up"
+			description: ["Build a Steel Cannon Barrel and a Steel Screw Breech.", "", "Steel cannons are layered and heat-treated, not cast.", "There is no steel cannon end - steel needs a breech."]
+			dependencies: ["193CAA8563F8FF1D"]
+			tasks: [
+				{
+					id: "6C3D69EF9AB44886"
+					type: "item"
+					item: "createbigcannons:steel_cannon_barrel"
+					count: 1L
+				},
+				{
+					id: "F7F7EC4687DB9826"
+					type: "item"
+					item: "createbigcannons:steel_screw_breech"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "3DE2EC2F8A83D329"
+					type: "xp"
+					xp: 250
+				}
+			]
+		}
+		{
+			x: 24.0d
+			y: 0.0d
+			id: "AC9BA3DAB0B2505F"
+			title: "Mark Three"
+			description: ["Craft an HE Shell Mk.III and an AP Shell Mk.III.", "", "Five charges. Steel or nethersteel only."]
+			dependencies: ["D6A692A0A10618F4"]
+			tasks: [
+				{
+					id: "D7B5BDD13545ED49"
+					type: "item"
+					item: "salvage_ordnance:he_shell_mk3"
+					count: 1L
+				},
+				{
+					id: "0A9B925B17190890"
+					type: "item"
+					item: "salvage_ordnance:ap_shell_mk3"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "BF5F79EBB2D41AB4"
+					type: "xp"
+					xp: 300
+				},
+				{
+					id: "BB24472B6DAA6C2F"
+					type: "command"
+					title: "1 Skill Point"
+					command: "/puffish_skills points add @p tree 1"
+					player_command: false
+				}
+			]
+		}
+		{
+			x: 26.0d
+			y: 0.0d
+			id: "39960EFADAFD8966"
+			title: "Sink Something"
+			description: ["Put a Mk.III through someone else's hull.", "", "Nothing can verify this one."]
+			dependencies: ["AC9BA3DAB0B2505F"]
+			tasks: [
+				{
+					id: "7070A03A44D7875E"
+					type: "checkmark"
+					title: "Sink a ship"
+				}
+			]
+			rewards: [
+				{
+					id: "E3A5F2D643E87E0C"
+					type: "xp"
+					xp: 350
+				},
+				{
+					id: "D2C1EC5CEFC08259"
+					type: "command"
+					title: "2 Skill Points"
+					command: "/puffish_skills points add @p tree 2"
+					player_command: false
+				}
+			]
+		}
+	]
+}

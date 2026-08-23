@@ -119,13 +119,6 @@
 					id: "D5A20274483D527D"
 					type: "xp"
 					xp: 150
-				},
-				{
-					id: "942EB944C52E4F5F"
-					type: "command"
-					title: "1 Skill Point"
-					command: "/puffish_skills points add @p tree 1"
-					player_command: false
 				}
 			]
 		}
@@ -152,8 +145,8 @@
 				{
 					id: "8D3D793207677457"
 					type: "command"
-					title: "2 Skill Points"
-					command: "/puffish_skills points add @p tree 2"
+					title: "1 Skill Point"
+					command: "/puffish_skills points add @p tree 1"
 					player_command: false
 				}
 			]
