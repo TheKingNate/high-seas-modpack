@@ -1,5 +1,5 @@
 {
-	id: "A7AB563045A33D29"
+	id: "3DA59ED10DC38092"
 	group: ""
 	icon: "minecraft:gunpowder"
 	default_quest_shape: ""
@@ -11,24 +11,24 @@
 		{
 			x: 0.0d
 			y: 0.0d
-			id: "DB772D8A56032ABA"
+			id: "8D13A81803954F41"
 			title: "Powder And Shot"
 			description: ["Craft a Supplementaries cannon."]
 			tasks: [
 				{
-					id: "05A6A46ECC9BC30B"
+					id: "ECE9DB41067E8FA7"
 					type: "checkmark"
 					title: "Craft a cannon"
 				}
 			]
 			rewards: [
 				{
-					id: "F44F51328C3A5F91"
+					id: "605A4880C6254C31"
 					type: "xp"
 					xp: 60
 				},
 				{
-					id: "B8AC29FFE1133CFC"
+					id: "3E46DC2CE99BF9F1"
 					type: "command"
 					title: "3 Skill Points"
 					command: "/puffish_skills points add @p combat 3"
@@ -39,25 +39,25 @@
 		{
 			x: 2.0d
 			y: 0.0d
-			id: "B9B6E4BCD6FABB1C"
+			id: "6EBA127DE8687606"
 			title: "Broadside"
 			description: ["Mount cannons on your ship."]
-			dependencies: ["DB772D8A56032ABA"]
+			dependencies: ["8D13A81803954F41"]
 			tasks: [
 				{
-					id: "C30E3BC7878F5701"
+					id: "68AE8E1659641CAF"
 					type: "checkmark"
 					title: "Mount a cannon on a ship"
 				}
 			]
 			rewards: [
 				{
-					id: "75EF6BDF930ADA20"
+					id: "89BE5CC09EA4BBE7"
 					type: "xp"
 					xp: 60
 				},
 				{
-					id: "24E7ED48ED2E542C"
+					id: "A14CC351C46E05F7"
 					type: "command"
 					title: "3 Skill Points"
 					command: "/puffish_skills points add @p combat 3"
@@ -68,25 +68,25 @@
 		{
 			x: 4.0d
 			y: 0.0d
-			id: "6BDE07F9A3584BE4"
+			id: "BF0806239AF35AF2"
 			title: "Silence A Gun"
 			description: ["Kill a pirate cannoneer.", "", "Each cannoneer runs one cannon. Kill them and that gun", "stops firing."]
-			dependencies: ["B9B6E4BCD6FABB1C"]
+			dependencies: ["6EBA127DE8687606"]
 			tasks: [
 				{
-					id: "C9E05E56EADE94A0"
+					id: "DEB3580186EB2869"
 					type: "checkmark"
 					title: "Kill a pirate cannoneer"
 				}
 			]
 			rewards: [
 				{
-					id: "FF6391E9013928B1"
+					id: "EAF4119448176634"
 					type: "xp"
 					xp: 80
 				},
 				{
-					id: "A017DB3ECEF62896"
+					id: "2C34CB17400F55B9"
 					type: "command"
 					title: "4 Skill Points"
 					command: "/puffish_skills points add @p combat 4"
@@ -97,25 +97,25 @@
 		{
 			x: 6.0d
 			y: 0.0d
-			id: "5B1A60D276E862A6"
+			id: "19C4170C3BAD54FE"
 			title: "Dead In The Water"
 			description: ["Kill a pirate helmsman.", "", "The helmsman drives the ship. Kill them and it stops."]
-			dependencies: ["6BDE07F9A3584BE4"]
+			dependencies: ["BF0806239AF35AF2"]
 			tasks: [
 				{
-					id: "34637ADC985CC072"
+					id: "2F727F518FD80CE1"
 					type: "checkmark"
 					title: "Kill a pirate helmsman"
 				}
 			]
 			rewards: [
 				{
-					id: "8A53E1F25A04DFF7"
+					id: "ECDED57BB621EA48"
 					type: "xp"
 					xp: 100
 				},
 				{
-					id: "7EF40152FFC6485C"
+					id: "8CBCD891C0B158B6"
 					type: "command"
 					title: "5 Skill Points"
 					command: "/puffish_skills points add @p combat 5"
@@ -126,31 +126,31 @@
 		{
 			x: 8.0d
 			y: 0.0d
-			id: "8EBE2AA2363CAA6A"
+			id: "79F2F84E0F86B0AA"
 			title: "Plunder"
 			description: ["Board a pirate ship and take its cargo."]
-			dependencies: ["5B1A60D276E862A6"]
+			dependencies: ["19C4170C3BAD54FE"]
 			tasks: [
 				{
-					id: "F6E00D554C654CF5"
+					id: "FB5F6BBD483CDED3"
 					type: "checkmark"
 					title: "Loot a pirate ship"
 				}
 			]
 			rewards: [
 				{
-					id: "B90B5A450900B403"
+					id: "437424D0D9093FBC"
 					type: "xp"
 					xp: 120
 				},
 				{
-					id: "12E49BE1ABA8A270"
+					id: "1A08F040B983AB9C"
 					type: "item"
 					item: "minecraft:gold_ingot"
 					count: 16
 				},
 				{
-					id: "53CEE2F5ECDC5F57"
+					id: "55BBE0E0D1369F14"
 					type: "command"
 					title: "5 Skill Points"
 					command: "/puffish_skills points add @p combat 5"
@@ -161,25 +161,25 @@
 		{
 			x: 10.0d
 			y: 0.0d
-			id: "FBE9ADD4843E8260"
+			id: "5A806F861F931209"
 			title: "Wrecks"
 			description: ["Find a shipwreck structure."]
-			dependencies: ["8EBE2AA2363CAA6A"]
+			dependencies: ["79F2F84E0F86B0AA"]
 			tasks: [
 				{
-					id: "DAFC32F814085F60"
+					id: "27A9E88C2E08D3FC"
 					type: "checkmark"
 					title: "Find a shipwreck"
 				}
 			]
 			rewards: [
 				{
-					id: "E795B18907E914F9"
+					id: "85F7AC2A1545D2E8"
 					type: "xp"
 					xp: 50
 				},
 				{
-					id: "5066BBC1207979CE"
+					id: "E262761334AD7F3C"
 					type: "command"
 					title: "2 Skill Points"
 					command: "/puffish_skills points add @p combat 2"

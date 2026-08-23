@@ -1,5 +1,5 @@
 {
-	id: "B801204A93362BC5"
+	id: "E8601A86991E38C3"
 	group: ""
 	icon: "minecraft:end_crystal"
 	default_quest_shape: ""
@@ -11,24 +11,24 @@
 		{
 			x: 0.0d
 			y: 0.0d
-			id: "9E33556077134985"
+			id: "BA9372EF0AC168E1"
 			title: "Hot Rock"
 			description: ["Enter the Nether."]
 			tasks: [
 				{
-					id: "8F5ECEF7CA3A7BFE"
+					id: "E61EBF57436E128F"
 					type: "dimension"
 					dimension: "minecraft:the_nether"
 				}
 			]
 			rewards: [
 				{
-					id: "865EBCE206221CB3"
+					id: "18D1A46937E357C5"
 					type: "xp"
 					xp: 60
 				},
 				{
-					id: "2BA34C768AC2DD05"
+					id: "260CE296C5DF1509"
 					type: "command"
 					title: "3 Skill Points"
 					command: "/puffish_skills points add @p combat 3"
@@ -39,25 +39,25 @@
 		{
 			x: 2.0d
 			y: 0.0d
-			id: "2512012775D6338D"
+			id: "DE16D1A28AED309D"
 			title: "Incendium"
 			description: ["Find an Incendium structure."]
-			dependencies: ["9E33556077134985"]
+			dependencies: ["BA9372EF0AC168E1"]
 			tasks: [
 				{
-					id: "F7A27BE228CF4B5C"
+					id: "BCFB64C5A5D79A97"
 					type: "checkmark"
 					title: "Find an Incendium structure"
 				}
 			]
 			rewards: [
 				{
-					id: "99D78CB12DC5E513"
+					id: "C9D7E65E78C95E44"
 					type: "xp"
 					xp: 120
 				},
 				{
-					id: "B334094D364BCA27"
+					id: "B9A91555D6A974DE"
 					type: "command"
 					title: "5 Skill Points"
 					command: "/puffish_skills points add @p combat 5"
@@ -68,25 +68,25 @@
 		{
 			x: 4.0d
 			y: 0.0d
-			id: "E3187309AB4D26BC"
+			id: "DA864549657254E2"
 			title: "The End"
 			description: ["Enter the End."]
-			dependencies: ["2512012775D6338D"]
+			dependencies: ["DE16D1A28AED309D"]
 			tasks: [
 				{
-					id: "563049374366E4CF"
+					id: "D1D484D917163974"
 					type: "dimension"
 					dimension: "minecraft:the_end"
 				}
 			]
 			rewards: [
 				{
-					id: "157B719DF8C6E58B"
+					id: "C941C620CC84A393"
 					type: "xp"
 					xp: 100
 				},
 				{
-					id: "34ADCD9F7331D599"
+					id: "6B5E6CE31E234097"
 					type: "command"
 					title: "4 Skill Points"
 					command: "/puffish_skills points add @p combat 4"
@@ -97,25 +97,25 @@
 		{
 			x: 6.0d
 			y: 0.0d
-			id: "8822EC1015AD13EF"
+			id: "E5306457FAE8BCB5"
 			title: "Ruins at the Edge"
 			description: ["Find a Moog's End structure.", "", "Nullscape reshaped the End -- the outer islands are worth", "the crossing now."]
-			dependencies: ["E3187309AB4D26BC"]
+			dependencies: ["DA864549657254E2"]
 			tasks: [
 				{
-					id: "CE611C4ABB06AAEE"
+					id: "FC1A61C223B187C2"
 					type: "checkmark"
 					title: "Find a Moog's End structure"
 				}
 			]
 			rewards: [
 				{
-					id: "B274A7306CFED97E"
+					id: "87E43F791F13CB61"
 					type: "xp"
 					xp: 150
 				},
 				{
-					id: "BA32F7D59F28C5A5"
+					id: "568FCD28A8D5942B"
 					type: "command"
 					title: "6 Skill Points"
 					command: "/puffish_skills points add @p combat 6"
@@ -126,25 +126,25 @@
 		{
 			x: 8.0d
 			y: 0.0d
-			id: "F6194E2AA67676A8"
+			id: "3DDDEAC3DDF197AF"
 			title: "Something Enormous"
 			description: ["Kill a Bosses of Mass Destruction boss."]
-			dependencies: ["8822EC1015AD13EF"]
+			dependencies: ["E5306457FAE8BCB5"]
 			tasks: [
 				{
-					id: "473C847A7A302B80"
+					id: "5AC82953C66F2E20"
 					type: "checkmark"
 					title: "Kill a BOMD boss"
 				}
 			]
 			rewards: [
 				{
-					id: "793F7CA1CAD7E5C3"
+					id: "4D8D65B1408F90DB"
 					type: "xp"
 					xp: 400
 				},
 				{
-					id: "85765CF14C00A37B"
+					id: "FE5190148B6A6347"
 					type: "command"
 					title: "12 Skill Points"
 					command: "/puffish_skills points add @p combat 12"

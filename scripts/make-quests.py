@@ -17,18 +17,26 @@ Rewards: xp plus a /puffish_skills command for skill points.
 """
 
 import os
-import random
+import hashlib
 
-random.seed(20260819)          # stable ids across re-runs
-_used = set()
+_used = {}
 
 
-def qid():
+def qid(key):
+    """Deterministic id derived from WHAT a thing is, not where it sits.
+
+    This used to draw from a sequential seeded RNG, which meant inserting one
+    quest shifted the id of every quest after it. FTB Quests tracks player
+    completion by id, so that silently wiped everyone's progress. Hashing a
+    stable key means ids only change when the thing itself is renamed.
+    """
+    h = key
     while True:
-        v = "%016X" % random.getrandbits(64)
-        if v not in _used:
-            _used.add(v)
+        v = "%016X" % int.from_bytes(hashlib.sha256(h.encode("utf-8")).digest()[:8], "big")
+        if _used.get(v, key) == key:
+            _used[v] = key
             return v
+        h += "#"          # collision: perturb and retry
 
 
 def esc(s):
@@ -352,9 +360,9 @@ def snbt_strlist(lines):
     return "[" + ", ".join('"%s"' % esc(l) for l in lines) + "]"
 
 
-def emit_task(t):
+def emit_task(t, key):
     out = ['\t\t\t\t{']
-    out.append('\t\t\t\t\tid: "%s"' % qid())
+    out.append('\t\t\t\t\tid: "%s"' % qid(key))
     for k, v in t.items():
         if isinstance(v, str):
             out.append('\t\t\t\t\t%s: "%s"' % (k, esc(v)))
@@ -367,9 +375,9 @@ def emit_task(t):
     return "\n".join(out)
 
 
-def emit_reward(r):
+def emit_reward(r, key):
     out = ['\t\t\t\t{']
-    out.append('\t\t\t\t\tid: "%s"' % qid())
+    out.append('\t\t\t\t\tid: "%s"' % qid(key))
     for k, v in r.items():
         if isinstance(v, str):
             out.append('\t\t\t\t\t%s: "%s"' % (k, esc(v)))
@@ -384,7 +392,7 @@ def emit_reward(r):
 def emit_chapter(idx, title, subtitle, icon, quests):
     fname = title.lower().replace("'", "").replace(" ", "_")
     lines = ["{"]
-    lines.append('\tid: "%s"' % qid())
+    lines.append('\tid: "%s"' % qid("chapter:" + title))
     lines.append('\tgroup: ""')
     lines.append('\ticon: "%s"' % icon)
     lines.append('\tdefault_quest_shape: ""')
@@ -396,7 +404,7 @@ def emit_chapter(idx, title, subtitle, icon, quests):
 
     prev = None
     for (x, y, qtitle, desc, tasks, rewards) in quests:
-        this = qid()
+        this = qid("quest:%s:%s" % (title, qtitle))
         lines.append('\t\t{')
         lines.append('\t\t\tx: %.1fd' % x)
         lines.append('\t\t\ty: %.1fd' % y)
@@ -406,10 +414,14 @@ def emit_chapter(idx, title, subtitle, icon, quests):
         if prev:
             lines.append('\t\t\tdependencies: ["%s"]' % prev)
         lines.append('\t\t\ttasks: [')
-        lines.append(",\n".join(emit_task(t) for t in tasks))
+        lines.append(",\n".join(
+            emit_task(t, "task:%s:%s:%d" % (title, qtitle, i))
+            for i, t in enumerate(tasks)))
         lines.append('\t\t\t]')
         lines.append('\t\t\trewards: [')
-        lines.append(",\n".join(emit_reward(r) for r in rewards))
+        lines.append(",\n".join(
+            emit_reward(r, "reward:%s:%s:%d" % (title, qtitle, i))
+            for i, r in enumerate(rewards)))
         lines.append('\t\t\t]')
         lines.append('\t\t}')
         prev = this

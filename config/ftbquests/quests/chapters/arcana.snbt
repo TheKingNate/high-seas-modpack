@@ -1,5 +1,5 @@
 {
-	id: "7C83BC05469C80B5"
+	id: "E2CC0ACCB3DC4242"
 	group: ""
 	icon: "minecraft:amethyst_shard"
 	default_quest_shape: ""
@@ -11,12 +11,12 @@
 		{
 			x: 0.0d
 			y: 0.0d
-			id: "87DF0665BC87A150"
+			id: "04219534CBD45D07"
 			title: "Binding Table"
 			description: ["Craft a Spell Binding Table.", "", "2 amethyst shards, 1 gold ingot, 1 book, 3 polished diorite.", "Surround it with bookshelves like an enchanting table."]
 			tasks: [
 				{
-					id: "3769E0D28CB85E75"
+					id: "1E770C9841A254C2"
 					type: "item"
 					item: "minecraft:amethyst_shard"
 					count: 2
@@ -24,12 +24,12 @@
 			]
 			rewards: [
 				{
-					id: "00D6DB1043360259"
+					id: "37A72EAB3A52845C"
 					type: "xp"
 					xp: 60
 				},
 				{
-					id: "BBC35F3B9F282253"
+					id: "ECA728B6B999007D"
 					type: "command"
 					title: "3 Skill Points"
 					command: "/puffish_skills points add @p combat 3"
@@ -40,25 +40,25 @@
 		{
 			x: 2.0d
 			y: 0.0d
-			id: "54D897CF7A946896"
+			id: "E9F0D612D2E79A3B"
 			title: "Ammunition"
 			description: ["Craft runes. They are the fuel; keep a stack on you."]
-			dependencies: ["87DF0665BC87A150"]
+			dependencies: ["04219534CBD45D07"]
 			tasks: [
 				{
-					id: "0291631ECF086376"
+					id: "0FAD933538E9F6B3"
 					type: "checkmark"
 					title: "Craft runes"
 				}
 			]
 			rewards: [
 				{
-					id: "959D6A3D943EAC57"
+					id: "2F1754CCCFEF0CC1"
 					type: "xp"
 					xp: 40
 				},
 				{
-					id: "FC9703B0C4CB3D61"
+					id: "701E1D669DFD16CD"
 					type: "command"
 					title: "2 Skill Points"
 					command: "/puffish_skills points add @p combat 2"
@@ -69,25 +69,25 @@
 		{
 			x: 4.0d
 			y: 0.0d
-			id: "6B0D946C89BBA0E0"
+			id: "3BC9A5092B20C244"
 			title: "Wand"
 			description: ["Craft a wand."]
-			dependencies: ["54D897CF7A946896"]
+			dependencies: ["E9F0D612D2E79A3B"]
 			tasks: [
 				{
-					id: "E8D505F6BDCB5316"
+					id: "A0739D2F861EE0E5"
 					type: "checkmark"
 					title: "Craft a wand"
 				}
 			]
 			rewards: [
 				{
-					id: "29C5D8817CA91392"
+					id: "029241F1009954C5"
 					type: "xp"
 					xp: 60
 				},
 				{
-					id: "29C7437C334D4955"
+					id: "CD7B59818BEAE8C8"
 					type: "command"
 					title: "3 Skill Points"
 					command: "/puffish_skills points add @p combat 3"
@@ -98,25 +98,25 @@
 		{
 			x: 6.0d
 			y: 0.0d
-			id: "42A55FD9B8BDCFFA"
+			id: "B4A2CD068D7C3BE2"
 			title: "First Spell"
 			description: ["Bind a spell to a spell book."]
-			dependencies: ["6B0D946C89BBA0E0"]
+			dependencies: ["3BC9A5092B20C244"]
 			tasks: [
 				{
-					id: "1F421B94D66C3FF1"
+					id: "2A668DE93113715E"
 					type: "checkmark"
 					title: "Bind your first spell"
 				}
 			]
 			rewards: [
 				{
-					id: "09CD20FDC6935F17"
+					id: "376FF046FCA2560B"
 					type: "xp"
 					xp: 80
 				},
 				{
-					id: "346EC4153D16CB92"
+					id: "C159F2031E64146B"
 					type: "command"
 					title: "4 Skill Points"
 					command: "/puffish_skills points add @p combat 4"
@@ -127,25 +127,25 @@
 		{
 			x: 8.0d
 			y: 0.0d
-			id: "AE6AB01ABC57C0FD"
+			id: "FEF699F43D8B3DBE"
 			title: "Tower"
 			description: ["Raid a Wizard Tower."]
-			dependencies: ["42A55FD9B8BDCFFA"]
+			dependencies: ["B4A2CD068D7C3BE2"]
 			tasks: [
 				{
-					id: "EEFCFA510A920638"
+					id: "F4514B1E195181D7"
 					type: "checkmark"
 					title: "Raid a Wizard Tower"
 				}
 			]
 			rewards: [
 				{
-					id: "095A3D4489F83C23"
+					id: "D5A20274483D527D"
 					type: "xp"
 					xp: 150
 				},
 				{
-					id: "F087D24923FA242A"
+					id: "942EB944C52E4F5F"
 					type: "command"
 					title: "6 Skill Points"
 					command: "/puffish_skills points add @p combat 6"
@@ -156,25 +156,25 @@
 		{
 			x: 10.0d
 			y: 0.0d
-			id: "0D1902534BDF03BB"
+			id: "B37D5907133FB08C"
 			title: "Specialise"
 			description: ["Unlock a Simply Skills specialisation."]
-			dependencies: ["AE6AB01ABC57C0FD"]
+			dependencies: ["FEF699F43D8B3DBE"]
 			tasks: [
 				{
-					id: "42570BD06C885B72"
+					id: "53DB9A1B2505BC48"
 					type: "checkmark"
 					title: "Unlock a specialisation"
 				}
 			]
 			rewards: [
 				{
-					id: "9D64C72911E742BB"
+					id: "E79544B66176BB8C"
 					type: "xp"
 					xp: 200
 				},
 				{
-					id: "60B2E1A1B6D066B8"
+					id: "8D3D793207677457"
 					type: "command"
 					title: "8 Skill Points"
 					command: "/puffish_skills points add @p combat 8"

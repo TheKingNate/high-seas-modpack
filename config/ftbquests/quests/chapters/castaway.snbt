@@ -1,5 +1,5 @@
 {
-	id: "6FA142717D43F842"
+	id: "3EDC0CE6640D63EB"
 	group: ""
 	icon: "minecraft:oak_boat"
 	default_quest_shape: ""
@@ -11,12 +11,12 @@
 		{
 			x: 0.0d
 			y: 0.0d
-			id: "EF2705418934083F"
+			id: "A7F578BD24D816B0"
 			title: "Ashore"
 			description: ["You woke up on a beach. Everything else follows from here."]
 			tasks: [
 				{
-					id: "25F84DA49E96B311"
+					id: "CF20F6298DADFA12"
 					type: "item"
 					item: "minecraft:oak_log"
 					count: 8
@@ -24,12 +24,12 @@
 			]
 			rewards: [
 				{
-					id: "AC6952EC50E54B79"
+					id: "7B0EAC488EC91C39"
 					type: "xp"
 					xp: 10
 				},
 				{
-					id: "C9B72CEC68D00055"
+					id: "A5F153CA728A5405"
 					type: "item"
 					item: "minecraft:bread"
 					count: 8
@@ -39,25 +39,25 @@
 		{
 			x: 2.0d
 			y: 0.0d
-			id: "2CA0D558B2D770D7"
+			id: "8623AF6193B582FC"
 			title: "Something To Carry It In"
 			description: ["Craft a Traveler's Backpack.", "Inventory space is the first thing this pack takes from you."]
-			dependencies: ["EF2705418934083F"]
+			dependencies: ["A7F578BD24D816B0"]
 			tasks: [
 				{
-					id: "13DC4FC6600DB12E"
+					id: "9D61B74D0F604E24"
 					type: "checkmark"
 					title: "Craft a Traveler's Backpack"
 				}
 			]
 			rewards: [
 				{
-					id: "E9F4550907C74BA0"
+					id: "4BEC250BF24CA084"
 					type: "xp"
 					xp: 20
 				},
 				{
-					id: "B9738DC91D5CA9C8"
+					id: "475793648D9E4B30"
 					type: "command"
 					title: "2 Skill Points"
 					command: "/puffish_skills points add @p combat 2"
@@ -68,25 +68,25 @@
 		{
 			x: 4.0d
 			y: 0.0d
-			id: "29A97489CACC8BBB"
+			id: "6564DA888F16EB19"
 			title: "Know Where You Are"
 			description: ["Craft an Explorer's Compass.", "There are sixteen structure mods loaded. You will need this."]
-			dependencies: ["2CA0D558B2D770D7"]
+			dependencies: ["8623AF6193B582FC"]
 			tasks: [
 				{
-					id: "4CCF64788C8E78F4"
+					id: "F1C744F30F6D54B7"
 					type: "checkmark"
 					title: "Craft an Explorer's Compass"
 				}
 			]
 			rewards: [
 				{
-					id: "DBE9D2FA4670E7CD"
+					id: "374E85A0FAD74F08"
 					type: "xp"
 					xp: 20
 				},
 				{
-					id: "0A3562D6CFD51F8E"
+					id: "C401C22AEDC622EE"
 					type: "command"
 					title: "1 Skill Points"
 					command: "/puffish_skills points add @p combat 1"
@@ -97,25 +97,25 @@
 		{
 			x: 6.0d
 			y: 0.0d
-			id: "97384D38052DC75B"
+			id: "8859F7247194C048"
 			title: "A Way Back"
 			description: ["Place a Waystone.", "Do not put one on a ship. It will misbehave."]
-			dependencies: ["29A97489CACC8BBB"]
+			dependencies: ["6564DA888F16EB19"]
 			tasks: [
 				{
-					id: "32604907F0978EEF"
+					id: "E74FBBA075D640BD"
 					type: "checkmark"
 					title: "Place a Waystone"
 				}
 			]
 			rewards: [
 				{
-					id: "924C350FE4A388D8"
+					id: "E996B7BE0D95D516"
 					type: "xp"
 					xp: 20
 				},
 				{
-					id: "1249FC48476F8EA4"
+					id: "6FFBBF361859E569"
 					type: "command"
 					title: "1 Skill Points"
 					command: "/puffish_skills points add @p combat 1"

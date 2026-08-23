@@ -1,5 +1,5 @@
 {
-	id: "71C1C8E30D3F9359"
+	id: "4553FD385BB7920D"
 	group: ""
 	icon: "minecraft:iron_ingot"
 	default_quest_shape: ""
@@ -11,24 +11,24 @@
 		{
 			x: 0.0d
 			y: 0.0d
-			id: "8695DC58255EAB8A"
+			id: "525E615CD36F0DEC"
 			title: "Kinetics"
 			description: ["Craft a Create mechanical press."]
 			tasks: [
 				{
-					id: "CBC47CF18F9C941E"
+					id: "8873961524F59736"
 					type: "checkmark"
 					title: "Craft a Mechanical Press"
 				}
 			]
 			rewards: [
 				{
-					id: "A4855BDB4B01DEB8"
+					id: "C08BC5D43F4487F9"
 					type: "xp"
 					xp: 40
 				},
 				{
-					id: "CFE29FA937DF95E8"
+					id: "9627C006FD068CD5"
 					type: "command"
 					title: "2 Skill Points"
 					command: "/puffish_skills points add @p mining 2"
@@ -39,25 +39,25 @@
 		{
 			x: 2.0d
 			y: 0.0d
-			id: "5E4FEA9B754AA5CD"
+			id: "F46FBD0BF24B390F"
 			title: "Something That Moves"
 			description: ["Build a powered contraption."]
-			dependencies: ["8695DC58255EAB8A"]
+			dependencies: ["525E615CD36F0DEC"]
 			tasks: [
 				{
-					id: "0D18D6E3D9E108CC"
+					id: "FAF6F7112306CF45"
 					type: "checkmark"
 					title: "Build a working contraption"
 				}
 			]
 			rewards: [
 				{
-					id: "A19CDC0319635655"
+					id: "9A4694CE87F2B37D"
 					type: "xp"
 					xp: 50
 				},
 				{
-					id: "78FB46EC1B9E1717"
+					id: "7F53A0B63F96211D"
 					type: "command"
 					title: "2 Skill Points"
 					command: "/puffish_skills points add @p mining 2"
@@ -68,25 +68,25 @@
 		{
 			x: 4.0d
 			y: 0.0d
-			id: "A9D77166028847FB"
+			id: "12C2720033D9CC48"
 			title: "First Current"
 			description: ["Craft a Powah generator -- Furnator, Magmator or Solar Panel."]
-			dependencies: ["5E4FEA9B754AA5CD"]
+			dependencies: ["F46FBD0BF24B390F"]
 			tasks: [
 				{
-					id: "B45170489CE4849D"
+					id: "44DC5B585BAEA45B"
 					type: "checkmark"
 					title: "Craft a Powah generator"
 				}
 			]
 			rewards: [
 				{
-					id: "5537FBC4134B2593"
+					id: "A5F9F78D9B910158"
 					type: "xp"
 					xp: 50
 				},
 				{
-					id: "D6359A830672F584"
+					id: "AEF1288E05CE38AA"
 					type: "command"
 					title: "2 Skill Points"
 					command: "/puffish_skills points add @p mining 2"
@@ -97,25 +97,25 @@
 		{
 			x: 6.0d
 			y: 0.0d
-			id: "E6DA434A260692E2"
+			id: "7D6DCADF0001B1AD"
 			title: "Storage"
 			description: ["Craft a Powah Energy Cell."]
-			dependencies: ["A9D77166028847FB"]
+			dependencies: ["12C2720033D9CC48"]
 			tasks: [
 				{
-					id: "AF60FDDF112DE2B1"
+					id: "47C343A8824173BF"
 					type: "checkmark"
 					title: "Craft an Energy Cell"
 				}
 			]
 			rewards: [
 				{
-					id: "FD383FF7B38FDC58"
+					id: "413AB8E0B637DB00"
 					type: "xp"
 					xp: 60
 				},
 				{
-					id: "167EB44E5C0F1E86"
+					id: "B284A38E715810C0"
 					type: "command"
 					title: "3 Skill Points"
 					command: "/puffish_skills points add @p mining 3"

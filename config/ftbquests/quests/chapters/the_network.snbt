@@ -1,5 +1,5 @@
 {
-	id: "CED759B550A772D1"
+	id: "B5C1707AECEC05B2"
 	group: ""
 	icon: "minecraft:redstone"
 	default_quest_shape: ""
@@ -11,24 +11,24 @@
 		{
 			x: 0.0d
 			y: 0.0d
-			id: "E243B873487ED330"
+			id: "3D57E293066B57C1"
 			title: "Certus"
 			description: ["Collect 16 certus quartz."]
 			tasks: [
 				{
-					id: "F83A0AACE0B7979D"
+					id: "E236CBEF12705CE0"
 					type: "checkmark"
 					title: "Collect 16 certus quartz"
 				}
 			]
 			rewards: [
 				{
-					id: "AE778EDCE478A4D7"
+					id: "3C41F744A24FF48F"
 					type: "xp"
 					xp: 40
 				},
 				{
-					id: "18C2E5E110068A56"
+					id: "F8D23A59C5B5560A"
 					type: "command"
 					title: "2 Skill Points"
 					command: "/puffish_skills points add @p mining 2"
@@ -39,25 +39,25 @@
 		{
 			x: 2.0d
 			y: 0.0d
-			id: "0462A054FDB3D360"
+			id: "7FB88DD604B85344"
 			title: "Controller"
 			description: ["Craft an ME Controller."]
-			dependencies: ["E243B873487ED330"]
+			dependencies: ["3D57E293066B57C1"]
 			tasks: [
 				{
-					id: "05BC776DAA617D1C"
+					id: "2C80B7A3F92C22F5"
 					type: "checkmark"
 					title: "Craft an ME Controller"
 				}
 			]
 			rewards: [
 				{
-					id: "5530131D0CDBE568"
+					id: "9C0E8B9EEEC702A2"
 					type: "xp"
 					xp: 100
 				},
 				{
-					id: "BDF851BCD8FB7544"
+					id: "5444443381116083"
 					type: "command"
 					title: "4 Skill Points"
 					command: "/puffish_skills points add @p mining 4"
@@ -68,25 +68,25 @@
 		{
 			x: 4.0d
 			y: 0.0d
-			id: "9F65D090FE82F4B4"
+			id: "C1E6F2A7B126B828"
 			title: "Wireless"
 			description: ["Craft a wireless terminal."]
-			dependencies: ["0462A054FDB3D360"]
+			dependencies: ["7FB88DD604B85344"]
 			tasks: [
 				{
-					id: "A5CADE0150EFB5F8"
+					id: "9B47F5A0806FBB03"
 					type: "checkmark"
 					title: "Craft a wireless terminal"
 				}
 			]
 			rewards: [
 				{
-					id: "6E35FC1A8D0CEBB4"
+					id: "BDF8090F3F1887B4"
 					type: "xp"
 					xp: 80
 				},
 				{
-					id: "75034041218347AA"
+					id: "85176FD69D71AA39"
 					type: "command"
 					title: "3 Skill Points"
 					command: "/puffish_skills points add @p mining 3"
@@ -97,25 +97,25 @@
 		{
 			x: 6.0d
 			y: 0.0d
-			id: "3ED85DB4799CD812"
+			id: "85E553955F7AC688"
 			title: "Autocraft"
 			description: ["Autocraft something with more than one step."]
-			dependencies: ["9F65D090FE82F4B4"]
+			dependencies: ["C1E6F2A7B126B828"]
 			tasks: [
 				{
-					id: "42E0C28636200947"
+					id: "F1D598027A1CFA37"
 					type: "checkmark"
 					title: "Autocraft a multi-step recipe"
 				}
 			]
 			rewards: [
 				{
-					id: "C51BDF869E2D0CFF"
+					id: "3B3DE42D9C6B4D51"
 					type: "xp"
 					xp: 150
 				},
 				{
-					id: "C8222A37567DA1EA"
+					id: "C9C0DF7F8E477F55"
 					type: "command"
 					title: "6 Skill Points"
 					command: "/puffish_skills points add @p mining 6"
@@ -126,25 +126,25 @@
 		{
 			x: 8.0d
 			y: 0.0d
-			id: "52D7A62C2E1739CC"
+			id: "7BBE903275ACB994"
 			title: "Reactor"
 			description: ["Build a Powah reactor."]
-			dependencies: ["3ED85DB4799CD812"]
+			dependencies: ["85E553955F7AC688"]
 			tasks: [
 				{
-					id: "A823374C4FF59045"
+					id: "05320B618C833D37"
 					type: "checkmark"
 					title: "Build a Powah reactor"
 				}
 			]
 			rewards: [
 				{
-					id: "D1387B616A60AD7D"
+					id: "63380E10F05A7123"
 					type: "xp"
 					xp: 200
 				},
 				{
-					id: "27F5E04FC0E43C4F"
+					id: "F4DA04F61CC55034"
 					type: "command"
 					title: "8 Skill Points"
 					command: "/puffish_skills points add @p mining 8"
@@ -155,25 +155,25 @@
 		{
 			x: 10.0d
 			y: 0.0d
-			id: "DFE38576AC8552CC"
+			id: "7E7A903247411719"
 			title: "Grid"
 			description: ["Move power across a distance with Flux Networks."]
-			dependencies: ["52D7A62C2E1739CC"]
+			dependencies: ["7BBE903275ACB994"]
 			tasks: [
 				{
-					id: "7BF8ED7CDBA65719"
+					id: "909D5D01A5E477BA"
 					type: "checkmark"
 					title: "Move power with Flux Networks"
 				}
 			]
 			rewards: [
 				{
-					id: "B62F61E7548F935A"
+					id: "D68C52B395128859"
 					type: "xp"
 					xp: 120
 				},
 				{
-					id: "39709BDF90DD46AE"
+					id: "7986DAF793529794"
 					type: "command"
 					title: "5 Skill Points"
 					command: "/puffish_skills points add @p mining 5"

@@ -1,5 +1,5 @@
 {
-	id: "94F0D11AAEA5D7FD"
+	id: "AFB76E3591510BCE"
 	group: ""
 	icon: "minecraft:bread"
 	default_quest_shape: ""
@@ -11,24 +11,24 @@
 		{
 			x: 0.0d
 			y: 0.0d
-			id: "EDD8C9E423202021"
+			id: "4A87E2864ED14A84"
 			title: "The Pot"
 			description: ["Craft a Farmer's Delight cooking pot."]
 			tasks: [
 				{
-					id: "F45BE730CC34C782"
+					id: "9BAA59904D758D97"
 					type: "checkmark"
 					title: "Craft a cooking pot"
 				}
 			]
 			rewards: [
 				{
-					id: "1B87AAE65CAF152A"
+					id: "B9C3FC08032D7FE2"
 					type: "xp"
 					xp: 40
 				},
 				{
-					id: "A68CC1D9D7707C8E"
+					id: "0C81B6D788C9D746"
 					type: "command"
 					title: "2 Skill Points"
 					command: "/puffish_skills points add @p combat 2"
@@ -39,25 +39,25 @@
 		{
 			x: 2.0d
 			y: 0.0d
-			id: "190B9E91E5673010"
+			id: "BEB27B3F8E7508B2"
 			title: "Cook"
 			description: ["Cook five different dishes."]
-			dependencies: ["EDD8C9E423202021"]
+			dependencies: ["4A87E2864ED14A84"]
 			tasks: [
 				{
-					id: "F23DFBF929CAC177"
+					id: "A2F5D3B067BF8DCB"
 					type: "checkmark"
 					title: "Cook 5 different dishes"
 				}
 			]
 			rewards: [
 				{
-					id: "F88CE90E5350E435"
+					id: "EF000490CE6A3BA7"
 					type: "xp"
 					xp: 60
 				},
 				{
-					id: "F477E4840BB5CE29"
+					id: "7B497E953FBC2FE0"
 					type: "command"
 					title: "3 Skill Points"
 					command: "/puffish_skills points add @p combat 3"
@@ -68,25 +68,25 @@
 		{
 			x: 4.0d
 			y: 0.0d
-			id: "DE63746404E136F1"
+			id: "E2BB0F2DBFAD8942"
 			title: "Harvest"
 			description: ["Grow ten different Croptopia crops."]
-			dependencies: ["190B9E91E5673010"]
+			dependencies: ["BEB27B3F8E7508B2"]
 			tasks: [
 				{
-					id: "C2C4E56254D3BF1C"
+					id: "390C332BE826BB4E"
 					type: "checkmark"
 					title: "Grow 10 Croptopia crops"
 				}
 			]
 			rewards: [
 				{
-					id: "8E17311435B32809"
+					id: "668159BD1644B242"
 					type: "xp"
 					xp: 80
 				},
 				{
-					id: "395ADA79BE65113E"
+					id: "F7602F8F2B4D4925"
 					type: "command"
 					title: "3 Skill Points"
 					command: "/puffish_skills points add @p combat 3"
@@ -97,25 +97,25 @@
 		{
 			x: 6.0d
 			y: 0.0d
-			id: "E18F1291B06E016A"
+			id: "50E5D7AC096F475E"
 			title: "A Full Net"
 			description: ["Catch six Fish of Thieves species."]
-			dependencies: ["DE63746404E136F1"]
+			dependencies: ["E2BB0F2DBFAD8942"]
 			tasks: [
 				{
-					id: "8A436E4C93B5E095"
+					id: "1E2442A90E950E87"
 					type: "checkmark"
 					title: "Catch 6 fish species"
 				}
 			]
 			rewards: [
 				{
-					id: "6C5447F356A14EC8"
+					id: "BD882AF3D195420C"
 					type: "xp"
 					xp: 60
 				},
 				{
-					id: "CB1886CD230F30A6"
+					id: "5B788B190E9F02DB"
 					type: "command"
 					title: "3 Skill Points"
 					command: "/puffish_skills points add @p combat 3"
@@ -126,25 +126,25 @@
 		{
 			x: 8.0d
 			y: 0.0d
-			id: "DD2787CF7D67ADCF"
+			id: "E50861B0685FA9E4"
 			title: "Out Of Season"
 			description: ["Grow and harvest a crop through a season change.", "", "Fabric Seasons is installed. Wheat, carrots and potatoes", "slow right down outside their season -- the calendar matters."]
-			dependencies: ["E18F1291B06E016A"]
+			dependencies: ["50E5D7AC096F475E"]
 			tasks: [
 				{
-					id: "0A718C0703DFBCCD"
+					id: "F8C4135BC16AE442"
 					type: "checkmark"
 					title: "Harvest a crop after the season turns"
 				}
 			]
 			rewards: [
 				{
-					id: "F358392B17439169"
+					id: "7462181F66D5EAE2"
 					type: "xp"
 					xp: 80
 				},
 				{
-					id: "08CEB27EA5A3F3CC"
+					id: "005BA31E6FF5BDDA"
 					type: "command"
 					title: "4 Skill Points"
 					command: "/puffish_skills points add @p combat 4"

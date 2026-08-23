@@ -1,5 +1,5 @@
 {
-	id: "85AFE5F06B50E1BC"
+	id: "F3A5BA3E595DF28C"
 	group: ""
 	icon: "minecraft:oak_boat"
 	default_quest_shape: ""
@@ -11,24 +11,24 @@
 		{
 			x: 0.0d
 			y: 0.0d
-			id: "55309D6432336848"
+			id: "022B1A56B78FBAB7"
 			title: "The Helm"
 			description: ["Craft a Ship Helm.", "This is the single most important block in the pack."]
 			tasks: [
 				{
-					id: "1F33B91D019019BD"
+					id: "7137B11309BC6EF4"
 					type: "checkmark"
 					title: "Craft a Ship Helm"
 				}
 			]
 			rewards: [
 				{
-					id: "EF9BFC80CE7818CF"
+					id: "89CC019CE9CDDDA6"
 					type: "xp"
 					xp: 40
 				},
 				{
-					id: "4EE6957A4E3166E3"
+					id: "1E4E7C1F441F5E34"
 					type: "command"
 					title: "3 Skill Points"
 					command: "/puffish_skills points add @p combat 3"
@@ -39,25 +39,25 @@
 		{
 			x: 2.0d
 			y: 0.0d
-			id: "91001F758A3716BE"
+			id: "035E2A82D63448FC"
 			title: "Assemble"
 			description: ["Build a hull, place the helm, shift-right-click to assemble.", "", "Start small. Large hulls ride the waves far more gently --", "a raft will show you the swell, a galleon will not."]
-			dependencies: ["55309D6432336848"]
+			dependencies: ["022B1A56B78FBAB7"]
 			tasks: [
 				{
-					id: "6C610F5D4B98EC0C"
+					id: "B2D64944380CA7B3"
 					type: "checkmark"
 					title: "Assemble your first ship"
 				}
 			]
 			rewards: [
 				{
-					id: "9DADCCA6A4FB60DA"
+					id: "2ABE9599A44475F1"
 					type: "xp"
 					xp: 60
 				},
 				{
-					id: "4347D3BEF1F2CA1C"
+					id: "F57CEF2531C3E1FE"
 					type: "command"
 					title: "3 Skill Points"
 					command: "/puffish_skills points add @p combat 3"
@@ -68,25 +68,25 @@
 		{
 			x: 4.0d
 			y: 0.0d
-			id: "464BF863203F0640"
+			id: "E42489DD1266D8DD"
 			title: "Under Steam"
 			description: ["Craft a Ship Engine and mount it on your ship.", "", "Balloons give you lift. Engines give you somewhere to go."]
-			dependencies: ["91001F758A3716BE"]
+			dependencies: ["035E2A82D63448FC"]
 			tasks: [
 				{
-					id: "DD6C0A706667EA93"
+					id: "AEBD94DC7C981873"
 					type: "checkmark"
 					title: "Mount a Ship Engine on your ship"
 				}
 			]
 			rewards: [
 				{
-					id: "16D1CAF79D2AD202"
+					id: "73877B0877DD9BA2"
 					type: "xp"
 					xp: 40
 				},
 				{
-					id: "3E9DF44B75FFAF14"
+					id: "5998C660518EB9A2"
 					type: "command"
 					title: "2 Skill Points"
 					command: "/puffish_skills points add @p combat 2"
@@ -97,25 +97,25 @@
 		{
 			x: 6.0d
 			y: 0.0d
-			id: "82B1282A5E3283EF"
+			id: "0A3D556B349B66CA"
 			title: "Blue Water"
 			description: ["Sail 1000 blocks from spawn."]
-			dependencies: ["464BF863203F0640"]
+			dependencies: ["E42489DD1266D8DD"]
 			tasks: [
 				{
-					id: "589FC551C2CCA06C"
+					id: "13CCBEB1A6D9DF22"
 					type: "checkmark"
 					title: "Sail 1000 blocks"
 				}
 			]
 			rewards: [
 				{
-					id: "381D73E5731EA7A5"
+					id: "64BC52227D4E846C"
 					type: "xp"
 					xp: 80
 				},
 				{
-					id: "8EA237C3D613CBD0"
+					id: "E87DE4F2124B0D0E"
 					type: "command"
 					title: "4 Skill Points"
 					command: "/puffish_skills points add @p combat 4"

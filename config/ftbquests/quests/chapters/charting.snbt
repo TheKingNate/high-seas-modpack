@@ -1,5 +1,5 @@
 {
-	id: "006058659056F06D"
+	id: "3D34D56924312ECB"
 	group: ""
 	icon: "minecraft:filled_map"
 	default_quest_shape: ""
@@ -11,24 +11,24 @@
 		{
 			x: 0.0d
 			y: 0.0d
-			id: "5CC84C5A16BD3FA1"
+			id: "066F353287C29D9F"
 			title: "Ruins"
 			description: ["Find a Structory ruin."]
 			tasks: [
 				{
-					id: "897E52933A011FE2"
+					id: "159B8918AD8CFB3B"
 					type: "checkmark"
 					title: "Find a Structory ruin"
 				}
 			]
 			rewards: [
 				{
-					id: "BB551AEB037D5126"
+					id: "D96A89F992D4A40B"
 					type: "xp"
 					xp: 30
 				},
 				{
-					id: "E617FBEAD8DFC649"
+					id: "FC8F8D742DB1356F"
 					type: "command"
 					title: "2 Skill Points"
 					command: "/puffish_skills points add @p combat 2"
@@ -39,25 +39,25 @@
 		{
 			x: 2.0d
 			y: 0.0d
-			id: "5D4C6FE9B4021DC1"
+			id: "AF1ACA8A58DDABCA"
 			title: "Somewhere Inhabited"
 			description: ["Find a Towns and Towers settlement."]
-			dependencies: ["5CC84C5A16BD3FA1"]
+			dependencies: ["066F353287C29D9F"]
 			tasks: [
 				{
-					id: "DF4C35AC8CF0A76B"
+					id: "B46ECF8C59BA8C92"
 					type: "checkmark"
 					title: "Find a Towns and Towers settlement"
 				}
 			]
 			rewards: [
 				{
-					id: "5862F68CCFE49962"
+					id: "0168CA12100FD519"
 					type: "xp"
 					xp: 30
 				},
 				{
-					id: "C47A6C25B739AA5B"
+					id: "1FD7923DD5C2D89E"
 					type: "command"
 					title: "2 Skill Points"
 					command: "/puffish_skills points add @p combat 2"
@@ -68,25 +68,25 @@
 		{
 			x: 4.0d
 			y: 0.0d
-			id: "737CA415C523542D"
+			id: "6670EB122D75D446"
 			title: "Three Coasts"
 			description: ["Visit three biomes you have not seen before."]
-			dependencies: ["5D4C6FE9B4021DC1"]
+			dependencies: ["AF1ACA8A58DDABCA"]
 			tasks: [
 				{
-					id: "F42BCA47AFD29E22"
+					id: "DBA2D1D4C0018CD9"
 					type: "checkmark"
 					title: "Visit 3 new biomes"
 				}
 			]
 			rewards: [
 				{
-					id: "48181D3157518DB4"
+					id: "A7F27B812A5618BA"
 					type: "xp"
 					xp: 40
 				},
 				{
-					id: "90612E486026B66F"
+					id: "597EF11DAA63B89A"
 					type: "command"
 					title: "2 Skill Points"
 					command: "/puffish_skills points add @p combat 2"
@@ -97,25 +97,25 @@
 		{
 			x: 6.0d
 			y: 0.0d
-			id: "DEACD24DD83D6EA7"
+			id: "A67B084B2F2A7879"
 			title: "Underground"
 			description: ["Clear a YUNG's dungeon."]
-			dependencies: ["737CA415C523542D"]
+			dependencies: ["6670EB122D75D446"]
 			tasks: [
 				{
-					id: "BB7436222984D996"
+					id: "19CDC09DE9375917"
 					type: "checkmark"
 					title: "Clear a YUNG's dungeon"
 				}
 			]
 			rewards: [
 				{
-					id: "B874231A69B1FFD5"
+					id: "0E7C65AE7F02A25A"
 					type: "xp"
 					xp: 50
 				},
 				{
-					id: "9595C786FFEB826B"
+					id: "68C1691C99960851"
 					type: "command"
 					title: "3 Skill Points"
 					command: "/puffish_skills points add @p combat 3"
@@ -126,25 +126,25 @@
 		{
 			x: 8.0d
 			y: 0.0d
-			id: "518DBA3F7DF2BE95"
+			id: "BE12065311E81C12"
 			title: "The Board"
 			description: ["Complete a bounty from a Bountiful board.", "", "These repeat forever. When you do not know what to do,", "this is the answer."]
-			dependencies: ["DEACD24DD83D6EA7"]
+			dependencies: ["A67B084B2F2A7879"]
 			tasks: [
 				{
-					id: "5AEA96811EC0007F"
+					id: "A927543DC41F4D1A"
 					type: "checkmark"
 					title: "Complete a Bountiful bounty"
 				}
 			]
 			rewards: [
 				{
-					id: "A0545ACEC31A54E3"
+					id: "49F59B9AAAD42A2D"
 					type: "xp"
 					xp: 40
 				},
 				{
-					id: "E806770916080D52"
+					id: "2CCECB75606386E4"
 					type: "command"
 					title: "2 Skill Points"
 					command: "/puffish_skills points add @p combat 2"

@@ -1,5 +1,5 @@
 {
-	id: "A46402BDED62E5E3"
+	id: "6D7D8F7D1780765D"
 	group: ""
 	icon: "minecraft:heart_of_the_sea"
 	default_quest_shape: ""
@@ -11,24 +11,24 @@
 		{
 			x: 0.0d
 			y: 0.0d
-			id: "19DC641A1003628D"
+			id: "2F3B856A6450F88B"
 			title: "Lungs"
 			description: ["Craft Hybrid Aquatic diving armor."]
 			tasks: [
 				{
-					id: "92FF784C093922B4"
+					id: "5785A38360AF9547"
 					type: "checkmark"
 					title: "Craft diving armor"
 				}
 			]
 			rewards: [
 				{
-					id: "FDC1B25017667379"
+					id: "25C1242B831A7335"
 					type: "xp"
 					xp: 60
 				},
 				{
-					id: "B64C43C340A14948"
+					id: "B85961E22E6D00FE"
 					type: "command"
 					title: "3 Skill Points"
 					command: "/puffish_skills points add @p combat 3"
@@ -39,25 +39,25 @@
 		{
 			x: 2.0d
 			y: 0.0d
-			id: "F4B9373B46CBD32C"
+			id: "518F8118EA914990"
 			title: "Sunken"
 			description: ["Find a Hopo underwater ruin."]
-			dependencies: ["19DC641A1003628D"]
+			dependencies: ["2F3B856A6450F88B"]
 			tasks: [
 				{
-					id: "1983502C8FD129A9"
+					id: "2A5E1AA9485AEB65"
 					type: "checkmark"
 					title: "Find an underwater ruin"
 				}
 			]
 			rewards: [
 				{
-					id: "F8CC273B1315E575"
+					id: "538A2A75DC2A9EF4"
 					type: "xp"
 					xp: 50
 				},
 				{
-					id: "376C8404D65EF529"
+					id: "238DF6CCAEF108D3"
 					type: "command"
 					title: "2 Skill Points"
 					command: "/puffish_skills points add @p combat 2"
@@ -68,13 +68,13 @@
 		{
 			x: 4.0d
 			y: 0.0d
-			id: "AEDBE2FA4F160E9C"
+			id: "96B5CFE777BDEC18"
 			title: "The Monument"
 			description: ["Reach an ocean monument."]
-			dependencies: ["F4B9373B46CBD32C"]
+			dependencies: ["518F8118EA914990"]
 			tasks: [
 				{
-					id: "2FF5C465590EAE87"
+					id: "A21068AC1F626CD5"
 					type: "item"
 					item: "minecraft:prismarine_shard"
 					count: 16
@@ -82,12 +82,12 @@
 			]
 			rewards: [
 				{
-					id: "B2652D4BBF92719F"
+					id: "E47BC5F8AC0AF262"
 					type: "xp"
 					xp: 80
 				},
 				{
-					id: "D3CF126258176DD3"
+					id: "78D1C6F52D505D5F"
 					type: "command"
 					title: "3 Skill Points"
 					command: "/puffish_skills points add @p combat 3"
@@ -98,13 +98,13 @@
 		{
 			x: 6.0d
 			y: 0.0d
-			id: "DDE8F487D25289E6"
+			id: "5FBFB687F07AE952"
 			title: "Salvaged Air"
 			description: ["Collect 8 nautilus shells."]
-			dependencies: ["AEDBE2FA4F160E9C"]
+			dependencies: ["96B5CFE777BDEC18"]
 			tasks: [
 				{
-					id: "8E24C2BD36AEB802"
+					id: "AE3302C7AF52FB8A"
 					type: "item"
 					item: "minecraft:nautilus_shell"
 					count: 8
@@ -112,18 +112,18 @@
 			]
 			rewards: [
 				{
-					id: "C443C321540F5D84"
+					id: "981E246BF0EEC01B"
 					type: "xp"
 					xp: 60
 				},
 				{
-					id: "F8497A5BC63F3D20"
+					id: "4D59E52AE3130AC7"
 					type: "item"
 					item: "minecraft:heart_of_the_sea"
 					count: 1
 				},
 				{
-					id: "710EB8EC5668A047"
+					id: "4DFE4045C250677D"
 					type: "command"
 					title: "3 Skill Points"
 					command: "/puffish_skills points add @p combat 3"
