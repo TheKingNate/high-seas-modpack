@@ -1,0 +1,13 @@
+name = "Druids of Storm and Spirit"
+filename = "druids-0.9.8.0.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/TTZunjcO/versions/CP4GTKJa/druids-0.9.8.0.jar"
+hash-format = "sha512"
+hash = "29a28a7475c4c9f92fcb6ae3e5e80a1c4185a8aa459848985f4ab03e1d5e68e15495d4dddefb801b0d9500071486e0f719aeb21a3cf9f65c815597a420fa9cfc"
+
+[update]
+[update.modrinth]
+mod-id = "TTZunjcO"
+version = "CP4GTKJa"

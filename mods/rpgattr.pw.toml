@@ -1,0 +1,13 @@
+name = "RPGAttr"
+filename = "rpgattr-2.4.0.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/bPYg09dC/versions/iGyjZd5h/rpgattr-2.4.0.jar"
+hash-format = "sha512"
+hash = "6aefcf59a34fcd1c3cc053db867b9e45d000f56e4b7a76d84fc77c605cf22bb2b6406fcb1d1b1847cce21c529b32b0dba36bd7f71acc40a3059ee507120011c6"
+
+[update]
+[update.modrinth]
+mod-id = "bPYg09dC"
+version = "iGyjZd5h"

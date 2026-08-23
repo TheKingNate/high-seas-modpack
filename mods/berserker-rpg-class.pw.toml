@@ -1,0 +1,13 @@
+name = "Berserker (More RPG Classes)"
+filename = "berserker-class-mod-1.2.6-1.20.1.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/8hqOZzxM/versions/zxNEll6s/berserker-class-mod-1.2.6-1.20.1.jar"
+hash-format = "sha512"
+hash = "74acddae061fe782f9c45d405d7dbd442a24ba83a638ca2327d39078f3e5b6897dd50557a4a61cd1f6159e7ad3bb87e9c875b73dc1ae776d958944d67586ebd3"
+
+[update]
+[update.modrinth]
+mod-id = "8hqOZzxM"
+version = "zxNEll6s"

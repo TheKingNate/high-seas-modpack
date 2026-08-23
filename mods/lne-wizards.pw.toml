@@ -1,0 +1,13 @@
+name = "LNE Wizards Add-On"
+filename = "lne_wizards-0.1.11-1.20.1.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/vukREL4F/versions/oK8PMF65/lne_wizards-0.1.11-1.20.1.jar"
+hash-format = "sha512"
+hash = "0c228351c5aca65478d95a9cae5ae7df6c242c897130b2e653d679321943707704eec7cd937f548f578cb647019ef06e63466da176e87f230446bb04ef8338a9"
+
+[update]
+[update.modrinth]
+mod-id = "vukREL4F"
+version = "oK8PMF65"

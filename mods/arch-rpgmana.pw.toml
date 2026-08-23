@@ -1,0 +1,13 @@
+name = "Arch-RPGMana"
+filename = "arch-rpgmana-1.0.8.4.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/mFaBZcAt/versions/hQvTTvlL/arch-rpgmana-1.0.8.4.jar"
+hash-format = "sha512"
+hash = "84ac04441c699eba20114997f9b9d7d2a329abea69a4c6a336760ee1509cfe0dae668b7b37cf90dce465019ddc06dc63bf0f074fbb734a1136201f7a0d9bf2c2"
+
+[update]
+[update.modrinth]
+mod-id = "mFaBZcAt"
+version = "hQvTTvlL"

@@ -1,0 +1,13 @@
+name = "Rune Essence"
+filename = "rune-essence-1.0.1-fabric.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/ZIyDiKyX/versions/393F74HO/rune-essence-1.0.1-fabric.jar"
+hash-format = "sha512"
+hash = "dcb404610da4ac5e57069243b41713bc6ddb35a911093ef77272eba1cba3b9060dd778c98e34669f3188885d9951ee9a5982c4cdff78c4c14f352a1d5299f062"
+
+[update]
+[update.modrinth]
+mod-id = "ZIyDiKyX"
+version = "393F74HO"

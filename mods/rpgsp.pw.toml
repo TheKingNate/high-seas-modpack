@@ -1,0 +1,13 @@
+name = "RPG_SkillPower"
+filename = "rpgsp-1.0.4.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/d4IQJ6OR/versions/vhVE4VHF/rpgsp-1.0.4.jar"
+hash-format = "sha512"
+hash = "7f8ecd52637595153dd5c8e892ac8f8efa5a04dcb18277ea0c9186ac638bc391768f32914ab9f111bb5865802add80873a9e15af760c860c1ab7e1bb82d8df6b"
+
+[update]
+[update.modrinth]
+mod-id = "d4IQJ6OR"
+version = "vhVE4VHF"

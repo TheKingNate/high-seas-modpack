@@ -1,0 +1,13 @@
+name = "Archon"
+filename = "archon-0.8.1.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/td9zQQBq/versions/HFlEAPtz/archon-0.8.1.jar"
+hash-format = "sha512"
+hash = "a8a9c99a92f1293160cd0cdf5e3980fad45144157da6508ea09a9662995f5527f5093b92eccdcd4614423716ee3a6d30eecc683a0d9156654a1feb511e134386"
+
+[update]
+[update.modrinth]
+mod-id = "td9zQQBq"
+version = "HFlEAPtz"

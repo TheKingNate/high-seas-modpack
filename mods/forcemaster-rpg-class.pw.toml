@@ -1,0 +1,13 @@
+name = "Forcemaster (More RPG Classes)"
+filename = "forcemaster-class-mod-1.2.7-1.20.1.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/K3yHebFL/versions/mpMlv1RJ/forcemaster-class-mod-1.2.7-1.20.1.jar"
+hash-format = "sha512"
+hash = "0cfbb7fe7b145ccb0e5f1806effcb30f57ba0f9f991d7dbd6c1b7c8103efa839a0c7544917c12f83e9dc0b5a45e3275775619bb2006499fbe5e7e99ed3e317ca"
+
+[update]
+[update.modrinth]
+mod-id = "K3yHebFL"
+version = "mpMlv1RJ"

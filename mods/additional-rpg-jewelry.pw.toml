@@ -1,0 +1,13 @@
+name = "Additional Jewelry"
+filename = "additional_rpg_jewelry-1.1.1-1.20.1.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/rULzJh3O/versions/REsxjAir/additional_rpg_jewelry-1.1.1-1.20.1.jar"
+hash-format = "sha512"
+hash = "f6fcc2fac58311695b9b5f3de861bf1820e354e082dd2d82b95c585d38091fdc6ada1e95390dabc8a83479474c15b2c854f869e407b4d705e7db52980dbcafb1"
+
+[update]
+[update.modrinth]
+mod-id = "rULzJh3O"
+version = "REsxjAir"

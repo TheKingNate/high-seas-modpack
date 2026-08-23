@@ -1,0 +1,13 @@
+name = "Eternal Attributes"
+filename = "eternal_attributes-fabric-1.0.0-1.20.1.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/gRpWzx1s/versions/AIfteXrs/eternal_attributes-fabric-1.0.0-1.20.1.jar"
+hash-format = "sha512"
+hash = "ed74ba64467b4055c32fae874d4a042817655166afab1e30f299cc0f342dc8922e359157329642c2bc9cdf1c2780c0f2d18b517e0b9dde023e28b523a133f3cb"
+
+[update]
+[update.modrinth]
+mod-id = "gRpWzx1s"
+version = "AIfteXrs"

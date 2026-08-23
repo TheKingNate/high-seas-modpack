@@ -1,0 +1,13 @@
+name = "Bard (RPG Series Plus)"
+filename = "bard-1.0.0-1.20.1.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/kL7Bjgmw/versions/P2FpaAGc/bard-1.0.0-1.20.1.jar"
+hash-format = "sha512"
+hash = "829f21a300097a14266562fe74250e9d99215fd7aff8d315e50b1713a9f0de56e23c207204dba646301ffc253be3e4fc5cebd54d3eb9ccc6b980bee18f9a44dc"
+
+[update]
+[update.modrinth]
+mod-id = "kL7Bjgmw"
+version = "P2FpaAGc"
