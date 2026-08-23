@@ -3,3 +3,4 @@
 missing.txt
 *.sh
 .DS_Store
+.claude/
