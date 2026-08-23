@@ -47,7 +47,11 @@ def find_mods_dir():
     return None
 
 
-CACHE = os.path.join(PACK, ".questcache")
+# Deliberately OUTSIDE the pack directory. A cache inside it gets swept into
+# index.toml by `packwiz refresh` - .packwizignore is an extension blocklist, so
+# any new top-level folder ships to clients. That happened: 63 cached jars were
+# indexed, and because they are gitignored every client hit a 404 at pre-launch.
+CACHE = os.path.join(os.path.expanduser("~/.cache/salvage"), "questcache")
 
 
 def pack_jars():

@@ -6,3 +6,4 @@
 *.sh
 missing.txt
 .claude
+.questcache
