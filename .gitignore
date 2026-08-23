@@ -5,3 +5,5 @@ missing.txt
 .claude/
 salvage-diag.txt
 .questcache/
+__pycache__/
+*.pyc

@@ -7,3 +7,5 @@
 missing.txt
 .claude
 .questcache
+__pycache__
+*.pyc
