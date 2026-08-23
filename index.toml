@@ -858,11 +858,6 @@ hash = "3850ba97b0333e8a93577e2d6352659e63bdefa295c704b18431ae233b6040e8"
 metafile = true
 
 [[files]]
-file = "mods/valkyrien-logistics.pw.toml"
-hash = "37d16da14d112fa4a84accffd7e087ee0a581278c9287539899ed6b1b8b5c71a"
-metafile = true
-
-[[files]]
 file = "mods/valkyrien-pirates.pw.toml"
 hash = "b24813919fc9fa8dda5acb058fa5d372722b7f6c5eb640418e047ae05c944fec"
 metafile = true
