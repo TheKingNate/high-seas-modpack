@@ -28,13 +28,6 @@
 					id: "37A72EAB3A52845C"
 					type: "xp"
 					xp: 60
-				},
-				{
-					id: "ECA728B6B999007D"
-					type: "command"
-					title: "3 Skill Points"
-					command: "/puffish_skills points add @p combat 3"
-					player_command: false
 				}
 			]
 		}
@@ -57,13 +50,6 @@
 					id: "2F1754CCCFEF0CC1"
 					type: "xp"
 					xp: 40
-				},
-				{
-					id: "701E1D669DFD16CD"
-					type: "command"
-					title: "2 Skill Points"
-					command: "/puffish_skills points add @p combat 2"
-					player_command: false
 				}
 			]
 		}
@@ -86,13 +72,6 @@
 					id: "029241F1009954C5"
 					type: "xp"
 					xp: 60
-				},
-				{
-					id: "CD7B59818BEAE8C8"
-					type: "command"
-					title: "3 Skill Points"
-					command: "/puffish_skills points add @p combat 3"
-					player_command: false
 				}
 			]
 		}
@@ -115,13 +94,6 @@
 					id: "376FF046FCA2560B"
 					type: "xp"
 					xp: 80
-				},
-				{
-					id: "C159F2031E64146B"
-					type: "command"
-					title: "4 Skill Points"
-					command: "/puffish_skills points add @p combat 4"
-					player_command: false
 				}
 			]
 		}
@@ -148,8 +120,8 @@
 				{
 					id: "942EB944C52E4F5F"
 					type: "command"
-					title: "6 Skill Points"
-					command: "/puffish_skills points add @p combat 6"
+					title: "1 Skill Point"
+					command: "/puffish_skills points add @p tree 1"
 					player_command: false
 				}
 			]
@@ -177,8 +149,8 @@
 				{
 					id: "8D3D793207677457"
 					type: "command"
-					title: "8 Skill Points"
-					command: "/puffish_skills points add @p combat 8"
+					title: "2 Skill Points"
+					command: "/puffish_skills points add @p tree 2"
 					player_command: false
 				}
 			]

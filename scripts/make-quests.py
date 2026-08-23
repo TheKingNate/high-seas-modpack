@@ -69,10 +69,66 @@ def r_item(item, count=1):
     return {"type": "item", "item": item, "count": count}
 
 
-def r_skill(n, cat="combat"):
-    return {"type": "command", "title": "%d Skill Points" % n,
-            "command": "/puffish_skills points add @p %s %d" % (cat, n),
-            "player_command": False}
+# SimplySkills is the only thing in the pack that defines Puffish Skills
+# categories, and "tree" is the ONLY one unlocked by default; the other nine are
+# specialisations the player unlocks later. The questline used to award to
+# "combat" and "mining", which do not exist at all - every reward silently failed.
+#
+# "tree" also has spent_points_limit 42, and the questline was handing out 193.
+# Points are therefore stored as raw WEIGHTS here and scaled to the budget at
+# emit time, so adding quests re-divides the same pot instead of overflowing it.
+# The tree category caps at 42 spent points (simplyskills tree/category.json) AND
+# grants points from leveling (experience.json: 8*level+13 per level, plus kill
+# sources). So the questline must NOT consume the whole 42 or playing the game
+# earns nothing. This is the share quests contribute; the rest is earned.
+# Tune this one number to make quest rewards more or less generous.
+SKILL_POINT_BUDGET = 20          # of the 42-point tree cap
+
+
+def r_skill(n, cat="tree"):
+    return {"type": "command", "_pts": n, "_cat": cat, "player_command": False}
+
+
+_skill_award = {}
+
+
+def scale_skill_rewards():
+    """Distribute SKILL_POINT_BUDGET across quests by largest remainder.
+
+    Proportional scaling plus rounding put every award on the wrong side of a
+    cliff - six of eleven chapters ended up with nothing. Largest-remainder
+    (Hare quota) hands out exactly the budget and gives the leftovers to the
+    quests with the strongest claim, so the spread follows the original weights.
+    """
+    items = [(ch, q, r["_pts"])
+             for ch, _, _, qs in CHAPTERS
+             for (_, _, q, _, _, rewards) in qs
+             for r in rewards if "_pts" in r]
+    raw = sum(w for _, _, w in items)
+    if not raw:
+        return 0
+    base = {(ch, q): 0 for ch, q, _ in items}
+
+    # Reserve one point for each chapter's most significant quest first. Pure
+    # proportional allocation left four chapters with nothing, because it was
+    # faithfully reproducing weights that were only ever guesses.
+    reserved = 0
+    for ch in dict.fromkeys(c for c, _, _ in items):
+        best = max((t for t in items if t[0] == ch), key=lambda t: t[2])
+        base[(best[0], best[1])] = 1
+        reserved += 1
+
+    # Distribute what's left by largest remainder, weighted as before.
+    rest = SKILL_POINT_BUDGET - reserved
+    if rest > 0:
+        quota = [(ch, q, w * rest / raw) for ch, q, w in items]
+        for ch, q, v in quota:
+            base[(ch, q)] += int(v)
+        left = SKILL_POINT_BUDGET - sum(base.values())
+        for ch, q, v in sorted(quota, key=lambda t: -(t[2] - int(t[2])))[:max(0, left)]:
+            base[(ch, q)] += 1
+    _skill_award.update(base)
+    return raw
 
 
 # --- chapter data ---------------------------------------------------
@@ -156,19 +212,19 @@ CHAPTERS = [
   (0, 0, "Kinetics",
    ["Craft a Create mechanical press."],
    [t_check("Craft a Mechanical Press")],
-   [r_xp(40), r_skill(2, "mining")]),
+   [r_xp(40), r_skill(2)]),
   (2, 0, "Something That Moves",
    ["Build a powered contraption."],
    [t_check("Build a working contraption")],
-   [r_xp(50), r_skill(2, "mining")]),
+   [r_xp(50), r_skill(2)]),
   (4, 0, "First Current",
    ["Craft a Powah generator -- Furnator, Magmator or Solar Panel."],
    [t_check("Craft a Powah generator")],
-   [r_xp(50), r_skill(2, "mining")]),
+   [r_xp(50), r_skill(2)]),
   (6, 0, "Storage",
    ["Craft a Powah Energy Cell."],
    [t_check("Craft an Energy Cell")],
-   [r_xp(60), r_skill(3, "mining")]),
+   [r_xp(60), r_skill(3)]),
  ]),
 
  ("Below", "The ocean has a floor", "minecraft:heart_of_the_sea", [
@@ -247,27 +303,27 @@ CHAPTERS = [
   (0, 0, "Certus",
    ["Collect 16 certus quartz."],
    [t_check("Collect 16 certus quartz")],
-   [r_xp(40), r_skill(2, "mining")]),
+   [r_xp(40), r_skill(2)]),
   (2, 0, "Controller",
    ["Craft an ME Controller."],
    [t_check("Craft an ME Controller")],
-   [r_xp(100), r_skill(4, "mining")]),
+   [r_xp(100), r_skill(4)]),
   (4, 0, "Wireless",
    ["Craft a wireless terminal."],
    [t_check("Craft a wireless terminal")],
-   [r_xp(80), r_skill(3, "mining")]),
+   [r_xp(80), r_skill(3)]),
   (6, 0, "Autocraft",
    ["Autocraft something with more than one step."],
    [t_check("Autocraft a multi-step recipe")],
-   [r_xp(150), r_skill(6, "mining")]),
+   [r_xp(150), r_skill(6)]),
   (8, 0, "Reactor",
    ["Build a Powah reactor."],
    [t_check("Build a Powah reactor")],
-   [r_xp(200), r_skill(8, "mining")]),
+   [r_xp(200), r_skill(8)]),
   (10, 0, "Grid",
    ["Move power across a distance with Flux Networks."],
    [t_check("Move power with Flux Networks")],
-   [r_xp(120), r_skill(5, "mining")]),
+   [r_xp(120), r_skill(5)]),
  ]),
 
  ("Arcana", "Light magic", "minecraft:amethyst_shard", [
@@ -407,7 +463,15 @@ def emit_task(t, key):
     return "\n".join(out)
 
 
-def emit_reward(r, key):
+def emit_reward(r, key, ctx_chapter=None, ctx_quest=None):
+    if "_pts" in r:                      # skill reward: pre-allocated by budget
+        n = _skill_award.get((ctx_chapter, ctx_quest), 0)
+        if n < 1:
+            return None                  # budget went to quests with a stronger claim
+
+        r = {"type": "command", "title": "%d Skill Point%s" % (n, "" if n == 1 else "s"),
+             "command": "/puffish_skills points add @p %s %d" % (r["_cat"], n),
+             "player_command": False}
     out = ['\t\t\t\t{']
     out.append('\t\t\t\t\tid: "%s"' % qid(key))
     for k, v in r.items():
@@ -455,9 +519,9 @@ def emit_chapter(idx, title, subtitle, icon, quests):
             for i, t in enumerate(tasks)))
         lines.append('\t\t\t]')
         lines.append('\t\t\trewards: [')
-        lines.append(",\n".join(
-            emit_reward(r, "reward:%s:%s:%d" % (title, qtitle, i))
-            for i, r in enumerate(rewards)))
+        emitted = [e for e in (emit_reward(r, "reward:%s:%s:%d" % (title, qtitle, i), title, qtitle)
+                               for i, r in enumerate(rewards)) if e]
+        lines.append(",\n".join(emitted))
         lines.append('\t\t\t]')
         lines.append('\t\t}')
         prev = this
@@ -496,6 +560,7 @@ def emit_groups():
 
 
 def main():
+    raw = scale_skill_rewards()
     base = os.path.join("config", "ftbquests", "quests")
     chdir = os.path.join(base, "chapters")
     os.makedirs(chdir, exist_ok=True)

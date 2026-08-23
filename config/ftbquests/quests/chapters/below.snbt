@@ -31,8 +31,8 @@
 				{
 					id: "B85961E22E6D00FE"
 					type: "command"
-					title: "3 Skill Points"
-					command: "/puffish_skills points add @p combat 3"
+					title: "1 Skill Point"
+					command: "/puffish_skills points add @p tree 1"
 					player_command: false
 				}
 			]
@@ -56,13 +56,6 @@
 					id: "538A2A75DC2A9EF4"
 					type: "xp"
 					xp: 50
-				},
-				{
-					id: "238DF6CCAEF108D3"
-					type: "command"
-					title: "2 Skill Points"
-					command: "/puffish_skills points add @p combat 2"
-					player_command: false
 				}
 			]
 		}
@@ -86,13 +79,6 @@
 					id: "E47BC5F8AC0AF262"
 					type: "xp"
 					xp: 80
-				},
-				{
-					id: "78D1C6F52D505D5F"
-					type: "command"
-					title: "3 Skill Points"
-					command: "/puffish_skills points add @p combat 3"
-					player_command: false
 				}
 			]
 		}
@@ -122,13 +108,6 @@
 					type: "item"
 					item: "minecraft:heart_of_the_sea"
 					count: 1
-				},
-				{
-					id: "4DFE4045C250677D"
-					type: "command"
-					title: "3 Skill Points"
-					command: "/puffish_skills points add @p combat 3"
-					player_command: false
 				}
 			]
 		}
