@@ -110,7 +110,14 @@ def r_item(item, count=1):
 # sources). So the questline must NOT consume the whole 42 or playing the game
 # earns nothing. This is the share quests contribute; the rest is earned.
 # Tune this one number to make quest rewards more or less generous.
-SKILL_POINT_BUDGET = 30          # of the 42-point tree cap; rest is earned by play
+SKILL_POINT_BUDGET = 35          # one per chapter capstone; half of the 70-point cap
+#
+# SimplySkills' `tree` category holds 339 skills behind a spend cap, so the cap is
+# what makes a build a build. The pack raises it 42 -> 70 in
+# globalpacks/datapacks/salvage-tweaks; at 42 these capstones alone would have been
+# 83% of a player's whole build before they levelled once. At 70 with 35 chapters it
+# lands at exactly half from questing, half from play. Keep this equal to the chapter
+# count so the rule stays legible: finish a chapter, get a point.
 
 
 def r_skill(n, cat="tree"):

@@ -32,6 +32,16 @@ $script:Halted = $false
 $script:Starting = $true
 $script:Found = @()
 
+# Repair path. Phase stays "steps" for the install and switch-to-stable flows;
+# once it is "repair" the step machine is fenced off and the two button handlers
+# below drive everything through OnPrimary / OnSecondary instead.
+$script:Phase       = "steps"
+$script:OnPrimary   = $null
+$script:OnSecondary = $null
+$script:Insts       = @()
+$script:Diag        = @()
+$script:Rung        = 1
+
 $form = New-Object Windows.Forms.Form
 $form.Text = "Salvage Setup"
 $form.ClientSize = New-Object Drawing.Size(660,700)

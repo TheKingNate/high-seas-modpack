@@ -18,7 +18,7 @@ hash = "c3b51374a9a84a043881262fe7234c2a761e9d3d8720a1537f591af65e43f04e"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/arcana.snbt"
-hash = "d51762af0f0dc70d986dee4c10d4c083a23c49abcab3152d2c41fe929fa0578b"
+hash = "13a1b1b298478274f5f461d2c6a1a1f55e1915ec68f9329ca96e0df052ed53e5"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/below.snbt"
@@ -34,7 +34,7 @@ hash = "7aae7661c7fb29dcddae9c6bbf4411bb54982f8b0ebb66dfd0f9f346457f252e"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/castaway.snbt"
-hash = "d5683aeb9dc8ec3eaa7974abf2ae443eb5d53924464fcc8420ad583d75e5140d"
+hash = "f3fdc7a807b54d26108d7284a7fba1048a35d427e30b873ff20000fdfea8a8f2"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/charting.snbt"
@@ -90,7 +90,7 @@ hash = "fcac768961efcd2f6233676de62f2c157903314d281ee31777bd994fdf54fa6e"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/salvage.snbt"
-hash = "4c7c5cd362e421eee132d9111e6263928e8a1bc44da97bb0ad7b578cb1d68820"
+hash = "89cea1980f64041ba8cb4594b2b82ccdc6634bc07a1e9c74f692233a253bd52c"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/ships_company.snbt"
@@ -98,7 +98,7 @@ hash = "2fe7908a388d3f799222364ac9c591b7fa7065ab599b21fab7a5ec5db1384fb2"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/shipwright.snbt"
-hash = "62945d991a2f7c6d63eef9b7bc8127e49ec55a501e2255cb9a17cc48b3d533b4"
+hash = "c50cd66488a03130051d687e0141b04984a4c783c8e7bf964f83f64724149a7a"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/spellcraft.snbt"
@@ -114,7 +114,7 @@ hash = "7d45768908623abfe6c04e40a0ca3b759563df04b24c2ed27189f1f5790578ce"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/the_forge.snbt"
-hash = "48f8c8795ba19108e8dc7b51f741b1e23f471219ed473576d3e1f41aafb3ed0c"
+hash = "7d4a6025c85bbb091ba0ef1f114e30fcc9ba12a27186c522d012fc6b9f29d900"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/the_hold.snbt"
@@ -156,6 +156,14 @@ hash = "25068f828a32bea65ad83c1bda71498570af080836e9b97ca66cd03d78c93c7f"
 file = "globalpacks/datapacks/blazeandcaves-advancements-pack.pw.toml"
 hash = "9ba27f4b83b2653af61c9d642a77ba842be25c51aac8c1e24385c5169ceb9cdd"
 metafile = true
+
+[[files]]
+file = "globalpacks/datapacks/salvage-tweaks/data/simplyskills/puffish_skills/categories/tree/category.json"
+hash = "789e257aab2c5f2382afd81bacd3718fc7e9f45c9e1b514b1619434933e7727a"
+
+[[files]]
+file = "globalpacks/datapacks/salvage-tweaks/pack.mcmeta"
+hash = "f6f8354f1533eb6be616876f766cb16156f198913b5a667d624d38ee03da0bcc"
 
 [[files]]
 file = "mods/3dskinlayers.pw.toml"

@@ -102,6 +102,13 @@
 					id: "E996B7BE0D95D516"
 					type: "xp"
 					xp: 20
+				},
+				{
+					id: "6FFBBF361859E569"
+					type: "command"
+					title: "1 Skill Point"
+					command: "/puffish_skills points add @p tree 1"
+					player_command: false
 				}
 			]
 		}
