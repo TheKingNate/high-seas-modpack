@@ -69,14 +69,14 @@
 			x: 4.0d
 			y: 0.0d
 			id: "464BF863203F0640"
-			title: "Under Sail"
-			description: ["Craft and mount a sail.", "Wind changes direction over time and picks up in storms."]
+			title: "Under Steam"
+			description: ["Craft a Ship Engine and mount it on your ship.", "", "Balloons give you lift. Engines give you somewhere to go."]
 			dependencies: ["91001F758A3716BE"]
 			tasks: [
 				{
 					id: "DD6C0A706667EA93"
 					type: "checkmark"
-					title: "Mount a sail on your ship"
+					title: "Mount a Ship Engine on your ship"
 				}
 			]
 			rewards: [

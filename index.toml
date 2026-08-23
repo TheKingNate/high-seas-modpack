@@ -14,7 +14,7 @@ hash = "bc19da279511c4d605c278f4b0cb6fd2235dadbecab8fffc8dab90afbaf09893"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/beyond.snbt"
-hash = "6c7c5d02fd7b03513a9bb1a4383e97a337f8561867049a20671de2a56d4f8429"
+hash = "11ff3c59cb7108071199cb440e1c514dd677b2775c8efc48da8e5b74c963a1f9"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/castaway.snbt"
@@ -26,7 +26,7 @@ hash = "05b08152b033da5e3f53be4734a2d1e41fe0a33f0d2fe87d9ba55f92027f02f9"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/provision.snbt"
-hash = "5b2a661d1fe212225e114f102eeb3d5b1502eb59f19aa7e429ce5ab74f4cf9df"
+hash = "c7562ea425a4b74f14da7c64921131ad19d9980a174963d57edae7b2e12a7861"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/salvage.snbt"
@@ -34,7 +34,7 @@ hash = "0614f3ed41684f0a4bfca2ded8e6b0e4ccaf5f71f4fa347ff34998e7597f036e"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/shipwright.snbt"
-hash = "72b9280e04ffad9071adbca9494a9909b7dc3df1073c2e305b7db12222e7d38e"
+hash = "0ef0cbc400e4984b0b59f9e52615aea5de29cc87c4e40ab93e4b097b09d640bf"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/the_deep.snbt"

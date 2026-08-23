@@ -128,13 +128,13 @@
 			y: 0.0d
 			id: "DD2787CF7D67ADCF"
 			title: "Out Of Season"
-			description: ["Harvest a crop that only grows in one season.", "", "Fabric Seasons is installed. The calendar matters."]
+			description: ["Grow and harvest a crop through a season change.", "", "Fabric Seasons is installed. Wheat, carrots and potatoes", "slow right down outside their season -- the calendar matters."]
 			dependencies: ["E18F1291B06E016A"]
 			tasks: [
 				{
 					id: "0A718C0703DFBCCD"
 					type: "checkmark"
-					title: "Harvest a seasonal crop"
+					title: "Harvest a crop after the season turns"
 				}
 			]
 			rewards: [

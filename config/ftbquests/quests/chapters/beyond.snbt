@@ -98,8 +98,8 @@
 			x: 6.0d
 			y: 0.0d
 			id: "8822EC1015AD13EF"
-			title: "Nullscape"
-			description: ["Find a Moog's End structure."]
+			title: "Ruins at the Edge"
+			description: ["Find a Moog's End structure.", "", "Nullscape reshaped the End -- the outer islands are worth", "the crossing now."]
 			dependencies: ["E3187309AB4D26BC"]
 			tasks: [
 				{
