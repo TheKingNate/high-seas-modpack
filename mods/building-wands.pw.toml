@@ -1,0 +1,13 @@
+name = "Building Wands"
+filename = "BuildingWands-fabric-MC1.20.1-3.0.5.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/XkisZUfp/versions/JEWzeBDy/BuildingWands-fabric-MC1.20.1-3.0.5.jar"
+hash-format = "sha512"
+hash = "99de02cd99a55aed4b922c7cf302b3cd003398dea0deb7e91ee3462cb9be1a32d6a3c5685a723967a71c37f2f2ec486a55ae358aa2fbc87fff26eeae1523430b"
+
+[update]
+[update.modrinth]
+mod-id = "XkisZUfp"
+version = "JEWzeBDy"

@@ -1,0 +1,13 @@
+name = "Explore Ruins: The Aether - Dungeons & Structures"
+filename = "explore_ruins_aether-1.0.0-fabric-1.20.1.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/spwhkPqk/versions/1tD3BviR/explore_ruins_aether-1.0.0-fabric-1.20.1.jar"
+hash-format = "sha512"
+hash = "cc2a0c3c22cb80e6a1d15fc5ee913e5d750e3bd120780f6e7bfde680d93be9c85cd5ea1aad6ff68ddd7acd2c2ae0c9db00d98dad12da298b0103ee63a57cc2ad"
+
+[update]
+[update.modrinth]
+mod-id = "spwhkPqk"
+version = "1tD3BviR"

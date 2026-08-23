@@ -63,6 +63,16 @@ hash = "f9a59df2232ac145a6d3d5a8d170860afd36610150bd115c65fdd8ab26812c5f"
 metafile = true
 
 [[files]]
+file = "mods/accessories.pw.toml"
+hash = "35228989dbf447ed8a124fda344ef42720b7811d1326cb3e7373cc06f72d63fc"
+metafile = true
+
+[[files]]
+file = "mods/additional-enchanted-miner.pw.toml"
+hash = "7f7adf4a3a6f03238480566b7b018cfca796b6ef04f15593526a154a481a4b9e"
+metafile = true
+
+[[files]]
 file = "mods/advancement-plaques-fabric.pw.toml"
 hash = "1a9ac4888b6c071009a64b9e472716b937bda6545e334f3c3ba51b751bf1c7c3"
 metafile = true
@@ -75,6 +85,11 @@ metafile = true
 [[files]]
 file = "mods/ae2things.pw.toml"
 hash = "ac1bd3ab117fd4f5a732cbce46ff31cca072dc8e5a5c2a5ac5a5cb9d60f54d5f"
+metafile = true
+
+[[files]]
+file = "mods/aether.pw.toml"
+hash = "2774ee3ea0ca5df619d547e8b29bdb91ad02b203301b6a521cd40e9b0be7aab5"
 metafile = true
 
 [[files]]
@@ -118,6 +133,11 @@ hash = "39793575c70ab9326c32db5c8e9ff30445282b34a8ad8066b63a9face99543f6"
 metafile = true
 
 [[files]]
+file = "mods/automatic-potato.pw.toml"
+hash = "be64079e6b07ea060e3f9b375d5e888cf941880619cdd7eba922f68419922d8e"
+metafile = true
+
+[[files]]
 file = "mods/azurelib-armor.pw.toml"
 hash = "26a5cee35b797140d098a3e8c039b868edd1779e28d4a2cba1cd73e8ed32ca34"
 metafile = true
@@ -155,6 +175,11 @@ metafile = true
 [[files]]
 file = "mods/bountiful.pw.toml"
 hash = "88d4b6472c19d1a2afe1b287c052d17559ac96603b8bbbcf82ad7a9068d953e6"
+metafile = true
+
+[[files]]
+file = "mods/building-wands.pw.toml"
+hash = "4e667daccc904a1410e44f061b7453207a64b713ea5ac849b63a83f5a0b0d369"
 metafile = true
 
 [[files]]
@@ -310,6 +335,11 @@ metafile = true
 [[files]]
 file = "mods/eureka-ships.pw.toml"
 hash = "82e657439af9dfad204bb430fe5808f558be5cc96ca6bf33302b159e92d3c8f1"
+metafile = true
+
+[[files]]
+file = "mods/explore-ruins-aether.pw.toml"
+hash = "a4787d82e73dd0e391fb88be307bf3a0fa569a7029f666b4e0186a2a9e891998"
 metafile = true
 
 [[files]]
@@ -690,6 +720,11 @@ metafile = true
 [[files]]
 file = "mods/runes.pw.toml"
 hash = "d873b4bc94bc5cfe1bdfab5c965264f3183cd66c6f8f22a395e449962cb4d5a3"
+metafile = true
+
+[[files]]
+file = "mods/scalable-cats-force.pw.toml"
+hash = "94348eb859cbe4152cbc2f665da89414667d566ca1ed80fff45acea942bb8e69"
 metafile = true
 
 [[files]]
