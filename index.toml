@@ -203,6 +203,11 @@ hash = "8f3e01ad47042d186087576cd17e91f78576295e7ca16fb885550910cb97caa4"
 metafile = true
 
 [[files]]
+file = "mods/clockwork-additions.pw.toml"
+hash = "b103f475d0ae9524f7a31cb18c7c4d60c0e8c16f48091719255950896158fbac"
+metafile = true
+
+[[files]]
 file = "mods/cloth-config.pw.toml"
 hash = "41a3dc271859b118417946d2fdb2408523563b2f4f49048073672a342fb1aebf"
 metafile = true
@@ -438,6 +443,11 @@ hash = "d5299b6a7d50355b681a4cff6346218bf95e94280593a08d45999454645fce2a"
 metafile = true
 
 [[files]]
+file = "mods/grappling-hook-mod-fabric.pw.toml"
+hash = "78af855ce4a3615de0046c0e7ddc0722166cf273555bd08384ec03ba6a1a44eb"
+metafile = true
+
+[[files]]
 file = "mods/grappling-hook-restitched.pw.toml"
 hash = "264e085b17e6b29f95c4d3d19e0534808367c2f995fcbc9ca016b7be9e08a196"
 metafile = true
@@ -495,6 +505,11 @@ metafile = true
 [[files]]
 file = "mods/kambrik.pw.toml"
 hash = "a06e2f058ccc09999d2437517969b248bc7008ea9e990996b11d7458253784f7"
+metafile = true
+
+[[files]]
+file = "mods/kilt.pw.toml"
+hash = "ad7d0fc1201a54316a244006406a4b69db177911d1cc732c7e9491416af07f10"
 metafile = true
 
 [[files]]
@@ -848,6 +863,11 @@ hash = "3850ba97b0333e8a93577e2d6352659e63bdefa295c704b18431ae233b6040e8"
 metafile = true
 
 [[files]]
+file = "mods/valkyrien-logistics.pw.toml"
+hash = "37d16da14d112fa4a84accffd7e087ee0a581278c9287539899ed6b1b8b5c71a"
+metafile = true
+
+[[files]]
 file = "mods/valkyrien-pirates.pw.toml"
 hash = "b24813919fc9fa8dda5acb058fa5d372722b7f6c5eb640418e047ae05c944fec"
 metafile = true
@@ -878,6 +898,31 @@ hash = "bddfd9c46eeaaf004fddf43e963878f4aa62418484a2cbca0023b33aab88fbdb"
 metafile = true
 
 [[files]]
+file = "mods/vs-chunkloader.pw.toml"
+hash = "2c8150979336b3b0acfdee14cf7e5a4b166e66b0b9fffa2104c029b7ceaffc56"
+metafile = true
+
+[[files]]
+file = "mods/vs-collision-damage.pw.toml"
+hash = "413ef58149766107f58dcf1bc87487c95cd3e6df1b4f22aff018c42f63b4dfbf"
+metafile = true
+
+[[files]]
+file = "mods/vs-crumbles.pw.toml"
+hash = "ddf5f0b3c4c757479d0784a79731e24cf2779654c95b1bb1b38d58b1ae9042d4"
+metafile = true
+
+[[files]]
+file = "mods/vs-grapples.pw.toml"
+hash = "1597dbbe293e23f1f8ac60c8760892f45c737cd4c267e539c2c6759eb2480736"
+metafile = true
+
+[[files]]
+file = "mods/vs-hit-run.pw.toml"
+hash = "948068370578a4fc299b9a6151aa5241507c94b689a0da790c1de80c17120c0a"
+metafile = true
+
+[[files]]
 file = "mods/vs-safe-and-sound.pw.toml"
 hash = "383e42741500be83c25647ca5fddef505601a0527e4f6fdfe21918e9448640ef"
 metafile = true
@@ -885,6 +930,16 @@ metafile = true
 [[files]]
 file = "mods/vs-ship-in-a-bottle.pw.toml"
 hash = "4fce717cc42c9efc8e9b36d72170b51eb19ccd56ecc48422ca43fdace3f245f9"
+metafile = true
+
+[[files]]
+file = "mods/vs-ship-retrieval-service.pw.toml"
+hash = "6b76c34d7ba2043815bfbab1a1fdf7ea335b581d4f353d386cdf5e65cdca0ce0"
+metafile = true
+
+[[files]]
+file = "mods/vsplit.pw.toml"
+hash = "0aaae9fe7d70c7970cff8d03505eab249e90b911e5c262d1b57a8669292e64ac"
 metafile = true
 
 [[files]]

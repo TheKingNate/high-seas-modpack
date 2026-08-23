@@ -1,0 +1,13 @@
+name = "VS: Collision damage"
+filename = "vs-collision-damage-1.0.6.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/ng3UsIU6/versions/AO3iSfP8/vs-collision-damage-1.0.6.jar"
+hash-format = "sha512"
+hash = "1921e766c0b1213722d3527bf03f1c4ce6eaf61454329ba368a69824caaa8dd31ac6c71fff76a64ee5c0466c6e9822ae14be2182a4be3fc75673f4db5fd0f214"
+
+[update]
+[update.modrinth]
+mod-id = "ng3UsIU6"
+version = "AO3iSfP8"

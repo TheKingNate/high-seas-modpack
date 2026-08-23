@@ -1,0 +1,13 @@
+name = "VS: Ship Retrieval Service"
+filename = "ShipRetrievalService-Fabric-1.0.0.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/GWY9Ldvz/versions/DlYy6vYo/ShipRetrievalService-Fabric-1.0.0.jar"
+hash-format = "sha512"
+hash = "bc0059cf23eb93d845e0c37b8e36f356beba0c2f1f5db3ca3b335decf47b07c7c853b570953e3d208f1367c93fb1da9072c2805c3a47f27db6dcd888b9d706af"
+
+[update]
+[update.modrinth]
+mod-id = "GWY9Ldvz"
+version = "DlYy6vYo"

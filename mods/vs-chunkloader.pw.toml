@@ -1,0 +1,13 @@
+name = "VS ChunkLoader"
+filename = "VSChunkLoader-fabric-1.20.1-2.0.3.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/V4eP65JX/versions/mu0K2j8t/VSChunkLoader-fabric-1.20.1-2.0.3.jar"
+hash-format = "sha512"
+hash = "a814bc444ea0cef7f8499e777cdef3e420a517309050d7e0f0bbc7df8bfd2fe280d2b3615c148d2bf87e48823261370d451e7573fe4bdcb6b32dbc0edd1c5c56"
+
+[update]
+[update.modrinth]
+mod-id = "V4eP65JX"
+version = "mu0K2j8t"
