@@ -53,6 +53,10 @@ file = ".questcache/Necronomicon-Fabric-1.6.0+1.20.1.jar"
 hash = "8239b393bfc5a7fd3209713745c88e6da13859cf3e64a36d175c7dc5a8519e60"
 
 [[files]]
+file = ".questcache/Patchouli-1.20.1-85-FABRIC.jar"
+hash = "485e23ab9727c7e9f585f435020d733706a80c7f0a1dc20e85c7398e1d76b919"
+
+[[files]]
 file = ".questcache/ShieldAPI-1.0.1+1.20.1.jar"
 hash = "23cdff920570733e741dd1dcb39fd2715a6f2d908c069cb1266ed8712e91a58d"
 
@@ -135,6 +139,10 @@ hash = "90a7997d2be0fc80aaddfea484c1b90ea49efabae0c42146198be7b5bc00e0d6"
 [[files]]
 file = ".questcache/extraspellattributes-1.3.2.jar"
 hash = "c964bf77681c6db37334f8a660d999370ae5d3af5c8096a5dd6870982cf741c3"
+
+[[files]]
+file = ".questcache/fakerlib-0.1.5.jar"
+hash = "aa5ab304e2e258a3b81a2b67e1ae0671c58a379e302924d90bfecb3ec7e2f6f9"
 
 [[files]]
 file = ".questcache/footprint-1.0.0-beta+1.20.1.jar"
@@ -235,6 +243,14 @@ hash = "fa2e873e4c19e343fa612fefce911787b83b19a5b0e0a58a8a01d060e870a98b"
 [[files]]
 file = ".questcache/witcher-class-mod-1.2.5-1.20.1.jar"
 hash = "e011ec53bd4845a636ee2ebb10101d2a2853e272283972fcb428564cdcd139e0"
+
+[[files]]
+file = ".questcache/zenith_attributes_renewed-1.0.3.jar"
+hash = "f251fa4ea17d879a3e9a195e91557aa2a194efd7fbbf6089c2b2fe4164c26225"
+
+[[files]]
+file = ".questcache/zenith_renewed-2.0.2.jar"
+hash = "e3a589ebc4ca43b4f02a8a18259e8b5fd1e796fbb0557d28edf0461bef11777c"
 
 [[files]]
 file = "config/ftbquests/quests/chapter_groups.snbt"
@@ -671,6 +687,11 @@ hash = "ce276e188fa22c4b8e4a99a0558844284fff7d49af2c5e6683290eaa598a7c61"
 metafile = true
 
 [[files]]
+file = "mods/fakerlib.pw.toml"
+hash = "650af6cf72d6fc89d1bd133106fc981cd77a5ea2986a32105bd400f8a160be7e"
+metafile = true
+
+[[files]]
 file = "mods/farmers-delight-refabricated.pw.toml"
 hash = "2ad3a56921ccd77b9eb098ae59158d360ad25985fd999cffd872ecd527d79ad3"
 metafile = true
@@ -1026,6 +1047,11 @@ hash = "b7da7abde744a6cfefc17b24298386b55ab02e380a1ec0562e5bc084f4c6bc47"
 metafile = true
 
 [[files]]
+file = "mods/patchouli.pw.toml"
+hash = "b087d57e8f876873a4eaeacdb80166c03e5158fa95cb15ffe6aa9571b76bf9d2"
+metafile = true
+
+[[files]]
 file = "mods/playeranimator.pw.toml"
 hash = "7ad4ca488da13998ce660729167eef71ce1bdfb57ef1c5d593096fa459cec0f8"
 metafile = true
@@ -1368,6 +1394,16 @@ metafile = true
 [[files]]
 file = "mods/yungs-better-ocean-monuments-fabric.pw.toml"
 hash = "42b17d95baef2a67c36a91d3cbdef1a7a0858852792a8fd9b67b1c5ca6960658"
+metafile = true
+
+[[files]]
+file = "mods/zenith-attributes-renewed.pw.toml"
+hash = "da4def8eca9583f4e1cbcfa046c37dccb7642198a71ded08efbd7ebbd8866ac7"
+metafile = true
+
+[[files]]
+file = "mods/zenith-renewed.pw.toml"
+hash = "be55842c774e0d43a477ad64213bd69599fb057a431deeeb9700f995b5bb0529"
 metafile = true
 
 [[files]]
