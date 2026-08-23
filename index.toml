@@ -728,6 +728,11 @@ hash = "49030866f7ec962bd1727e57ddef1f83aabb66cff6ff2156b844f93d39d718f3"
 metafile = true
 
 [[files]]
+file = "mods/salvage-ordnance.pw.toml"
+hash = "49648cad32eb23ddd7507f9fc7fc07c498147aca8d04d28a0e7e9aa4e00c8c3c"
+metafile = true
+
+[[files]]
 file = "mods/scalable-cats-force.pw.toml"
 hash = "94348eb859cbe4152cbc2f665da89414667d566ca1ed80fff45acea942bb8e69"
 metafile = true

@@ -1,0 +1,8 @@
+name = "salvage-ordnance"
+filename = "salvage-ordnance-1.0.0.jar"
+side = "both"
+
+[download]
+url = "https://github.com/TheKingNate/salvage-compat/releases/download/ordnance-v1.0.0/salvage-ordnance-1.0.0.jar"
+hash-format = "sha256"
+hash = "b45d49823c30938db739fbf5e0cf839fdea3e00fb370d9808b53c177823d9d19"
