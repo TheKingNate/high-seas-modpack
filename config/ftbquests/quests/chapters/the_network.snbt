@@ -18,8 +18,9 @@
 			tasks: [
 				{
 					id: "E236CBEF12705CE0"
-					type: "checkmark"
-					title: "Collect 16 certus quartz"
+					type: "item"
+					item: "ae2:certus_quartz_crystal"
+					count: 16L
 				}
 			]
 			rewards: [
@@ -40,8 +41,9 @@
 			tasks: [
 				{
 					id: "2C80B7A3F92C22F5"
-					type: "checkmark"
-					title: "Craft an ME Controller"
+					type: "item"
+					item: "ae2:controller"
+					count: 1L
 				}
 			]
 			rewards: [
@@ -62,8 +64,9 @@
 			tasks: [
 				{
 					id: "9B47F5A0806FBB03"
-					type: "checkmark"
-					title: "Craft a wireless terminal"
+					type: "item"
+					item: "ae2:wireless_terminal"
+					count: 1L
 				}
 			]
 			rewards: [
@@ -113,8 +116,9 @@
 			tasks: [
 				{
 					id: "05320B618C833D37"
-					type: "checkmark"
-					title: "Build a Powah reactor"
+					type: "item"
+					item: "powah:reactor_starter"
+					count: 36L
 				}
 			]
 			rewards: [
@@ -142,8 +146,15 @@
 			tasks: [
 				{
 					id: "909D5D01A5E477BA"
-					type: "checkmark"
-					title: "Move power with Flux Networks"
+					type: "item"
+					item: "fluxnetworks:flux_plug"
+					count: 1L
+				},
+				{
+					id: "53CC0CF8F5F65319"
+					type: "item"
+					item: "fluxnetworks:flux_point"
+					count: 1L
 				}
 			]
 			rewards: [

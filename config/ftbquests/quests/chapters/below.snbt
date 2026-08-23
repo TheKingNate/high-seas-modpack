@@ -18,8 +18,27 @@
 			tasks: [
 				{
 					id: "5785A38360AF9547"
-					type: "checkmark"
-					title: "Craft diving armor"
+					type: "item"
+					item: "hybrid_aquatic:diving_helmet"
+					count: 1L
+				},
+				{
+					id: "BF20D20A3AEB5003"
+					type: "item"
+					item: "hybrid_aquatic:diving_suit"
+					count: 1L
+				},
+				{
+					id: "5C023B6B7BFFD479"
+					type: "item"
+					item: "hybrid_aquatic:diving_leggings"
+					count: 1L
+				},
+				{
+					id: "7958E1371D6E5DE6"
+					type: "item"
+					item: "hybrid_aquatic:diving_boots"
+					count: 1L
 				}
 			]
 			rewards: [
@@ -47,8 +66,8 @@
 			tasks: [
 				{
 					id: "2A5E1AA9485AEB65"
-					type: "checkmark"
-					title: "Find an underwater ruin"
+					type: "structure"
+					structure: "#hopo:underwaterstructure"
 				}
 			]
 			rewards: [
@@ -71,7 +90,7 @@
 					id: "A21068AC1F626CD5"
 					type: "item"
 					item: "minecraft:prismarine_shard"
-					count: 16
+					count: 16L
 				}
 			]
 			rewards: [
@@ -94,7 +113,7 @@
 					id: "AE3302C7AF52FB8A"
 					type: "item"
 					item: "minecraft:nautilus_shell"
-					count: 8
+					count: 8L
 				}
 			]
 			rewards: [

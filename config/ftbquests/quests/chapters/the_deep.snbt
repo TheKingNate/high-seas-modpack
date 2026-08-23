@@ -19,8 +19,8 @@
 			tasks: [
 				{
 					id: "3C0735F0469C2F13"
-					type: "checkmark"
-					title: "Enter the ship graveyard"
+					type: "biome"
+					biome: "#aquamirae:ice_maze"
 				}
 			]
 			rewards: [
@@ -42,8 +42,9 @@
 			tasks: [
 				{
 					id: "2704A770355F6063"
-					type: "checkmark"
-					title: "Survive an Anglerfish"
+					type: "kill"
+					entity: "aquamirae:anglerfish"
+					value: 1L
 				}
 			]
 			rewards: [
@@ -65,8 +66,9 @@
 			tasks: [
 				{
 					id: "2E8A37F630A037A0"
-					type: "checkmark"
-					title: "Kill Captain Cornelia"
+					type: "kill"
+					entity: "aquamirae:captain_cornelia"
+					value: 1L
 				}
 			]
 			rewards: [
@@ -89,14 +91,14 @@
 			y: 0.0d
 			id: "D3393E657B858136"
 			title: "Deep City"
-			description: ["Clear a Hopo deep ocean city."]
+			description: ["Find a Hopo deep ocean city."]
 			dependencies: ["DA5F272BB51DA8A3"]
 			optional: true
 			tasks: [
 				{
 					id: "9BBF2FE7C55C3023"
-					type: "checkmark"
-					title: "Clear a deep ocean city"
+					type: "structure"
+					structure: "hopo:underwater/underwater_city"
 				}
 			]
 			rewards: [

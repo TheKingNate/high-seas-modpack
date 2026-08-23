@@ -19,7 +19,7 @@
 					id: "CF20F6298DADFA12"
 					type: "item"
 					item: "minecraft:oak_log"
-					count: 8
+					count: 8L
 				}
 			]
 			rewards: [
@@ -46,8 +46,9 @@
 			tasks: [
 				{
 					id: "9D61B74D0F604E24"
-					type: "checkmark"
-					title: "Craft a Traveler's Backpack"
+					type: "item"
+					item: "travelersbackpack:standard"
+					count: 1L
 				}
 			]
 			rewards: [
@@ -75,8 +76,9 @@
 			tasks: [
 				{
 					id: "F1C744F30F6D54B7"
-					type: "checkmark"
-					title: "Craft an Explorer's Compass"
+					type: "item"
+					item: "explorerscompass:explorerscompass"
+					count: 1L
 				}
 			]
 			rewards: [
@@ -92,13 +94,14 @@
 			y: 0.0d
 			id: "8859F7247194C048"
 			title: "A Way Back"
-			description: ["Place a Waystone.", "Do not put one on a ship. It will misbehave."]
+			description: ["Craft a Waystone, then place it.", "", "Do not put one on a ship. It will misbehave."]
 			dependencies: ["6564DA888F16EB19"]
 			tasks: [
 				{
 					id: "E74FBBA075D640BD"
-					type: "checkmark"
-					title: "Place a Waystone"
+					type: "item"
+					item: "waystones:waystone"
+					count: 1L
 				}
 			]
 			rewards: [

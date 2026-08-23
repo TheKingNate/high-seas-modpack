@@ -18,8 +18,9 @@
 			tasks: [
 				{
 					id: "ECE9DB41067E8FA7"
-					type: "checkmark"
-					title: "Craft a cannon"
+					type: "item"
+					item: "supplementaries:cannon"
+					count: 1L
 				}
 			]
 			rewards: [
@@ -62,8 +63,9 @@
 			tasks: [
 				{
 					id: "DEB3580186EB2869"
-					type: "checkmark"
-					title: "Kill a pirate cannoneer"
+					type: "kill"
+					entity: "pirates:pirate"
+					value: 3L
 				}
 			]
 			rewards: [
@@ -84,8 +86,9 @@
 			tasks: [
 				{
 					id: "2F727F518FD80CE1"
-					type: "checkmark"
-					title: "Kill a pirate helmsman"
+					type: "kill"
+					entity: "pirates:pirate"
+					value: 8L
 				}
 			]
 			rewards: [
@@ -141,8 +144,8 @@
 			tasks: [
 				{
 					id: "27A9E88C2E08D3FC"
-					type: "checkmark"
-					title: "Find a shipwreck"
+					type: "structure"
+					structure: "minecraft:shipwreck"
 				}
 			]
 			rewards: [

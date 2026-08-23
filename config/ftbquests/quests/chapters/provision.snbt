@@ -18,8 +18,9 @@
 			tasks: [
 				{
 					id: "9BAA59904D758D97"
-					type: "checkmark"
-					title: "Craft a cooking pot"
+					type: "item"
+					item: "farmersdelight:cooking_pot"
+					count: 1L
 				}
 			]
 			rewards: [
@@ -40,8 +41,33 @@
 			tasks: [
 				{
 					id: "A2F5D3B067BF8DCB"
-					type: "checkmark"
-					title: "Cook 5 different dishes"
+					type: "item"
+					item: "farmersdelight:vegetable_soup"
+					count: 1L
+				},
+				{
+					id: "3871E1EF6CBAF3EA"
+					type: "item"
+					item: "farmersdelight:chicken_soup"
+					count: 1L
+				},
+				{
+					id: "EB89174922EE2470"
+					type: "item"
+					item: "farmersdelight:beef_stew"
+					count: 1L
+				},
+				{
+					id: "A8600A46AC4CD1A0"
+					type: "item"
+					item: "farmersdelight:fish_stew"
+					count: 1L
+				},
+				{
+					id: "BD445094DBCA3C50"
+					type: "item"
+					item: "farmersdelight:pumpkin_soup"
+					count: 1L
 				}
 			]
 			rewards: [
@@ -62,8 +88,63 @@
 			tasks: [
 				{
 					id: "390C332BE826BB4E"
-					type: "checkmark"
-					title: "Grow 10 Croptopia crops"
+					type: "item"
+					item: "croptopia:tomato"
+					count: 1L
+				},
+				{
+					id: "A01FDEE540450149"
+					type: "item"
+					item: "croptopia:corn"
+					count: 1L
+				},
+				{
+					id: "A26C4C3A0DAA54D8"
+					type: "item"
+					item: "croptopia:onion"
+					count: 1L
+				},
+				{
+					id: "CB386ECD5E037AD1"
+					type: "item"
+					item: "croptopia:strawberry"
+					count: 1L
+				},
+				{
+					id: "62753A3791769F6C"
+					type: "item"
+					item: "croptopia:blueberry"
+					count: 1L
+				},
+				{
+					id: "49CBB777E1E2EA9B"
+					type: "item"
+					item: "croptopia:cucumber"
+					count: 1L
+				},
+				{
+					id: "93FEA15F1C550E08"
+					type: "item"
+					item: "croptopia:lettuce"
+					count: 1L
+				},
+				{
+					id: "C4CFEBD2ADF9EFBE"
+					type: "item"
+					item: "croptopia:pepper"
+					count: 1L
+				},
+				{
+					id: "8EBDB986CD230326"
+					type: "item"
+					item: "croptopia:grape"
+					count: 1L
+				},
+				{
+					id: "A33A42519F6A0887"
+					type: "item"
+					item: "croptopia:rice"
+					count: 1L
 				}
 			]
 			rewards: [
@@ -84,8 +165,39 @@
 			tasks: [
 				{
 					id: "1E2442A90E950E87"
-					type: "checkmark"
-					title: "Catch 6 fish species"
+					type: "item"
+					item: "fishofthieves:splashtail"
+					count: 1L
+				},
+				{
+					id: "125C95D17C3E2E20"
+					type: "item"
+					item: "fishofthieves:pondie"
+					count: 1L
+				},
+				{
+					id: "10DDAE80F60889C0"
+					type: "item"
+					item: "fishofthieves:islehopper"
+					count: 1L
+				},
+				{
+					id: "528E750BCF9161D6"
+					type: "item"
+					item: "fishofthieves:ancientscale"
+					count: 1L
+				},
+				{
+					id: "CD6EDC07AA55E24C"
+					type: "item"
+					item: "fishofthieves:plentifin"
+					count: 1L
+				},
+				{
+					id: "4A49EF831A64C58D"
+					type: "item"
+					item: "fishofthieves:wildsplash"
+					count: 1L
 				}
 			]
 			rewards: [

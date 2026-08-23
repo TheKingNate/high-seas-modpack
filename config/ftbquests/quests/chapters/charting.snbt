@@ -13,13 +13,13 @@
 			y: 0.0d
 			id: "066F353287C29D9F"
 			title: "Ruins"
-			description: ["Find a Structory ruin."]
+			description: ["Find a grassy Structory ruin."]
 			dependencies: ["0A3D556B349B66CA"]
 			tasks: [
 				{
 					id: "159B8918AD8CFB3B"
-					type: "checkmark"
-					title: "Find a Structory ruin"
+					type: "structure"
+					structure: "structory:ruin_grassy"
 				}
 			]
 			rewards: [
@@ -40,8 +40,8 @@
 			tasks: [
 				{
 					id: "B46ECF8C59BA8C92"
-					type: "checkmark"
-					title: "Find a Towns and Towers settlement"
+					type: "structure"
+					structure: "#towns_and_towers:town"
 				}
 			]
 			rewards: [
@@ -57,13 +57,23 @@
 			y: 0.0d
 			id: "6670EB122D75D446"
 			title: "Three Coasts"
-			description: ["Visit three biomes you have not seen before."]
+			description: ["Visit a jungle, a badlands, and a deep ocean."]
 			dependencies: ["AF1ACA8A58DDABCA"]
 			tasks: [
 				{
 					id: "DBA2D1D4C0018CD9"
-					type: "checkmark"
-					title: "Visit 3 new biomes"
+					type: "biome"
+					biome: "#minecraft:is_jungle"
+				},
+				{
+					id: "E8DFD7AF3C70134A"
+					type: "biome"
+					biome: "#minecraft:is_badlands"
+				},
+				{
+					id: "6CB9F81FD516EC58"
+					type: "biome"
+					biome: "#minecraft:is_deep_ocean"
 				}
 			]
 			rewards: [
@@ -79,13 +89,13 @@
 			y: 0.0d
 			id: "A67B084B2F2A7879"
 			title: "Underground"
-			description: ["Clear a YUNG's dungeon."]
+			description: ["Find your way into a YUNG's dungeon."]
 			dependencies: ["6670EB122D75D446"]
 			tasks: [
 				{
 					id: "19CDC09DE9375917"
-					type: "checkmark"
-					title: "Clear a YUNG's dungeon"
+					type: "structure"
+					structure: "#betterdungeons:better_dungeons"
 				}
 			]
 			rewards: [
@@ -108,13 +118,14 @@
 			y: 0.0d
 			id: "BE12065311E81C12"
 			title: "The Board"
-			description: ["Complete a bounty from a Bountiful board.", "", "These repeat forever. When you do not know what to do,", "this is the answer."]
+			description: ["Craft a Bounty Board.", "", "Bounties are taken and turned in here."]
 			dependencies: ["A67B084B2F2A7879"]
 			tasks: [
 				{
 					id: "A927543DC41F4D1A"
-					type: "checkmark"
-					title: "Complete a Bountiful bounty"
+					type: "item"
+					item: "bountiful:bountyboard"
+					count: 1L
 				}
 			]
 			rewards: [

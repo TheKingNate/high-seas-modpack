@@ -18,8 +18,9 @@
 			tasks: [
 				{
 					id: "8873961524F59736"
-					type: "checkmark"
-					title: "Craft a Mechanical Press"
+					type: "item"
+					item: "create:mechanical_press"
+					count: 1L
 				}
 			]
 			rewards: [
@@ -40,8 +41,9 @@
 			tasks: [
 				{
 					id: "FAF6F7112306CF45"
-					type: "checkmark"
-					title: "Build a working contraption"
+					type: "advancement"
+					advancement: "create:windmill"
+					criterion: "0"
 				}
 			]
 			rewards: [
@@ -62,8 +64,9 @@
 			tasks: [
 				{
 					id: "44DC5B585BAEA45B"
-					type: "checkmark"
-					title: "Craft a Powah generator"
+					type: "item"
+					item: "powah:furnator_starter"
+					count: 1L
 				}
 			]
 			rewards: [
@@ -84,8 +87,9 @@
 			tasks: [
 				{
 					id: "47C343A8824173BF"
-					type: "checkmark"
-					title: "Craft an Energy Cell"
+					type: "item"
+					item: "powah:energy_cell_starter"
+					count: 1L
 				}
 			]
 			rewards: [

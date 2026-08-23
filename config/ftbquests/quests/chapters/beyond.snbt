@@ -41,8 +41,8 @@
 			tasks: [
 				{
 					id: "BCFB64C5A5D79A97"
-					type: "checkmark"
-					title: "Find an Incendium structure"
+					type: "structure"
+					structure: "incendium:forbidden_castle"
 				}
 			]
 			rewards: [
@@ -85,8 +85,8 @@
 			tasks: [
 				{
 					id: "FC1A61C223B187C2"
-					type: "checkmark"
-					title: "Find a Moog's End structure"
+					type: "structure"
+					structure: "structory_towers:end/end_tower"
 				}
 			]
 			rewards: [
@@ -114,8 +114,9 @@
 			tasks: [
 				{
 					id: "5AC82953C66F2E20"
-					type: "checkmark"
-					title: "Kill a BOMD boss"
+					type: "kill"
+					entity: "bosses_of_mass_destruction:obsidilith"
+					value: 1L
 				}
 			]
 			rewards: [

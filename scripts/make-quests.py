@@ -475,10 +475,130 @@ CHAPTER_GROUPS = [
 GROUP_OF = {c: g for g, cs in CHAPTER_GROUPS for c in cs}
 
 
+# --- verified task overrides ----------------------------------------
+#
+# 47 of 56 tasks were "checkmark" - the player ticks them by hand and the game
+# verifies nothing. These ids were resolved from the installed jars and then
+# adversarially re-verified; only ids a second pass could not refute are here.
+#
+# Quests absent from this table keep their inline checkmark ON PURPOSE - see
+# CHECKMARK_REASONS below. An unresolvable item id does not error at load, it
+# renders a Missing Item placeholder in a permanently uncompletable quest, so
+# guessing is worse than leaving a checkmark.
+TASKS = {
+    ("Castaway", "Something To Carry It In"): [t_item("travelersbackpack:standard")],
+    ("Castaway", "Know Where You Are"):       [t_item("explorerscompass:explorerscompass")],
+    ("Castaway", "A Way Back"):               [t_item("waystones:waystone")],
+
+    ("Shipwright", "The Helm"):               [t_item("vs_eureka:oak_ship_helm")],
+    ("Shipwright", "Under Steam"):            [t_item("vs_eureka:engine")],
+
+    ("Charting", "Ruins"):                    [t_structure("structory:ruin_grassy")],
+    ("Charting", "Somewhere Inhabited"):      [t_structure("#towns_and_towers:town")],
+    ("Charting", "Three Coasts"):             [t_biome("#minecraft:is_jungle"),
+                                               t_biome("#minecraft:is_badlands"),
+                                               t_biome("#minecraft:is_deep_ocean")],
+    ("Charting", "Underground"):              [t_structure("#betterdungeons:better_dungeons")],
+    ("Charting", "The Board"):                [t_item("bountiful:bountyboard")],
+
+    ("The Forge", "Kinetics"):                [t_item("create:mechanical_press")],
+    ("The Forge", "Something That Moves"):    [t_advancement("create:windmill", "0")],
+    ("The Forge", "First Current"):           [t_item("powah:furnator_starter")],
+    ("The Forge", "Storage"):                 [t_item("powah:energy_cell_starter")],
+
+    ("Below", "Lungs"):                       [t_item("hybrid_aquatic:diving_helmet"),
+                                               t_item("hybrid_aquatic:diving_suit"),
+                                               t_item("hybrid_aquatic:diving_leggings"),
+                                               t_item("hybrid_aquatic:diving_boots")],
+    ("Below", "Sunken"):                      [t_structure("#hopo:underwaterstructure")],
+
+    ("Salvage", "Powder And Shot"):           [t_item("supplementaries:cannon")],
+    ("Salvage", "Silence A Gun"):             [t_kill("pirates:pirate", 3)],
+    ("Salvage", "Dead In The Water"):         [t_kill("pirates:pirate", 8)],
+    ("Salvage", "Wrecks"):                    [t_structure("minecraft:shipwreck")],
+
+    ("The Deep", "Ship Graveyard"):           [t_biome("#aquamirae:ice_maze")],
+    ("The Deep", "Something In The Dark"):    [t_kill("aquamirae:anglerfish")],
+    ("The Deep", "Cornelia"):                 [t_kill("aquamirae:captain_cornelia")],
+    ("The Deep", "Deep City"):                [t_structure("hopo:underwater/underwater_city")],
+
+    ("The Network", "Certus"):                [t_item("ae2:certus_quartz_crystal", 16)],
+    ("The Network", "Controller"):            [t_item("ae2:controller")],
+    ("The Network", "Wireless"):              [t_item("ae2:wireless_terminal")],
+    ("The Network", "Reactor"):               [t_item("powah:reactor_starter", 36)],
+    ("The Network", "Grid"):                  [t_item("fluxnetworks:flux_plug"),
+                                               t_item("fluxnetworks:flux_point")],
+
+    ("Arcana", "Binding Table"):              [t_item("spell_engine:spell_binding")],
+    ("Arcana", "Ammunition"):                 [t_item("runes:fire_stone", 8)],
+    ("Arcana", "Wand"):                       [t_item("wizards:wand_novice")],
+    ("Arcana", "First Spell"):                [t_item("wizards:arcane_spell_book")],
+    ("Arcana", "Tower"):                      [t_structure("structory_towers:wizard_tower")],
+
+    ("Provision", "The Pot"):                 [t_item("farmersdelight:cooking_pot")],
+    ("Provision", "Cook"):                    [t_item("farmersdelight:vegetable_soup"),
+                                               t_item("farmersdelight:chicken_soup"),
+                                               t_item("farmersdelight:beef_stew"),
+                                               t_item("farmersdelight:fish_stew"),
+                                               t_item("farmersdelight:pumpkin_soup")],
+    ("Provision", "Harvest"):                 [t_item("croptopia:" + c) for c in
+                                               ("tomato", "corn", "onion", "strawberry", "blueberry",
+                                                "cucumber", "lettuce", "pepper", "grape", "rice")],
+    ("Provision", "A Full Net"):              [t_item("fishofthieves:" + f) for f in
+                                               ("splashtail", "pondie", "islehopper",
+                                                "ancientscale", "plentifin", "wildsplash")],
+
+    ("Beyond", "Incendium"):                  [t_structure("incendium:forbidden_castle")],
+    ("Beyond", "Ruins at the Edge"):          [t_structure("structory_towers:end/end_tower")],
+    ("Beyond", "Something Enormous"):         [t_kill("bosses_of_mass_destruction:obsidilith")],
+}
+
+# Deliberately still checkmarks. Recorded so nobody "fixes" one by guessing.
+CHECKMARK_REASONS = {
+    ("Shipwright", "Assemble"):     "VS2 ships are not entities; nothing observes assembly",
+    ("Shipwright", "Blue Water"):   "riding a ship ticks no stat; there is no distance task",
+    ("Salvage", "Broadside"):       "'mounted on a ship' is runtime state with no id",
+    ("Salvage", "Plunder"):         "barrel loot is vanilla or craftable; no unique drop",
+    ("The Network", "Autocraft"):   "no AE2 advancement or item proves autocrafting",
+    ("Arcana", "Specialise"):       "no item or advancement proves a specialisation",
+    ("Provision", "Out Of Season"): "Fabric Seasons registers no items, blocks or entities",
+}
+
+# Descriptions the new tasks make inaccurate.
+RETEXT = {
+    ("Charting", "Three Coasts"): ["Visit a jungle, a badlands, and a deep ocean."],
+    ("Charting", "Underground"):  ["Find your way into a YUNG's dungeon."],
+    ("Charting", "The Board"):    ["Craft a Bounty Board.", "",
+                                   "Bounties are taken and turned in here."],
+    ("The Deep", "Deep City"):    ["Find a Hopo deep ocean city."],
+
+    # An item task proves you obtained it, not that you placed or mounted it.
+    ("Castaway", "A Way Back"):   ["Craft a Waystone, then place it.", "",
+                                   "Do not put one on a ship. It will misbehave."],
+    # vs_eureka:ship_helms is a real item tag, but no item-filter provider is
+    # installed, so a task can only name one wood. Say which.
+    ("Shipwright", "The Helm"):   ["Craft an Oak Ship Helm.",
+                                   "This is the single most important block in the pack.", "",
+                                   "Other woods work in-game; the quest checks oak."],
+    ("Shipwright", "Under Steam"):["Craft a Ship Engine.", "",
+                                   "Balloons give you lift. Engines give you somewhere to go."],
+    # Structory ships no structure tag, so this names one ruin of the seven.
+    ("Charting", "Ruins"):        ["Find a grassy Structory ruin."],
+}
+
+
 # --- emit -----------------------------------------------------------
 
 def snbt_strlist(lines):
     return "[" + ", ".join('"%s"' % esc(l) for l in lines) + "]"
+
+
+# Which numeric task fields the mod stores as longs, read from each task class:
+#   KillTask.value  -> long      StatTask.value -> int
+#   ItemTask.count  -> long (putLong)
+# Reading an int literal into a long field works, but emitting what FTB Quests
+# itself writes keeps a round-trip through the in-game editor byte-identical.
+LONG_FIELDS = {("value", "kill"), ("count", "item")}
 
 
 def emit_task(t, key):
@@ -489,10 +609,10 @@ def emit_task(t, key):
             out.append('\t\t\t\t\t%s: "%s"' % (k, esc(v)))
         elif isinstance(v, bool):
             out.append('\t\t\t\t\t%s: %s' % (k, "true" if v else "false"))
-        elif k == "value" and t.get("type") == "kill":
-            out.append('\t\t\t\t\t%s: %dL' % (k, v))   # KillTask.value is a long
+        elif (k, t.get("type")) in LONG_FIELDS:
+            out.append('\t\t\t\t\t%s: %dL' % (k, v))
         else:
-            out.append('\t\t\t\t\t%s: %d' % (k, v))    # StatTask.value is an int
+            out.append('\t\t\t\t\t%s: %d' % (k, v))
     out.append('\t\t\t\t}')
     return "\n".join(out)
 
@@ -534,6 +654,8 @@ def emit_chapter(idx, title, subtitle, icon, quests):
 
     prev = None
     for (x, y, qtitle, desc, tasks, rewards) in quests:
+        tasks = TASKS.get((title, qtitle), tasks)
+        desc = RETEXT.get((title, qtitle), desc)
         this = qid("quest:%s:%s" % (title, qtitle))
         lines.append('\t\t{')
         lines.append('\t\t\tx: %.1fd' % x)

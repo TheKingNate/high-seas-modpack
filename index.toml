@@ -6,47 +6,47 @@ hash = "ad91219b569d2abcb333b421e4e6be976219f5f41087ba007d7d2802f3d810d7"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/arcana.snbt"
-hash = "334c4b44d3e1b6daac667f38d52c74ea2945043e8db99327e1ff9ee93580af47"
+hash = "9acb07286c0df406cf312d237dab901845c9db4ae48a86f2e1a03fcdc3acf5f5"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/below.snbt"
-hash = "48c2764152e5bddde70748519d5f4c0940927d78bb87e0cd4d655ca918dad895"
+hash = "f1870f4a4a3ee17d1768df50fa7f475aa6bdeffeb8064561f6b75267cb16e9b9"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/beyond.snbt"
-hash = "a87cf96523a894e53ce8f2333990fb00f98b8abb9950520b90bad19d1e74133f"
+hash = "d5e1e901a50457419b245f9192fbac0acd5588f9f13eafced8bd43ae632372ff"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/castaway.snbt"
-hash = "77d81084c10c476034ee1eb2c8c0d02bcb79c514bc02e923b9bd6c6d536b6266"
+hash = "d488f8b5429cc7f49baae3e801e3605b7e287a1ad1d0a17de2e0eddf871d6656"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/charting.snbt"
-hash = "ff08d267e575317d09d9f0208f552a221ac538c10939f9d980a91acc9b49440b"
+hash = "51ed29df75d651167b4d57fa32c7af738ff9cc924808b6b9ad8311c8cb1b3aae"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/provision.snbt"
-hash = "2f92f2075666f6bcdd8f46c285edebfb45774e3d74abe42a191cab10f3fa8599"
+hash = "b7b85affa5fd89bde69ec82917b641e36d3b90676aceca034fe059a06b9cbec7"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/salvage.snbt"
-hash = "a65b27d3b25bfb854345914271a3702315323ff62a06851f6d1f231ccdd407a7"
+hash = "07b2517f9b3676b2c187e0439d8e2c75e718118773ad2dd55c296287ec620996"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/shipwright.snbt"
-hash = "01f8006f96708cd08be1f0a4d80a9886042c357cc7dc607275bbed40bce33a1d"
+hash = "0a28dc49cb2f8398c9516a55c3ed0d4a578b34bbcc6254ba5082a92cf33bba5b"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/the_deep.snbt"
-hash = "22ebdfdf46cef3a4cd5ef7a84745f0e3810614af381b573f702f5aadee7ac30c"
+hash = "4f620cbee3d776c2db88f0d7ee89cbf295f21e83867e6c95374d1dca72617e1e"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/the_forge.snbt"
-hash = "868b036c16877affa5643a3ad518571128665385e2edbfe809f17b742a9cd6fb"
+hash = "f9c1e794eb8eff4922574619b8bcc70d0e0840e559ba7538b1a00ee0eb535569"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/the_network.snbt"
-hash = "1f9025490f821a673afdb2dac8604ba4aaeb23aeabbe54b6b5e1af903ce54eaa"
+hash = "de7595bc3a9083254e7a6cd3c999d972056ecd08125df2bae984cd22af4ffbb8"
 
 [[files]]
 file = "config/ftbquests/quests/data.snbt"

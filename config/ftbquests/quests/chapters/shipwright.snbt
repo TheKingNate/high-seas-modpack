@@ -13,13 +13,14 @@
 			y: 0.0d
 			id: "022B1A56B78FBAB7"
 			title: "The Helm"
-			description: ["Craft a Ship Helm.", "This is the single most important block in the pack."]
+			description: ["Craft an Oak Ship Helm.", "This is the single most important block in the pack.", "", "Other woods work in-game; the quest checks oak."]
 			dependencies: ["8859F7247194C048"]
 			tasks: [
 				{
 					id: "7137B11309BC6EF4"
-					type: "checkmark"
-					title: "Craft a Ship Helm"
+					type: "item"
+					item: "vs_eureka:oak_ship_helm"
+					count: 1L
 				}
 			]
 			rewards: [
@@ -57,13 +58,14 @@
 			y: 0.0d
 			id: "E42489DD1266D8DD"
 			title: "Under Steam"
-			description: ["Craft a Ship Engine and mount it on your ship.", "", "Balloons give you lift. Engines give you somewhere to go."]
+			description: ["Craft a Ship Engine.", "", "Balloons give you lift. Engines give you somewhere to go."]
 			dependencies: ["035E2A82D63448FC"]
 			tasks: [
 				{
 					id: "AEBD94DC7C981873"
-					type: "checkmark"
-					title: "Mount a Ship Engine on your ship"
+					type: "item"
+					item: "vs_eureka:engine"
+					count: 1L
 				}
 			]
 			rewards: [

@@ -19,8 +19,8 @@
 				{
 					id: "1E770C9841A254C2"
 					type: "item"
-					item: "minecraft:amethyst_shard"
-					count: 2
+					item: "spell_engine:spell_binding"
+					count: 1L
 				}
 			]
 			rewards: [
@@ -41,8 +41,9 @@
 			tasks: [
 				{
 					id: "0FAD933538E9F6B3"
-					type: "checkmark"
-					title: "Craft runes"
+					type: "item"
+					item: "runes:fire_stone"
+					count: 8L
 				}
 			]
 			rewards: [
@@ -63,8 +64,9 @@
 			tasks: [
 				{
 					id: "A0739D2F861EE0E5"
-					type: "checkmark"
-					title: "Craft a wand"
+					type: "item"
+					item: "wizards:wand_novice"
+					count: 1L
 				}
 			]
 			rewards: [
@@ -85,8 +87,9 @@
 			tasks: [
 				{
 					id: "2A668DE93113715E"
-					type: "checkmark"
-					title: "Bind your first spell"
+					type: "item"
+					item: "wizards:arcane_spell_book"
+					count: 1L
 				}
 			]
 			rewards: [
@@ -107,8 +110,8 @@
 			tasks: [
 				{
 					id: "F4514B1E195181D7"
-					type: "checkmark"
-					title: "Raid a Wizard Tower"
+					type: "structure"
+					structure: "structory_towers:wizard_tower"
 				}
 			]
 			rewards: [
