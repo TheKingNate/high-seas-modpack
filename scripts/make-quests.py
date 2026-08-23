@@ -61,6 +61,34 @@ def t_kill(entity, count=1):
     return {"type": "kill", "entity": entity, "value": count}
 
 
+# FTB Quests 2001.4.22 registers far more task types than this generator used to
+# emit. These are the ones that let an exploration quest verify itself instead of
+# being a checkmark the player ticks by hand. Field names are read from the jar's
+# writeData(): StructureTask->"structure", BiomeTask->"biome",
+# AdvancementTask->"advancement"+"criterion", StatTask->"stat"+"value".
+#
+# NOTE: a quest requires ALL of its tasks, so "any one of several" must be a TAG
+# (leading #), never several tasks.
+
+def t_structure(structure):
+    """structure id, or #tag to accept any structure in that tag."""
+    return {"type": "structure", "structure": structure}
+
+
+def t_biome(biome):
+    """biome id, or #tag."""
+    return {"type": "biome", "biome": biome}
+
+
+def t_advancement(advancement, criterion="-"):
+    return {"type": "advancement", "advancement": advancement, "criterion": criterion}
+
+
+def t_stat(stat, count=1):
+    # StatTask.value is an int, unlike KillTask.value which is a long.
+    return {"type": "stat", "stat": stat, "value": count}
+
+
 def r_xp(n):
     return {"type": "xp", "xp": n}
 
@@ -429,8 +457,13 @@ CHAPTER_GATES = {
     "Below":        ("Three Coasts",       "Charting"),
     "The Deep":     ("The Monument",       "Below"),
     "The Network":  ("First Current",      "The Forge"),
-    "Beyond":       ("Reactor",            "The Network"),
+    # a list gates on several prerequisites at once
+    "Beyond":       [("Reactor", "The Network"), ("Specialise", "Arcana")],
 }
+
+# Chapters the pack itself calls optional. Marking the quests optional stops them
+# counting toward completion and greys the lock icon instead of implying a wall.
+OPTIONAL_CHAPTERS = {"The Deep"}
 
 # Chapter groups - the sidebar was one flat list of 11 chapters.
 CHAPTER_GROUPS = [
@@ -456,9 +489,10 @@ def emit_task(t, key):
             out.append('\t\t\t\t\t%s: "%s"' % (k, esc(v)))
         elif isinstance(v, bool):
             out.append('\t\t\t\t\t%s: %s' % (k, "true" if v else "false"))
+        elif k == "value" and t.get("type") == "kill":
+            out.append('\t\t\t\t\t%s: %dL' % (k, v))   # KillTask.value is a long
         else:
-            out.append('\t\t\t\t\t%s: %dL' % (k, v)
-                       if k == "value" else '\t\t\t\t\t%s: %d' % (k, v))
+            out.append('\t\t\t\t\t%s: %d' % (k, v))    # StatTask.value is an int
     out.append('\t\t\t\t}')
     return "\n".join(out)
 
@@ -507,12 +541,20 @@ def emit_chapter(idx, title, subtitle, icon, quests):
         lines.append('\t\t\tid: "%s"' % this)
         lines.append('\t\t\ttitle: "%s"' % esc(qtitle))
         lines.append('\t\t\tdescription: %s' % snbt_strlist(desc))
-        dep = prev
-        if dep is None and title in CHAPTER_GATES:
-            gq, gc = CHAPTER_GATES[title]
-            dep = qid("quest:%s:%s" % (gc, gq))
-        if dep:
-            lines.append('\t\t\tdependencies: ["%s"]' % dep)
+        deps = [prev] if prev else []
+        if not deps and title in CHAPTER_GATES:
+            g = CHAPTER_GATES[title]
+            if isinstance(g, tuple):
+                g = [g]
+            deps = [qid("quest:%s:%s" % (gc, gq)) for gq, gc in g]
+        if deps:
+            lines.append('\t\t\tdependencies: [%s]'
+                         % ", ".join('"%s"' % d for d in deps))
+            if len(deps) > 1:
+                # any ONE prerequisite chapter is enough to open this one
+                lines.append('\t\t\tmin_required_dependencies: 1')
+        if title in OPTIONAL_CHAPTERS:
+            lines.append('\t\t\toptional: true')
         lines.append('\t\t\ttasks: [')
         lines.append(",\n".join(
             emit_task(t, "task:%s:%s:%d" % (title, qtitle, i))

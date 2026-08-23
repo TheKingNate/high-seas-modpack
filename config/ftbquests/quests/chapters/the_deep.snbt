@@ -15,6 +15,7 @@
 			title: "Ship Graveyard"
 			description: ["Enter the Aquamirae ship graveyard.", "", "Do not come here before you have diving gear."]
 			dependencies: ["96B5CFE777BDEC18"]
+			optional: true
 			tasks: [
 				{
 					id: "3C0735F0469C2F13"
@@ -37,6 +38,7 @@
 			title: "Something In The Dark"
 			description: ["Survive an Anglerfish."]
 			dependencies: ["650447570BF90F7B"]
+			optional: true
 			tasks: [
 				{
 					id: "2704A770355F6063"
@@ -59,6 +61,7 @@
 			title: "Cornelia"
 			description: ["Kill the Ghost of Captain Cornelia."]
 			dependencies: ["3B3C9866C186BDE6"]
+			optional: true
 			tasks: [
 				{
 					id: "2E8A37F630A037A0"
@@ -88,6 +91,7 @@
 			title: "Deep City"
 			description: ["Clear a Hopo deep ocean city."]
 			dependencies: ["DA5F272BB51DA8A3"]
+			optional: true
 			tasks: [
 				{
 					id: "9BBF2FE7C55C3023"

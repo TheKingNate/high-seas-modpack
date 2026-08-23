@@ -14,7 +14,7 @@ hash = "48c2764152e5bddde70748519d5f4c0940927d78bb87e0cd4d655ca918dad895"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/beyond.snbt"
-hash = "9c2d8e8e94a4286e09e997c21d17e4642583b7fade046616b6b8f5a2de4c6d52"
+hash = "a87cf96523a894e53ce8f2333990fb00f98b8abb9950520b90bad19d1e74133f"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/castaway.snbt"
@@ -38,7 +38,7 @@ hash = "01f8006f96708cd08be1f0a4d80a9886042c357cc7dc607275bbed40bce33a1d"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/the_deep.snbt"
-hash = "d364b551b9f5891246d3f44cf58ce3f977a9678efa51032c1d7e528572bd57f0"
+hash = "22ebdfdf46cef3a4cd5ef7a84745f0e3810614af381b573f702f5aadee7ac30c"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/the_forge.snbt"

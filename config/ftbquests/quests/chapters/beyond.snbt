@@ -14,7 +14,8 @@
 			id: "BA9372EF0AC168E1"
 			title: "Hot Rock"
 			description: ["Enter the Nether."]
-			dependencies: ["7BBE903275ACB994"]
+			dependencies: ["7BBE903275ACB994", "B37D5907133FB08C"]
+			min_required_dependencies: 1
 			tasks: [
 				{
 					id: "E61EBF57436E128F"
