@@ -1,6 +1,6 @@
 {
 	id: "E8601A86991E38C3"
-	group: ""
+	group: "576D37503A70E241"
 	icon: "minecraft:end_crystal"
 	default_quest_shape: ""
 	filename: "beyond"
@@ -14,6 +14,7 @@
 			id: "BA9372EF0AC168E1"
 			title: "Hot Rock"
 			description: ["Enter the Nether."]
+			dependencies: ["7BBE903275ACB994"]
 			tasks: [
 				{
 					id: "E61EBF57436E128F"

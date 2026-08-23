@@ -1,6 +1,6 @@
 {
 	id: "3DA59ED10DC38092"
-	group: ""
+	group: "8E1B3CDD0E4E9C32"
 	icon: "minecraft:gunpowder"
 	default_quest_shape: ""
 	filename: "salvage"
@@ -14,6 +14,7 @@
 			id: "8D13A81803954F41"
 			title: "Powder And Shot"
 			description: ["Craft a Supplementaries cannon."]
+			dependencies: ["0A3D556B349B66CA"]
 			tasks: [
 				{
 					id: "ECE9DB41067E8FA7"

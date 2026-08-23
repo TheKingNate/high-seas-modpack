@@ -1,6 +1,6 @@
 {
 	id: "3D34D56924312ECB"
-	group: ""
+	group: "8E1B3CDD0E4E9C32"
 	icon: "minecraft:filled_map"
 	default_quest_shape: ""
 	filename: "charting"
@@ -14,6 +14,7 @@
 			id: "066F353287C29D9F"
 			title: "Ruins"
 			description: ["Find a Structory ruin."]
+			dependencies: ["0A3D556B349B66CA"]
 			tasks: [
 				{
 					id: "159B8918AD8CFB3B"

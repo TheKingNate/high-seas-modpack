@@ -1,6 +1,6 @@
 {
 	id: "706CF27AA04A6531"
-	group: ""
+	group: "8E1B3CDD0E4E9C32"
 	icon: "minecraft:prismarine_crystals"
 	default_quest_shape: ""
 	filename: "the_deep"
@@ -14,6 +14,7 @@
 			id: "650447570BF90F7B"
 			title: "Ship Graveyard"
 			description: ["Enter the Aquamirae ship graveyard.", "", "Do not come here before you have diving gear."]
+			dependencies: ["96B5CFE777BDEC18"]
 			tasks: [
 				{
 					id: "3C0735F0469C2F13"

@@ -354,6 +354,38 @@ CHAPTERS = [
 ]
 
 
+# --- progression graph ----------------------------------------------
+#
+# Every chapter head used to be unlocked at world start, including "Beyond -
+# Endgame", while Shipwright's subtitle claimed "Everything else is gated
+# behind this" and gated nothing. This is that claim made real.
+#
+# Content-addressed ids are what make this expressible: a chapter can point at
+# another chapter's quest by name, without anyone needing to know its id.
+CHAPTER_GATES = {
+    # chapter        must first complete   in chapter
+    "Shipwright":   ("A Way Back",         "Castaway"),
+    "Provision":    ("Ashore",             "Castaway"),
+    "The Forge":    ("A Way Back",         "Castaway"),
+    "Arcana":       ("A Way Back",         "Castaway"),
+    "Charting":     ("Blue Water",         "Shipwright"),
+    "Salvage":      ("Blue Water",         "Shipwright"),
+    "Below":        ("Three Coasts",       "Charting"),
+    "The Deep":     ("The Monument",       "Below"),
+    "The Network":  ("First Current",      "The Forge"),
+    "Beyond":       ("Reactor",            "The Network"),
+}
+
+# Chapter groups - the sidebar was one flat list of 11 chapters.
+CHAPTER_GROUPS = [
+    ("Ashore",     ["Castaway", "Provision"]),
+    ("The Sea",    ["Shipwright", "Charting", "Below", "The Deep", "Salvage"]),
+    ("Industry",   ["The Forge", "The Network"]),
+    ("Elsewhere",  ["Arcana", "Beyond"]),
+]
+GROUP_OF = {c: g for g, cs in CHAPTER_GROUPS for c in cs}
+
+
 # --- emit -----------------------------------------------------------
 
 def snbt_strlist(lines):
@@ -393,7 +425,7 @@ def emit_chapter(idx, title, subtitle, icon, quests):
     fname = title.lower().replace("'", "").replace(" ", "_")
     lines = ["{"]
     lines.append('\tid: "%s"' % qid("chapter:" + title))
-    lines.append('\tgroup: ""')
+    lines.append('\tgroup: "%s"' % (qid("group:" + GROUP_OF[title]) if title in GROUP_OF else ""))
     lines.append('\ticon: "%s"' % icon)
     lines.append('\tdefault_quest_shape: ""')
     lines.append('\tfilename: "%s"' % fname)
@@ -411,8 +443,12 @@ def emit_chapter(idx, title, subtitle, icon, quests):
         lines.append('\t\t\tid: "%s"' % this)
         lines.append('\t\t\ttitle: "%s"' % esc(qtitle))
         lines.append('\t\t\tdescription: %s' % snbt_strlist(desc))
-        if prev:
-            lines.append('\t\t\tdependencies: ["%s"]' % prev)
+        dep = prev
+        if dep is None and title in CHAPTER_GATES:
+            gq, gc = CHAPTER_GATES[title]
+            dep = qid("quest:%s:%s" % (gc, gq))
+        if dep:
+            lines.append('\t\t\tdependencies: ["%s"]' % dep)
         lines.append('\t\t\ttasks: [')
         lines.append(",\n".join(
             emit_task(t, "task:%s:%s:%d" % (title, qtitle, i))
@@ -450,6 +486,15 @@ GROUPS = """{
 """
 
 
+def emit_groups():
+    out = ["{", "\tchapter_groups: ["]
+    for i, (name, _) in enumerate(CHAPTER_GROUPS):
+        out += ["\t\t{", '\t\t\tid: "%s"' % qid("group:" + name),
+                '\t\t\ttitle: "%s"' % esc(name), "\t\t}"]
+    out += ["\t]", "}", ""]
+    return "\n".join(out)
+
+
 def main():
     base = os.path.join("config", "ftbquests", "quests")
     chdir = os.path.join(base, "chapters")
@@ -458,7 +503,7 @@ def main():
     with open(os.path.join(base, "data.snbt"), "w") as f:
         f.write(DATA)
     with open(os.path.join(base, "chapter_groups.snbt"), "w") as f:
-        f.write(GROUPS)
+        f.write(emit_groups())
 
     for i, (title, subtitle, icon, quests) in enumerate(CHAPTERS):
         fname, body = emit_chapter(i, title, subtitle, icon, quests)

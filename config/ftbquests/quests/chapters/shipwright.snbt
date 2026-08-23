@@ -1,6 +1,6 @@
 {
 	id: "F3A5BA3E595DF28C"
-	group: ""
+	group: "8E1B3CDD0E4E9C32"
 	icon: "minecraft:oak_boat"
 	default_quest_shape: ""
 	filename: "shipwright"
@@ -14,6 +14,7 @@
 			id: "022B1A56B78FBAB7"
 			title: "The Helm"
 			description: ["Craft a Ship Helm.", "This is the single most important block in the pack."]
+			dependencies: ["8859F7247194C048"]
 			tasks: [
 				{
 					id: "7137B11309BC6EF4"

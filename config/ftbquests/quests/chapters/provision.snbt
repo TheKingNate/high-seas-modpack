@@ -1,6 +1,6 @@
 {
 	id: "AFB76E3591510BCE"
-	group: ""
+	group: "3B5CADE70BF7A16C"
 	icon: "minecraft:bread"
 	default_quest_shape: ""
 	filename: "provision"
@@ -14,6 +14,7 @@
 			id: "4A87E2864ED14A84"
 			title: "The Pot"
 			description: ["Craft a Farmer's Delight cooking pot."]
+			dependencies: ["A7F578BD24D816B0"]
 			tasks: [
 				{
 					id: "9BAA59904D758D97"

@@ -1,6 +1,6 @@
 {
 	id: "6D7D8F7D1780765D"
-	group: ""
+	group: "8E1B3CDD0E4E9C32"
 	icon: "minecraft:heart_of_the_sea"
 	default_quest_shape: ""
 	filename: "below"
@@ -14,6 +14,7 @@
 			id: "2F3B856A6450F88B"
 			title: "Lungs"
 			description: ["Craft Hybrid Aquatic diving armor."]
+			dependencies: ["6670EB122D75D446"]
 			tasks: [
 				{
 					id: "5785A38360AF9547"

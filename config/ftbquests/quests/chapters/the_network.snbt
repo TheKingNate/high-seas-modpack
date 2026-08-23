@@ -1,6 +1,6 @@
 {
 	id: "B5C1707AECEC05B2"
-	group: ""
+	group: "AB8CEE6310D5FD25"
 	icon: "minecraft:redstone"
 	default_quest_shape: ""
 	filename: "the_network"
@@ -14,6 +14,7 @@
 			id: "3D57E293066B57C1"
 			title: "Certus"
 			description: ["Collect 16 certus quartz."]
+			dependencies: ["12C2720033D9CC48"]
 			tasks: [
 				{
 					id: "E236CBEF12705CE0"

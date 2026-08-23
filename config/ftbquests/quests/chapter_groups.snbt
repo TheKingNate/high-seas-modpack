@@ -1,3 +1,20 @@
 {
-	chapter_groups: [ ]
+	chapter_groups: [
+		{
+			id: "3B5CADE70BF7A16C"
+			title: "Ashore"
+		}
+		{
+			id: "8E1B3CDD0E4E9C32"
+			title: "The Sea"
+		}
+		{
+			id: "AB8CEE6310D5FD25"
+			title: "Industry"
+		}
+		{
+			id: "576D37503A70E241"
+			title: "Elsewhere"
+		}
+	]
 }
