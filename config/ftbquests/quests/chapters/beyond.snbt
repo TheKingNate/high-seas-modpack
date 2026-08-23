@@ -6,7 +6,7 @@
 	filename: "beyond"
 	title: "Beyond"
 	subtitle: ["Endgame"]
-	order_index: 10
+	order_index: 31
 	quests: [
 		{
 			x: 0.0d
@@ -119,8 +119,8 @@
 				{
 					id: "FE5190148B6A6347"
 					type: "command"
-					title: "2 Skill Points"
-					command: "/puffish_skills points add @p tree 2"
+					title: "1 Skill Point"
+					command: "/puffish_skills points add @p tree 1"
 					player_command: false
 				}
 			]

@@ -1,0 +1,368 @@
+{
+	id: "641049EC2B389C82"
+	group: "AB8CEE6310D5FD25"
+	icon: "createts:steel_ingot"
+	default_quest_shape: ""
+	filename: "tin_and_tender"
+	title: "Tin And Tender"
+	subtitle: ["Tempered Steel and the mint"]
+	order_index: 20
+	quests: [
+		{
+			x: 0.0d
+			y: 0.0d
+			id: "6803D8E95FE09BAD"
+			title: "Tin Ore"
+			description: ["Tin generates in every Overworld biome, from bedrock up to", "roughly y=36, eight veins a chunk.", "", "It is the one ore in the pack you probably have not been", "picking up."]
+			tasks: [
+				{
+					id: "70D3C07E28B299A2"
+					type: "item"
+					item: "createts:raw_tin"
+					count: 8L
+				}
+			]
+			rewards: [
+				{
+					id: "918FF6DD429E7CED"
+					type: "xp"
+					xp: 100
+				}
+			]
+		}
+		{
+			x: 2.0d
+			y: 0.0d
+			id: "8C94B8D67ED8BAB6"
+			title: "Tin Ingots"
+			description: ["Smelt or blast Raw Tin.", "", "Nothing else uses tin. It exists so bronze exists."]
+			dependencies: ["6803D8E95FE09BAD"]
+			tasks: [
+				{
+					id: "7D741FBF65429EB7"
+					type: "item"
+					item: "createts:tin_ingot"
+					count: 8L
+				}
+			]
+			rewards: [
+				{
+					id: "BA141CFFECB65512"
+					type: "xp"
+					xp: 100
+				}
+			]
+		}
+		{
+			x: 2.0d
+			y: -2.0d
+			id: "8ACE162FC9F2BA0D"
+			title: "Wash The Ore"
+			description: ["Crushing Wheels turn Tin Ore into Crushed Raw Tin.", "", "Wash the crushed tin in an Encased Fan water column: nine", "Tin Nuggets, and a one-in-four chance of an Amethyst Shard."]
+			dependencies: ["8C94B8D67ED8BAB6"]
+			tasks: [
+				{
+					id: "C62F362A7D5E8B5A"
+					type: "item"
+					item: "create:crushed_raw_tin"
+					count: 8L
+				}
+			]
+			rewards: [
+				{
+					id: "C525C78D1F7D139B"
+					type: "xp"
+					xp: 140
+				}
+			]
+		}
+		{
+			x: 4.0d
+			y: 0.0d
+			id: "9B668813D306012F"
+			title: "Bronze"
+			description: ["Three Copper Ingots and one Tin Ingot in a heated Basin,", "mixed, gives four Bronze Ingots.", "", "Heated, not superheated - one lit Blaze Burner underneath."]
+			dependencies: ["8ACE162FC9F2BA0D"]
+			tasks: [
+				{
+					id: "C725CEAC7A7433DB"
+					type: "item"
+					item: "createts:bronze_ingot"
+					count: 12L
+				}
+			]
+			rewards: [
+				{
+					id: "41486F7F309BE22E"
+					type: "xp"
+					xp: 180
+				}
+			]
+		}
+		{
+			x: 6.0d
+			y: 0.0d
+			id: "BCAEE3834BC0AECA"
+			title: "Bronze Sheet"
+			description: ["Press a Bronze Ingot.", "", "Bronze Sheet is cut into autocannon cartridge sheets, and it is", "the plate the Artillery and Armory ammo chain runs on."]
+			dependencies: ["9B668813D306012F"]
+			tasks: [
+				{
+					id: "758822BAA8135717"
+					type: "item"
+					item: "createts:bronze_sheet"
+					count: 8L
+				}
+			]
+			rewards: [
+				{
+					id: "84DDCBE6DB79400A"
+					type: "xp"
+					xp: 160
+				}
+			]
+		}
+		{
+			x: 6.0d
+			y: -2.0d
+			id: "B849428654532C36"
+			title: "Bronze Knife"
+			description: ["Smelting a Bronze Knife recovers the metal, so it is a real tool,", "not a trophy.", "", "It counts as a knife for Farmer's Delight cutting boards."]
+			dependencies: ["BCAEE3834BC0AECA"]
+			tasks: [
+				{
+					id: "A2A9707C9F8B1171"
+					type: "item"
+					item: "createts:bronze_knife"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "957E39F56E6E6D7E"
+					type: "xp"
+					xp: 120
+				}
+			]
+		}
+		{
+			x: 8.0d
+			y: 0.0d
+			id: "C776A952CB431B31"
+			title: "Cast Iron"
+			description: ["Heated compacting: one Iron Ingot plus one Coal in a Basin under", "a Mechanical Press, with a lit Blaze Burner below.", "", "Press over Basin is compacting. Mixer over Basin is mixing.", "Steel needs the press."]
+			dependencies: ["B849428654532C36"]
+			tasks: [
+				{
+					id: "E77893D3B76F0EA9"
+					type: "item"
+					item: "createbigcannons:cast_iron_ingot"
+					count: 8L
+				}
+			]
+			rewards: [
+				{
+					id: "C47DA299A4EE513F"
+					type: "xp"
+					xp: 200
+				}
+			]
+		}
+		{
+			x: 12.0d
+			y: 2.0d
+			id: "2E585E1F0F9375F5"
+			title: "The Depositor"
+			description: ["An Andesite Depositor is Andesite Casing plus an Iron Sheet.", "", "Sneak-click the top to set a price, then anyone who pays it gets", "a redstone pulse out of the block. A coin-operated door.", "The Brass Depositor also accepts a Bank Card."]
+			dependencies: ["C776A952CB431B31"]
+			tasks: [
+				{
+					id: "30E0B4E69B0A8B18"
+					type: "item"
+					item: "numismatics:andesite_depositor"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "53B86BF1079BB3A5"
+					type: "xp"
+					xp: 140
+				}
+			]
+		}
+		{
+			x: 14.0d
+			y: 2.0d
+			id: "AE90FEDA5AF9F2B0"
+			title: "The Vendor"
+			description: ["Brass Casing, Framed Glass and an Electron Tube.", "", "Sneak-click to configure: pick Buy or Sell, the item, the stock", "and the price. Right-click to trade.", "This is the only shop block that works while you are offline."]
+			dependencies: ["2E585E1F0F9375F5"]
+			tasks: [
+				{
+					id: "CD456BCC5E0115E6"
+					type: "item"
+					item: "numismatics:vendor"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "57EF3F6A8CC425C7"
+					type: "xp"
+					xp: 180
+				}
+			]
+		}
+		{
+			x: 16.0d
+			y: 2.0d
+			id: "1BDBE9B5EB46FE65"
+			title: "The Bank Terminal"
+			description: ["A Precision Mechanism, a Block of Industrial Iron and an", "Electron Tube.", "", "It opens your account and any account you are trusted with,", "and it is where account balance turns back into physical coins."]
+			dependencies: ["AE90FEDA5AF9F2B0"]
+			tasks: [
+				{
+					id: "1BEFD01591D90648"
+					type: "item"
+					item: "numismatics:bank_terminal"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "A9D24CBB5C98C3E5"
+					type: "xp"
+					xp: 200
+				}
+			]
+		}
+		{
+			x: 18.0d
+			y: 2.0d
+			id: "37435B90A3AA0D07"
+			title: "Cards And Identity"
+			description: ["A Bank Card is a Precision Mechanism, an Iron Sheet and a dye.", "An ID Card swaps the mechanism for paper and a brass nugget.", "", "Right-click to bind, sneak-click to wipe. Drop a Bank Card into a", "Vendor and its takings go straight to your account; drop an ID Card", "into a Trust List and that player can use the block.", "Any dye colour works - they are cosmetic."]
+			dependencies: ["1BDBE9B5EB46FE65"]
+			tasks: [
+				{
+					id: "758127999FD5A671"
+					type: "item"
+					item: "numismatics:white_card"
+					count: 1L
+				},
+				{
+					id: "124BFC7C8E678A32"
+					type: "item"
+					item: "numismatics:white_id_card"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "75E6906F8B0AF268"
+					type: "xp"
+					xp: 200
+				}
+			]
+		}
+		{
+			x: 20.0d
+			y: 2.0d
+			id: "95A0683812210C62"
+			title: "The Blaze Banker"
+			description: ["Use a Banking Guide on a lit Blaze Burner to make a Blaze Banker:", "a shared account several players can draw on.", "", "Warning: the Banking Guide costs one Cog coin, and nothing in this", "pack currently mints coins. Until a coin recipe is added this is", "an operator-funded block."]
+			dependencies: ["37435B90A3AA0D07"]
+			tasks: [
+				{
+					id: "D2F121D92906A131"
+					type: "checkmark"
+					title: "Convert a Blaze Burner into a Blaze Banker"
+				}
+			]
+			rewards: [
+				{
+					id: "861A9FB6DB81B80F"
+					type: "xp"
+					xp: 220
+				}
+			]
+		}
+		{
+			x: 10.0d
+			y: -2.0d
+			id: "6115181751EF394F"
+			title: "Steel Knife"
+			description: ["Same shape as the bronze knife, better numbers."]
+			dependencies: ["95A0683812210C62"]
+			tasks: [
+				{
+					id: "41EA38A6BE983CBA"
+					type: "item"
+					item: "createts:steel_knife"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "71869E0BBFF930C0"
+					type: "xp"
+					xp: 160
+				}
+			]
+		}
+		{
+			x: 12.0d
+			y: 0.0d
+			id: "8842AE38199F6495"
+			title: "A Block Of Steel"
+			description: ["Nine ingots, or compact them straight from nuggets in a Basin.", "", "Blocks are how you store steel without losing a chest to it."]
+			dependencies: ["6115181751EF394F"]
+			tasks: [
+				{
+					id: "A1DE30A3B03542A2"
+					type: "item"
+					item: "createts:steel_block"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "01B1A6BCB33D5466"
+					type: "xp"
+					xp: 220
+				}
+			]
+		}
+		{
+			x: 10.0d
+			y: 0.0d
+			id: "EAA4727AEDAFB24A"
+			title: "Steel For The Guns"
+			description: ["One Charcoal and four Cast Iron Ingots in a heated Basin, mixed,", "gives four Steel Ingots.", "", "This is the metal the Mk.II shells are built from - five Steel", "Ingots per shell on a Mechanical Crafter. Every gun above cast", "iron waits on this step."]
+			dependencies: ["8842AE38199F6495"]
+			tasks: [
+				{
+					id: "E903D27A0ED117AD"
+					type: "item"
+					item: "createts:steel_ingot"
+					count: 16L
+				}
+			]
+			rewards: [
+				{
+					id: "ED024831DC75799D"
+					type: "xp"
+					xp: 320
+				},
+				{
+					id: "FA83A1FFEFBCDC3C"
+					type: "command"
+					title: "1 Skill Point"
+					command: "/puffish_skills points add @p tree 1"
+					player_command: false
+				}
+			]
+		}
+	]
+}

@@ -6,7 +6,7 @@
 	filename: "salvage"
 	title: "Salvage"
 	subtitle: ["The name on the tin"]
-	order_index: 5
+	order_index: 9
 	quests: [
 		{
 			x: 0.0d
@@ -145,13 +145,6 @@
 					id: "85F7AC2A1545D2E8"
 					type: "xp"
 					xp: 50
-				},
-				{
-					id: "E262761334AD7F3C"
-					type: "command"
-					title: "2 Skill Points"
-					command: "/puffish_skills points add @p tree 2"
-					player_command: false
 				}
 			]
 		}

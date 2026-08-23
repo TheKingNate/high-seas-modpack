@@ -10,59 +10,143 @@ hash = "9ceaa8d34734dc530a2dfb41c02ddf5ba5d254c5b7ff525edc282b5e4f00e502"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/airships.snbt"
-hash = "554876919739e5b397cea2d751e79cb2ee43e92f15677fee2b8ab9d65d211de7"
+hash = "9248f15aa4e418929719fbd81940253827ccd8dc3790aec26f60c9a51821a13c"
+
+[[files]]
+file = "config/ftbquests/quests/chapters/andesite_age.snbt"
+hash = "c3b51374a9a84a043881262fe7234c2a761e9d3d8720a1537f591af65e43f04e"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/arcana.snbt"
-hash = "36e99bbf160e716cf7eb7212ef3c7fc41a518caba6d8f16f68dbe21f9cefdb29"
+hash = "d51762af0f0dc70d986dee4c10d4c083a23c49abcab3152d2c41fe929fa0578b"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/below.snbt"
-hash = "19dc223359e094b022cc19ac5eab6a7279e3916b5fdffcaa56d6204b0bfb774c"
+hash = "5a8d569838caa063dd235f26205de60de7d34cc49d258d69907dedbc147cc40d"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/beyond.snbt"
-hash = "ee88d5edce5208ab1c09f8f21b671985566164757d2ffed71e1d8843d4c15561"
+hash = "bdbc5d4570e5a31eb19aa96b1025c767b330c1b711bf44d2b78468d28e7067bf"
+
+[[files]]
+file = "config/ftbquests/quests/chapters/brass_and_steam.snbt"
+hash = "7aae7661c7fb29dcddae9c6bbf4411bb54982f8b0ebb66dfd0f9f346457f252e"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/castaway.snbt"
-hash = "f3fdc7a807b54d26108d7284a7fba1048a35d427e30b873ff20000fdfea8a8f2"
+hash = "d5683aeb9dc8ec3eaa7974abf2ae443eb5d53924464fcc8420ad583d75e5140d"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/charting.snbt"
-hash = "845e6aebcc2f597bb236261e6d50f8a5fad21c8ab7b1c25c70ef52b148a327f0"
+hash = "c8cfe6b1fdf2069f2276de3d156aa0fdd1f0f60a3e44b2757298ded31cdc01f2"
+
+[[files]]
+file = "config/ftbquests/quests/chapters/cut_and_thrust.snbt"
+hash = "9c9146fcf522a9cd3669aa6c47eef903fbef6d623d4ce359a965206d12364f1a"
+
+[[files]]
+file = "config/ftbquests/quests/chapters/engine_room.snbt"
+hash = "1d6468c87bc398812a003a32a3679d3774837adca6a6a2a46288d9371b7188ed"
+
+[[files]]
+file = "config/ftbquests/quests/chapters/far_shores.snbt"
+hash = "7c0ca20cf6bae79e54cbee5becd19a3cdcad76d82fb933267952a33adf74ccaf"
+
+[[files]]
+file = "config/ftbquests/quests/chapters/homestead.snbt"
+hash = "ea8a5a4a070c6c8aff5e0d6e39d30ecc783de9348e937a69cd850f1b102690ef"
+
+[[files]]
+file = "config/ftbquests/quests/chapters/kith_and_kin.snbt"
+hash = "e26ad82d40e9f501c4afb65019dd129f6ed87085959fae676c1e5be1f2e5357f"
+
+[[files]]
+file = "config/ftbquests/quests/chapters/live_wire.snbt"
+hash = "afc2cd6642ed5bb5c63d262355b8ba1dbd5199addc6dcc173182bbcaf9d78395"
+
+[[files]]
+file = "config/ftbquests/quests/chapters/mass_destruction.snbt"
+hash = "e29a3f4253dc4220a4ce1a9cdaa0e9886eba32945be040d316237e90e9bbc656"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/ordnance.snbt"
-hash = "83f2faca1b4930aa9fd890047a29823fe24db9e7ec9e5f9b1c7618039fa7ab89"
+hash = "5c6d33de3185920ac8573638ec1194da22d202d3048a119be96e5bf3b2211dc9"
+
+[[files]]
+file = "config/ftbquests/quests/chapters/powah.snbt"
+hash = "a4575ae2bafeabaf3a49a0b4452d86eb2e38a43a01c12c56be386e48f9f4e27b"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/provision.snbt"
-hash = "e2881904e608cbc8340fa9ccba6779c28062cfc736f6fd8ac686f3cd60f5e8ee"
+hash = "020eb1d3d6a28cafebca52fa000d882dd89afa0b3db10338047982680e3463d1"
+
+[[files]]
+file = "config/ftbquests/quests/chapters/quality_of_life.snbt"
+hash = "056ad4222d8b960e0d0b8f98cc531941f037d5cbdd0e76e8832adfe91fb1aa2f"
+
+[[files]]
+file = "config/ftbquests/quests/chapters/rails_and_parcels.snbt"
+hash = "fcac768961efcd2f6233676de62f2c157903314d281ee31777bd994fdf54fa6e"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/salvage.snbt"
-hash = "ae041ef6b6f07acd40100238063f7a563d313ceeb9e4ce2db6429ce76434ce4d"
+hash = "4c7c5cd362e421eee132d9111e6263928e8a1bc44da97bb0ad7b578cb1d68820"
+
+[[files]]
+file = "config/ftbquests/quests/chapters/ships_company.snbt"
+hash = "2fe7908a388d3f799222364ac9c591b7fa7065ab599b21fab7a5ec5db1384fb2"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/shipwright.snbt"
-hash = "a212a132f8992e95e5ad3f62df50dc6b7950d133d27bf859c77f00545888f88f"
+hash = "62945d991a2f7c6d63eef9b7bc8127e49ec55a501e2255cb9a17cc48b3d533b4"
+
+[[files]]
+file = "config/ftbquests/quests/chapters/spellcraft.snbt"
+hash = "ae619b1055f8a4f78f6857446f45609b99865ec647d9ae43d372f56962cafcd6"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/the_aether.snbt"
-hash = "4f98534492f5b0616ca4ad021840491dda6c45f845c517347235a79a6d315cf1"
+hash = "3d7d28494dd599841dfa0afe58bd75a6fdd3fd012a47a0752cfbff6998e1807e"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/the_deep.snbt"
-hash = "4d6c3df3b3d0f0898c789f6ae3bb159a2a4b88f5ad922a1a2a879052a56a11c8"
+hash = "7d45768908623abfe6c04e40a0ca3b759563df04b24c2ed27189f1f5790578ce"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/the_forge.snbt"
-hash = "a84a96d160db1cc5b37ca77b120b1de2fedf61386a3a4cd8b0b2b505fdb624bd"
+hash = "48f8c8795ba19108e8dc7b51f741b1e23f471219ed473576d3e1f41aafb3ed0c"
+
+[[files]]
+file = "config/ftbquests/quests/chapters/the_hold.snbt"
+hash = "e95a415532dddc6b1cc49966f3c51c4093e46404f629adb0d74f829d02ea232b"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/the_network.snbt"
-hash = "cb0feac12b51cff6f95cc81be8e4d1b4f3dcfef2d7fb4ba75770be4a445af26f"
+hash = "9e7df27e15bd2dd6dcf5d2dcd4461fd679e710c3ae5c809c6a53e12f1ad71e51"
+
+[[files]]
+file = "config/ftbquests/quests/chapters/the_quarry.snbt"
+hash = "1661c692b73e7bc680d4672b114491799279fb4354cc835859e5dbf82d34ce27"
+
+[[files]]
+file = "config/ftbquests/quests/chapters/the_skill_tree.snbt"
+hash = "e4def07d72dcddfadc64f26a31ab4e75ac8f9fb75f5fe2585dde7f8ca128bc58"
+
+[[files]]
+file = "config/ftbquests/quests/chapters/tin_and_tender.snbt"
+hash = "ce55606d27d101a0558b795b8d23986f7c7bcac4cde25aacddb54a925acdd641"
+
+[[files]]
+file = "config/ftbquests/quests/chapters/trappings.snbt"
+hash = "ce0c56d6f98c6f9d1d4d2bb2a90521d180e41048430a43f7006bcd1eb579e5a2"
+
+[[files]]
+file = "config/ftbquests/quests/chapters/wandcraft.snbt"
+hash = "87d8112c19927a32b572cbbfe03ad2e61442a855a41349fc57e78f05fb79b429"
+
+[[files]]
+file = "config/ftbquests/quests/chapters/wire_and_warehouse.snbt"
+hash = "75dda4c61daa5a84d9f801aa6d7c2bec1feaee1d8ea100d261a79af33221c462"
 
 [[files]]
 file = "config/ftbquests/quests/data.snbt"

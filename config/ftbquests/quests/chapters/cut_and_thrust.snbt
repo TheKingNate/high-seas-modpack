@@ -1,0 +1,520 @@
+{
+	id: "38FBD8B8EF17CC77"
+	group: "8E1B3CDD0E4E9C32"
+	icon: "musketmod:musket"
+	default_quest_shape: ""
+	filename: "cut_and_thrust"
+	title: "Cut And Thrust"
+	subtitle: ["Movesets, muskets and boarding steel"]
+	order_index: 12
+	quests: [
+		{
+			x: 0.0d
+			y: 0.0d
+			id: "6BE3109CF059DB2E"
+			title: "Reach"
+			description: ["Get an Iron Sword and hit something with it.", "", "Better Combat replaces the vanilla swing. Every weapon now has a real", "arc and reach -- a sword sweeps 120 degrees out to 2.5 blocks -- and each", "click steps to the next attack in that weapon's moveset.", "Hold the attack button to keep the combo running."]
+			tasks: [
+				{
+					id: "7698B1C401601910"
+					type: "item"
+					item: "minecraft:iron_sword"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "AB47E94A007CD7F1"
+					type: "xp"
+					xp: 40
+				}
+			]
+		}
+		{
+			x: 2.0d
+			y: 0.0d
+			id: "F05A0F0A057AD70B"
+			title: "Learn The Classes"
+			description: ["Craft an Iron Longsword, an Iron Spear and an Iron Dagger.", "", "BetterWeapons is the pack's answer to flat sprite weapons -- every model", "is real geometry, and every one registers its own Better Combat moveset.", "Longsword sweeps wide. Spear thrusts long and thin. Dagger is fast and", "short. Swing all three at the same mob and the difference is obvious."]
+			dependencies: ["6BE3109CF059DB2E"]
+			tasks: [
+				{
+					id: "600A129C87255B99"
+					type: "item"
+					item: "betterweapons:iron_longsword"
+					count: 1L
+				},
+				{
+					id: "DF3502B6944E9A3E"
+					type: "item"
+					item: "betterweapons:iron_spear"
+					count: 1L
+				},
+				{
+					id: "5CA8D50F6E57BAB2"
+					type: "item"
+					item: "betterweapons:iron_dagger"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "2BCE29D38A617EC9"
+					type: "xp"
+					xp: 80
+				}
+			]
+		}
+		{
+			x: 2.0d
+			y: -2.0d
+			id: "6DC8F8816BF1A355"
+			title: "Cheap And Early"
+			description: ["Craft a Wooden Spear and a Wooden Battlestaff.", "", "Both cost sticks and planks. The spear outranges anything you can make", "on day one, and the battlestaff sweeps a full circle -- which matters", "more than damage when three drowned come over the gunwale at once."]
+			dependencies: ["F05A0F0A057AD70B"]
+			tasks: [
+				{
+					id: "7B520079289ABBFB"
+					type: "item"
+					item: "betterweapons:wooden_spear"
+					count: 1L
+				},
+				{
+					id: "4BE69E9644BEF68F"
+					type: "item"
+					item: "betterweapons:wooden_battlestaff"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "135272922D4671BC"
+					type: "xp"
+					xp: 40
+				}
+			]
+		}
+		{
+			x: 4.0d
+			y: 0.0d
+			id: "4D5BD7EA5D1A658E"
+			title: "Polearms"
+			description: ["Craft an Iron Halberd and an Iron Glaive.", "", "Polearms trade speed for reach and a sweep that catches everything in", "front of you. On a crowded deck that is the whole argument. Both are", "two-handed, so your offhand shield is locked out while they are drawn."]
+			dependencies: ["6DC8F8816BF1A355"]
+			tasks: [
+				{
+					id: "3F5306B78079E2D7"
+					type: "item"
+					item: "betterweapons:iron_halberd"
+					count: 1L
+				},
+				{
+					id: "4B2624CA17C4D603"
+					type: "item"
+					item: "betterweapons:iron_glaive"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "574181A23C801639"
+					type: "xp"
+					xp: 100
+				}
+			]
+		}
+		{
+			x: 4.0d
+			y: -2.0d
+			id: "977A4A43118E2FE5"
+			title: "Blunt Force"
+			description: ["Craft an Iron Mace and a Club.", "", "Armour reduces cuts far better than it reduces being hit with a log.", "The club is the cheapest weapon in the mod and stays useful longer", "than it has any right to."]
+			dependencies: ["4D5BD7EA5D1A658E"]
+			tasks: [
+				{
+					id: "F150416770358C9E"
+					type: "item"
+					item: "betterweapons:iron_mace"
+					count: 1L
+				},
+				{
+					id: "8D51B591D4EAFDEF"
+					type: "item"
+					item: "betterweapons:club"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "E7737F325596A32E"
+					type: "xp"
+					xp: 80
+				}
+			]
+		}
+		{
+			x: 6.0d
+			y: 0.0d
+			id: "7622457B3D42B374"
+			title: "The Hammer"
+			description: ["Craft the Artillery & Armory Hammer: an anvil, two iron ingots,", "two sticks and a red carpet.", "", "It is slow and it hits like a falling anvil. Every landed blow applies", "Dazed and Slowness, so it is the answer to anything that swarms you."]
+			dependencies: ["977A4A43118E2FE5"]
+			tasks: [
+				{
+					id: "2DB55CA9CBDC6E8B"
+					type: "item"
+					item: "artilleryandarmory:hammer"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "C9F0E01027CD81D1"
+					type: "xp"
+					xp: 80
+				}
+			]
+		}
+		{
+			x: 6.0d
+			y: -2.0d
+			id: "D28D248AC3ED262B"
+			title: "Kunai"
+			description: ["Loot a Kunai from a village weaponsmith's chest.", "", "Artillery & Armory injects them into exactly one loot table --", "chests/village/village_weaponsmith -- so raid weaponsmith houses.", "Right-click to throw. Hits inflict Festering, which ignores armour."]
+			dependencies: ["7622457B3D42B374"]
+			tasks: [
+				{
+					id: "E5E29CADFAB1B3CB"
+					type: "item"
+					item: "artilleryandarmory:kunai"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "2788932D0C1662C4"
+					type: "xp"
+					xp: 80
+				}
+			]
+		}
+		{
+			x: 8.0d
+			y: 0.0d
+			id: "2C1AD710E2B785BD"
+			title: "Powder And Paper"
+			description: ["Stock sixteen Paper Cartridges.", "", "Three iron nuggets, gunpowder and paper makes three. Every firearm in", "the pack feeds on these -- there is no separate calibre to track.", "Make them in stacks before you need them, not during a boarding."]
+			dependencies: ["D28D248AC3ED262B"]
+			tasks: [
+				{
+					id: "52336EEA881E913D"
+					type: "item"
+					item: "musketmod:cartridge"
+					count: 16L
+				}
+			]
+			rewards: [
+				{
+					id: "E0D7483189113F95"
+					type: "xp"
+					xp: 80
+				}
+			]
+		}
+		{
+			x: 10.0d
+			y: 0.0d
+			id: "4A1F82B0F1F58528"
+			title: "The Musket"
+			description: ["Craft a Musket: two iron ingots, an iron nugget, flint and steel,", "and a plank.", "", "Hold right-click to load, release to fire. The reload is long and you", "cannot rush it, so fire from behind someone holding a polearm.", "Sneak while aiming to steady the shot."]
+			dependencies: ["2C1AD710E2B785BD"]
+			tasks: [
+				{
+					id: "149EDC66CEB3F093"
+					type: "item"
+					item: "musketmod:musket"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "478E21F78ACEABD0"
+					type: "xp"
+					xp: 140
+				}
+			]
+		}
+		{
+			x: 10.0d
+			y: -2.0d
+			id: "2CA0811B8ADB6B24"
+			title: "Cold Steel"
+			description: ["Upgrade a Musket to a Musket with Bayonet at a smithing table.", "", "You need the Musket Upgrade smithing template, the musket, and an", "iron sword. Fixing a bayonet solves the reload problem the only way", "that ever worked: one shot, then stab."]
+			dependencies: ["4A1F82B0F1F58528"]
+			tasks: [
+				{
+					id: "7C2F2870F97B8D01"
+					type: "item"
+					item: "musketmod:musket_with_bayonet"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "E8C37E87E1536239"
+					type: "xp"
+					xp: 160
+				}
+			]
+		}
+		{
+			x: 10.0d
+			y: 2.0d
+			id: "7504BED843327DD2"
+			title: "Sidearm"
+			description: ["Craft a Flintlock Pistol: an iron ingot, an iron nugget,", "flint and steel, and a stick.", "", "Short range, fast reload, one hand. It is the answer to someone", "closing on you across a deck when the musket is empty."]
+			dependencies: ["2CA0811B8ADB6B24"]
+			tasks: [
+				{
+					id: "85B29500A477CF2D"
+					type: "item"
+					item: "musketmod:pistol"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "53D97263B21A320A"
+					type: "xp"
+					xp: 100
+				}
+			]
+		}
+		{
+			x: 12.0d
+			y: 0.0d
+			id: "63C09CA81A49B5BB"
+			title: "Boarding Gun"
+			description: ["Craft a Blunderbuss: two copper ingots, an iron nugget,", "flint and steel, and a plank.", "", "It sprays. Terrible past a few blocks and decisive in a doorway or a", "companionway. Copper instead of iron, so you can build one early."]
+			dependencies: ["7504BED843327DD2"]
+			tasks: [
+				{
+					id: "200D8D84A8AD26B7"
+					type: "item"
+					item: "musketmod:blunderbuss"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "8627DF5B89A065E0"
+					type: "xp"
+					xp: 140
+				}
+			]
+		}
+		{
+			x: 14.0d
+			y: 0.0d
+			id: "C67D4585BCA23057"
+			title: "Marksman"
+			description: ["Upgrade a Musket to a Scoped Musket at a smithing table.", "", "Same template, but feed it a spyglass instead of a sword. Right-click", "to bring the scope up. This is the gun you open an engagement with,", "from a crow's nest, before anyone knows where you are."]
+			dependencies: ["63C09CA81A49B5BB"]
+			tasks: [
+				{
+					id: "BE8DD5874B843C89"
+					type: "item"
+					item: "musketmod:musket_with_scope"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "3BECC0F3344137E8"
+					type: "xp"
+					xp: 180
+				}
+			]
+		}
+		{
+			x: 16.0d
+			y: 0.0d
+			id: "317559FE329A4687"
+			title: "Cogs And Edges"
+			description: ["Craft a Gear Sword.", "", "Create: Tools n Weapons builds it out of Create's own cogwheel", "geometry -- it is the one weapon in the pack that looks like it came", "off your own workshop floor. The tools in the same set are worth", "making too if you are already standing at the bench."]
+			dependencies: ["C67D4585BCA23057"]
+			tasks: [
+				{
+					id: "CADE5B7AD4D062E9"
+					type: "item"
+					item: "create_tools_n_weapons:gear_sword"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "0D3AA803361A8DB9"
+					type: "xp"
+					xp: 140
+				}
+			]
+		}
+		{
+			x: 18.0d
+			y: 0.0d
+			id: "66CBE4051F46874D"
+			title: "Cutlass"
+			description: ["Craft a Remnant Saber: two Sharp Bones, string and a stick.", "", "Sharp Bones come off Tortured Souls in the Aquamirae ship graveyard.", "This is the cutlass moveset -- 2.4 blocks of reach and a two-hit slash", "chain that costs nothing to keep swinging."]
+			dependencies: ["317559FE329A4687"]
+			tasks: [
+				{
+					id: "9FBFA6DC865D9EA7"
+					type: "item"
+					item: "aquamirae:remnant_saber"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "BD11F5E105526795"
+					type: "xp"
+					xp: 140
+				}
+			]
+		}
+		{
+			x: 20.0d
+			y: 0.0d
+			id: "3C85A6E1EE81467C"
+			title: "Claymore"
+			description: ["Craft a Terrible Cleaver: two iron, two Fin, two Ship Graveyard Echo", "and a stick.", "", "Claymore moveset: two-handed, so your offhand is locked out, but you", "get 2.75 blocks of reach, a 150 degree sweep and a vertical finisher", "at 1.25x damage. Learn the third swing -- that is where the damage is."]
+			dependencies: ["66CBE4051F46874D"]
+			tasks: [
+				{
+					id: "C44B9339265D3988"
+					type: "item"
+					item: "aquamirae:terrible_cleaver"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "B47724F0AC43D0E2"
+					type: "xp"
+					xp: 200
+				}
+			]
+		}
+		{
+			x: 20.0d
+			y: -2.0d
+			id: "79B69BE88179528D"
+			title: "Battlestaff"
+			description: ["Craft a Shatterspike: a diamond, two Abyssal Amethyst, two Ship", "Graveyard Echo and two sticks.", "", "Battlestaff moveset with reach pushed to 4 blocks. The third attack is", "a full 360 degree spin. Two-handed, so no shield."]
+			dependencies: ["3C85A6E1EE81467C"]
+			tasks: [
+				{
+					id: "30104B1248D1994C"
+					type: "item"
+					item: "aquamirae:shatterspike"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "D2640C97AB76C26E"
+					type: "xp"
+					xp: 200
+				}
+			]
+		}
+		{
+			x: 20.0d
+			y: 2.0d
+			id: "324A6BB4A3016321"
+			title: "Twin Daggers"
+			description: ["Craft two Maze Roses: four Abyssal Amethyst and four Ship Graveyard", "Echo each.", "", "Daggers are the only category worth dual-wielding. Hold one in each", "hand and Better Combat unlocks a paired attack neither hand has alone.", "Short reach, very fast, no shield."]
+			dependencies: ["79B69BE88179528D"]
+			tasks: [
+				{
+					id: "CC3ADA68A6A28415"
+					type: "item"
+					item: "aquamirae:maze_rose"
+					count: 2L
+				}
+			]
+			rewards: [
+				{
+					id: "1194152D3847D0D4"
+					type: "xp"
+					xp: 200
+				}
+			]
+		}
+		{
+			x: 22.0d
+			y: 0.0d
+			id: "4BE3534AA2EAC8CF"
+			title: "Thrown Steel"
+			description: ["Craft a Terrible Chakram: four Angler Fangs and four Ship Graveyard", "Echoes.", "", "Angler Fangs come off the Anglerfish. The chakram throws and returns,", "which is the closest this pack has to a ranged melee weapon."]
+			dependencies: ["324A6BB4A3016321"]
+			tasks: [
+				{
+					id: "4F6D9F90FEE9DB74"
+					type: "item"
+					item: "aquamirae:terrible_chakram"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "80D2561FB0E3141F"
+					type: "xp"
+					xp: 220
+				}
+			]
+		}
+		{
+			x: 24.0d
+			y: 0.0d
+			id: "8FECA33D20149624"
+			title: "The Last Set"
+			description: ["Craft a Netherite Longsword, Halberd and Spear.", "", "The top of the BetterWeapons tree. By the time you can afford three", "netherite weapons you have already picked a moveset you like --", "this is just that weapon, permanently."]
+			dependencies: ["4BE3534AA2EAC8CF"]
+			tasks: [
+				{
+					id: "C050204CFFA06140"
+					type: "item"
+					item: "betterweapons:netherite_longsword"
+					count: 1L
+				},
+				{
+					id: "90D7FBD89DCEBFC6"
+					type: "item"
+					item: "betterweapons:netherite_halberd"
+					count: 1L
+				},
+				{
+					id: "038466124C47A6D3"
+					type: "item"
+					item: "betterweapons:netherite_spear"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "B439A0661A05D9F0"
+					type: "xp"
+					xp: 300
+				},
+				{
+					id: "57BC8FEC26B470E2"
+					type: "command"
+					title: "1 Skill Point"
+					command: "/puffish_skills points add @p tree 1"
+					player_command: false
+				}
+			]
+		}
+	]
+}

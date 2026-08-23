@@ -1,0 +1,710 @@
+{
+	id: "33BA21D597C08ABD"
+	group: "AB8CEE6310D5FD25"
+	icon: "sophisticatedstorage:diamond_barrel"
+	default_quest_shape: ""
+	filename: "the_hold"
+	title: "The Hold"
+	subtitle: ["Crates, cables, cargo"]
+	order_index: 22
+	quests: [
+		{
+			x: 0.0d
+			y: 0.0d
+			id: "D9BD627BB154DA12"
+			title: "Barrel Of Better"
+			description: ["A Sophisticated barrel remembers the wood you built it from and holds", "27 slots - but the point is the upgrade tabs down its side.", "", "An Upgrade Base is planks and iron in a checker. Every upgrade in the", "mod is built on one."]
+			tasks: [
+				{
+					id: "0552954BE4A37FEF"
+					type: "item"
+					item: "sophisticatedstorage:barrel"
+					count: 1L
+				},
+				{
+					id: "627A24FEBBBA19FF"
+					type: "item"
+					item: "sophisticatedstorage:upgrade_base"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "47859698663F7CBF"
+					type: "xp"
+					xp: 60
+				}
+			]
+		}
+		{
+			x: 0.0d
+			y: 4.0d
+			id: "1EACD6C3095D5CED"
+			title: "Iron On Your Back"
+			description: ["A Blank Upgrade is the base of every backpack tier - ring it with a", "metal to make that tier's upgrade.", "", "It is applied in a Smithing Table: leather as the template, the tier", "upgrade, and a backpack one tier below."]
+			dependencies: ["D9BD627BB154DA12"]
+			tasks: [
+				{
+					id: "4BDE2B3BACD5053F"
+					type: "item"
+					item: "travelersbackpack:blank_upgrade"
+					count: 1L
+				},
+				{
+					id: "8F6B42EB96B5D248"
+					type: "item"
+					item: "travelersbackpack:iron_tier_upgrade"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "E435B0202616CB36"
+					type: "xp"
+					xp: 100
+				}
+			]
+		}
+		{
+			x: 2.0d
+			y: 0.0d
+			id: "6968AA8017B8CE98"
+			title: "Tier Up"
+			description: ["Tier upgrades are used in world: hold one and right-click the placed", "storage. Copper, iron, gold, diamond, netherite.", "", "Each tier adds slots and upgrade slots. Skip-tier upgrades exist -", "Basic to Netherite is a single item if you can afford it."]
+			dependencies: ["1EACD6C3095D5CED"]
+			tasks: [
+				{
+					id: "415B63479F32DAC4"
+					type: "item"
+					item: "sophisticatedstorage:iron_barrel"
+					count: 1L
+				},
+				{
+					id: "96EE7A3FAED58F27"
+					type: "item"
+					item: "sophisticatedstorage:gold_barrel"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "739E169E34A349BA"
+					type: "xp"
+					xp: 100
+				}
+			]
+		}
+		{
+			x: 2.0d
+			y: -2.0d
+			id: "E3417436708CAF25"
+			title: "Automation Upgrades"
+			description: ["The Hopper Upgrade makes a storage pull from above and push below with", "no hopper block at all. The Filter Upgrade decides what may pass.", "", "The Void Upgrade deletes anything matching its filter as it arrives.", "This is the cure for cobblestone."]
+			dependencies: ["6968AA8017B8CE98"]
+			tasks: [
+				{
+					id: "90BF8A24462703EF"
+					type: "item"
+					item: "sophisticatedstorage:hopper_upgrade"
+					count: 1L
+				},
+				{
+					id: "735717A2C981842E"
+					type: "item"
+					item: "sophisticatedstorage:filter_upgrade"
+					count: 1L
+				},
+				{
+					id: "05F596AF489BDFBD"
+					type: "item"
+					item: "sophisticatedstorage:void_upgrade"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "39AC373AA47A5E2B"
+					type: "xp"
+					xp: 100
+				}
+			]
+		}
+		{
+			x: 2.0d
+			y: 2.0d
+			id: "4A1AA71AC5AD9CA0"
+			title: "Quality Of Life"
+			description: ["Magnet drags items to the storage from a radius. Pickup grabs whatever", "lands on it. Feeding eats from the storage to keep you fed.", "", "All three work in a placed barrel, and the same upgrades convert to", "backpack versions in a crafting grid."]
+			dependencies: ["E3417436708CAF25"]
+			tasks: [
+				{
+					id: "A3C4C28E15E29273"
+					type: "item"
+					item: "sophisticatedstorage:magnet_upgrade"
+					count: 1L
+				},
+				{
+					id: "7D3FAA163C63CC88"
+					type: "item"
+					item: "sophisticatedstorage:pickup_upgrade"
+					count: 1L
+				},
+				{
+					id: "3A78A043BB87F371"
+					type: "item"
+					item: "sophisticatedstorage:feeding_upgrade"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "263F02F1A6BAD687"
+					type: "xp"
+					xp: 100
+				}
+			]
+		}
+		{
+			x: 2.0d
+			y: 4.0d
+			id: "F093C95DF21BD6E5"
+			title: "Tanks And Hose"
+			description: ["The Tanks Upgrade bolts two fluid tanks onto a backpack. The tank", "component itself is iron and glass.", "", "The Hose has drink, suck and spill modes and a selected tank - it will", "empty a lava lake into your back if you let it."]
+			dependencies: ["4A1AA71AC5AD9CA0"]
+			tasks: [
+				{
+					id: "16F5C1ECDE9441C3"
+					type: "item"
+					item: "travelersbackpack:backpack_tank"
+					count: 2L
+				},
+				{
+					id: "BF52C170CB4A513B"
+					type: "item"
+					item: "travelersbackpack:tanks_upgrade"
+					count: 1L
+				},
+				{
+					id: "9E63973C0D290ECA"
+					type: "item"
+					item: "travelersbackpack:hose"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "9AEA42F144EBD246"
+					type: "xp"
+					xp: 120
+				}
+			]
+		}
+		{
+			x: 4.0d
+			y: 0.0d
+			id: "A3E77F9E1931A60A"
+			title: "Stack Upgrades"
+			description: ["A Stack Upgrade multiplies the stack size of every slot at once: tier", "1 is 2x, tier 3 is 8x, tier 5 is 32x.", "", "One per storage - they replace each other, they do not add. Stack", "Downgrades exist for barrels you want to hold less."]
+			dependencies: ["F093C95DF21BD6E5"]
+			tasks: [
+				{
+					id: "D005371C0186496B"
+					type: "item"
+					item: "sophisticatedstorage:stack_upgrade_tier_1"
+					count: 1L
+				},
+				{
+					id: "0372A4033C880435"
+					type: "item"
+					item: "sophisticatedstorage:stack_upgrade_tier_3"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "75136628284B2D33"
+					type: "xp"
+					xp: 120
+				}
+			]
+		}
+		{
+			x: 4.0d
+			y: -2.0d
+			id: "CF0130F4912011AE"
+			title: "Machines In A Box"
+			description: ["Upgrade tabs can hold real machines. Smelting, Compacting, Crafting", "and Stonecutter all run inside the storage screen.", "", "The Auto- variants pull and push on their own; the plain ones only", "work while you have the tab open."]
+			dependencies: ["A3E77F9E1931A60A"]
+			tasks: [
+				{
+					id: "555E683471EA67F0"
+					type: "item"
+					item: "sophisticatedstorage:smelting_upgrade"
+					count: 1L
+				},
+				{
+					id: "5143B7FD46932DA1"
+					type: "item"
+					item: "sophisticatedstorage:compacting_upgrade"
+					count: 1L
+				},
+				{
+					id: "F053DA29227EA034"
+					type: "item"
+					item: "sophisticatedstorage:crafting_upgrade"
+					count: 1L
+				},
+				{
+					id: "2C98AFCFF7B0EA93"
+					type: "item"
+					item: "sophisticatedstorage:stonecutter_upgrade"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "05A5F17533C53958"
+					type: "xp"
+					xp: 150
+				}
+			]
+		}
+		{
+			x: 4.0d
+			y: 4.0d
+			id: "B1CBCAA15E4A894A"
+			title: "Backpack Upgrades"
+			description: ["Functionality upgrades go in the slots on the right of the backpack", "screen, not into a crafting recipe.", "", "Crafting gives a grid, Furnace smelts while you walk, Magnet pulls", "drops to you. How many slots you get depends on the backpack tier."]
+			dependencies: ["CF0130F4912011AE"]
+			tasks: [
+				{
+					id: "494CDF35EE32E1A1"
+					type: "item"
+					item: "travelersbackpack:crafting_upgrade"
+					count: 1L
+				},
+				{
+					id: "EB124C2FCCEE1A8E"
+					type: "item"
+					item: "travelersbackpack:furnace_upgrade"
+					count: 1L
+				},
+				{
+					id: "7E9460A2E9B893CD"
+					type: "item"
+					item: "travelersbackpack:magnet_upgrade"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "F36C5DC5EDBDB3C3"
+					type: "xp"
+					xp: 120
+				}
+			]
+		}
+		{
+			x: 6.0d
+			y: 0.0d
+			id: "DFA47B88320A67D5"
+			title: "Diamond And Netherite"
+			description: ["Diamond storage runs 108 slots; netherite is 120 and survives an", "explosion.", "", "Netherite is a shapeless combine of the diamond version with a", "netherite ingot - no smithing table needed."]
+			dependencies: ["B1CBCAA15E4A894A"]
+			tasks: [
+				{
+					id: "3B36E12690FE6F5B"
+					type: "item"
+					item: "sophisticatedstorage:diamond_barrel"
+					count: 1L
+				},
+				{
+					id: "F914D98C9A46FEF1"
+					type: "item"
+					item: "sophisticatedstorage:netherite_chest"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "25384B43E36B3329"
+					type: "xp"
+					xp: 200
+				}
+			]
+		}
+		{
+			x: 6.0d
+			y: -2.0d
+			id: "69B3D8C0CDB5DB69"
+			title: "Omega"
+			description: ["Tier 5 costs netherite blocks. Omega is nine tier 5 upgrades and lifts", "the per-slot limit to 2,147,483,647.", "", "One omega barrel replaces a wall of chests, and is a single point of", "failure. Tape it before you ever break it."]
+			dependencies: ["DFA47B88320A67D5"]
+			tasks: [
+				{
+					id: "556C489ADC670403"
+					type: "item"
+					item: "sophisticatedstorage:stack_upgrade_tier_5"
+					count: 1L
+				},
+				{
+					id: "70B61E1D75927645"
+					type: "item"
+					item: "sophisticatedstorage:stack_upgrade_omega_tier"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "AACADEC0677A1EBA"
+					type: "xp"
+					xp: 300
+				}
+			]
+		}
+		{
+			x: 6.0d
+			y: 4.0d
+			id: "1B33ECB8F2AE0351"
+			title: "Netherite Pack"
+			description: ["The tier chain ends at netherite: leather, iron, gold, diamond,", "netherite, each step a smithing combine with leather as template.", "", "Themed backpacks like the Netherite Traveler's Backpack are a separate", "craft entirely - they change the look, not the size."]
+			dependencies: ["69B3D8C0CDB5DB69"]
+			tasks: [
+				{
+					id: "05CF017DD8303E9D"
+					type: "item"
+					item: "travelersbackpack:netherite_tier_upgrade"
+					count: 1L
+				},
+				{
+					id: "86D9B58D40E2F81D"
+					type: "item"
+					item: "travelersbackpack:netherite"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "E763FA682E0F36AA"
+					type: "xp"
+					xp: 250
+				}
+			]
+		}
+		{
+			x: 8.0d
+			y: 0.0d
+			id: "5F947594729B40AE"
+			title: "The Storage Controller"
+			description: ["A Storage Controller merges every storage block touching it into one", "inventory behind one access point.", "", "Storage Link attaches a detached cluster to it - point the Storage", "Tool at the controller to link. Storage I/O gives pipes a target."]
+			dependencies: ["1B33ECB8F2AE0351"]
+			tasks: [
+				{
+					id: "32D202666220DB58"
+					type: "item"
+					item: "sophisticatedstorage:controller"
+					count: 1L
+				},
+				{
+					id: "3DEEFE49C52473D3"
+					type: "item"
+					item: "sophisticatedstorage:storage_link"
+					count: 1L
+				},
+				{
+					id: "E18C573F78F4432A"
+					type: "item"
+					item: "sophisticatedstorage:storage_io"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "7223409BFB187C33"
+					type: "xp"
+					xp: 200
+				}
+			]
+		}
+		{
+			x: 8.0d
+			y: -2.0d
+			id: "1C8253DC74EED8D9"
+			title: "Tape And Paint"
+			description: ["Packing Tape seals a storage so breaking it keeps the contents. The", "Storage Tool links, locks and hides the labels on the front.", "", "The Decoration Table sets a main and accent colour; the Paintbrush", "applies that scheme to storages already placed."]
+			dependencies: ["5F947594729B40AE"]
+			tasks: [
+				{
+					id: "AB62CE66282F37B4"
+					type: "item"
+					item: "sophisticatedstorage:packing_tape"
+					count: 1L
+				},
+				{
+					id: "09BF8B618B2B5987"
+					type: "item"
+					item: "sophisticatedstorage:storage_tool"
+					count: 1L
+				},
+				{
+					id: "08CACCAB9EECDF86"
+					type: "item"
+					item: "sophisticatedstorage:decoration_table"
+					count: 1L
+				},
+				{
+					id: "0B2514766A3C6688"
+					type: "item"
+					item: "sophisticatedstorage:paintbrush"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "7BA45276CC0EA254"
+					type: "xp"
+					xp: 150
+				}
+			]
+		}
+		{
+			x: 10.0d
+			y: 0.0d
+			id: "E67F139D94F4496C"
+			title: "Tom's Connector"
+			description: ["Tom's Simple Storage wants no power and no channels. Place an", "Inventory Connector and shove chests against it.", "", "Everything touching the connector, directly or through cable, becomes", "one pooled inventory. That is the whole mod."]
+			dependencies: ["1C8253DC74EED8D9"]
+			tasks: [
+				{
+					id: "91158E8AFC49E9BF"
+					type: "item"
+					item: "toms_storage:ts.inventory_connector"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "FF578F79833CB403"
+					type: "xp"
+					xp: 100
+				}
+			]
+		}
+		{
+			x: 12.0d
+			y: 0.0d
+			id: "A8A50060F7F627D9"
+			title: "Storage Terminal"
+			description: ["The Storage Terminal is the screen onto that pool. Put it against the", "connector, or against cable that reaches one.", "", "The connector has a configurable slot limit and will tell you when", "the pool has outgrown it."]
+			dependencies: ["E67F139D94F4496C"]
+			tasks: [
+				{
+					id: "D58430B360179CDF"
+					type: "item"
+					item: "toms_storage:ts.storage_terminal"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "E4A5225518140BDF"
+					type: "xp"
+					xp: 120
+				}
+			]
+		}
+		{
+			x: 12.0d
+			y: -2.0d
+			id: "0B94BE53C241CD94"
+			title: "Filters"
+			description: ["Item Filter holds a fixed list. Tag Filter matches a whole tag.", "Polymorphic Filter copies whatever the neighbouring inventory holds.", "", "They slot into a Filtered Inventory Cable Connector to control what a", "leg of the network is allowed to see."]
+			dependencies: ["A8A50060F7F627D9"]
+			tasks: [
+				{
+					id: "2360E4D7D168C912"
+					type: "item"
+					item: "toms_storage:ts.item_filter"
+					count: 1L
+				},
+				{
+					id: "DE8B2070EBBC4E35"
+					type: "item"
+					item: "toms_storage:ts.tag_item_filter"
+					count: 1L
+				},
+				{
+					id: "E86496557457842A"
+					type: "item"
+					item: "toms_storage:ts.polymorphic_item_filter"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "2C46277D0201D054"
+					type: "xp"
+					xp: 120
+				}
+			]
+		}
+		{
+			x: 14.0d
+			y: 0.0d
+			id: "E5685E7D2FCC6E42"
+			title: "Cables And Trim"
+			description: ["Inventory Cable carries the pool but connects nothing by itself - you", "need an Inventory Cable Connector at the far end.", "", "Inventory Trim caps a run so it stops linking. The Paint Kit makes", "cable and trim borrow a neighbouring block's texture."]
+			dependencies: ["0B94BE53C241CD94"]
+			tasks: [
+				{
+					id: "C64C8D630CBBDCA9"
+					type: "item"
+					item: "toms_storage:ts.inventory_cable"
+					count: 16L
+				},
+				{
+					id: "1DB7A91F2D2E803A"
+					type: "item"
+					item: "toms_storage:ts.inventory_cable_connector"
+					count: 1L
+				},
+				{
+					id: "647F4A236F0CB4FB"
+					type: "item"
+					item: "toms_storage:ts.trim"
+					count: 1L
+				},
+				{
+					id: "17519CBF2051A713"
+					type: "item"
+					item: "toms_storage:ts.paint_kit"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "101AB4189CD57A97"
+					type: "xp"
+					xp: 150
+				}
+			]
+		}
+		{
+			x: 14.0d
+			y: -2.0d
+			id: "D9CC13B7CB3EB8E2"
+			title: "Proxy And Crate"
+			description: ["Inventory Proxy forwards one inventory through a wall so the connector", "can reach it. Open Crate drops items into the world below it.", "", "Basic Inventory Hopper shuttles stacks in or out on a timer, and the", "Level Emitter fires redstone when a filtered item crosses a count."]
+			dependencies: ["E5685E7D2FCC6E42"]
+			tasks: [
+				{
+					id: "FAC109BD20B3D1EF"
+					type: "item"
+					item: "toms_storage:ts.inventory_proxy"
+					count: 1L
+				},
+				{
+					id: "5A1A3D8875AA8A4D"
+					type: "item"
+					item: "toms_storage:ts.open_crate"
+					count: 1L
+				},
+				{
+					id: "0DDFF38328F8215F"
+					type: "item"
+					item: "toms_storage:ts.inventory_hopper_basic"
+					count: 1L
+				},
+				{
+					id: "F944C471480729D0"
+					type: "item"
+					item: "toms_storage:ts.level_emitter"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "DD1AC90ED5CE9C3E"
+					type: "xp"
+					xp: 150
+				}
+			]
+		}
+		{
+			x: 16.0d
+			y: 0.0d
+			id: "7C742A3A8229600C"
+			title: "Tom's Crafting Terminal"
+			description: ["A Storage Terminal ringed with crafting tables and diamonds becomes a", "3x3 bench fed from the pool.", "", "It remembers the last recipe and refills it, which makes it the fastest", "hand-crafting station in the pack."]
+			dependencies: ["D9CC13B7CB3EB8E2"]
+			tasks: [
+				{
+					id: "1BC3D8221EC78394"
+					type: "item"
+					item: "toms_storage:ts.crafting_terminal"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "8D2E6AD92B6C0C95"
+					type: "xp"
+					xp: 150
+				}
+			]
+		}
+		{
+			x: 18.0d
+			y: 0.0d
+			id: "88B82ECD804B2E95"
+			title: "Tom's Wireless"
+			description: ["A spyglass, a comparator and an ender pearl. Bind it by right-clicking", "the Storage Terminal you want it to reach.", "", "Range is limited and it will not cross dimensions. Rebind it whenever", "you move the terminal."]
+			dependencies: ["7C742A3A8229600C"]
+			tasks: [
+				{
+					id: "5AE3D3A3C0A2FCD7"
+					type: "item"
+					item: "toms_storage:ts.wireless_terminal"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "2233EE98FD1882BE"
+					type: "xp"
+					xp: 150
+				}
+			]
+		}
+		{
+			x: 20.0d
+			y: 0.0d
+			id: "622524A113FCD12D"
+			title: "Advanced Wireless"
+			description: ["The Advanced Wireless Terminal is a smithing upgrade of the plain one.", "", "It reaches vastly further and works between dimensions - the end of", "the line for a mod that never asked you for a single channel."]
+			dependencies: ["88B82ECD804B2E95"]
+			tasks: [
+				{
+					id: "F969AECD52640456"
+					type: "item"
+					item: "toms_storage:ts.adv_wireless_terminal"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "0934F82186E0B637"
+					type: "xp"
+					xp: 250
+				},
+				{
+					id: "B0032A6F663C38E3"
+					type: "command"
+					title: "1 Skill Point"
+					command: "/puffish_skills points add @p tree 1"
+					player_command: false
+				}
+			]
+		}
+	]
+}

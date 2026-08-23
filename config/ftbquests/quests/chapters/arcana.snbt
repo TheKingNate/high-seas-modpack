@@ -6,7 +6,7 @@
 	filename: "arcana"
 	title: "Arcana"
 	subtitle: ["Light magic"]
-	order_index: 8
+	order_index: 32
 	quests: [
 		{
 			x: 0.0d
@@ -140,13 +140,6 @@
 					id: "E79544B66176BB8C"
 					type: "xp"
 					xp: 200
-				},
-				{
-					id: "8D3D793207677457"
-					type: "command"
-					title: "2 Skill Points"
-					command: "/puffish_skills points add @p tree 2"
-					player_command: false
 				}
 			]
 		}

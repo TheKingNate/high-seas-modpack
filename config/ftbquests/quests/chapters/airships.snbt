@@ -6,7 +6,7 @@
 	filename: "airships"
 	title: "Airships"
 	subtitle: ["The pack's whole point"]
-	order_index: 11
+	order_index: 29
 	quests: [
 		{
 			x: 0.0d
@@ -307,8 +307,8 @@
 				{
 					id: "F2EF03B9A06E7377"
 					type: "command"
-					title: "3 Skill Points"
-					command: "/puffish_skills points add @p tree 3"
+					title: "1 Skill Point"
+					command: "/puffish_skills points add @p tree 1"
 					player_command: false
 				}
 			]

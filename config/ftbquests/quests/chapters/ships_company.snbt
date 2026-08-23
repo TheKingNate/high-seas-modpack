@@ -1,0 +1,435 @@
+{
+	id: "24DBD2530046E5BF"
+	group: "8E1B3CDD0E4E9C32"
+	icon: "ship_in_a_bottle:bottle_without_ship"
+	default_quest_shape: ""
+	filename: "ships_company"
+	title: "Ship's Company"
+	subtitle: ["Keeping the hull, and the crew"]
+	order_index: 7
+	quests: [
+		{
+			x: 0.0d
+			y: 0.0d
+			id: "FE000AC13D0D0DE2"
+			title: "Relog Anchor"
+			description: ["Craft a Relog Anchor: two Amethyst Shards and a Polished Blackstone", "Pressure Plate. Place it on your ship.", "", "Log out on a moving ship without one and you come back where the world", "says you were -- usually open water, usually at night."]
+			tasks: [
+				{
+					id: "7E59A05473E50707"
+					type: "item"
+					item: "valkyrienrelogs:relog_anchor"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "866A962150090EBE"
+					type: "xp"
+					xp: 80
+				}
+			]
+		}
+		{
+			x: 2.0d
+			y: 0.0d
+			id: "9CA8EF14C5B04681"
+			title: "Big Bottle"
+			description: ["Craft a Big Bottle: seven glass around a Heart of the Sea, one corner", "left empty.", "", "This is the container half of Ship In A Bottle. Sneak-place it and it", "is just a decorative block -- that is not what it is for."]
+			dependencies: ["FE000AC13D0D0DE2"]
+			tasks: [
+				{
+					id: "D110ACDF2D26D8FB"
+					type: "item"
+					item: "ship_in_a_bottle:bottle_without_ship"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "EFAD1AC4F7E103C7"
+					type: "xp"
+					xp: 120
+				}
+			]
+		}
+		{
+			x: 4.0d
+			y: 0.0d
+			id: "4515E6D40CC530CA"
+			title: "Ship In A Bottle"
+			description: ["Right-click any block of an assembled ship with the Big Bottle,", "standing up. Do NOT sneak -- sneaking just places the block.", "", "It costs 30 experience levels, saves the whole ship to a template and", "hands you the ship in the bottle. Place the bottle to redeploy it."]
+			dependencies: ["9CA8EF14C5B04681"]
+			tasks: [
+				{
+					id: "55A547B33F8D288F"
+					type: "item"
+					item: "ship_in_a_bottle:bottle_with_ship"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "C220CF167F4FA9B9"
+					type: "xp"
+					xp: 250
+				}
+			]
+		}
+		{
+			x: 4.0d
+			y: -2.0d
+			id: "6F87FBDAE19C7C65"
+			title: "Weigh The Hull"
+			description: ["Point at a block on one of your ships and read the Jade tooltip.", "", "Jade VS adds Ship Mass, Block Mass and velocity to the HUD, and fixes", "plain Jade, which otherwise reads the wrong block on a moving ship.", "Mass decides whether your balloons lift or your engine just drags."]
+			dependencies: ["4515E6D40CC530CA"]
+			tasks: [
+				{
+					id: "EB78EB2627A1BE36"
+					type: "checkmark"
+					title: "Read a ship's mass in the Jade tooltip"
+				}
+			]
+			rewards: [
+				{
+					id: "78D32C045A5C1916"
+					type: "xp"
+					xp: 60
+				}
+			]
+		}
+		{
+			x: 6.0d
+			y: 0.0d
+			id: "E948B2E09CA01150"
+			title: "Nameplate"
+			description: ["Craft a Ship Nameplate: paper, black dye, iron ingot.", "", "Place it on a ship and name the ship. Valkyrien Pirates uses the name", "for its own tooling, and it stops your fleet being four identical", "unnamed hulls in the debug list."]
+			dependencies: ["6F87FBDAE19C7C65"]
+			tasks: [
+				{
+					id: "83D958221872CE00"
+					type: "item"
+					item: "pirates:ship_id_block"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "AAA83C3EC07E6969"
+					type: "xp"
+					xp: 80
+				}
+			]
+		}
+		{
+			x: 8.0d
+			y: 0.0d
+			id: "43C59555DD7A2D37"
+			title: "Priming Block"
+			description: ["Craft a Cannon Activator: seven cobblestone around a bow, gunpowder", "in the bottom centre.", "", "It fires an adjacent dispenser cannon on a redstone pulse -- a", "broadside you trigger from the helm instead of running the deck", "lighting fuses by hand."]
+			dependencies: ["E948B2E09CA01150"]
+			tasks: [
+				{
+					id: "1CAAFADD223299A4"
+					type: "item"
+					item: "pirates:cannon_priming_block"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "4AD8B77FB054E2BA"
+					type: "xp"
+					xp: 120
+				}
+			]
+		}
+		{
+			x: 8.0d
+			y: -2.0d
+			id: "37880D5B0561AEDE"
+			title: "Shot Locker"
+			description: ["Craft eight Pirate Cannonballs: blaze powder, gunpowder, iron ingot.", "", "These are dispenser-cannon rounds, not Create Big Cannons shells.", "Flaming and Heavy variants exist but have no recipe -- those you take", "off pirate ships."]
+			dependencies: ["43C59555DD7A2D37"]
+			tasks: [
+				{
+					id: "9D7AC05315581730"
+					type: "item"
+					item: "pirates:cannonball"
+					count: 8L
+				}
+			]
+			rewards: [
+				{
+					id: "42F40D9B720CD505"
+					type: "xp"
+					xp: 100
+				}
+			]
+		}
+		{
+			x: 10.0d
+			y: 0.0d
+			id: "6E4511285FDCFF89"
+			title: "Colours Struck"
+			description: ["Kill ten pirates.", "", "They crew the derelicts and the sailing ships. Each has a job -- the", "helmsman drives, each cannoneer runs one gun -- so killing the right", "man silences a ship far faster than sinking it."]
+			dependencies: ["37880D5B0561AEDE"]
+			tasks: [
+				{
+					id: "FEF3CE5E20646712"
+					type: "kill"
+					entity: "pirates:pirate"
+					value: 10L
+				}
+			]
+			rewards: [
+				{
+					id: "BED3CAD462A495E7"
+					type: "xp"
+					xp: 200
+				}
+			]
+		}
+		{
+			x: 10.0d
+			y: -2.0d
+			id: "B763E065E1962075"
+			title: "Friendly Waters"
+			description: ["Find a friendly raft.", "", "Rafts generate in shallow warm water alongside the wrecks. The pirates", "on them are Befriendable -- hand one a Golden Apple and it joins you", "and fights on your side."]
+			dependencies: ["6E4511285FDCFF89"]
+			tasks: [
+				{
+					id: "42CD7515EF2A522D"
+					type: "structure"
+					structure: "pirates:friendly_raft"
+				}
+			]
+			rewards: [
+				{
+					id: "AB909666F06C79C0"
+					type: "xp"
+					xp: 150
+				}
+			]
+		}
+		{
+			x: 12.0d
+			y: 0.0d
+			id: "7424576FF41A4C24"
+			title: "First Hook"
+			description: ["Craft a Grappling Hook: an iron pickaxe and a lead.", "", "Right-click to fire, right-click again to detach. Out of the box it is", "just a rope you can hang from -- no reel-in, no swing. Both of those", "are upgrades."]
+			dependencies: ["B763E065E1962075"]
+			tasks: [
+				{
+					id: "8A2A57B7B10E8243"
+					type: "item"
+					item: "grapplemod:grapplinghook"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "571B685B3EE59ADC"
+					type: "xp"
+					xp: 100
+				}
+			]
+		}
+		{
+			x: 14.0d
+			y: 0.0d
+			id: "CC381ED05248F591"
+			title: "Upgrade Bench"
+			description: ["Craft four Base Grappling Hook Upgrades (three gold, two string each),", "then a Grappling Hook Modifier: four of them around an anvil.", "", "Every other upgrade is applied at this block, not in a crafting grid.", "Hook in, upgrade in, improved hook out."]
+			dependencies: ["7424576FF41A4C24"]
+			tasks: [
+				{
+					id: "469AC9EEE8A573CE"
+					type: "item"
+					item: "grapplemod:block_grapple_modifier"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "23DEF97145652B7B"
+					type: "xp"
+					xp: 160
+				}
+			]
+		}
+		{
+			x: 14.0d
+			y: -2.0d
+			id: "B95B07CB57184257"
+			title: "Rope And Swing"
+			description: ["Craft a Rope Upgrade and a Swing Upgrade.", "", "Rope buys length. Swing turns the hook from a static line into", "something you can build momentum on -- which is exactly what you want", "crossing from your deck to theirs."]
+			dependencies: ["CC381ED05248F591"]
+			tasks: [
+				{
+					id: "6A781BDB98941AD3"
+					type: "item"
+					item: "grapplemod:ropeupgradeitem"
+					count: 1L
+				},
+				{
+					id: "2B4141C0D333E59A"
+					type: "item"
+					item: "grapplemod:swingupgradeitem"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "116280E8891969D9"
+					type: "xp"
+					xp: 140
+				}
+			]
+		}
+		{
+			x: 16.0d
+			y: 0.0d
+			id: "7C14A2F925D50DE6"
+			title: "Motorised"
+			description: ["Craft a Motor Upgrade: a Base Upgrade plus a piston. Apply it at the", "Modifier.", "", "The motor reels you in instead of leaving you dangling. A Motorized", "Grappling Hook is where this mod stops being a novelty."]
+			dependencies: ["B95B07CB57184257"]
+			tasks: [
+				{
+					id: "FD933248C561DAB6"
+					type: "item"
+					item: "grapplemod:motorupgradeitem"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "03966C3D53DC5830"
+					type: "xp"
+					xp: 180
+				}
+			]
+		}
+		{
+			x: 16.0d
+			y: -2.0d
+			id: "38B9C97CAE660C24"
+			title: "Ender Staff"
+			description: ["Craft an Ender Staff: an ender pearl and a piston.", "", "Fires a bolt that teleports you where it lands. No rope, no swing, no", "fall protection -- pure repositioning."]
+			dependencies: ["7C14A2F925D50DE6"]
+			tasks: [
+				{
+					id: "C52B15080A50D3DB"
+					type: "item"
+					item: "grapplemod:launcheritem"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "E7305A7DAB13FD38"
+					type: "xp"
+					xp: 160
+				}
+			]
+		}
+		{
+			x: 18.0d
+			y: 0.0d
+			id: "479E06EF20D20B8A"
+			title: "Magnetic Forcefield"
+			description: ["Craft a Magnetic Forcefield.", "", "It pushes you off walls instead of letting you scrape along them,", "which is what makes high-speed swinging survivable."]
+			dependencies: ["38B9C97CAE660C24"]
+			tasks: [
+				{
+					id: "82229B7C672564B6"
+					type: "item"
+					item: "grapplemod:repeller"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "E763F9FA089B39BE"
+					type: "xp"
+					xp: 180
+				}
+			]
+		}
+		{
+			x: 20.0d
+			y: 0.0d
+			id: "A4F9B18B7E633979"
+			title: "Fell A Tree"
+			description: ["Bank 64 Oak Logs.", "", "Tree Harvester fells the whole tree from one break, as long as you are", "holding an axe in the main hand. It finds the bottom log for you, so", "chopping mid-trunk still works, and it replants the sapling."]
+			dependencies: ["479E06EF20D20B8A"]
+			tasks: [
+				{
+					id: "6B7CFB338FD48042"
+					type: "item"
+					item: "minecraft:oak_log"
+					count: 64L
+				}
+			]
+			rewards: [
+				{
+					id: "58B4B19BDCE83A08"
+					type: "xp"
+					xp: 80
+				}
+			]
+		}
+		{
+			x: 20.0d
+			y: -2.0d
+			id: "4605E85555683096"
+			title: "Whole Vein"
+			description: ["Bank 32 Raw Iron.", "", "Ore Harvester does the same for ore: break one block of a vein with a", "pickaxe and the rest goes with it. Durability is charged per ore mined,", "so a vein of twenty costs twenty points, not one."]
+			dependencies: ["A4F9B18B7E633979"]
+			tasks: [
+				{
+					id: "DA6FF6DB06CB95DF"
+					type: "item"
+					item: "minecraft:raw_iron"
+					count: 32L
+				}
+			]
+			rewards: [
+				{
+					id: "BFDAADAD1339E4A4"
+					type: "xp"
+					xp: 80
+				}
+			]
+		}
+		{
+			x: 22.0d
+			y: 0.0d
+			id: "A4A146558C0026CB"
+			title: "Still Afloat"
+			description: ["Build something structurally stupid, assemble it, and survive it.", "", "VS Safe and Sound wraps the Valkyrien Skies physics thread and swallows", "the exceptions that used to take the whole server down. You get a", "broken ship in the log instead of a crash. Nothing to craft."]
+			dependencies: ["4605E85555683096"]
+			tasks: [
+				{
+					id: "737BEA34CD857647"
+					type: "checkmark"
+					title: "Survive a physics failure without a crash"
+				}
+			]
+			rewards: [
+				{
+					id: "EE5B3574FB723EEF"
+					type: "xp"
+					xp: 120
+				},
+				{
+					id: "17BBB251215D119A"
+					type: "command"
+					title: "1 Skill Point"
+					command: "/puffish_skills points add @p tree 1"
+					player_command: false
+				}
+			]
+		}
+	]
+}

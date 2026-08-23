@@ -1,0 +1,778 @@
+{
+	id: "7832F5C86C811CB0"
+	group: "3B5CADE70BF7A16C"
+	icon: "mca:wedding_ring"
+	default_quest_shape: ""
+	filename: "kith_and_kin"
+	title: "Kith And Kin"
+	subtitle: ["Villagers with names"]
+	order_index: 3
+	quests: [
+		{
+			x: 0.0d
+			y: 0.0d
+			id: "68CF478599FE0E33"
+			title: "Somewhere Inhabited"
+			description: ["Find a village.", "", "MCA Reborn replaced every villager with a named person who has a gender,", "parents, a personality, a mood and an opinion of you. Right-click one to", "open the interaction wheel instead of a trade screen."]
+			tasks: [
+				{
+					id: "1F079D5BA3A1419C"
+					type: "structure"
+					structure: "#minecraft:village"
+				}
+			]
+			rewards: [
+				{
+					id: "5F053EDABB211646"
+					type: "xp"
+					xp: 40
+				}
+			]
+		}
+		{
+			x: 2.0d
+			y: 0.0d
+			id: "AC011798BDB3FAB3"
+			title: "Forty Hearts"
+			description: ["Get one villager to friend status.", "", "Chat, joke, flirt, tell a story. Each has a success chance set by their", "personality; failing loses hearts. Interaction fatigue makes repeats", "likelier to fail - it clears after about four minutes."]
+			dependencies: ["68CF478599FE0E33"]
+			tasks: [
+				{
+					id: "6949C06E0249B361"
+					type: "advancement"
+					advancement: "mca:friend"
+					criterion: ""
+				}
+			]
+			rewards: [
+				{
+					id: "253A7567B6502C16"
+					type: "xp"
+					xp: 80
+				}
+			]
+		}
+		{
+			x: 2.0d
+			y: -2.0d
+			id: "DFFA8E96973C157C"
+			title: "A Bouquet"
+			description: ["Craft a Bouquet from five small flowers.", "", "Give it to someone at 10 hearts or more to start a relationship.", "Everything else in this chapter is downstream of that."]
+			dependencies: ["AC011798BDB3FAB3"]
+			tasks: [
+				{
+					id: "4A2941F6D06E179F"
+					type: "item"
+					item: "mca:bouquet"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "0B2BD456FD280658"
+					type: "xp"
+					xp: 60
+				}
+			]
+		}
+		{
+			x: 2.0d
+			y: 2.0d
+			id: "43694B96F7670195"
+			title: "Comb And Thread"
+			description: ["Craft a Needle and Thread and a Comb.", "", "Right-click yourself or a villager to change clothing and hairstyle.", "Both are cosmetic, and both are inherited by any children you have."]
+			dependencies: ["DFFA8E96973C157C"]
+			tasks: [
+				{
+					id: "E2A5180BE9BAC39C"
+					type: "item"
+					item: "mca:needle_and_thread"
+					count: 1L
+				},
+				{
+					id: "C8311D2CD0F6DF16"
+					type: "item"
+					item: "mca:comb"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "88F2F0358D4BCD15"
+					type: "xp"
+					xp: 60
+				}
+			]
+		}
+		{
+			x: 4.0d
+			y: 0.0d
+			id: "2E6D12030D18DDCE"
+			title: "Best Friend"
+			description: ["Push one villager past the best friend threshold.", "", "Keep visiting. Gifts move hearts faster than conversation, and a", "villager whose mood is already good is much easier to please."]
+			dependencies: ["43694B96F7670195"]
+			tasks: [
+				{
+					id: "C98386F6F2C0FD41"
+					type: "advancement"
+					advancement: "mca:best_friend"
+					criterion: ""
+				}
+			]
+			rewards: [
+				{
+					id: "D16FCC6B3E4D594A"
+					type: "xp"
+					xp: 120
+				}
+			]
+		}
+		{
+			x: 4.0d
+			y: 2.0d
+			id: "024A343A707CC803"
+			title: "Just What I Always Wanted"
+			description: ["Give a gift rated excellent.", "", "Use the Gift button, not the trade screen. Every villager values items", "differently by personality and profession - a perfect match is worth", "more hearts than a day of talking."]
+			dependencies: ["2E6D12030D18DDCE"]
+			tasks: [
+				{
+					id: "265A372B85B01F75"
+					type: "advancement"
+					advancement: "mca:excellent_gift"
+					criterion: ""
+				}
+			]
+			rewards: [
+				{
+					id: "B589E4715F720DB4"
+					type: "xp"
+					xp: 100
+				}
+			]
+		}
+		{
+			x: 6.0d
+			y: 0.0d
+			id: "5FF18FECEE6D8BF9"
+			title: "Rose Gold"
+			description: ["Smelt nine Rose Gold Ingots.", "", "Three raw gold plus one raw copper makes four Rose Gold Dust; smelt the", "dust into ingots. Rose gold builds the fancy rings, the Villager Tracker", "and the Civil Registry."]
+			dependencies: ["024A343A707CC803"]
+			tasks: [
+				{
+					id: "0481A708C8A92C86"
+					type: "item"
+					item: "mca:rose_gold_ingot"
+					count: 9L
+				}
+			]
+			rewards: [
+				{
+					id: "908C44E3E3DAC28F"
+					type: "xp"
+					xp: 100
+				}
+			]
+		}
+		{
+			x: 6.0d
+			y: -2.0d
+			id: "5E5A9E5793AC7064"
+			title: "Names And Lines"
+			description: ["Craft a Villager Tracker and a Family Tree.", "", "The tracker works like an ender eye but points at a villager you name.", "The Family Tree book lists the parents and children of everyone who has", "ever lived in your world."]
+			dependencies: ["5FF18FECEE6D8BF9"]
+			tasks: [
+				{
+					id: "66F3A328D8D5F154"
+					type: "item"
+					item: "mca:villager_tracker"
+					count: 1L
+				},
+				{
+					id: "D138484166C1DD5F"
+					type: "item"
+					item: "mca:family_tree"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "2A538832836FB85C"
+					type: "xp"
+					xp: 120
+				}
+			]
+		}
+		{
+			x: 8.0d
+			y: 0.0d
+			id: "BAF03C3C69C15A0C"
+			title: "Engagement"
+			description: ["Craft an Engagement Ring.", "", "Eight gold and a diamond. They will not accept below 50 hearts.", "An engagement locks them to you and stops other villagers courting them."]
+			dependencies: ["5E5A9E5793AC7064"]
+			tasks: [
+				{
+					id: "F29D079AA5D4CE16"
+					type: "item"
+					item: "mca:engagement_ring"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "F969399A9B8DBB7A"
+					type: "xp"
+					xp: 120
+				}
+			]
+		}
+		{
+			x: 10.0d
+			y: 0.0d
+			id: "8725A778EA082ECF"
+			title: "Married"
+			description: ["Marry a villager.", "", "The Wedding Ring is eight gold ingots and needs 100 hearts.", "A spouse follows you, carries their own inventory, can be handed tools", "and will fight alongside you."]
+			dependencies: ["BAF03C3C69C15A0C"]
+			tasks: [
+				{
+					id: "3185A349776D2B15"
+					type: "advancement"
+					advancement: "mca:marriage"
+					criterion: ""
+				},
+				{
+					id: "0B7A078EF8984875"
+					type: "item"
+					item: "mca:wedding_ring"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "9F7BBA8ED87AD396"
+					type: "xp"
+					xp: 200
+				}
+			]
+		}
+		{
+			x: 10.0d
+			y: 2.0d
+			id: "E2010DC6F666F9EA"
+			title: "Matchmaker"
+			description: ["Craft a Matchmaker's Ring.", "", "Give it to one villager while a second is nearby and they marry each", "other. Married pairs have children on their own - this is how a", "village grows its own population instead of waiting on immigrants."]
+			dependencies: ["8725A778EA082ECF"]
+			tasks: [
+				{
+					id: "DCB4200CB5811A8C"
+					type: "item"
+					item: "mca:matchmakers_ring"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "22E2EA4ADE3A115E"
+					type: "xp"
+					xp: 100
+				}
+			]
+		}
+		{
+			x: 12.0d
+			y: 0.0d
+			id: "0A9D9E5E274E0E30"
+			title: "A Child"
+			description: ["Have a baby.", "", "Use the Village button on your spouse and choose procreation, or type", "/mca procreate. You receive a baby item - right-click to name it, carry", "it until the tooltip says Ready to grow, then place it down."]
+			dependencies: ["E2010DC6F666F9EA"]
+			tasks: [
+				{
+					id: "13C31C3C3655AFE9"
+					type: "advancement"
+					advancement: "mca:baby"
+					criterion: ""
+				}
+			]
+			rewards: [
+				{
+					id: "8CB591B258716BA5"
+					type: "xp"
+					xp: 180
+				}
+			]
+		}
+		{
+			x: 12.0d
+			y: -2.0d
+			id: "7FFFF4BA7793CE45"
+			title: "Twins"
+			description: ["Have twins.", "", "Five percent chance per birth in this pack's config. Nothing you do", "changes the odds. Leave this one open and it will happen eventually."]
+			dependencies: ["0A9D9E5E274E0E30"]
+			tasks: [
+				{
+					id: "28CF1C83FE5F3641"
+					type: "advancement"
+					advancement: "mca:twins"
+					criterion: ""
+				}
+			]
+			rewards: [
+				{
+					id: "F2DCECC8FB96D74E"
+					type: "xp"
+					xp: 150
+				}
+			]
+		}
+		{
+			x: 14.0d
+			y: 0.0d
+			id: "5313E5C280494D4A"
+			title: "Growing Up"
+			description: ["Raise a baby into a child.", "", "Children age on a timer and inherit hair, skin, eyes and traits from", "both parents. Keep them fed and give them a bed in your house."]
+			dependencies: ["7FFFF4BA7793CE45"]
+			tasks: [
+				{
+					id: "AF3A0239225CEC78"
+					type: "advancement"
+					advancement: "mca:grow_child"
+					criterion: ""
+				}
+			]
+			rewards: [
+				{
+					id: "AE5ACD13BBF9C679"
+					type: "xp"
+					xp: 150
+				}
+			]
+		}
+		{
+			x: 14.0d
+			y: 2.0d
+			id: "EBD5AC8241D9143F"
+			title: "Chores"
+			description: ["Put a child to work.", "", "Talk to your child and assign a chore - chopping, harvesting, hunting,", "fishing or pruning. Hand them the right tool first or they stand there."]
+			dependencies: ["5313E5C280494D4A"]
+			tasks: [
+				{
+					id: "A0657B7F1AC6852F"
+					type: "advancement"
+					advancement: "mca:chores"
+					criterion: ""
+				}
+			]
+			rewards: [
+				{
+					id: "7399FDFED0789ADE"
+					type: "xp"
+					xp: 120
+				}
+			]
+		}
+		{
+			x: 16.0d
+			y: 0.0d
+			id: "F1730BCDD885B317"
+			title: "Grown"
+			description: ["Raise a child to adulthood.", "", "An adult child takes a profession, can be married off with the", "Matchmaker's Ring, and starts a household of their own. That loop is", "the whole mod."]
+			dependencies: ["EBD5AC8241D9143F"]
+			tasks: [
+				{
+					id: "7A58BCB6B2F0EE7C"
+					type: "advancement"
+					advancement: "mca:grow_adult"
+					criterion: ""
+				}
+			]
+			rewards: [
+				{
+					id: "BFABDF0362B56D9F"
+					type: "xp"
+					xp: 200
+				}
+			]
+		}
+		{
+			x: 16.0d
+			y: -2.0d
+			id: "50F392E119A5F25A"
+			title: "The Whistle"
+			description: ["Craft a Whistle.", "", "Iron and a gold block. Right-click to teleport your entire family to", "you, from anywhere. Use it the first time a child wanders into a cave."]
+			dependencies: ["F1730BCDD885B317"]
+			tasks: [
+				{
+					id: "4A65B6AEC5D44B6F"
+					type: "item"
+					item: "mca:whistle"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "D272182ADE9A3512"
+					type: "xp"
+					xp: 100
+				}
+			]
+		}
+		{
+			x: 18.0d
+			y: 0.0d
+			id: "F41B04B8C045E105"
+			title: "Three Children"
+			description: ["Raise a family of three children.", "", "That is the exact threshold the advancement checks. Beds are the limit -", "a Big House with extra beds keeps a family living together."]
+			dependencies: ["50F392E119A5F25A"]
+			tasks: [
+				{
+					id: "F99970CB2A5819BD"
+					type: "advancement"
+					advancement: "mca:family"
+					criterion: ""
+				}
+			]
+			rewards: [
+				{
+					id: "A969572CFAEDD12E"
+					type: "xp"
+					xp: 250
+				}
+			]
+		}
+		{
+			x: 18.0d
+			y: 2.0d
+			id: "54951416A41967ED"
+			title: "Grandparent"
+			description: ["Get one grandchild.", "", "Marry a grown child off and wait. Two generations deep is as far as the", "family tree goes without you intervening."]
+			dependencies: ["F41B04B8C045E105"]
+			tasks: [
+				{
+					id: "518FFD710754C090"
+					type: "advancement"
+					advancement: "mca:grandparent"
+					criterion: ""
+				}
+			]
+			rewards: [
+				{
+					id: "142A0AED0E6CBAFA"
+					type: "xp"
+					xp: 250
+				}
+			]
+		}
+		{
+			x: 20.0d
+			y: 0.0d
+			id: "F76C71E5B436BBBD"
+			title: "The Blueprint"
+			description: ["Craft a Blueprint.", "", "Eight paper and blue dye. Stand inside a room that has a door and press", "Add Building - that is how a village legally exists at all. Turn on Auto", "Scan under Advanced and villagers register their own buildings."]
+			dependencies: ["54951416A41967ED"]
+			tasks: [
+				{
+					id: "E1E8961747CA44BD"
+					type: "item"
+					item: "mca:blueprint"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "1CB70FC807EE6A13"
+					type: "xp"
+					xp: 120
+				}
+			]
+		}
+		{
+			x: 22.0d
+			y: 0.0d
+			id: "4C6D3ADE964650E1"
+			title: "Merchant"
+			description: ["Reach the rank of Merchant.", "", "Rank comes from three things: total hearts across the village, its", "population, and which building types exist. Open the Blueprint's Rank", "page - it lists exactly what you are still short of."]
+			dependencies: ["F76C71E5B436BBBD"]
+			tasks: [
+				{
+					id: "05D25B2D0A53A832"
+					type: "advancement"
+					advancement: "mca:merchant"
+					criterion: ""
+				}
+			]
+			rewards: [
+				{
+					id: "73B245BB23451984"
+					type: "xp"
+					xp: 180
+				}
+			]
+		}
+		{
+			x: 24.0d
+			y: 0.0d
+			id: "E0DBD0574A3F2928"
+			title: "Noble"
+			description: ["Reach the rank of Noble.", "", "This is where the specialised buildings start mattering. A Library adds", "50% to taxes, an Infirmary halves infection chance, an Inn cheers up sad", "villagers and attracts travellers."]
+			dependencies: ["4C6D3ADE964650E1"]
+			tasks: [
+				{
+					id: "A340DFBA6C158973"
+					type: "advancement"
+					advancement: "mca:noble"
+					criterion: ""
+				}
+			]
+			rewards: [
+				{
+					id: "274E6C7B0990C4E6"
+					type: "xp"
+					xp: 220
+				}
+			]
+		}
+		{
+			x: 24.0d
+			y: 2.0d
+			id: "3006A0D42E33A135"
+			title: "Rest In Peace"
+			description: ["Build a graveyard.", "", "Dead villagers need an empty tombstone before their soul can settle,", "and a Graveyard is a required building type for the higher ranks.", "Place the headstones before you need them."]
+			dependencies: ["E0DBD0574A3F2928"]
+			tasks: [
+				{
+					id: "4B109DC8A3842670"
+					type: "item"
+					item: "mca:upright_headstone"
+					count: 3L
+				},
+				{
+					id: "36E426BECF73F760"
+					type: "item"
+					item: "mca:cross_headstone"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "F19E9097BF8CD118"
+					type: "xp"
+					xp: 120
+				}
+			]
+		}
+		{
+			x: 26.0d
+			y: 0.0d
+			id: "FF8B16C05D09CC92"
+			title: "Mayor"
+			description: ["Reach the rank of Mayor.", "", "A mayor sets taxes, birth limits and marriage limits from the Blueprint's", "Rules page. High taxes fill the Storage building and cost you hearts;", "villagers will eventually refuse to pay."]
+			dependencies: ["3006A0D42E33A135"]
+			tasks: [
+				{
+					id: "B9E4BEF416817919"
+					type: "advancement"
+					advancement: "mca:mayor"
+					criterion: ""
+				}
+			]
+			rewards: [
+				{
+					id: "82F4B0821A4AC6AF"
+					type: "xp"
+					xp: 260
+				}
+			]
+		}
+		{
+			x: 26.0d
+			y: -2.0d
+			id: "69F1A206E12E762A"
+			title: "The Reaper"
+			description: ["Kill the Grim Reaper and take its Scythe.", "", "MCA's boss. It teleports constantly, drains health and ignores most", "melee openings. The Scythe it drops catches a villager's soul when you", "kill them, so you can revive them at a tombstone afterwards."]
+			dependencies: ["FF8B16C05D09CC92"]
+			tasks: [
+				{
+					id: "A79A57DC4638C16F"
+					type: "advancement"
+					advancement: "mca:adventure/kill_grim_reaper"
+					criterion: ""
+				},
+				{
+					id: "A6A38D1FBDDDA2E3"
+					type: "item"
+					item: "mca:scythe"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "E6F75A6C591ABB00"
+					type: "xp"
+					xp: 350
+				}
+			]
+		}
+		{
+			x: 28.0d
+			y: 0.0d
+			id: "3392CE1E4C9FDA18"
+			title: "Monarch"
+			description: ["Reach the rank of Monarch.", "", "The top rank. Every building type, a large population, and more total", "hearts than any single villager can ever give you."]
+			dependencies: ["69F1A206E12E762A"]
+			tasks: [
+				{
+					id: "165BF883B296AAD2"
+					type: "advancement"
+					advancement: "mca:monarch"
+					criterion: ""
+				}
+			]
+			rewards: [
+				{
+					id: "096B078ECACC57E5"
+					type: "xp"
+					xp: 320
+				}
+			]
+		}
+		{
+			x: 28.0d
+			y: 2.0d
+			id: "D900CAD2BEB85475"
+			title: "Staff Of Life"
+			description: ["Craft the Staff of Life.", "", "Nether star, end rod and the Scythe. Right-click a tombstone to bring", "that villager back from the dead. Limited uses - the tooltip counts them."]
+			dependencies: ["3392CE1E4C9FDA18"]
+			tasks: [
+				{
+					id: "EE9B707FC42AF221"
+					type: "item"
+					item: "mca:staff_of_life"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "3C729D20ADA3F954"
+					type: "xp"
+					xp: 300
+				}
+			]
+		}
+		{
+			x: 30.0d
+			y: 0.0d
+			id: "D652C76714E06C5E"
+			title: "Royal Seals"
+			description: ["Press three Royal Seals.", "", "MCA Capitals turns a large village into a capital with a sovereign, a", "court, an heir and foreign relations. A seal is honeycomb plus one dye,", "and the colour decides which decree it can sign."]
+			dependencies: ["D900CAD2BEB85475"]
+			tasks: [
+				{
+					id: "6B258E2747F19E90"
+					type: "item"
+					item: "mcacapitals:red_royal_seal"
+					count: 1L
+				},
+				{
+					id: "E52983919F621117"
+					type: "item"
+					item: "mcacapitals:purple_royal_seal"
+					count: 1L
+				},
+				{
+					id: "69AFA9C2DA6BB123"
+					type: "item"
+					item: "mcacapitals:cyan_royal_seal"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "3FBD65106E2BDFF8"
+					type: "xp"
+					xp: 160
+				}
+			]
+		}
+		{
+			x: 32.0d
+			y: 0.0d
+			id: "3CCACEE05D4CABC8"
+			title: "The Chronicle"
+			description: ["Craft a Capital Chronicle.", "", "Book, feather, ink sac and a blue seal. It records every event in the", "capital - births, heirs named, abdications, wars - and the villagers", "gossip about the same events out loud."]
+			dependencies: ["D652C76714E06C5E"]
+			tasks: [
+				{
+					id: "17BB9C46A5767EC6"
+					type: "item"
+					item: "mcacapitals:capital_chronicle"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "44ECE318BBCF0BF2"
+					type: "xp"
+					xp: 180
+				}
+			]
+		}
+		{
+			x: 32.0d
+			y: 2.0d
+			id: "A6A066F50B85CF1C"
+			title: "Decrees Of The House"
+			description: ["Draw up a Betrothal Decree and a Legitimization Decree.", "", "Eight paper plus the matching seal - cyan for betrothal, green for", "legitimization. Decrees are how a sovereign actually acts: arranging", "marriages, naming heirs, disinheriting them again."]
+			dependencies: ["3CCACEE05D4CABC8"]
+			tasks: [
+				{
+					id: "5386B63381B6D797"
+					type: "item"
+					item: "mcacapitals:betrothal_decree"
+					count: 1L
+				},
+				{
+					id: "DCC9998E88742E46"
+					type: "item"
+					item: "mcacapitals:legitimization_decree"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "9CB001CE2E9EED48"
+					type: "xp"
+					xp: 200
+				}
+			]
+		}
+		{
+			x: 34.0d
+			y: 0.0d
+			id: "EB810D0187861D08"
+			title: "The Court"
+			description: ["Craft a Sealed Purse and petition the sovereign.", "", "Talking to a sovereign opens Petition: for a noble title, for Lord", "Commander, for Hand of the Crown - or Seize the Throne outright.", "The purse is the gift you send abroad to keep another capital friendly."]
+			dependencies: ["A6A066F50B85CF1C"]
+			tasks: [
+				{
+					id: "E57ED34F4634F27C"
+					type: "item"
+					item: "mcacapitals:sealed_purse"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "4E37AB9362B16BE8"
+					type: "xp"
+					xp: 300
+				},
+				{
+					id: "6F1BB0D7CB562867"
+					type: "command"
+					title: "1 Skill Point"
+					command: "/puffish_skills points add @p tree 1"
+					player_command: false
+				}
+			]
+		}
+	]
+}

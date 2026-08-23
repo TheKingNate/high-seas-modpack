@@ -1,0 +1,457 @@
+{
+	id: "4A52D09F68A3F039"
+	group: "8E1B3CDD0E4E9C32"
+	icon: "bosses_of_mass_destruction:obsidian_heart"
+	default_quest_shape: ""
+	filename: "mass_destruction"
+	title: "Mass Destruction"
+	subtitle: ["Four things that should not exist"]
+	order_index: 15
+	quests: [
+		{
+			x: 0.0d
+			y: 0.0d
+			id: "ED570E9773110524"
+			title: "The Tower In The Dark"
+			description: ["Find a Lich Tower.", "", "Bosses of Mass Destruction scatters one roughly every 100 chunks.", "A Soul Star, thrown like an Eye of Ender, points at the nearest one;", "failing that, an Explorer's Compass will find it."]
+			tasks: [
+				{
+					id: "567196E0AB619E1B"
+					type: "structure"
+					structure: "bosses_of_mass_destruction:lich_tower"
+				}
+			]
+			rewards: [
+				{
+					id: "FE7B6ADBB5DA6DAC"
+					type: "xp"
+					xp: 150
+				}
+			]
+		}
+		{
+			x: 2.0d
+			y: 0.0d
+			id: "1B15C8510951CAED"
+			title: "Night Lich"
+			description: ["Kill the Night Lich at the top of the tower.", "", "It teleports constantly, rains blue comets and summons skeletons.", "Fight it on the roof where the comets have somewhere to land;", "cornering yourself indoors gets you killed by the summons."]
+			dependencies: ["ED570E9773110524"]
+			tasks: [
+				{
+					id: "6F89BF9D3A733A2D"
+					type: "kill"
+					entity: "bosses_of_mass_destruction:lich"
+					value: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "495752687DD5B143"
+					type: "xp"
+					xp: 350
+				}
+			]
+		}
+		{
+			x: 2.0d
+			y: -2.0d
+			id: "A9CF2D32CD6D369F"
+			title: "Ancient Anima"
+			description: ["Collect two Ancient Anima.", "", "The Lich drops two per kill, along with diamonds and five books", "enchanted at level 30. Anima does nothing on its own -- it is a", "crafting material, and three later recipes need it."]
+			dependencies: ["1B15C8510951CAED"]
+			tasks: [
+				{
+					id: "3409CED93C68BCEE"
+					type: "item"
+					item: "bosses_of_mass_destruction:ancient_anima"
+					count: 2L
+				}
+			]
+			rewards: [
+				{
+					id: "90C22E20DE686023"
+					type: "xp"
+					xp: 120
+				}
+			]
+		}
+		{
+			x: 4.0d
+			y: 0.0d
+			id: "4A7F84FBAECCD946"
+			title: "Ancient Blackstone"
+			description: ["Find a Gauntlet Arena in the Nether.", "", "Look for a sealed pit of Ancient Carved Blackstone. The walls are", "Sealed Blackstone Bricks and need a diamond pick.", "The Gauntlet wakes when you go in, not when you find it."]
+			dependencies: ["A9CF2D32CD6D369F"]
+			tasks: [
+				{
+					id: "9EB7BACE3BA21985"
+					type: "structure"
+					structure: "bosses_of_mass_destruction:gauntlet_arena"
+				}
+			]
+			rewards: [
+				{
+					id: "9E1D68FECD7CA536"
+					type: "xp"
+					xp: 180
+				}
+			]
+		}
+		{
+			x: 6.0d
+			y: 0.0d
+			id: "CB5020713CF78AB6"
+			title: "Nether Gauntlet"
+			description: ["Kill the Nether Gauntlet.", "", "A giant floating hand. It slams, it fires beams, and between phases it", "clenches into a fist and goes immune -- stop hitting it and dodge until", "it opens. Bring a bow for the airborne phase."]
+			dependencies: ["4A7F84FBAECCD946"]
+			tasks: [
+				{
+					id: "E5EE2EED57789EF4"
+					type: "kill"
+					entity: "bosses_of_mass_destruction:gauntlet"
+					value: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "3996CDE23BB8E1C9"
+					type: "xp"
+					xp: 350
+				}
+			]
+		}
+		{
+			x: 6.0d
+			y: -2.0d
+			id: "223287FC3F01D445"
+			title: "Blazing Eye"
+			description: ["Take the Blazing Eye from the Gauntlet's chest.", "", "The arena chest holds exactly one, guaranteed. It is the ingredient", "for the Blast Amplifier and the Table of Elevation."]
+			dependencies: ["CB5020713CF78AB6"]
+			tasks: [
+				{
+					id: "02EE95B9EABC6347"
+					type: "item"
+					item: "bosses_of_mass_destruction:blazing_eye"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "681E741B8F611F84"
+					type: "xp"
+					xp: 150
+				}
+			]
+		}
+		{
+			x: 8.0d
+			y: 0.0d
+			id: "EB540971C98BE27F"
+			title: "The Obsidian Arena"
+			description: ["Find an Obsidilith Arena in the End.", "", "It generates on the outer islands, so you need the End gateway or a", "very long bridge. Nullscape has reshaped everything out there -- the", "arena is a ring of obsidian pillars, hard to miss from the air."]
+			dependencies: ["223287FC3F01D445"]
+			tasks: [
+				{
+					id: "C7BAC0A1EBB28CB5"
+					type: "structure"
+					structure: "bosses_of_mass_destruction:obsidilith_arena"
+				}
+			]
+			rewards: [
+				{
+					id: "096B8C2EF5B22B53"
+					type: "xp"
+					xp: 220
+				}
+			]
+		}
+		{
+			x: 10.0d
+			y: 0.0d
+			id: "AB014F483DA15384"
+			title: "Obsidilith"
+			description: ["Kill the Obsidilith.", "", "It cycles four rune attacks and telegraphs each with a coloured rune", "on the floor: pillars, waves, spikes, burst. Read the rune, move before", "it fires. It does not chase, so distance is free."]
+			dependencies: ["EB540971C98BE27F"]
+			tasks: [
+				{
+					id: "B58C103FA33316A7"
+					type: "kill"
+					entity: "bosses_of_mass_destruction:obsidilith"
+					value: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "BA72A7D2D5099DF0"
+					type: "xp"
+					xp: 400
+				}
+			]
+		}
+		{
+			x: 10.0d
+			y: -2.0d
+			id: "CCEEE681EF870756"
+			title: "Obsidian Heart"
+			description: ["Take the Obsidian Heart from the arena chest.", "", "One per arena, on top of an End City treasure roll plus a stack each of", "purpur and obsidian. The Heart is the key to the Earthdive Spear."]
+			dependencies: ["AB014F483DA15384"]
+			tasks: [
+				{
+					id: "ABE892CEF248EAF2"
+					type: "item"
+					item: "bosses_of_mass_destruction:obsidian_heart"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "45C003787DF9F5A3"
+					type: "xp"
+					xp: 180
+				}
+			]
+		}
+		{
+			x: 12.0d
+			y: 0.0d
+			id: "76DB72F9948FD042"
+			title: "Follow The Pollen"
+			description: ["Craft a Void Lily: one Lily of the Valley plus one Amethyst Shard.", "", "Place it and it throws a streak of pollen toward the nearest Void", "Blossom arena. Pick it back up, walk, place it again.", "This is the only practical way to find one."]
+			dependencies: ["CCEEE681EF870756"]
+			tasks: [
+				{
+					id: "B54194EF5A458BAC"
+					type: "item"
+					item: "bosses_of_mass_destruction:void_lily"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "679C64572F20433D"
+					type: "xp"
+					xp: 120
+				}
+			]
+		}
+		{
+			x: 14.0d
+			y: 0.0d
+			id: "FCA55E5C20BA8308"
+			title: "Under The Lush"
+			description: ["Find the Void Blossom's cavern.", "", "It sits deep under lush caves. Mob spawning is suppressed inside the", "structure, so if the caves go suspiciously quiet you are close."]
+			dependencies: ["76DB72F9948FD042"]
+			tasks: [
+				{
+					id: "15E9D396B5D70F2D"
+					type: "structure"
+					structure: "bosses_of_mass_destruction:void_blossom"
+				}
+			]
+			rewards: [
+				{
+					id: "15858351DABDB895"
+					type: "xp"
+					xp: 220
+				}
+			]
+		}
+		{
+			x: 16.0d
+			y: 0.0d
+			id: "844349005E56BB1D"
+			title: "Void Blossom"
+			description: ["Kill the Void Blossom.", "", "It roots in place and fights with the room: bramble walls that box you", "in, spore clouds, and volleys of petal blades. Break the brambles", "instead of walking around them or you will be fighting in a cage."]
+			dependencies: ["FCA55E5C20BA8308"]
+			tasks: [
+				{
+					id: "0AD8FAA2BF30288B"
+					type: "kill"
+					entity: "bosses_of_mass_destruction:void_blossom"
+					value: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "87691639C7406D18"
+					type: "xp"
+					xp: 400
+				}
+			]
+		}
+		{
+			x: 16.0d
+			y: -2.0d
+			id: "4B946AC5BECD4816"
+			title: "Thorn And Fruit"
+			description: ["Collect two Void Thorns and two Crystal Fruit.", "", "Both come off the Blossom, and only if a player lands the kill.", "Crystal Fruit is food granting brief Regeneration and Resistance --", "keep one on the hotbar for the next boss."]
+			dependencies: ["844349005E56BB1D"]
+			tasks: [
+				{
+					id: "0D8259B6B1A36CB7"
+					type: "item"
+					item: "bosses_of_mass_destruction:void_thorn"
+					count: 2L
+				},
+				{
+					id: "7982F2CC450CB326"
+					type: "item"
+					item: "bosses_of_mass_destruction:crystal_fruit"
+					count: 2L
+				}
+			]
+			rewards: [
+				{
+					id: "A95A5B64EF4803DF"
+					type: "xp"
+					xp: 180
+				}
+			]
+		}
+		{
+			x: 18.0d
+			y: 0.0d
+			id: "F77F072B45097D0A"
+			title: "Earthdive Spear"
+			description: ["Craft an Earthdive Spear: Obsidian Heart, Void Thorn, stick.", "", "Hold use and it teleports you a short distance through solid blocks.", "It is a weapon and an escape hatch -- and the only reliable way out of", "a bramble cage."]
+			dependencies: ["4B946AC5BECD4816"]
+			tasks: [
+				{
+					id: "26FF7C4E58F11675"
+					type: "item"
+					item: "bosses_of_mass_destruction:earthdive_spear"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "610AEFEB080F5B8D"
+					type: "xp"
+					xp: 300
+				}
+			]
+		}
+		{
+			x: 18.0d
+			y: -2.0d
+			id: "F0804C03884A09AC"
+			title: "Charged Pearl"
+			description: ["Craft a Charged Ender Pearl: Void Thorn, Ender Pearl, Ancient Anima.", "", "Reusable -- it comes back after every throw -- and it grants brief", "Resistance on landing. It needs drops from two different bosses,", "which is the point."]
+			dependencies: ["F77F072B45097D0A"]
+			tasks: [
+				{
+					id: "067A1A4EAAB4D2AB"
+					type: "item"
+					item: "bosses_of_mass_destruction:charged_ender_pearl"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "7BF442F235A5F75C"
+					type: "xp"
+					xp: 300
+				}
+			]
+		}
+		{
+			x: 20.0d
+			y: 0.0d
+			id: "333CDBD8F8BB6E5C"
+			title: "Blast Amplifier"
+			description: ["Craft a Blast Amplifier: seven obsidian around a Blazing Eye and an", "Obsidian Heart.", "", "Placed, it raises every explosion within 64 blocks by 30%. It does not", "stack with itself. Put one beside your cannon battery."]
+			dependencies: ["F0804C03884A09AC"]
+			tasks: [
+				{
+					id: "697BEDA67BE29210"
+					type: "item"
+					item: "bosses_of_mass_destruction:monolith_block"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "A7E0F34157B687E8"
+					type: "xp"
+					xp: 250
+				}
+			]
+		}
+		{
+			x: 20.0d
+			y: -2.0d
+			id: "FA3B41A14C16CDA9"
+			title: "Staff Of Suppression"
+			description: ["Craft a Staff of Suppression: Ancient Anima over Obsidian Heart over", "obsidian.", "", "Placed, nothing hostile spawns within 64 blocks in any direction.", "One of these makes an island base permanently quiet."]
+			dependencies: ["333CDBD8F8BB6E5C"]
+			tasks: [
+				{
+					id: "862D7BEE1FE978E1"
+					type: "item"
+					item: "bosses_of_mass_destruction:mob_ward"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "28C6BA03EDE1D383"
+					type: "xp"
+					xp: 250
+				}
+			]
+		}
+		{
+			x: 22.0d
+			y: 0.0d
+			id: "D7F33FF78BE51310"
+			title: "Table Of Elevation"
+			description: ["Craft a Table of Elevation: Ancient Anima, Blazing Eye, two gold,", "three obsidian.", "", "Placed, it grants creative flight in the 7x7 column above it.", "Build one at your shipyard and stop scaffolding your masts."]
+			dependencies: ["FA3B41A14C16CDA9"]
+			tasks: [
+				{
+					id: "C4C8CAB105513936"
+					type: "item"
+					item: "bosses_of_mass_destruction:levitation_block"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "55FDDE4BDC7A1C94"
+					type: "xp"
+					xp: 300
+				}
+			]
+		}
+		{
+			x: 22.0d
+			y: -2.0d
+			id: "31F1AC464E0CD960"
+			title: "Brimstone Nectar"
+			description: ["Craft Brimstone Nectar: netherite scrap, dragon breath, ghast tear.", "", "Using it resets nearby boss structures, which respawns the boss and", "refills the chest. This is how you farm Blazing Eyes and Obsidian", "Hearts instead of hunting a fresh arena every time."]
+			dependencies: ["D7F33FF78BE51310"]
+			tasks: [
+				{
+					id: "A72E2E7DFE17CB99"
+					type: "item"
+					item: "bosses_of_mass_destruction:brimstone_nectar"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "181EDF2C06868722"
+					type: "xp"
+					xp: 320
+				},
+				{
+					id: "6E0EFC31EE5682EC"
+					type: "command"
+					title: "1 Skill Point"
+					command: "/puffish_skills points add @p tree 1"
+					player_command: false
+				}
+			]
+		}
+	]
+}

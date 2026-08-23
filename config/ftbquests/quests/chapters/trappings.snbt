@@ -1,0 +1,154 @@
+{
+	id: "9EF70CFF1A39C6F8"
+	group: "8E1B3CDD0E4E9C32"
+	icon: "losttrinkets:golden_ring"
+	default_quest_shape: ""
+	filename: "trappings"
+	title: "Trappings"
+	subtitle: ["Charms and blades"]
+	order_index: 13
+	quests: [
+		{
+			x: 0.0d
+			y: 0.0d
+			id: "2386273C265D2CB2"
+			title: "Two Hands"
+			description: ["Better Combat replaced your swing. Swords are a three-hit combo", "with 2.5 blocks of reach, tridents 2.75, staves 3.0.", "", "Hold a one-handed weapon in each hand and the combo alternates", "hands. Bind 'Feint' in Controls to cancel a swing mid-arc."]
+			tasks: [
+				{
+					id: "677F4D116C570F71"
+					type: "item"
+					item: "minecraft:iron_sword"
+					count: 2L
+				}
+			]
+			rewards: [
+				{
+					id: "EA46FF5265A58783"
+					type: "xp"
+					xp: 60
+				}
+			]
+		}
+		{
+			x: 2.0d
+			y: 0.0d
+			id: "443C87F8C0DF9B0D"
+			title: "The Charm Slot"
+			description: ["A Tome does nothing in your hotbar. Open the Trinkets screen and", "put it in the charm / Spell Book slot.", "", "Only then do your wand, staff or sword cast from it. The slot is", "keep-on-death, so the Tome survives when the rest of you does not."]
+			dependencies: ["2386273C265D2CB2"]
+			tasks: [
+				{
+					id: "E2C01E9D96783619"
+					type: "checkmark"
+					title: "Equip a Tome in the Trinkets spell book slot"
+				}
+			]
+			rewards: [
+				{
+					id: "09E9C5433EA488CC"
+					type: "xp"
+					xp: 80
+				}
+			]
+		}
+		{
+			x: 4.0d
+			y: 0.0d
+			id: "F1E5FA73EEFC173E"
+			title: "Lost And Found"
+			description: ["Lost Trinkets unlock at random from ordinary play: mining ore,", "farming, chopping, trading, killing. Bosses are 1 in 10.", "", "They live in their own screen, not your inventory -- bind", "'Open Trinkets GUI'. You start with one slot; the next costs", "15 experience levels, and 3 more for each after that."]
+			dependencies: ["443C87F8C0DF9B0D"]
+			tasks: [
+				{
+					id: "2D0EED2F88D82D65"
+					type: "checkmark"
+					title: "Unlock a Lost Trinket and equip it"
+				}
+			]
+			rewards: [
+				{
+					id: "5EA2D43656AFC17C"
+					type: "xp"
+					xp: 100
+				}
+			]
+		}
+		{
+			x: 6.0d
+			y: -2.0d
+			id: "8DEF969D3E51FD03"
+			title: "Husk In Robes"
+			description: ["Mobbility rolls a small chance for a spawning mob to come up as", "a caster in full kit. Husks roll Fire Wizard.", "", "Fire robes, a Fire Wand and a Tome loaded with Fireball, Fire", "Breath, Meteor and Wall of Flames. It is about 1 in 200, and it", "will out-range you."]
+			dependencies: ["F1E5FA73EEFC173E"]
+			tasks: [
+				{
+					id: "22B56DACB77416B8"
+					type: "kill"
+					entity: "minecraft:husk"
+					value: 20L
+				}
+			]
+			rewards: [
+				{
+					id: "1E7C2A757C1CE1E1"
+					type: "xp"
+					xp: 150
+				}
+			]
+		}
+		{
+			x: 6.0d
+			y: 2.0d
+			id: "E07AF104B46799FF"
+			title: "Stray Arcanist"
+			description: ["Strays roll Arcane Wizard: arcane robes, an Arcane Wand, and", "Arcane Missiles, Blast, Beam and Blink.", "", "Blink means it teleports out of your reach. Strays also roll", "Tundra Hunter, Wildling and Frozen Champion presets."]
+			dependencies: ["8DEF969D3E51FD03"]
+			tasks: [
+				{
+					id: "B7798A71D93906CD"
+					type: "kill"
+					entity: "minecraft:stray"
+					value: 20L
+				}
+			]
+			rewards: [
+				{
+					id: "ECF75A3AC66AF1A5"
+					type: "xp"
+					xp: 150
+				}
+			]
+		}
+		{
+			x: 8.0d
+			y: 0.0d
+			id: "1E6CCFE23458C364"
+			title: "Drowned In Frost"
+			description: ["Drowned roll Frost Wizard: Frostbolt, Frost Nova, Frost Shield", "and Blizzard, in frost robes with a Frost Wand.", "", "Frost Nova freezes you in place. Frost Shield blocks your hits", "outright, so wait it out rather than swinging into it."]
+			dependencies: ["E07AF104B46799FF"]
+			tasks: [
+				{
+					id: "91BFA8135CCFE500"
+					type: "kill"
+					entity: "minecraft:drowned"
+					value: 20L
+				}
+			]
+			rewards: [
+				{
+					id: "714C2F5CE908852E"
+					type: "xp"
+					xp: 200
+				},
+				{
+					id: "61D25DEB619E0FD3"
+					type: "command"
+					title: "1 Skill Point"
+					command: "/puffish_skills points add @p tree 1"
+					player_command: false
+				}
+			]
+		}
+	]
+}

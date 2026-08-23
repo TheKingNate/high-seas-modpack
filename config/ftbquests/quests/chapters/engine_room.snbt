@@ -1,0 +1,726 @@
+{
+	id: "98006B736E2C63A1"
+	group: "AB8CEE6310D5FD25"
+	icon: "powah:energizing_orb"
+	default_quest_shape: ""
+	filename: "engine_room"
+	title: "Engine Room"
+	subtitle: ["Volts and reactors"]
+	order_index: 24
+	quests: [
+		{
+			x: 0.0d
+			y: 0.0d
+			id: "E0301E5B7A2819BF"
+			title: "Paste And Rods"
+			description: ["Powah is built from three cheap parts. Dielectric Paste is 3 coal, 2", "clay and a lava bucket, and makes 24 at a time.", "", "Rods come in vertical and horizontal versions and the recipes care", "which one you hand them. Make plenty of both."]
+			tasks: [
+				{
+					id: "72E9EF5828DCD2A7"
+					type: "item"
+					item: "powah:dielectric_paste"
+					count: 24L
+				},
+				{
+					id: "E143BB6876A17CD5"
+					type: "item"
+					item: "powah:dielectric_rod"
+					count: 8L
+				},
+				{
+					id: "7F15B227FCE9087C"
+					type: "item"
+					item: "powah:dielectric_rod_horizontal"
+					count: 8L
+				}
+			]
+			rewards: [
+				{
+					id: "5995B74CF81FF129"
+					type: "xp"
+					xp: 60
+				}
+			]
+		}
+		{
+			x: 0.0d
+			y: -2.0d
+			id: "FDE5A874F7F34988"
+			title: "The Wrench"
+			description: ["The Wrench has three modes and its tooltip shows the active one.", "Config sets cable I/O faces, Link pairs an orb to its rods, Rotate", "turns blocks horizontally.", "", "The Manual is a book plus dielectric paste and documents every block."]
+			dependencies: ["E0301E5B7A2819BF"]
+			tasks: [
+				{
+					id: "470D3CD392C56C83"
+					type: "item"
+					item: "powah:wrench"
+					count: 1L
+				},
+				{
+					id: "DCFC24CA878BA2C9"
+					type: "item"
+					item: "powah:book"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "A8435C1D15486C42"
+					type: "xp"
+					xp: 60
+				}
+			]
+		}
+		{
+			x: 2.0d
+			y: 0.0d
+			id: "EB5E465FD9E8DF80"
+			title: "Dielectric Casing"
+			description: ["Every Powah machine is a Dielectric Casing with something inside it:", "iron corners, rods on the edges.", "", "Basic Capacitors come four at a time, and one splits into two Tiny", "Capacitors - which is what the starter tier actually eats."]
+			dependencies: ["FDE5A874F7F34988"]
+			tasks: [
+				{
+					id: "FF5A928F4DFF737D"
+					type: "item"
+					item: "powah:dielectric_casing"
+					count: 4L
+				},
+				{
+					id: "0862B5E5265AD6EF"
+					type: "item"
+					item: "powah:capacitor_basic"
+					count: 4L
+				},
+				{
+					id: "794EDFE55725E8B5"
+					type: "item"
+					item: "powah:capacitor_basic_tiny"
+					count: 8L
+				}
+			]
+			rewards: [
+				{
+					id: "E59BAE426576EADC"
+					type: "xp"
+					xp: 80
+				}
+			]
+		}
+		{
+			x: 4.0d
+			y: 0.0d
+			id: "ED891811D74500D1"
+			title: "First Watts"
+			description: ["The Furnator burns solid fuel for FE. Higher tiers burn it faster for", "more FE/t, not for more energy per log.", "", "Energy Cable moves the power out. Use the Wrench in Config mode to set", "which faces pull and which push."]
+			dependencies: ["EB5E465FD9E8DF80"]
+			tasks: [
+				{
+					id: "09BCD2856AEBC10D"
+					type: "item"
+					item: "powah:furnator_starter"
+					count: 1L
+				},
+				{
+					id: "0151C603A47EEFD0"
+					type: "item"
+					item: "powah:energy_cable_starter"
+					count: 16L
+				}
+			]
+			rewards: [
+				{
+					id: "E1D9B5CC8D385739"
+					type: "xp"
+					xp: 100
+				}
+			]
+		}
+		{
+			x: 4.0d
+			y: -2.0d
+			id: "44262B4EBECF4EAA"
+			title: "Sun And Lava"
+			description: ["Three more starter generators. The Magmator drinks lava. The Thermo", "Generator sits on a hot block and needs water to keep running.", "", "The Solar Panel wants open sky - anything above it stops production", "dead. A Lens Of Ender makes it see through blocks."]
+			dependencies: ["ED891811D74500D1"]
+			tasks: [
+				{
+					id: "251C4E787714ACE6"
+					type: "item"
+					item: "powah:magmator_starter"
+					count: 1L
+				},
+				{
+					id: "78E4989B7D83BEBC"
+					type: "item"
+					item: "powah:thermo_generator_starter"
+					count: 1L
+				},
+				{
+					id: "96697A71B77153B5"
+					type: "item"
+					item: "powah:solar_panel_starter"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "A9B8BBA042959F6A"
+					type: "xp"
+					xp: 150
+				}
+			]
+		}
+		{
+			x: 6.0d
+			y: 0.0d
+			id: "C25190189855911F"
+			title: "The Energizing Orb"
+			description: ["The Orb is Powah's crafting machine. It stores no power itself - the", "Energizing Rods around it must sit on cable or a powered block.", "", "Orb and rods link on their own when placed in range; re-link with the", "Wrench in Link mode. More and better rods means faster recipes."]
+			dependencies: ["44262B4EBECF4EAA"]
+			tasks: [
+				{
+					id: "E7081750995B12D5"
+					type: "item"
+					item: "powah:energizing_orb"
+					count: 1L
+				},
+				{
+					id: "E07D463CD1B3FDC1"
+					type: "item"
+					item: "powah:energizing_rod_starter"
+					count: 4L
+				}
+			]
+			rewards: [
+				{
+					id: "13E258E9C7F61EB5"
+					type: "xp"
+					xp: 150
+				}
+			]
+		}
+		{
+			x: 8.0d
+			y: 0.0d
+			id: "A1137C4486DC445C"
+			title: "Energized Steel"
+			description: ["Drop an iron ingot and a gold ingot into the orb: 10,000 FE gives two", "Energized Steel.", "", "This is the gate on the whole mid game. Build generation before you", "write the shopping list."]
+			dependencies: ["C25190189855911F"]
+			tasks: [
+				{
+					id: "66F916E79BF0E427"
+					type: "item"
+					item: "powah:steel_energized"
+					count: 8L
+				}
+			]
+			rewards: [
+				{
+					id: "6DAE087D8833B03D"
+					type: "xp"
+					xp: 150
+				}
+			]
+		}
+		{
+			x: 8.0d
+			y: -2.0d
+			id: "00F5D2676FDAE139"
+			title: "Cold Storage"
+			description: ["Two blue ice in the orb makes Dry Ice, the strongest solid reactor", "coolant. It also generates underground below y=64.", "", "A snowball costs 500,000 FE and returns a Charged Snowball, which", "calls lightning wherever it lands."]
+			dependencies: ["A1137C4486DC445C"]
+			tasks: [
+				{
+					id: "3B63CF74F1AADDCD"
+					type: "item"
+					item: "powah:dry_ice"
+					count: 8L
+				},
+				{
+					id: "ECBE9C80892572BE"
+					type: "item"
+					item: "powah:charged_snowball"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "89E756E56C3FEF72"
+					type: "xp"
+					xp: 150
+				}
+			]
+		}
+		{
+			x: 10.0d
+			y: 0.0d
+			id: "A049F5518D5B5AB6"
+			title: "Blazing Crystals"
+			description: ["Four blaze powder in the orb at 120,000 FE gives one Blazing Crystal.", "", "Capacitors follow the crystals: Hardened, Blazing, Niotic, Spirited,", "Nitro. Every machine tier wants its own capacitor, so make extras."]
+			dependencies: ["00F5D2676FDAE139"]
+			tasks: [
+				{
+					id: "AECD01BCA68A7FAD"
+					type: "item"
+					item: "powah:crystal_blazing"
+					count: 8L
+				},
+				{
+					id: "8DA99B3B9BD34216"
+					type: "item"
+					item: "powah:capacitor_blazing"
+					count: 2L
+				}
+			]
+			rewards: [
+				{
+					id: "4F7B71A261DF11BB"
+					type: "xp"
+					xp: 200
+				}
+			]
+		}
+		{
+			x: 12.0d
+			y: 0.0d
+			id: "586B644045E971AA"
+			title: "Uraninite"
+			description: ["Uraninite Ore sits below y=64 for poor, y=20 for normal and y=0 for", "dense, in veins of one to five. Iron pickaxe or better.", "", "Raw Uraninite smelts one for one, or energizes into two for only", "2,000 FE. Always use the orb."]
+			dependencies: ["A049F5518D5B5AB6"]
+			tasks: [
+				{
+					id: "3AA670C5FA124E38"
+					type: "item"
+					item: "powah:uraninite_raw"
+					count: 16L
+				},
+				{
+					id: "9B11CD7687E74BCD"
+					type: "item"
+					item: "powah:uraninite"
+					count: 24L
+				}
+			]
+			rewards: [
+				{
+					id: "31BC08B5BCC0B2FE"
+					type: "xp"
+					xp: 200
+				}
+			]
+		}
+		{
+			x: 12.0d
+			y: -2.0d
+			id: "6442B391DFD2025D"
+			title: "Capacitor Tiers"
+			description: ["Niotic Crystals are diamonds at 300,000 FE. Spirited are emeralds at", "1,000,000 FE. The orb is the only way to make either.", "", "Better capacitors also mean better Energizing Rods, which makes the", "orb faster, which makes the next crystal cheaper in real time."]
+			dependencies: ["586B644045E971AA"]
+			tasks: [
+				{
+					id: "85B9DB92FBA6C278"
+					type: "item"
+					item: "powah:crystal_niotic"
+					count: 4L
+				},
+				{
+					id: "2DF7A93EA0176D5D"
+					type: "item"
+					item: "powah:crystal_spirited"
+					count: 4L
+				},
+				{
+					id: "AAB1FBE9D0E16538"
+					type: "item"
+					item: "powah:energizing_rod_blazing"
+					count: 2L
+				}
+			]
+			rewards: [
+				{
+					id: "7C7B8F41F332E713"
+					type: "xp"
+					xp: 250
+				}
+			]
+		}
+		{
+			x: 14.0d
+			y: 0.0d
+			id: "194BCD642DBB29DE"
+			title: "The Reactor"
+			description: ["The reactor is a multiblock you do not hand-build. Hold 36 Reactor", "blocks and place one into a clear 3x3x4 space - it assembles itself.", "", "It burns uraninite and heats up as it runs. Water cools it, ice or dry", "ice cools it harder, carbon adds efficiency, redstone adds speed."]
+			dependencies: ["6442B391DFD2025D"]
+			tasks: [
+				{
+					id: "15FDE9802DBAD8B6"
+					type: "item"
+					item: "powah:reactor_starter"
+					count: 36L
+				}
+			]
+			rewards: [
+				{
+					id: "51AA17C31BE59288"
+					type: "xp"
+					xp: 300
+				}
+			]
+		}
+		{
+			x: 16.0d
+			y: 0.0d
+			id: "77195419FFEC13FB"
+			title: "Bigger Reactors"
+			description: ["Each reactor tier is built from the tier below: four Starter reactors,", "four large capacitors and a uraninite make four Basic ones.", "", "The multiblock is still 36 blocks at every tier. A Nitro reactor is a", "chain that begins with 36 Spirited blocks."]
+			dependencies: ["194BCD642DBB29DE"]
+			tasks: [
+				{
+					id: "035CA0D7EADA6437"
+					type: "item"
+					item: "powah:reactor_basic"
+					count: 36L
+				}
+			]
+			rewards: [
+				{
+					id: "0FC0D278C26826D1"
+					type: "xp"
+					xp: 350
+				}
+			]
+		}
+		{
+			x: 16.0d
+			y: -2.0d
+			id: "68A59506ACE0D8B4"
+			title: "Cells And Batteries"
+			description: ["Energy Cells buffer FE and show their charge on the block face.", "Batteries charge whatever you are carrying.", "", "Both can be shift-clicked into an Ender Cell screen to donate their", "capacity - and any stored power - to that ender channel."]
+			dependencies: ["77195419FFEC13FB"]
+			tasks: [
+				{
+					id: "0C2D663519757FBD"
+					type: "item"
+					item: "powah:energy_cell_starter"
+					count: 1L
+				},
+				{
+					id: "3CC40F6ED531FCE8"
+					type: "item"
+					item: "powah:energy_cell_basic"
+					count: 1L
+				},
+				{
+					id: "746D90A06342BB5E"
+					type: "item"
+					item: "powah:battery_basic"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "913388133C290DC5"
+					type: "xp"
+					xp: 200
+				}
+			]
+		}
+		{
+			x: 18.0d
+			y: 0.0d
+			id: "10E93791FA36E048"
+			title: "Nitro"
+			description: ["The top crystal: a nether star, two redstone blocks and a block of", "blazing crystal, for 20,000,000 FE. It yields sixteen.", "", "Budget the power before you queue it. This is a nitro reactor running", "for a while, or a very long wait on anything smaller."]
+			dependencies: ["68A59506ACE0D8B4"]
+			tasks: [
+				{
+					id: "AA9D9B541A334EA9"
+					type: "item"
+					item: "powah:crystal_nitro"
+					count: 16L
+				}
+			]
+			rewards: [
+				{
+					id: "A9F2FB6C2609E871"
+					type: "xp"
+					xp: 400
+				}
+			]
+		}
+		{
+			x: 20.0d
+			y: 0.0d
+			id: "CE79E93CBC06739C"
+			title: "Ender Network"
+			description: ["An Ender Core is an ender eye, a casing and a tiny capacitor in the", "orb. Ender Cells store FE on a numbered channel that belongs to you.", "", "Ender Gates move power between that channel and adjacent blocks, but", "cannot add capacity - only cells and batteries can do that."]
+			dependencies: ["10E93791FA36E048"]
+			tasks: [
+				{
+					id: "93E22BE6F4A59858"
+					type: "item"
+					item: "powah:ender_core"
+					count: 2L
+				},
+				{
+					id: "1E7EF742D8C04039"
+					type: "item"
+					item: "powah:ender_cell_basic"
+					count: 1L
+				},
+				{
+					id: "823BFF35801C4FB2"
+					type: "item"
+					item: "powah:ender_gate_basic"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "3B15571B1CCD591F"
+					type: "xp"
+					xp: 250
+				}
+			]
+		}
+		{
+			x: 20.0d
+			y: -2.0d
+			id: "DBFA2426E89E1C62"
+			title: "Hoppers And Dischargers"
+			description: ["An Energy Hopper charges chargeable items sitting in the inventory", "next to it. An Energy Discharger drains them back into the grid.", "", "Both are casing, paste and capacitors, and both take cable on any", "face you configure with the Wrench."]
+			dependencies: ["CE79E93CBC06739C"]
+			tasks: [
+				{
+					id: "756FF1DCA8FCE9AE"
+					type: "item"
+					item: "powah:energy_hopper_starter"
+					count: 1L
+				},
+				{
+					id: "6C776A97823ED3D4"
+					type: "item"
+					item: "powah:energy_discharger_starter"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "9B6CB353E4A1720A"
+					type: "xp"
+					xp: 150
+				}
+			]
+		}
+		{
+			x: 22.0d
+			y: 0.0d
+			id: "C35338BC5E3F01E8"
+			title: "Player Transmitter"
+			description: ["Craft an Aerial Pearl, then use it on a zombie or a husk to get a", "Player Aerial Pearl. That is the heart of the transmitter.", "", "Right-click a Binding Card to bind it to yourself, drop it into the", "transmitter, and it charges your inventory and armour wirelessly."]
+			dependencies: ["DBFA2426E89E1C62"]
+			tasks: [
+				{
+					id: "F1199F53321C4A72"
+					type: "item"
+					item: "powah:aerial_pearl"
+					count: 1L
+				},
+				{
+					id: "2A82E27F28C08322"
+					type: "item"
+					item: "powah:player_aerial_pearl"
+					count: 1L
+				},
+				{
+					id: "524D1FC86A301BB9"
+					type: "item"
+					item: "powah:binding_card"
+					count: 1L
+				},
+				{
+					id: "B81D1334404ACDE6"
+					type: "item"
+					item: "powah:player_transmitter_starter"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "DFF42EDDD0BF3EDB"
+					type: "xp"
+					xp: 300
+				}
+			]
+		}
+		{
+			x: 0.0d
+			y: 2.0d
+			id: "0BC1927F0BDD4202"
+			title: "Flux Dust"
+			description: ["Flux Dust has no crafting recipe. Place obsidian directly on top of", "bedrock, drop Redstone Dust onto the obsidian, then click the obsidian.", "", "REI's Creating Flux page says left click - on Fabric it is right click.", "The obsidian is consumed each time, so bring a stack."]
+			dependencies: ["C35338BC5E3F01E8"]
+			tasks: [
+				{
+					id: "E57CA69B6E932BB3"
+					type: "item"
+					item: "fluxnetworks:flux_dust"
+					count: 8L
+				}
+			]
+			rewards: [
+				{
+					id: "F96B68986990F673"
+					type: "xp"
+					xp: 100
+				}
+			]
+		}
+		{
+			x: 2.0d
+			y: 2.0d
+			id: "25758ED44F0AA1D5"
+			title: "Flux Core"
+			description: ["Obsidian corners, flux dust edges, an eye of ender in the middle.", "", "Five flux dust and four cores make a Flux Block, which is the bulk", "material for everything above a Flux Point."]
+			dependencies: ["0BC1927F0BDD4202"]
+			tasks: [
+				{
+					id: "7887D41DE3E2DB8A"
+					type: "item"
+					item: "fluxnetworks:flux_core"
+					count: 4L
+				},
+				{
+					id: "4AC86EFF5C41660D"
+					type: "item"
+					item: "fluxnetworks:flux_block"
+					count: 4L
+				}
+			]
+			rewards: [
+				{
+					id: "1627844EFB4F7B6C"
+					type: "xp"
+					xp: 120
+				}
+			]
+		}
+		{
+			x: 4.0d
+			y: 2.0d
+			id: "5E1BF575EFD08592"
+			title: "Point And Plug"
+			description: ["A Flux Plug takes power out of the block it is attached to and puts it", "into the network. A Flux Point does the exact opposite.", "", "There are no cables and no distance limit inside a network. Attach", "each one to the machine face it should serve."]
+			dependencies: ["25758ED44F0AA1D5"]
+			tasks: [
+				{
+					id: "F9BF17FFA0A6CD44"
+					type: "item"
+					item: "fluxnetworks:flux_plug"
+					count: 2L
+				},
+				{
+					id: "4132B32E8FC972A2"
+					type: "item"
+					item: "fluxnetworks:flux_point"
+					count: 2L
+				}
+			]
+			rewards: [
+				{
+					id: "B3E787CE8B25B8A3"
+					type: "xp"
+					xp: 150
+				}
+			]
+		}
+		{
+			x: 6.0d
+			y: 2.0d
+			id: "C92C0AEC9E3A9F6E"
+			title: "The Flux Controller"
+			description: ["One Controller per network switches on wireless charging - items in", "your inventory draw straight from the network.", "", "The Flux Configurator is the remote: it opens the same interface from", "anywhere, so you can retune plugs without walking back."]
+			dependencies: ["5E1BF575EFD08592"]
+			tasks: [
+				{
+					id: "97181DB0A7685E38"
+					type: "item"
+					item: "fluxnetworks:flux_controller"
+					count: 1L
+				},
+				{
+					id: "67102689A5C0F5E7"
+					type: "item"
+					item: "fluxnetworks:flux_configurator"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "904BBAAAFAD199DC"
+					type: "xp"
+					xp: 200
+				}
+			]
+		}
+		{
+			x: 8.0d
+			y: 2.0d
+			id: "C8073E97D403F947"
+			title: "Flux Storage"
+			description: ["Flux Storage is the network's battery. Basic is a ring of flux blocks", "around glass panes; Herculean is that same ring around a Basic.", "", "The upgrade keeps the energy already inside, so build the small one", "early and grow it rather than saving up."]
+			dependencies: ["C92C0AEC9E3A9F6E"]
+			tasks: [
+				{
+					id: "70A25AFF71C4CDAD"
+					type: "item"
+					item: "fluxnetworks:basic_flux_storage"
+					count: 1L
+				},
+				{
+					id: "5BC50D9A471C356A"
+					type: "item"
+					item: "fluxnetworks:herculean_flux_storage"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "7E63BCDCEDA8EA21"
+					type: "xp"
+					xp: 200
+				}
+			]
+		}
+		{
+			x: 10.0d
+			y: 2.0d
+			id: "C4C5FA06F20E2E6E"
+			title: "Gargantuan"
+			description: ["Gargantuan is the last craftable tier - a Herculean ringed in flux", "blocks and glass panes one more time.", "", "One network, one buffer, every machine in every dimension drawing off", "it. Past here, power stops being a design constraint."]
+			dependencies: ["C8073E97D403F947"]
+			tasks: [
+				{
+					id: "100DC1B93AFAF5ED"
+					type: "item"
+					item: "fluxnetworks:gargantuan_flux_storage"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "91643371749AC60E"
+					type: "xp"
+					xp: 300
+				},
+				{
+					id: "9B7CE17EAC1B8410"
+					type: "command"
+					title: "1 Skill Point"
+					command: "/puffish_skills points add @p tree 1"
+					player_command: false
+				}
+			]
+		}
+	]
+}

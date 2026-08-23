@@ -1,0 +1,346 @@
+{
+	id: "142932402A4090A7"
+	group: "AB8CEE6310D5FD25"
+	icon: "create:track"
+	default_quest_shape: ""
+	filename: "rails_and_parcels"
+	title: "Rails And Parcels"
+	subtitle: ["Move it without carrying it"]
+	order_index: 21
+	quests: [
+		{
+			x: 0.0d
+			y: 0.0d
+			id: "A0AB9A4150A651AD"
+			title: "Sturdy Sheets"
+			description: ["Crush Obsidian into Powdered Obsidian, then run it through a", "sequenced assembly: fill with Lava, then press.", "", "Sturdy Sheet is the gate on every rail component."]
+			tasks: [
+				{
+					id: "D1ED2DDE2A80325F"
+					type: "advancement"
+					advancement: "create:sturdy_sheet"
+					criterion: "0"
+				}
+			]
+			rewards: [
+				{
+					id: "2777174ACD309230"
+					type: "xp"
+					xp: 200
+				}
+			]
+		}
+		{
+			x: 2.0d
+			y: 0.0d
+			id: "0CF4C96A3A51DA61"
+			title: "Train Casing"
+			description: ["Right-click a Brass Casing with a Sturdy Sheet."]
+			dependencies: ["A0AB9A4150A651AD"]
+			tasks: [
+				{
+					id: "BB47E52581FC5D48"
+					type: "item"
+					item: "create:railway_casing"
+					count: 4L
+				}
+			]
+			rewards: [
+				{
+					id: "4AAB0DEA93512E21"
+					type: "xp"
+					xp: 160
+				}
+			]
+		}
+		{
+			x: 4.0d
+			y: 0.0d
+			id: "8D052034E6293801"
+			title: "Laying Track"
+			description: ["Track is a sequenced assembly on Stone or Andesite Slabs:", "deploy two Iron or Zinc Nuggets, then press.", "", "Use the item on the ground, then use it again further away and", "Create paves the curve between the two points for you."]
+			dependencies: ["0CF4C96A3A51DA61"]
+			tasks: [
+				{
+					id: "F47268D089A552AD"
+					type: "advancement"
+					advancement: "create:track_0"
+					criterion: "0"
+				}
+			]
+			rewards: [
+				{
+					id: "9B1F183121D4B969"
+					type: "xp"
+					xp: 180
+				}
+			]
+		}
+		{
+			x: 6.0d
+			y: 0.0d
+			id: "D8E4E99856925332"
+			title: "A Station"
+			description: ["A Track Station is Train Casing plus a Compass; Train Controls", "is the driver's seat.", "", "Place the station beside track, name it, then use Train Casing", "on the rails to drop bogeys."]
+			dependencies: ["8D052034E6293801"]
+			tasks: [
+				{
+					id: "07EF6CA7E3D979A8"
+					type: "item"
+					item: "create:track_station"
+					count: 1L
+				},
+				{
+					id: "EB53D4491AE20107"
+					type: "item"
+					item: "create:controls"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "8FD872307E246CFA"
+					type: "xp"
+					xp: 180
+				}
+			]
+		}
+		{
+			x: 8.0d
+			y: 0.0d
+			id: "244F56BA8CA7C9B9"
+			title: "All Aboard"
+			description: ["Bogeys, then blocks glued on top of them, then hit Assemble", "in the station screen.", "", "A train needs at least one bogey per carriage and one carriage", "with controls to be drivable."]
+			dependencies: ["D8E4E99856925332"]
+			tasks: [
+				{
+					id: "089221DE215A5AB3"
+					type: "advancement"
+					advancement: "create:train"
+					criterion: "0"
+				}
+			]
+			rewards: [
+				{
+					id: "D482E3AD7A62C64F"
+					type: "xp"
+					xp: 260
+				}
+			]
+		}
+		{
+			x: 10.0d
+			y: 0.0d
+			id: "0ADB4A3BC9D5FE3D"
+			title: "Schedules"
+			description: ["Write a Train Schedule, then right-click the Train Controls", "with it to hand it to the driver.", "", "Destinations match station names with * as a wildcard."]
+			dependencies: ["244F56BA8CA7C9B9"]
+			tasks: [
+				{
+					id: "939C66B6D8450C26"
+					type: "advancement"
+					advancement: "create:conductor"
+					criterion: "0"
+				}
+			]
+			rewards: [
+				{
+					id: "77E3DA4D8C4E0E2F"
+					type: "xp"
+					xp: 220
+				}
+			]
+		}
+		{
+			x: 10.0d
+			y: -2.0d
+			id: "2F4DC8CAB5C5BC1F"
+			title: "Signals"
+			description: ["A Train Signal beside the track splits the line into blocks", "so two trains never occupy the same one.", "", "Without signals a second train on the same loop will crash."]
+			dependencies: ["0ADB4A3BC9D5FE3D"]
+			tasks: [
+				{
+					id: "CE98307C0BCACE16"
+					type: "advancement"
+					advancement: "create:track_signal"
+					criterion: "0"
+				}
+			]
+			rewards: [
+				{
+					id: "A30DE04D5D2E083C"
+					type: "xp"
+					xp: 180
+				}
+			]
+		}
+		{
+			x: 12.0d
+			y: 0.0d
+			id: "C32875686D453FD6"
+			title: "Six Carriages"
+			description: ["Assemble a train of at least six carriages.", "", "Long trains need more bogeys and gentler curves; a too-tight", "turn refuses to assemble."]
+			dependencies: ["2F4DC8CAB5C5BC1F"]
+			tasks: [
+				{
+					id: "167E4546178AE9EB"
+					type: "advancement"
+					advancement: "create:long_train"
+					criterion: "0"
+				}
+			]
+			rewards: [
+				{
+					id: "E4AB734F11FFB714"
+					type: "xp"
+					xp: 280
+				}
+			]
+		}
+		{
+			x: 14.0d
+			y: 0.0d
+			id: "E4AC58AA10ED3D00"
+			title: "Cardboard"
+			description: ["Mix four pulpable items with water to get Pulp, then press it", "into Cardboard.", "", "Cardboard is the shipping container for Create's whole logistics", "layer."]
+			dependencies: ["C32875686D453FD6"]
+			tasks: [
+				{
+					id: "327A288E282908B1"
+					type: "item"
+					item: "create:cardboard"
+					count: 16L
+				}
+			]
+			rewards: [
+				{
+					id: "4336D9F4B2C892C8"
+					type: "xp"
+					xp: 160
+				}
+			]
+		}
+		{
+			x: 16.0d
+			y: 0.0d
+			id: "62266E892820A8C3"
+			title: "The Packager"
+			description: ["A Packager bolted to a chest turns a request into a package", "and spits it out.", "", "One Packager per inventory. It is the unit the network counts in."]
+			dependencies: ["E4AC58AA10ED3D00"]
+			tasks: [
+				{
+					id: "70A35E1DD5F8D2F5"
+					type: "advancement"
+					advancement: "create:packager"
+					criterion: "0"
+				}
+			]
+			rewards: [
+				{
+					id: "A46CDF9833F81780"
+					type: "xp"
+					xp: 220
+				}
+			]
+		}
+		{
+			x: 18.0d
+			y: 0.0d
+			id: "B11D3141AC78AA58"
+			title: "Chain Conveyors"
+			description: ["Chain Conveyors link to each other across gaps and carry", "packages along the chain.", "", "A Package Frogport at the end catches packages and puts them", "into the inventory it faces."]
+			dependencies: ["62266E892820A8C3"]
+			tasks: [
+				{
+					id: "BDEA7CB66816BC27"
+					type: "advancement"
+					advancement: "create:frogport"
+					criterion: "0"
+				}
+			]
+			rewards: [
+				{
+					id: "4893CD20668366BC"
+					type: "xp"
+					xp: 240
+				}
+			]
+		}
+		{
+			x: 20.0d
+			y: 0.0d
+			id: "5D688EED2A8F34CC"
+			title: "The Stock Ticker"
+			description: ["Place a Stock Ticker, connect your Packagers with Stock Links,", "and seat a mob at the counter to staff it.", "", "The ticker is the order terminal for the whole network."]
+			dependencies: ["B11D3141AC78AA58"]
+			tasks: [
+				{
+					id: "6A28D3F0E829FB00"
+					type: "advancement"
+					advancement: "create:stock_ticker"
+					criterion: "0"
+				}
+			]
+			rewards: [
+				{
+					id: "A511515DF10EB1BB"
+					type: "xp"
+					xp: 280
+				}
+			]
+		}
+		{
+			x: 22.0d
+			y: -2.0d
+			id: "5A798857B05F5424"
+			title: "Requesters"
+			description: ["A Redstone Requester fires a stored package order on a", "redstone pulse.", "", "This is how a machine restocks itself without you watching."]
+			dependencies: ["5D688EED2A8F34CC"]
+			tasks: [
+				{
+					id: "68DC097F2B4AE20A"
+					type: "item"
+					item: "create:redstone_requester"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "C803191C8816DECB"
+					type: "xp"
+					xp: 200
+				}
+			]
+		}
+		{
+			x: 22.0d
+			y: 0.0d
+			id: "B78A54F120C1396C"
+			title: "Factory Gauges"
+			description: ["Put a Factory Gauge on the machine that consumes and another on", "the machine that supplies, then link them and set the recipe.", "", "The chain then orders its own ingredients. This is the top of", "Create's automation."]
+			dependencies: ["5A798857B05F5424"]
+			tasks: [
+				{
+					id: "5EFF2F6FC8430EEA"
+					type: "advancement"
+					advancement: "create:factory_gauge"
+					criterion: "0"
+				}
+			]
+			rewards: [
+				{
+					id: "004B64C818051569"
+					type: "xp"
+					xp: 350
+				},
+				{
+					id: "C9D52FB9DF4F7178"
+					type: "command"
+					title: "1 Skill Point"
+					command: "/puffish_skills points add @p tree 1"
+					player_command: false
+				}
+			]
+		}
+	]
+}

@@ -1,12 +1,12 @@
 {
 	id: "D83C20FA13CC2128"
-	group: "AB8CEE6310D5FD25"
+	group: "923242509E887B15"
 	icon: "createbigcannons:he_shell"
 	default_quest_shape: ""
 	filename: "ordnance"
 	title: "Ordnance"
 	subtitle: ["Guns, and things to put in them"]
-	order_index: 12
+	order_index: 30
 	quests: [
 		{
 			x: 0.0d
@@ -377,8 +377,8 @@
 				{
 					id: "D2C1EC5CEFC08259"
 					type: "command"
-					title: "4 Skill Points"
-					command: "/puffish_skills points add @p tree 4"
+					title: "1 Skill Point"
+					command: "/puffish_skills points add @p tree 1"
 					player_command: false
 				}
 			]

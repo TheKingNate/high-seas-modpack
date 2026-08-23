@@ -1,25 +1,25 @@
 {
 	id: "706CF27AA04A6531"
 	group: "8E1B3CDD0E4E9C32"
-	icon: "minecraft:prismarine_crystals"
+	icon: "aquamirae:terrible_fang"
 	default_quest_shape: ""
 	filename: "the_deep"
 	title: "The Deep"
 	subtitle: ["Optional. Bring a friend."]
-	order_index: 6
+	order_index: 11
 	quests: [
 		{
 			x: 0.0d
 			y: 0.0d
 			id: "650447570BF90F7B"
 			title: "Ship Graveyard"
-			description: ["Enter the Aquamirae ship graveyard.", "", "Do not come here before you have diving gear."]
+			description: ["Enter the Aquamirae Ice Maze.", "", "Aquamirae roofs the Deep Frozen Ocean with ice and wrecked pirate", "ships. There is no air under the roof and the water freezes you.", "Do not come here before you have diving gear and a way back out."]
 			optional: true
 			tasks: [
 				{
 					id: "3C0735F0469C2F13"
 					type: "biome"
-					biome: "#aquamirae:ice_maze"
+					biome: "aquamirae:ice_maze"
 				}
 			]
 			rewards: [
@@ -31,36 +31,210 @@
 			]
 		}
 		{
-			x: 2.0d
-			y: 0.0d
-			id: "3B3C9866C186BDE6"
-			title: "Something In The Dark"
-			description: ["Survive an Anglerfish."]
+			x: 0.0d
+			y: -2.0d
+			id: "6DCCCCECABA8801B"
+			title: "Bone Blade"
+			description: ["Craft a Remnant Saber.", "", "Maws and Eels drop Sharp Bones. Two bones, string and a stick make the", "Remnant Saber -- the free weapon the maze hands you before you have", "anything better. Eels also drop the Dead Sea Scroll."]
 			dependencies: ["650447570BF90F7B"]
 			optional: true
 			tasks: [
 				{
-					id: "2704A770355F6063"
-					type: "kill"
-					entity: "aquamirae:anglerfish"
-					value: 1L
+					id: "5C79E4FEBD4AE942"
+					type: "item"
+					item: "aquamirae:sharp_bones"
+					count: 4L
+				},
+				{
+					id: "FC58FDB631728776"
+					type: "item"
+					item: "aquamirae:remnant_saber"
+					count: 1L
 				}
 			]
 			rewards: [
 				{
-					id: "852445CA0B6EE991"
+					id: "6C45EB9C9945F7DB"
 					type: "xp"
-					xp: 120
+					xp: 80
+				}
+			]
+		}
+		{
+			x: 2.0d
+			y: 0.0d
+			id: "0688499827BD5432"
+			title: "Angler's Teeth"
+			description: ["Collect Fins and Angler Fangs.", "", "Anglerfish drop both, plus an Esca. The light in the dark is the bait --", "it is on a fish. Fins and Fangs are the whole currency of the next tier,", "so farm more than you think you need."]
+			dependencies: ["6DCCCCECABA8801B"]
+			optional: true
+			tasks: [
+				{
+					id: "676E18429D7B0FDC"
+					type: "item"
+					item: "aquamirae:fin"
+					count: 8L
+				},
+				{
+					id: "518900CA14C53887"
+					type: "item"
+					item: "aquamirae:angler_fang"
+					count: 2L
+				}
+			]
+			rewards: [
+				{
+					id: "216319B34883D5C6"
+					type: "xp"
+					xp: 100
 				}
 			]
 		}
 		{
 			x: 4.0d
 			y: 0.0d
+			id: "68B04ED2E3ADD46D"
+			title: "Terrible Upgrade"
+			description: ["Smith a piece of Terrible armour.", "", "The template drops from Pirate and Treasure Pouches on the wrecks --", "break the pouch to open it. Duplicate the template with 4 Fangs and", "4 Fins. Smithing takes IRON armour plus a FIN, not the fang the tooltip", "claims. Half the set poisons attackers; the full set gives Dolphin's Grace."]
+			dependencies: ["0688499827BD5432"]
+			optional: true
+			tasks: [
+				{
+					id: "5BCEA1D91D148389"
+					type: "item"
+					item: "aquamirae:terrible_upgrade_smithing_template"
+					count: 1L
+				},
+				{
+					id: "CB77458EAC0E8A40"
+					type: "item"
+					item: "aquamirae:terrible_helmet"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "5C720BA9524DD9A5"
+					type: "xp"
+					xp: 140
+				}
+			]
+		}
+		{
+			x: 6.0d
+			y: 0.0d
+			id: "89C19FB5D29B1260"
+			title: "Sound The Horn"
+			description: ["Take a Shell Horn from a Maze Captain.", "", "Captains lead the pillagers holding the frozen ships. The horn is their", "drop, and blowing it summons the Shipbreaker. Have somewhere to be", "before you use it."]
+			dependencies: ["68B04ED2E3ADD46D"]
+			optional: true
+			tasks: [
+				{
+					id: "B22E25FA992DDD4E"
+					type: "item"
+					item: "aquamirae:shell_horn"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "F6E8A8B8701F0A89"
+					type: "xp"
+					xp: 120
+				}
+			]
+		}
+		{
+			x: 8.0d
+			y: 0.0d
+			id: "A0B43C7501671762"
+			title: "The Shipbreaker"
+			description: ["Survive an encounter with the Shipbreaker.", "", "A leviathan that swims through the ice itself. You cannot kill it and", "you cannot outswim it -- get behind a wreck. The point of meeting it is", "what it does to everything else in the water."]
+			dependencies: ["89C19FB5D29B1260"]
+			optional: true
+			tasks: [
+				{
+					id: "B7D14F0148AD56FE"
+					type: "advancement"
+					advancement: "aquamirae:adventure/encounter_the_shipbreaker"
+					criterion: "encounter_the_shipbreaker"
+				}
+			]
+			rewards: [
+				{
+					id: "BFB9AD3F4B2DDCC0"
+					type: "xp"
+					xp: 200
+				}
+			]
+		}
+		{
+			x: 10.0d
+			y: 0.0d
+			id: "2D676437573F4AB4"
+			title: "Echoes"
+			description: ["Collect six Ship Graveyard Echoes.", "", "THE GOTCHA: an Echo only drops when the SHIPBREAKER lands the killing", "blow on an Anglerfish, Maw, Scuttler, Spinefish or Abyssal Scyphoid.", "Lead it across a shoal and let it feed. Kill them yourself and you get", "nothing -- this is the single thing that stalls people in Aquamirae."]
+			dependencies: ["A0B43C7501671762"]
+			optional: true
+			tasks: [
+				{
+					id: "5A336C360983A6A8"
+					type: "item"
+					item: "aquamirae:ship_graveyard_echo"
+					count: 6L
+				}
+			]
+			rewards: [
+				{
+					id: "17CD405C54F8D48D"
+					type: "xp"
+					xp: 220
+				}
+			]
+		}
+		{
+			x: 10.0d
+			y: -2.0d
+			id: "0066EC3CD0F870F3"
+			title: "Dressed For The Deep"
+			description: ["Craft the Salvager suit, waders and boots.", "", "Leather, iron and Echoes. The fourth piece, the Salvager Helmet, is not", "craftable at all -- Captain Cornelia drops it. The complete set supplies", "air and stops the Ice Maze freezing you, which changes the whole biome."]
+			dependencies: ["2D676437573F4AB4"]
+			optional: true
+			tasks: [
+				{
+					id: "8A9C37624B0C2D32"
+					type: "item"
+					item: "aquamirae:salvager_suit"
+					count: 1L
+				},
+				{
+					id: "8A18FF6B6C80A2DB"
+					type: "item"
+					item: "aquamirae:salvager_waders"
+					count: 1L
+				},
+				{
+					id: "2DA49BE6279DF85F"
+					type: "item"
+					item: "aquamirae:salvager_boots"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "B270EEB38E05EA6B"
+					type: "xp"
+					xp: 180
+				}
+			]
+		}
+		{
+			x: 12.0d
+			y: 0.0d
 			id: "DA5F272BB51DA8A3"
 			title: "Cornelia"
-			description: ["Kill the Ghost of Captain Cornelia."]
-			dependencies: ["3B3C9866C186BDE6"]
+			description: ["Kill the Ghost of Captain Cornelia and take the Frozen Key.", "", "She haunts the largest wreck in the graveyard. Drops the Frozen Key,", "the Salvager Helmet, a Treasure Pouch and her record."]
+			dependencies: ["0066EC3CD0F870F3"]
 			optional: true
 			tasks: [
 				{
@@ -68,6 +242,12 @@
 					type: "kill"
 					entity: "aquamirae:captain_cornelia"
 					value: 1L
+				},
+				{
+					id: "12B23D29A0BF1FBB"
+					type: "item"
+					item: "aquamirae:frozen_key"
+					count: 1L
 				}
 			]
 			rewards: [
@@ -79,31 +259,92 @@
 			]
 		}
 		{
-			x: 6.0d
-			y: 0.0d
-			id: "D3393E657B858136"
-			title: "Deep City"
-			description: ["Find a Hopo deep ocean city."]
+			x: 12.0d
+			y: 2.0d
+			id: "2108133D7788C7A5"
+			title: "The Frozen Chest"
+			description: ["Open a Frozen Chest and take the Rune of the Storm.", "", "The chests are sealed in the ice of the graveyard and only the", "Frozen Key opens them. Inside: the Rune, the Dagger of Greed, sea stew", "and Obscuria's paintings."]
 			dependencies: ["DA5F272BB51DA8A3"]
 			optional: true
 			tasks: [
 				{
-					id: "9BBF2FE7C55C3023"
-					type: "structure"
-					structure: "hopo:underwater/underwater_city"
+					id: "7FED1A9EC43D421F"
+					type: "item"
+					item: "aquamirae:rune_of_the_storm"
+					count: 1L
 				}
 			]
 			rewards: [
 				{
-					id: "9A4AC06D5D0B44A2"
+					id: "BEA2D3733C8DCDD7"
 					type: "xp"
-					xp: 150
+					xp: 200
+				}
+			]
+		}
+		{
+			x: 14.0d
+			y: 0.0d
+			id: "9FA8E666C16C927A"
+			title: "Maze Mother"
+			description: ["Kill the Maze Mother for Abyssal Amethyst.", "", "She tunnels through the ice roof and breaks it as she goes. Amethyst", "also trickles out of Treasure Pouches, but she is the reliable source."]
+			dependencies: ["2108133D7788C7A5"]
+			optional: true
+			tasks: [
+				{
+					id: "88AA8AEF8D64D8AD"
+					type: "kill"
+					entity: "aquamirae:maze_mother"
+					value: 1L
 				},
 				{
-					id: "B0C16009EA22874E"
+					id: "23D11AD588D540CF"
+					type: "item"
+					item: "aquamirae:abyssal_amethyst"
+					count: 4L
+				}
+			]
+			rewards: [
+				{
+					id: "AE3C2A410ACFAE4D"
+					type: "xp"
+					xp: 300
+				}
+			]
+		}
+		{
+			x: 16.0d
+			y: 0.0d
+			id: "DE2F3CAE3A4AFD11"
+			title: "One With The Abyss"
+			description: ["Smith a piece of Abyssal armour.", "", "Abyssal template = Terrible template + 4 Amethyst + 4 Echoes. The base", "is DIAMOND armour and the addition is Abyssal Amethyst. Half the set", "turns every debuff into stacking Strength; the full set defers death."]
+			dependencies: ["9FA8E666C16C927A"]
+			optional: true
+			tasks: [
+				{
+					id: "F61E46AF9FD1E30F"
+					type: "item"
+					item: "aquamirae:abyssal_upgrade_smithing_template"
+					count: 1L
+				},
+				{
+					id: "7DDD04A57FD32456"
+					type: "item"
+					item: "aquamirae:abyssal_brigandine"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "124D715BF6C52BA1"
+					type: "xp"
+					xp: 400
+				},
+				{
+					id: "89F549D83AC5D2CC"
 					type: "command"
-					title: "2 Skill Points"
-					command: "/puffish_skills points add @p tree 2"
+					title: "1 Skill Point"
+					command: "/puffish_skills points add @p tree 1"
 					player_command: false
 				}
 			]

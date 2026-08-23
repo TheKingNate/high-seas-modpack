@@ -1,0 +1,382 @@
+{
+	id: "03149BB817B407C1"
+	group: "3B5CADE70BF7A16C"
+	icon: "simplyskills:skill_chronicle"
+	default_quest_shape: ""
+	filename: "the_skill_tree"
+	title: "The Skill Tree"
+	subtitle: ["Nine paths, one life"]
+	order_index: 5
+	quests: [
+		{
+			x: 0.0d
+			y: 0.0d
+			id: "AF93A852A3CF97A4"
+			title: "Open The Tree"
+			description: ["Bind 'Open Skill Tree' in Controls, open it, spend a point.", "", "Points come from levelling the tree, and the tree levels from", "kills: an enemy is worth its dropped XP plus max health / 20.", "Anti-farming caps this at 15 kills per chunk per five minutes."]
+			tasks: [
+				{
+					id: "E17C19E29BD67722"
+					type: "checkmark"
+					title: "Spend your first skill point"
+				}
+			]
+			rewards: [
+				{
+					id: "92DD5B324168C13F"
+					type: "xp"
+					xp: 60
+				}
+			]
+		}
+		{
+			x: 2.0d
+			y: 0.0d
+			id: "90A75DA5E6D4C7A1"
+			title: "One Root Only"
+			description: ["The base tree has three roots and they exclude each other.", "", "Initiate: +1 to every school of spell power.", "Wayfarer: +10% movement speed.", "Warrior: +10% melee damage. Choose once, then walk outward."]
+			dependencies: ["AF93A852A3CF97A4"]
+			tasks: [
+				{
+					id: "D2E6CCB61BBBC850"
+					type: "checkmark"
+					title: "Take one of the three root nodes"
+				}
+			]
+			rewards: [
+				{
+					id: "4EC4EF7C842622AB"
+					type: "xp"
+					xp: 80
+				}
+			]
+		}
+		{
+			x: 4.0d
+			y: 0.0d
+			id: "F18EC42467FF2C61"
+			title: "Take A Path"
+			description: ["The outer ring holds eight Path nodes. Taking one unlocks that", "specialisation as its own tab with its own points and levels.", "", "All eight exclude each other. This is the single biggest", "decision in the pack and only a Malevolent Manuscript undoes it.", "The base tree also hard-caps at 42 spent points."]
+			dependencies: ["90A75DA5E6D4C7A1"]
+			tasks: [
+				{
+					id: "7174642C4C229147"
+					type: "checkmark"
+					title: "Unlock a specialisation"
+				}
+			]
+			rewards: [
+				{
+					id: "F27229DACB625BEC"
+					type: "xp"
+					xp: 200
+				}
+			]
+		}
+		{
+			x: 6.0d
+			y: -2.0d
+			id: "27A3D520EE0B0310"
+			title: "Berserker"
+			description: ["Reckless two-handed melee. Above 70% health you are pulsed with", "Weakness; dealing or taking damage stacks Rage.", "", "Rage is +0.5% melee damage, attack speed AND damage taken per", "stack, up to 100. Signatures: Berserking, Bloodthirsty, Rampage."]
+			dependencies: ["F18EC42467FF2C61"]
+			tasks: [
+				{
+					id: "3434D1594CC473E3"
+					type: "item"
+					item: "minecraft:diamond_axe"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "08612C5EE5A47150"
+					type: "xp"
+					xp: 100
+				}
+			]
+		}
+		{
+			x: 6.0d
+			y: 2.0d
+			id: "2B4E9F26F3D90CCB"
+			title: "Ranger"
+			description: ["Bows and animal companions. Slender gives Agile stacks the less", "armour you wear: +5% attack speed, move speed, spell haste and", "ranged damage each.", "", "Signatures: Arrow Rain, Elemental Arrows (fire/frost/lightning", "attuned), Disengage."]
+			dependencies: ["27A3D520EE0B0310"]
+			tasks: [
+				{
+					id: "4A43863B45A30579"
+					type: "item"
+					item: "minecraft:bow"
+					count: 1L
+				},
+				{
+					id: "817071BFA528F3D8"
+					type: "item"
+					item: "minecraft:arrow"
+					count: 64L
+				}
+			]
+			rewards: [
+				{
+					id: "3A05075C0081198C"
+					type: "xp"
+					xp: 100
+				}
+			]
+		}
+		{
+			x: 8.0d
+			y: -2.0d
+			id: "2B83648C535EC6E1"
+			title: "Rogue"
+			description: ["Stealth and evasion, and it also runs on Slender -- so leather,", "not diamond. Stealth is true invisibility that breaks on damage.", "", "Signatures: Evasion into Fan of Blades and Bladestorm,", "Preparation into Shadowstrike, Siphoning Strikes."]
+			dependencies: ["2B4E9F26F3D90CCB"]
+			tasks: [
+				{
+					id: "486AAE6BB40DF41A"
+					type: "item"
+					item: "minecraft:leather_chestplate"
+					count: 1L
+				},
+				{
+					id: "C87658583FFAD714"
+					type: "item"
+					item: "minecraft:iron_sword"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "14706E5357EFBDDC"
+					type: "xp"
+					xp: 100
+				}
+			]
+		}
+		{
+			x: 8.0d
+			y: 2.0d
+			id: "F5131988600C37C6"
+			title: "Spellblade"
+			description: ["Melee and magic in the same swing. Spellweaving procs your bound", "spells off normal attacks.", "", "This pack sets add_spell_casting_to_swords, so any sword casts", "from your equipped Tome -- no wand needed. Signatures:", "Elemental Impact, Elemental Surge, Spellweaver."]
+			dependencies: ["2B83648C535EC6E1"]
+			tasks: [
+				{
+					id: "3B4BB641C9E4671B"
+					type: "item"
+					item: "minecraft:diamond_sword"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "C95AF73084041F08"
+					type: "xp"
+					xp: 120
+				}
+			]
+		}
+		{
+			x: 10.0d
+			y: -2.0d
+			id: "5176F1D094546051"
+			title: "Wizard"
+			description: ["The pure caster, and the harshest trade in the mod. Frail means", "you cannot effectively swing anything above 6 attack power.", "", "Signatures: Arcane Bolt, Ice Comet, Meteor Shower and Static", "Discharge -- the only Lightning damage anywhere in this pack."]
+			dependencies: ["F5131988600C37C6"]
+			tasks: [
+				{
+					id: "6C997C295C00ECDB"
+					type: "item"
+					item: "wizards:staff_netherite_arcane"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "5B341AAD5A26CFEA"
+					type: "xp"
+					xp: 300
+				}
+			]
+		}
+		{
+			x: 10.0d
+			y: 2.0d
+			id: "5A538E46FA92F984"
+			title: "Necromancer"
+			description: ["Raise Wraiths, Dreadglares and Greater Dreadglares to fight for", "you. Bone Armor turns bones into armour that chips away as hit.", "", "Scales on Frost and Soul spell power. Note: no rune in this pack", "makes Soul runes, so its damage comes from the tree, not tomes."]
+			dependencies: ["5176F1D094546051"]
+			tasks: [
+				{
+					id: "84B3E0B7F704235E"
+					type: "item"
+					item: "minecraft:bone"
+					count: 64L
+				},
+				{
+					id: "A950C1C15DFFDC3E"
+					type: "item"
+					item: "minecraft:rotten_flesh"
+					count: 32L
+				}
+			]
+			rewards: [
+				{
+					id: "FB66CF9B0DA53723"
+					type: "xp"
+					xp: 120
+				}
+			]
+		}
+		{
+			x: 12.0d
+			y: -2.0d
+			id: "B494DF2F4C45255E"
+			title: "Cleric"
+			description: ["Support healer. Anoint Weapon makes melee hits heal nearby allies,", "Sacred Orb buffs and debuffs, Divine Intervention saves a life.", "", "Everything here scales on Healing Power. The node tooltip mentions", "Paladins & Priests; that mod is not installed and is not needed."]
+			dependencies: ["5A538E46FA92F984"]
+			tasks: [
+				{
+					id: "ACCB659B5996CB48"
+					type: "item"
+					item: "minecraft:totem_of_undying"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "5DF78A696C6400C9"
+					type: "xp"
+					xp: 150
+				}
+			]
+		}
+		{
+			x: 12.0d
+			y: 2.0d
+			id: "DCD246ACD3A7F4CC"
+			title: "Crusader"
+			description: ["Holy melee bruiser. Consecration burns the ground you stand on,", "Heavensmith's Call throws hammers, Sacred Onslaught stuns.", "", "Aegis and Retribution make it the tankiest path. It taunts, so", "bring the shield and the plate the other casters cannot wear."]
+			dependencies: ["B494DF2F4C45255E"]
+			tasks: [
+				{
+					id: "3D18C37051FD9128"
+					type: "item"
+					item: "minecraft:shield"
+					count: 1L
+				},
+				{
+					id: "7019E7BB941051F5"
+					type: "item"
+					item: "minecraft:diamond_chestplate"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "7EC098214B4B0A80"
+					type: "xp"
+					xp: 150
+				}
+			]
+		}
+		{
+			x: 14.0d
+			y: 0.0d
+			id: "08E023DD136E6AAB"
+			title: "Signature Ability"
+			description: ["Every specialisation has Signature nodes. They do nothing until", "you bind 'Signature Ability' under Controls / Simply Skills.", "", "One key, one signature at a time -- the HUD shows which is armed", "and its cooldown. Spell Haste shortens that cooldown."]
+			dependencies: ["DCD246ACD3A7F4CC"]
+			tasks: [
+				{
+					id: "6812B89B1E038DAB"
+					type: "checkmark"
+					title: "Bind the Signature Ability key and use a signature"
+				}
+			]
+			rewards: [
+				{
+					id: "8A0961FC7B59B5A9"
+					type: "xp"
+					xp: 200
+				}
+			]
+		}
+		{
+			x: 16.0d
+			y: 0.0d
+			id: "D7C9B0F16727B341"
+			title: "Ascendancy"
+			description: ["A tenth tree, separate from your specialisation and enabled in", "this pack. Thirteen nodes, all full abilities:", "", "Righteous Hammers, Bone Armor, Cyclonic Cleave, Magic Circle,", "Arcane Slash, Agony, Torment, Rapidfire, Cataclysm, Ghostwalk,", "Skyward Sunder, Righteous Shield, Chainbreaker. Own keybind."]
+			dependencies: ["08E023DD136E6AAB"]
+			tasks: [
+				{
+					id: "FD5110D8E885013F"
+					type: "checkmark"
+					title: "Unlock the Ascendancy tree"
+				}
+			]
+			rewards: [
+				{
+					id: "BDBD88CBBA98F06D"
+					type: "xp"
+					xp: 300
+				}
+			]
+		}
+		{
+			x: 18.0d
+			y: -2.0d
+			id: "E9E4BFC42E58472C"
+			title: "The Chronicle"
+			description: ["Craft a Skill Chronicle: 6 leather, a book, a gold nugget,", "an ink sac.", "", "Hold right-click to store your whole build -- spent points and", "unlocked specialisations. It only restores into a character with", "zero points spent, and has a ten minute cooldown."]
+			dependencies: ["D7C9B0F16727B341"]
+			tasks: [
+				{
+					id: "F1767126F8C572F4"
+					type: "item"
+					item: "simplyskills:skill_chronicle"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "B4304182A990F297"
+					type: "xp"
+					xp: 150
+				}
+			]
+		}
+		{
+			x: 18.0d
+			y: 2.0d
+			id: "F129F0FE48B7207F"
+			title: "Second Thoughts"
+			description: ["Craft a Malevolent Manuscript: 7 leather, an eye of ender,", "a sheet of paper.", "", "The only respec in the pack. It refunds the base tree but also", "devours every specialisation and all the experience in them.", "Store a Chronicle first if you ever want that build back."]
+			dependencies: ["E9E4BFC42E58472C"]
+			tasks: [
+				{
+					id: "9675B31DCA4DA1CA"
+					type: "item"
+					item: "simplyskills:malevolent_manuscript"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "0797F25E12372FD2"
+					type: "xp"
+					xp: 200
+				},
+				{
+					id: "B9C4B103AF74AFEC"
+					type: "command"
+					title: "1 Skill Point"
+					command: "/puffish_skills points add @p tree 1"
+					player_command: false
+				}
+			]
+		}
+	]
+}

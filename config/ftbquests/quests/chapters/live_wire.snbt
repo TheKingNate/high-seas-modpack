@@ -1,0 +1,399 @@
+{
+	id: "DC22C90417C37DCD"
+	group: "AB8CEE6310D5FD25"
+	icon: "createaddition:electric_motor"
+	default_quest_shape: ""
+	filename: "live_wire"
+	title: "Live Wire"
+	subtitle: ["Create Crafts and Additions"]
+	order_index: 19
+	quests: [
+		{
+			x: 0.0d
+			y: 0.0d
+			id: "F4951485778E1567"
+			title: "The Rolling Mill"
+			description: ["Iron Sheets, a Shaft, Andesite Alloy and an Andesite Casing.", "", "The Rolling Mill takes rotation and turns ingots into rods", "and sheets into wire. Everything electric starts here."]
+			tasks: [
+				{
+					id: "63FEACD8CDD78609"
+					type: "item"
+					item: "createaddition:rolling_mill"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "9A2DB59921142B82"
+					type: "xp"
+					xp: 120
+				}
+			]
+		}
+		{
+			x: 2.0d
+			y: 0.0d
+			id: "963A79C2854FDC3F"
+			title: "Rods"
+			description: ["Roll an ingot, get two rods.", "", "Copper rods make connectors; iron rods are the core of motors", "and alternators."]
+			dependencies: ["F4951485778E1567"]
+			tasks: [
+				{
+					id: "3C59B94AFD3DC77F"
+					type: "item"
+					item: "createaddition:iron_rod"
+					count: 4L
+				},
+				{
+					id: "D17B11A09C6C9348"
+					type: "item"
+					item: "createaddition:copper_rod"
+					count: 4L
+				}
+			]
+			rewards: [
+				{
+					id: "2946F59F665084D0"
+					type: "xp"
+					xp: 100
+				}
+			]
+		}
+		{
+			x: 4.0d
+			y: 0.0d
+			id: "136623C9E7663A74"
+			title: "Wire"
+			description: ["Press a Copper Ingot into a Copper Sheet, then roll the sheet", "into two Copper Wire.", "", "Rods come from ingots, wire comes from sheets. Mixing those two", "up is the usual first mistake."]
+			dependencies: ["963A79C2854FDC3F"]
+			tasks: [
+				{
+					id: "9853E646AA7EEACC"
+					type: "item"
+					item: "create:copper_sheet"
+					count: 4L
+				},
+				{
+					id: "E230E7474E4C2B9E"
+					type: "item"
+					item: "createaddition:copper_wire"
+					count: 4L
+				}
+			]
+			rewards: [
+				{
+					id: "94EE934A8027EE76"
+					type: "xp"
+					xp: 120
+				}
+			]
+		}
+		{
+			x: 4.0d
+			y: -2.0d
+			id: "9A4E63863004A672"
+			title: "Diamond Grit"
+			description: ["Crush a Diamond into Diamond Grit, then combine it with Paper.", "", "Diamond Grit Sandpaper polishes far more items before wearing out", "than plain Sand Paper. Put it in a Deployer."]
+			dependencies: ["136623C9E7663A74"]
+			tasks: [
+				{
+					id: "2A28645CCA0D2F1E"
+					type: "item"
+					item: "createaddition:diamond_grit_sandpaper"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "45A38F18719EC7A1"
+					type: "xp"
+					xp: 140
+				}
+			]
+		}
+		{
+			x: 6.0d
+			y: 0.0d
+			id: "96003037D07860F4"
+			title: "Spools"
+			description: ["Iron Sheets around an Iron Nugget gives sixteen Empty Spools.", "Wrap four Copper Wire around one for a Copper Spool.", "", "The spool is the wire itself: right-click two connectors with it", "to string a line between them."]
+			dependencies: ["9A4E63863004A672"]
+			tasks: [
+				{
+					id: "739D8C3BD83FEAB8"
+					type: "item"
+					item: "createaddition:spool"
+					count: 4L
+				},
+				{
+					id: "4FC82DE443444F20"
+					type: "item"
+					item: "createaddition:copper_spool"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "3271075B3D616340"
+					type: "xp"
+					xp: 120
+				}
+			]
+		}
+		{
+			x: 8.0d
+			y: 0.0d
+			id: "1E56E942236F3B6E"
+			title: "Connectors"
+			description: ["Copper Rod, Andesite Alloy and a Slimeball gives three", "Small Connectors.", "", "Small Connectors are low current only. Overload one and it burns", "out - literally, it drops off the block."]
+			dependencies: ["96003037D07860F4"]
+			tasks: [
+				{
+					id: "86D7C1A5CC587084"
+					type: "item"
+					item: "createaddition:connector"
+					count: 3L
+				}
+			]
+			rewards: [
+				{
+					id: "D6478E0222EB6BED"
+					type: "xp"
+					xp: 120
+				}
+			]
+		}
+		{
+			x: 8.0d
+			y: -2.0d
+			id: "867181578635DFDC"
+			title: "Redstone Relay"
+			description: ["Two Small Connectors, an Electron Tube, Redstone and Stone.", "", "It passes energy only while powered - the switch for an", "electrical network."]
+			dependencies: ["1E56E942236F3B6E"]
+			tasks: [
+				{
+					id: "8B9E8A1756344675"
+					type: "item"
+					item: "createaddition:redstone_relay"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "503F19E20A3FC661"
+					type: "xp"
+					xp: 120
+				}
+			]
+		}
+		{
+			x: 10.0d
+			y: 0.0d
+			id: "3326EE7C168B851D"
+			title: "Capacitors"
+			description: ["A Zinc Sheet, a Copper Sheet and a Redstone Torch.", "", "Zinc Sheet is pressed from a Zinc Ingot. Capacitors go into", "every generator and motor from here on."]
+			dependencies: ["867181578635DFDC"]
+			tasks: [
+				{
+					id: "9070AB9584AB16F0"
+					type: "item"
+					item: "createaddition:capacitor"
+					count: 4L
+				}
+			]
+			rewards: [
+				{
+					id: "F53D0A013227A9EE"
+					type: "xp"
+					xp: 140
+				}
+			]
+		}
+		{
+			x: 12.0d
+			y: 0.0d
+			id: "F1E5F1B9997E5133"
+			title: "The Alternator"
+			description: ["Mechanical crafting: iron plates, copper spools, an iron rod", "and a capacitor.", "", "Feed it rotation and it makes energy. Output scales with RPM,", "so gear it up before you complain about the numbers."]
+			dependencies: ["3326EE7C168B851D"]
+			tasks: [
+				{
+					id: "3B9D702F61E70C25"
+					type: "item"
+					item: "createaddition:alternator"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "77888E879A25D1F0"
+					type: "xp"
+					xp: 200
+				}
+			]
+		}
+		{
+			x: 12.0d
+			y: -2.0d
+			id: "ED46CDB6AA5B074D"
+			title: "Biofuel"
+			description: ["Compact seeds into Seed Oil. Mix Sugar, Cinder Flour and two", "Biomass into Biofuel.", "", "Both burn in a Blaze Burner fed by pipe, and Biomass Pellets", "are a solid fuel that beats coal."]
+			dependencies: ["F1E5F1B9997E5133"]
+			tasks: [
+				{
+					id: "50AEF6AAD7FE4923"
+					type: "item"
+					item: "createaddition:seed_oil_bucket"
+					count: 1L
+				},
+				{
+					id: "06E5B29F3827B3BE"
+					type: "item"
+					item: "createaddition:biomass_pellet"
+					count: 4L
+				}
+			]
+			rewards: [
+				{
+					id: "C814A9601367DCB8"
+					type: "xp"
+					xp: 180
+				}
+			]
+		}
+		{
+			x: 14.0d
+			y: 0.0d
+			id: "A707C61A3B9AE6F5"
+			title: "The Electric Motor"
+			description: ["The alternator in reverse: energy in, rotation out.", "", "Scroll on it with the Wrench to set RPM. This is how you power", "a Create machine with no water, wind or steam anywhere near it."]
+			dependencies: ["ED46CDB6AA5B074D"]
+			tasks: [
+				{
+					id: "8E99260541A4F353"
+					type: "item"
+					item: "createaddition:electric_motor"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "71487EF0B6DE1928"
+					type: "xp"
+					xp: 240
+				}
+			]
+		}
+		{
+			x: 16.0d
+			y: 0.0d
+			id: "B6900B689A046995"
+			title: "High Current"
+			description: ["Roll a Golden Sheet into Gold Wire, wrap a Gold Spool, and craft", "Large Connectors from gold rods.", "", "High current lines carry far more energy per tick and reach", "much further. Do not mix them with small connectors."]
+			dependencies: ["A707C61A3B9AE6F5"]
+			tasks: [
+				{
+					id: "AB13C2E1C976047D"
+					type: "item"
+					item: "createaddition:gold_wire"
+					count: 4L
+				},
+				{
+					id: "67E3DAFF3D2DCD13"
+					type: "item"
+					item: "createaddition:gold_spool"
+					count: 1L
+				},
+				{
+					id: "FB7564599B7DB09E"
+					type: "item"
+					item: "createaddition:large_connector"
+					count: 2L
+				}
+			]
+			rewards: [
+				{
+					id: "3BEAB2D085E8C382"
+					type: "xp"
+					xp: 220
+				}
+			]
+		}
+		{
+			x: 18.0d
+			y: 0.0d
+			id: "E0308E65B5E925F9"
+			title: "Accumulators"
+			description: ["The Modular Accumulator is a multiblock - stack and widen it", "and the capacity grows with the volume.", "", "Wire in through one connector; the whole stack shares it."]
+			dependencies: ["B6900B689A046995"]
+			tasks: [
+				{
+					id: "2349602F23519823"
+					type: "item"
+					item: "createaddition:modular_accumulator"
+					count: 4L
+				}
+			]
+			rewards: [
+				{
+					id: "0B0B52CB80BEAA42"
+					type: "xp"
+					xp: 240
+				}
+			]
+		}
+		{
+			x: 18.0d
+			y: -2.0d
+			id: "CBC12C7C3AB7B0FE"
+			title: "Portable Energy"
+			description: ["A Portable Energy Interface moves energy on and off a moving", "contraption, the same way its storage cousin moves items.", "", "One on the contraption, one on the ground, facing each other."]
+			dependencies: ["E0308E65B5E925F9"]
+			tasks: [
+				{
+					id: "117A5B3303163556"
+					type: "item"
+					item: "createaddition:portable_energy_interface"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "4C7E7EFEFF410536"
+					type: "xp"
+					xp: 200
+				}
+			]
+		}
+		{
+			x: 20.0d
+			y: 0.0d
+			id: "7D55029C53E231B4"
+			title: "The Tesla Coil"
+			description: ["Mechanical crafting, and it wants a lot of copper spools.", "", "Powered, it arcs at anything hostile nearby. Give it a redstone", "signal instead and it charges energy items in range.", "Bolt one to a ship and boarders regret it."]
+			dependencies: ["CBC12C7C3AB7B0FE"]
+			tasks: [
+				{
+					id: "70AF0E5E6EBD9207"
+					type: "item"
+					item: "createaddition:tesla_coil"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "2F43D7E4F818ADF1"
+					type: "xp"
+					xp: 320
+				},
+				{
+					id: "28CBCC14EA4D8886"
+					type: "command"
+					title: "1 Skill Point"
+					command: "/puffish_skills points add @p tree 1"
+					player_command: false
+				}
+			]
+		}
+	]
+}

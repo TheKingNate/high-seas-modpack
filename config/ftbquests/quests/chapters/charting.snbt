@@ -1,41 +1,93 @@
 {
 	id: "3D34D56924312ECB"
 	group: "8E1B3CDD0E4E9C32"
-	icon: "minecraft:filled_map"
+	icon: "explorerscompass:explorerscompass"
 	default_quest_shape: ""
 	filename: "charting"
 	title: "Charting"
 	subtitle: ["Wander"]
-	order_index: 2
+	order_index: 8
 	quests: [
 		{
 			x: 0.0d
 			y: 0.0d
-			id: "066F353287C29D9F"
-			title: "Ruins"
-			description: ["Find a grassy Structory ruin."]
+			id: "CB4DC05DA4C36DCE"
+			title: "Two Needles"
+			description: ["Craft Nature's Compass and Explorer's Compass.", "", "Nature's: a compass ringed with logs and saplings. Explorer's: a compass", "ringed with cracked stone bricks and cobwebs. Right-click either, search", "a biome or structure by name, pick it, and the needle points at it with a", "distance. The radius is finite -- if it finds nothing, travel and retry."]
 			tasks: [
 				{
-					id: "159B8918AD8CFB3B"
-					type: "structure"
-					structure: "structory:ruin_grassy"
+					id: "FD7804BCA17D568F"
+					type: "item"
+					item: "naturescompass:naturescompass"
+					count: 1L
+				},
+				{
+					id: "AC2B2898EC6AFF90"
+					type: "item"
+					item: "explorerscompass:explorerscompass"
+					count: 1L
 				}
 			]
 			rewards: [
 				{
-					id: "D96A89F992D4A40B"
+					id: "04086314915BE212"
 					type: "xp"
-					xp: 30
+					xp: 60
 				}
 			]
 		}
 		{
 			x: 2.0d
 			y: 0.0d
+			id: "FC8732D29274326C"
+			title: "Marked On The Map"
+			description: ["Fill in a vanilla map.", "", "Xaero's minimap is already in the corner. B drops a waypoint where you", "stand, U opens the waypoint list, M opens the full world map, Z enlarges", "the minimap. Waypoints survive death; a paper map does not."]
+			dependencies: ["CB4DC05DA4C36DCE"]
+			tasks: [
+				{
+					id: "3BC540DAC416A21D"
+					type: "item"
+					item: "minecraft:filled_map"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "53F2FE135949D7AF"
+					type: "xp"
+					xp: 40
+				}
+			]
+		}
+		{
+			x: 2.0d
+			y: -2.0d
+			id: "C508B3ABFD3D8807"
+			title: "Ruins In The Grass"
+			description: ["Stand inside a Structory Grassy Ruin.", "", "Structory scatters small hand-built ruins with no bosses and modest", "loot -- chapels, graveyards, firetowers, sunken taiga ruins, a manor.", "They sink into the terrain, so scan for straight lines and cut stone."]
+			dependencies: ["FC8732D29274326C"]
+			tasks: [
+				{
+					id: "40DF60FB88B5A4CA"
+					type: "structure"
+					structure: "structory:ruin_grassy"
+				}
+			]
+			rewards: [
+				{
+					id: "C578F3CFC3FD482B"
+					type: "xp"
+					xp: 50
+				}
+			]
+		}
+		{
+			x: 4.0d
+			y: 0.0d
 			id: "AF1ACA8A58DDABCA"
 			title: "Somewhere Inhabited"
-			description: ["Find a Towns and Towers settlement."]
-			dependencies: ["066F353287C29D9F"]
+			description: ["Find a Towns and Towers settlement.", "", "T&T replaces vanilla villages with biome-styled towns and adds ones", "vanilla never had -- beach, jungle, swamp, badlands, even ocean villages", "on stilts. Its pillager outposts got the same treatment."]
+			dependencies: ["C508B3ABFD3D8807"]
 			tasks: [
 				{
 					id: "B46ECF8C59BA8C92"
@@ -47,90 +99,266 @@
 				{
 					id: "0168CA12100FD519"
 					type: "xp"
-					xp: 30
-				}
-			]
-		}
-		{
-			x: 4.0d
-			y: 0.0d
-			id: "6670EB122D75D446"
-			title: "Three Coasts"
-			description: ["Visit a jungle, a badlands, and a deep ocean."]
-			dependencies: ["AF1ACA8A58DDABCA"]
-			tasks: [
-				{
-					id: "DBA2D1D4C0018CD9"
-					type: "biome"
-					biome: "#minecraft:is_jungle"
-				},
-				{
-					id: "E8DFD7AF3C70134A"
-					type: "biome"
-					biome: "#minecraft:is_badlands"
-				},
-				{
-					id: "6CB9F81FD516EC58"
-					type: "biome"
-					biome: "#minecraft:is_deep_ocean"
-				}
-			]
-			rewards: [
-				{
-					id: "A7F27B812A5618BA"
-					type: "xp"
-					xp: 40
+					xp: 60
 				}
 			]
 		}
 		{
 			x: 6.0d
 			y: 0.0d
-			id: "A67B084B2F2A7879"
-			title: "Underground"
-			description: ["Find your way into a YUNG's dungeon."]
-			dependencies: ["6670EB122D75D446"]
+			id: "04B93677D8EAC971"
+			title: "Set A Stone"
+			description: ["Craft a Warp Stone, then a Waystone.", "", "Warp Stone: 4 amethyst shards, 4 ender pearls, 1 emerald. Waystone:", "that plus stone bricks and obsidian. Place it, right-click to name and", "activate it, and every other waystone can now reach it."]
+			dependencies: ["AF1ACA8A58DDABCA"]
 			tasks: [
 				{
-					id: "19CDC09DE9375917"
-					type: "structure"
-					structure: "#betterdungeons:better_dungeons"
+					id: "13EEFF9BA94F17E9"
+					type: "item"
+					item: "waystones:warp_stone"
+					count: 1L
+				},
+				{
+					id: "214F6FBFC0C91455"
+					type: "item"
+					item: "waystones:waystone"
+					count: 1L
 				}
 			]
 			rewards: [
 				{
-					id: "0E7C65AE7F02A25A"
+					id: "157778900ACF7807"
 					type: "xp"
-					xp: 50
+					xp: 80
+				}
+			]
+		}
+		{
+			x: 6.0d
+			y: -2.0d
+			id: "6A8E1F35F614DF90"
+			title: "Paper Shortcuts"
+			description: ["Craft three Return Scrolls and a Bound Scroll.", "", "Both are paper, gold nuggets and purple dye; the Bound Scroll adds an", "ender pearl and binds itself to one waystone. Every teleport, scroll or", "stone, costs XP LEVELS scaled by distance -- travel with levels banked."]
+			dependencies: ["04B93677D8EAC971"]
+			tasks: [
+				{
+					id: "1F6991A8471164F2"
+					type: "item"
+					item: "waystones:return_scroll"
+					count: 3L
+				},
+				{
+					id: "FEE3446BE217CA92"
+					type: "item"
+					item: "waystones:bound_scroll"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "C2712563BA41A298"
+					type: "xp"
+					xp: 60
 				}
 			]
 		}
 		{
 			x: 8.0d
 			y: 0.0d
-			id: "BE12065311E81C12"
-			title: "The Board"
-			description: ["Craft a Bounty Board.", "", "Bounties are taken and turned in here."]
-			dependencies: ["A67B084B2F2A7879"]
+			id: "1EE42B46BDAD6EBC"
+			title: "A Shared Network"
+			description: ["Craft a Sharestone.", "", "Sharestones only reach other Sharestones OF THE SAME COLOUR, and the", "undyed one is its own colour. That makes them the crew network:", "one colour per base, and nobody lands in the wrong warehouse."]
+			dependencies: ["6A8E1F35F614DF90"]
 			tasks: [
 				{
-					id: "A927543DC41F4D1A"
+					id: "88E32AE4276BFC42"
 					type: "item"
-					item: "bountiful:bountyboard"
+					item: "waystones:sharestone"
 					count: 1L
 				}
 			]
 			rewards: [
 				{
-					id: "49F59B9AAAD42A2D"
+					id: "8CB8630C8934176C"
 					type: "xp"
-					xp: 40
+					xp: 80
+				}
+			]
+		}
+		{
+			x: 8.0d
+			y: 2.0d
+			id: "A6477AB000A35299"
+			title: "Warp Plates"
+			description: ["Craft a Warp Plate and attune a shard to it.", "", "Plate: warp dust, flint, stone bricks. Craft an Attuned Shard INSIDE", "one plate, carry it to a second plate, insert it there -- the pair is", "now linked and you cross by standing on it. Good for ship docks."]
+			dependencies: ["1EE42B46BDAD6EBC"]
+			tasks: [
+				{
+					id: "904B620C21C5F597"
+					type: "item"
+					item: "waystones:warp_plate"
+					count: 1L
 				},
 				{
-					id: "2CCECB75606386E4"
+					id: "CDF284CB910B77BB"
+					type: "item"
+					item: "waystones:attuned_shard"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "FAC0A676E82BACAA"
+					type: "xp"
+					xp: 100
+				}
+			]
+		}
+		{
+			x: 10.0d
+			y: 0.0d
+			id: "BAB3E963D7F879F5"
+			title: "The Tall Ones"
+			description: ["Stand inside any Structory Tower.", "", "Twenty-one towers across all three dimensions -- lighthouses, wizard", "towers, ocean pillars, an ancient temple. Every one is a vertical fight", "with the loot at the top. Search 'tower' in Explorer's Compass."]
+			dependencies: ["A6477AB000A35299"]
+			tasks: [
+				{
+					id: "5CCD0AEFEE781F51"
+					type: "structure"
+					structure: "#structory_towers:any_tower"
+				}
+			]
+			rewards: [
+				{
+					id: "60EDD7C66248CFCC"
+					type: "xp"
+					xp: 80
+				}
+			]
+		}
+		{
+			x: 10.0d
+			y: -2.0d
+			id: "9DE0902E766AC318"
+			title: "Old Money"
+			description: ["Find the Structory Old Manor.", "", "The rarest thing Structory generates -- one per 42-chunk grid, and only", "in dark forest or old-growth taiga. Multi-storey, cellared, worth the walk."]
+			dependencies: ["BAB3E963D7F879F5"]
+			tasks: [
+				{
+					id: "AD2A018B79A82331"
+					type: "structure"
+					structure: "structory:old_manor"
+				}
+			]
+			rewards: [
+				{
+					id: "594353A1362E5F54"
+					type: "xp"
+					xp: 100
+				}
+			]
+		}
+		{
+			x: 12.0d
+			y: 0.0d
+			id: "B451A6985396CE77"
+			title: "Mage Country"
+			description: ["Find a Terralith mage tower.", "", "Six variants, four of them seasonal. Terralith also adds fortified", "villages, rubble fields, spires and a set of underground structures --", "all of them show up in Explorer's Compass under 'terralith'."]
+			dependencies: ["9DE0902E766AC318"]
+			tasks: [
+				{
+					id: "5EC3464D703F93CD"
+					type: "structure"
+					structure: "#terralith:mage_towers"
+				}
+			]
+			rewards: [
+				{
+					id: "6E32E31C735415AD"
+					type: "xp"
+					xp: 120
+				}
+			]
+		}
+		{
+			x: 14.0d
+			y: 0.0d
+			id: "4762193AC1E08D9A"
+			title: "Sky Islands"
+			description: ["Stand in a Terralith Skylands biome.", "", "Four seasonal floating-island biomes, very high up. Tectonic is also", "running: it stretches terrain vertically, raises the world height and", "carves rivers that keep going underground. Bring the airship."]
+			dependencies: ["B451A6985396CE77"]
+			tasks: [
+				{
+					id: "74ACB9E9171542D5"
+					type: "biome"
+					biome: "#terralith:skylands"
+				}
+			]
+			rewards: [
+				{
+					id: "4B1FDB9BBA92EA75"
+					type: "xp"
+					xp: 150
+				}
+			]
+		}
+		{
+			x: 16.0d
+			y: 0.0d
+			id: "E56B7C75D4D81CA7"
+			title: "Dungeoneer"
+			description: ["Enter a zombie, a skeleton and a spider dungeon.", "", "YUNG's Better Dungeons replaces the vanilla monster room with themed", "multi-room dungeons: barracks, webbed nests, catacombs, each with real", "loot. All three are underground -- Explorer's Compass finds them."]
+			dependencies: ["4762193AC1E08D9A"]
+			tasks: [
+				{
+					id: "AFE581C6E076A8F2"
+					type: "structure"
+					structure: "betterdungeons:zombie_dungeon"
+				},
+				{
+					id: "CF99BF8EE6024AD2"
+					type: "structure"
+					structure: "betterdungeons:skeleton_dungeon"
+				},
+				{
+					id: "9DE349435CED9386"
+					type: "structure"
+					structure: "betterdungeons:spider_dungeon"
+				}
+			]
+			rewards: [
+				{
+					id: "196405DB68D3D315"
+					type: "xp"
+					xp: 150
+				}
+			]
+		}
+		{
+			x: 18.0d
+			y: 0.0d
+			id: "60EA4A30A9D68754"
+			title: "The Pharaoh"
+			description: ["Kill the Pharaoh in a Better Desert Temple.", "", "The pyramid is now the lid on a maze. Inside, Mining Fatigue is applied", "and stays until the Pharaoh dies -- he is a husk in a marked skull, deep", "in the complex. Kill him and the curse and the treasury both open."]
+			dependencies: ["E56B7C75D4D81CA7"]
+			tasks: [
+				{
+					id: "0EF80B9CC173EDDB"
+					type: "advancement"
+					advancement: "betterdeserttemples:temple_clear"
+					criterion: "pharaoh_killed"
+				}
+			]
+			rewards: [
+				{
+					id: "D68BA1AFE6632124"
+					type: "xp"
+					xp: 250
+				},
+				{
+					id: "EBE762279095D317"
 					type: "command"
-					title: "2 Skill Points"
-					command: "/puffish_skills points add @p tree 2"
+					title: "1 Skill Point"
+					command: "/puffish_skills points add @p tree 1"
 					player_command: false
 				}
 			]

@@ -1,0 +1,480 @@
+{
+	id: "0BC5CB95D8E694E7"
+	group: "AB8CEE6310D5FD25"
+	icon: "powah:energizing_orb"
+	default_quest_shape: ""
+	filename: "powah"
+	title: "Powah"
+	subtitle: ["From coal and clay to a nether star"]
+	order_index: 25
+	quests: [
+		{
+			x: 0.0d
+			y: 0.0d
+			id: "F8FD1FDB76479D43"
+			title: "Paste From Coal And Clay"
+			description: ["Three coal, two clay balls and a lava bucket make 24 Dielectric Paste.", "Paste is the base of every single thing Powah builds.", "", "Powah runs on Forge Energy, which on Fabric is the same Team Reborn Energy", "that QuarryPlus consumes and Flux Networks moves. One grid, three mods."]
+			tasks: [
+				{
+					id: "800B192B4764541D"
+					type: "item"
+					item: "powah:dielectric_paste"
+					count: 24L
+				}
+			]
+			rewards: [
+				{
+					id: "431B16D11CE10080"
+					type: "xp"
+					xp: 60
+				}
+			]
+		}
+		{
+			x: 0.0d
+			y: -2.0d
+			id: "CF75248E1D558CF8"
+			title: "The Manual And The Wrench"
+			description: ["Paste plus a book gives you the Powah manual -- it has a page for every", "block, with the numbers. Read it instead of guessing at tiers.", "", "The Wrench has three modes, cycled by sneak-clicking: Rotate turns a block,", "Config edits cable and machine sides, Link re-pairs energizing rods to an orb."]
+			dependencies: ["F8FD1FDB76479D43"]
+			tasks: [
+				{
+					id: "1D746CAF91A7FEE0"
+					type: "item"
+					item: "powah:book"
+					count: 1L
+				},
+				{
+					id: "3E64210FF7C5FCB5"
+					type: "item"
+					item: "powah:wrench"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "47C679C65F2F5E83"
+					type: "xp"
+					xp: 60
+				}
+			]
+		}
+		{
+			x: 2.0d
+			y: 0.0d
+			id: "8F32B7635C02D172"
+			title: "Rods And Casings"
+			description: ["Paste plus iron bars gives Dielectric Rods, eight at a time. Two shapes:", "the plain rod and the Horizontal rod. Recipes want a specific one.", "", "Rod + horizontal rod + iron makes a Dielectric Casing: the chassis every", "generator, cell and cable is built around."]
+			dependencies: ["CF75248E1D558CF8"]
+			tasks: [
+				{
+					id: "B58C49AEB1CA9D69"
+					type: "item"
+					item: "powah:dielectric_casing"
+					count: 4L
+				}
+			]
+			rewards: [
+				{
+					id: "91B439B8EC8A08EB"
+					type: "xp"
+					xp: 80
+				}
+			]
+		}
+		{
+			x: 4.0d
+			y: 0.0d
+			id: "D257BB41DC590096"
+			title: "Capacitors"
+			description: ["Iron, redstone block and paste make four Basic Capacitors.", "One capacitor splits into two Tiny Capacitors.", "", "Tiny is what almost every starter recipe asks for. Make a stack of them", "now -- you will burn through them for the rest of the chapter."]
+			dependencies: ["8F32B7635C02D172"]
+			tasks: [
+				{
+					id: "A2F426C4D9DC1D03"
+					type: "item"
+					item: "powah:capacitor_basic_tiny"
+					count: 8L
+				}
+			]
+			rewards: [
+				{
+					id: "75A3C5747DAEF3E9"
+					type: "xp"
+					xp: 80
+				}
+			]
+		}
+		{
+			x: 6.0d
+			y: 0.0d
+			id: "53F9C2D7AAAA4B75"
+			title: "Burn Something"
+			description: ["The Furnator burns ordinary furnace fuel -- coal, charcoal, planks.", "", "Higher tiers make more FE/t and hold more, but they also burn the fuel", "faster for the same total energy. Tiering up buys throughput, not efficiency.", "", "This is your first real generator. Put a Jade tooltip on it and watch it fill."]
+			dependencies: ["D257BB41DC590096"]
+			tasks: [
+				{
+					id: "2735BF32E01FD800"
+					type: "item"
+					item: "powah:furnator_starter"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "F7BA3F31B93EF5B1"
+					type: "xp"
+					xp: 100
+				}
+			]
+		}
+		{
+			x: 6.0d
+			y: -2.0d
+			id: "2C037C308EE93C9C"
+			title: "Lava Instead"
+			description: ["The Magmator drinks hot fluids -- lava, straight from a bucket or piped in.", "", "Far more energy per unit than solid fuel. Pair it with the QuarryPlus", "Advanced Pump sitting over a lava lake and it feeds itself."]
+			dependencies: ["53F9C2D7AAAA4B75"]
+			tasks: [
+				{
+					id: "854E9319C49DFC10"
+					type: "item"
+					item: "powah:magmator_starter"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "91E51E7BE551AB54"
+					type: "xp"
+					xp: 100
+				}
+			]
+		}
+		{
+			x: 6.0d
+			y: 2.0d
+			id: "7B858D25A2E61993"
+			title: "Free Watts"
+			description: ["A Photoelectric Pane plus a casing makes a Solar Panel.", "", "It needs direct sky access. ANY block above it stops production dead --", "including a ship's rigging, which is the trap on this pack.", "", "Slow, but it never asks for fuel."]
+			dependencies: ["2C037C308EE93C9C"]
+			tasks: [
+				{
+					id: "3AF35BE09B7C19C7"
+					type: "item"
+					item: "powah:solar_panel_starter"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "FB77EADD527C5F1A"
+					type: "xp"
+					xp: 100
+				}
+			]
+		}
+		{
+			x: 8.0d
+			y: 0.0d
+			id: "2E5FBA945180E655"
+			title: "Cells And Cable"
+			description: ["Energy Cables move power between machines. Sneak-click a cable with the", "Wrench in Config mode to change what a side does.", "", "The Energy Cell buffers it. Generators stall when the thing they feed is", "full; a cell in between keeps them running flat out.", "", "Cable tier caps transfer rate. A starter cable will throttle a nitro reactor."]
+			dependencies: ["7B858D25A2E61993"]
+			tasks: [
+				{
+					id: "147119DAB35895CE"
+					type: "item"
+					item: "powah:energy_cell_starter"
+					count: 1L
+				},
+				{
+					id: "9C1BD164204D095C"
+					type: "item"
+					item: "powah:energy_cable_starter"
+					count: 12L
+				}
+			]
+			rewards: [
+				{
+					id: "6A0B7E6A705B4E5F"
+					type: "xp"
+					xp: 120
+				}
+			]
+		}
+		{
+			x: 10.0d
+			y: 0.0d
+			id: "00C45A99842832AF"
+			title: "The Orb"
+			description: ["The Energizing Orb is Powah's crafting machine, and it is a multiblock", "of a sort: the orb itself uses NO energy. The rods do the work.", "", "Place the orb, then place Energizing Rods within range -- they link", "automatically. Each rod must sit on a cable or an energy block.", "", "Throw or right-click ingredients into the orb. More rods, and higher tier", "rods, mean faster crafts. One rod works; it is just slow."]
+			dependencies: ["2E5FBA945180E655"]
+			tasks: [
+				{
+					id: "D494C7DC7153829B"
+					type: "item"
+					item: "powah:energizing_orb"
+					count: 1L
+				},
+				{
+					id: "EB81EAB6F2337DB7"
+					type: "item"
+					item: "powah:energizing_rod_starter"
+					count: 4L
+				}
+			]
+			rewards: [
+				{
+					id: "53604A69BBBD0FD0"
+					type: "xp"
+					xp: 160
+				}
+			]
+		}
+		{
+			x: 12.0d
+			y: 0.0d
+			id: "36342F83554C60A2"
+			title: "Energized Steel"
+			description: ["Your first orb recipe: one iron and one gold ingot, 10,000 FE, two steel.", "", "Everything past this point is orb output. If the orb is slow, add rods", "or tier them up -- do not tier the orb, there is only one."]
+			dependencies: ["00C45A99842832AF"]
+			tasks: [
+				{
+					id: "DCDDE915D34A36C7"
+					type: "item"
+					item: "powah:steel_energized"
+					count: 8L
+				}
+			]
+			rewards: [
+				{
+					id: "488BCE128F821F1A"
+					type: "xp"
+					xp: 140
+				}
+			]
+		}
+		{
+			x: 12.0d
+			y: 2.0d
+			id: "A5B43CEADACE6BA6"
+			title: "Heat Difference"
+			description: ["The Thermo Generator sits ON TOP of a hot block or fluid -- lava -- and", "needs a coolant fluid, water, to run. Neither alone does anything.", "", "A Thermo Plate is blaze powder, redstone and a tiny capacitor."]
+			dependencies: ["36342F83554C60A2"]
+			tasks: [
+				{
+					id: "5FD5C7D2DCCBCBFF"
+					type: "item"
+					item: "powah:thermo_generator_starter"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "F9A0E25399FAFAF5"
+					type: "xp"
+					xp: 120
+				}
+			]
+		}
+		{
+			x: 14.0d
+			y: 0.0d
+			id: "98B062B5487D1E65"
+			title: "Blazing And Niotic"
+			description: ["Crystals are the tier ladder, and every one comes out of the orb.", "", "Four blaze powder at 120k FE gives a Blazing Crystal.", "One diamond at 300k FE gives a Niotic Crystal.", "", "Each machine tier is the previous tier's block plus that tier's crystal.", "You do not craft a Niotic Furnator from scratch; you upgrade one."]
+			dependencies: ["A5B43CEADACE6BA6"]
+			tasks: [
+				{
+					id: "133518C0E7CD2304"
+					type: "item"
+					item: "powah:crystal_blazing"
+					count: 4L
+				},
+				{
+					id: "696885416C5AEBA8"
+					type: "item"
+					item: "powah:crystal_niotic"
+					count: 4L
+				}
+			]
+			rewards: [
+				{
+					id: "CE2585D766E9F2B4"
+					type: "xp"
+					xp: 200
+				}
+			]
+		}
+		{
+			x: 14.0d
+			y: -2.0d
+			id: "39EFF9A55C3B1BFB"
+			title: "Charge Your Gear"
+			description: ["A Battery charges anything chargeable while it sits in your inventory.", "", "The Energy Hopper does the same job for a chest: put it against an", "inventory and it tops up the charged items inside.", "", "Batteries also upgrade Ender Network channel capacity later -- keep them."]
+			dependencies: ["98B062B5487D1E65"]
+			tasks: [
+				{
+					id: "4D3C03D87D1E7A59"
+					type: "item"
+					item: "powah:battery_starter"
+					count: 1L
+				},
+				{
+					id: "8B371183679870B9"
+					type: "item"
+					item: "powah:energy_hopper_starter"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "ED28836290950632"
+					type: "xp"
+					xp: 140
+				}
+			]
+		}
+		{
+			x: 16.0d
+			y: 0.0d
+			id: "1FB79A8983F8673F"
+			title: "Raw Uraninite"
+			description: ["Uraninite ore generates in three grades: Poor below y64, normal below y20,", "Dense below y0. Iron pickaxe or better; Fortune multiplies the drop.", "", "Raw Uraninite smelts into Uraninite, or you can energize the ore block", "directly in the orb for five at a time.", "", "This is exactly the job the Chunk Destroyer exists for."]
+			dependencies: ["39EFF9A55C3B1BFB"]
+			tasks: [
+				{
+					id: "EB2D085A7824C5C5"
+					type: "item"
+					item: "powah:uraninite_raw"
+					count: 8L
+				}
+			]
+			rewards: [
+				{
+					id: "1338608558193DAC"
+					type: "xp"
+					xp: 160
+				}
+			]
+		}
+		{
+			x: 18.0d
+			y: 0.0d
+			id: "8C92A071EE7AC1EE"
+			title: "The Reactor"
+			description: ["A real multiblock. Hold THIRTY-SIX Reactor blocks and place them into a", "3x4 clear area -- the reactor assembles itself from your hand.", "", "It burns Uraninite. Running heats it up, and a hot reactor eats more fuel", "for less output, so it needs water piped in as coolant. Snow or ice adds", "extra cooling, but only on top of a liquid coolant, never instead of it.", "", "Keep the fuel buffer full. A starved reactor produces almost nothing."]
+			dependencies: ["1FB79A8983F8673F"]
+			tasks: [
+				{
+					id: "1C26C0EF0D890F07"
+					type: "item"
+					item: "powah:reactor_starter"
+					count: 36L
+				}
+			]
+			rewards: [
+				{
+					id: "1F83C2FC8F4AD36F"
+					type: "xp"
+					xp: 300
+				}
+			]
+		}
+		{
+			x: 18.0d
+			y: 2.0d
+			id: "5E6493AE25815282"
+			title: "Bound To You"
+			description: ["The Player Transmitter charges everything in a linked player's inventory,", "armour and offhand included, anywhere in the same dimension.", "", "RIGHT-CLICK a Binding Card to bind it to yourself FIRST, then put the card", "in the transmitter. An unbound card does nothing and gives no error.", "", "The Dimensional Binding Card lifts the same-dimension limit."]
+			dependencies: ["8C92A071EE7AC1EE"]
+			tasks: [
+				{
+					id: "A292F807ED82FA4D"
+					type: "item"
+					item: "powah:binding_card"
+					count: 1L
+				},
+				{
+					id: "25B3D7FB4F139174"
+					type: "item"
+					item: "powah:player_transmitter_starter"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "FF2B41BF9A9245C1"
+					type: "xp"
+					xp: 200
+				}
+			]
+		}
+		{
+			x: 20.0d
+			y: 0.0d
+			id: "61AA75EAEDAA0954"
+			title: "Spirited And Nitro"
+			description: ["One emerald at 1,000,000 FE gives a Spirited Crystal.", "", "Nitro is the wall: a nether star, two redstone blocks and a Blazing Crystal", "block at 20,000,000 FE -- for sixteen crystals. Budget a night of reactor", "uptime and a rod array that is not starter tier.", "", "Nitro tier machines are the endgame of this mod."]
+			dependencies: ["5E6493AE25815282"]
+			tasks: [
+				{
+					id: "80255A13A7A85855"
+					type: "item"
+					item: "powah:crystal_spirited"
+					count: 4L
+				},
+				{
+					id: "3B614808872F8663"
+					type: "item"
+					item: "powah:crystal_nitro"
+					count: 4L
+				}
+			]
+			rewards: [
+				{
+					id: "54DBDD84C4A6DB8C"
+					type: "xp"
+					xp: 400
+				}
+			]
+		}
+		{
+			x: 22.0d
+			y: 0.0d
+			id: "B9E263FD4006D77D"
+			title: "The Ender Network"
+			description: ["Ender Cells store energy to a numbered CHANNEL on your own ender network,", "readable from any other Ender Cell anywhere in the world.", "", "A fresh channel has no capacity. Shift-click an Energy Cell or a Battery", "into the Ender Cell GUI to donate its capacity -- and its charge -- to the", "channel. That step is the one everyone misses.", "", "Ender Gates push and pull between the network and an adjacent block, but", "cannot add capacity."]
+			dependencies: ["61AA75EAEDAA0954"]
+			tasks: [
+				{
+					id: "91900B85C722FE3E"
+					type: "item"
+					item: "powah:ender_cell_starter"
+					count: 1L
+				},
+				{
+					id: "83167CA370A65720"
+					type: "item"
+					item: "powah:ender_gate_starter"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "00C62E2BC2D41559"
+					type: "xp"
+					xp: 300
+				},
+				{
+					id: "42E4531CE3B24020"
+					type: "command"
+					title: "1 Skill Point"
+					command: "/puffish_skills points add @p tree 1"
+					player_command: false
+				}
+			]
+		}
+	]
+}

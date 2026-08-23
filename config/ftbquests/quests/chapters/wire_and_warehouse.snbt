@@ -1,0 +1,439 @@
+{
+	id: "0DE122A35C8C7E03"
+	group: "AB8CEE6310D5FD25"
+	icon: "fluxnetworks:flux_controller"
+	default_quest_shape: ""
+	filename: "wire_and_warehouse"
+	title: "Wire and Warehouse"
+	subtitle: ["Flux Networks and Tom's Storage"]
+	order_index: 23
+	quests: [
+		{
+			x: 0.0d
+			y: 0.0d
+			id: "55F15F9A4DB0F1B7"
+			title: "Flux Dust"
+			description: ["Flux Dust has no crafting recipe. You make it in the world.", "", "Place OBSIDIAN directly on top of BEDROCK, drop Redstone Dust items onto", "the obsidian, then click the obsidian. The redstone converts and the", "obsidian is consumed.", "", "REI has a 'Creating Flux' page for it if the layout will not take."]
+			tasks: [
+				{
+					id: "CABDF1BE2A4F4D76"
+					type: "item"
+					item: "fluxnetworks:flux_dust"
+					count: 8L
+				}
+			]
+			rewards: [
+				{
+					id: "FB99D9994CE714A2"
+					type: "xp"
+					xp: 120
+				}
+			]
+		}
+		{
+			x: 2.0d
+			y: 0.0d
+			id: "36093FBEAC62BA23"
+			title: "Flux Cores"
+			description: ["Flux Dust, obsidian and an Eye of Ender make four Flux Cores.", "", "Cores are the base of every flux device. Nine dust compressed with a core", "gives a Flux Block, which is both a crafting component and the storage", "block's ingredient."]
+			dependencies: ["55F15F9A4DB0F1B7"]
+			tasks: [
+				{
+					id: "5F737ABA238776A1"
+					type: "item"
+					item: "fluxnetworks:flux_core"
+					count: 8L
+				},
+				{
+					id: "92D414AE405E58F3"
+					type: "item"
+					item: "fluxnetworks:flux_block"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "33AE0F1D9A438E3F"
+					type: "xp"
+					xp: 140
+				}
+			]
+		}
+		{
+			x: 4.0d
+			y: 0.0d
+			id: "EDE81E2E1975C932"
+			title: "Plug And Point"
+			description: ["The whole mod is two blocks and they are easy to get backwards.", "", "A Flux PLUG goes on a generator and pushes power INTO the network.", "A Flux POINT goes on a machine and pulls power OUT of the network.", "", "Both attach to the face of the block they serve. No cable between them --", "the network is wireless, and it crosses dimensions."]
+			dependencies: ["36093FBEAC62BA23"]
+			tasks: [
+				{
+					id: "118715985D5DC623"
+					type: "item"
+					item: "fluxnetworks:flux_plug"
+					count: 1L
+				},
+				{
+					id: "EAE551943B3629A2"
+					type: "item"
+					item: "fluxnetworks:flux_point"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "CF11D0134FB7DEF7"
+					type: "xp"
+					xp: 180
+				}
+			]
+		}
+		{
+			x: 4.0d
+			y: -2.0d
+			id: "BE6EA5E447F145A9"
+			title: "The Configurator"
+			description: ["Obsidian, flux dust and an Eye of Ender.", "", "Copies a device's network and transfer settings, then pastes them onto", "the next twenty. Once you are running a real grid you stop hand-editing", "each plug."]
+			dependencies: ["EDE81E2E1975C932"]
+			tasks: [
+				{
+					id: "82B019BF072FC437"
+					type: "item"
+					item: "fluxnetworks:flux_configurator"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "3A991C3323E3F005"
+					type: "xp"
+					xp: 100
+				}
+			]
+		}
+		{
+			x: 6.0d
+			y: 0.0d
+			id: "7439710F4D8CCDE3"
+			title: "The Controller"
+			description: ["Flux cores, a Flux Block and flux dust.", "", "ONE Controller per network, and only one. It wirelessly charges items in", "the inventories of players inside its range, and it unlocks the network's", "full statistics and per-device transfer limits.", "", "Networks are created in any flux device's GUI. You get a small number", "of your own -- most people need exactly one."]
+			dependencies: ["BE6EA5E447F145A9"]
+			tasks: [
+				{
+					id: "5A783E5FED3545EB"
+					type: "item"
+					item: "fluxnetworks:flux_controller"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "742614086E3D2717"
+					type: "xp"
+					xp: 240
+				}
+			]
+		}
+		{
+			x: 6.0d
+			y: 2.0d
+			id: "2DCBE8DC6EF7F557"
+			title: "Flux Storage"
+			description: ["A Flux Block wrapped in glass panes.", "", "A Basic Flux Storage is a network-attached battery -- it does not need a", "plug or a point, it joins the network directly.", "", "Flux devices can also force-load their own chunk, which is the cheapest", "way to keep a remote generator alive."]
+			dependencies: ["7439710F4D8CCDE3"]
+			tasks: [
+				{
+					id: "7BADA0F474953DAA"
+					type: "item"
+					item: "fluxnetworks:basic_flux_storage"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "1550D16ECC97C56D"
+					type: "xp"
+					xp: 180
+				}
+			]
+		}
+		{
+			x: 8.0d
+			y: 0.0d
+			id: "A890C81C23AB7254"
+			title: "Gargantuan"
+			description: ["Basic upgrades to Herculean, Herculean to Gargantuan, each by re-wrapping", "it in glass panes.", "", "These upgrades use a special recipe that KEEPS the energy already stored.", "You never have to drain a storage block before tiering it up."]
+			dependencies: ["2DCBE8DC6EF7F557"]
+			tasks: [
+				{
+					id: "4A0E843D4A24AAAE"
+					type: "item"
+					item: "fluxnetworks:gargantuan_flux_storage"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "B265026E18F05482"
+					type: "xp"
+					xp: 300
+				}
+			]
+		}
+		{
+			x: 10.0d
+			y: 0.0d
+			id: "C4FCD1ECEBBBADF9"
+			title: "The Connector"
+			description: ["Planks, a chest, a comparator, a diamond and an ender pearl.", "", "Tom's Simple Storage has exactly one core block: the Inventory Connector.", "Every inventory TOUCHING it becomes part of one shared pool.", "", "It is a surface-area problem. Six faces is six chests -- everything else", "in this half of the chapter exists to get around that."]
+			dependencies: ["A890C81C23AB7254"]
+			tasks: [
+				{
+					id: "50097E2C609D2799"
+					type: "item"
+					item: "toms_storage:ts.inventory_connector"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "18A7BD9BB6D147A5"
+					type: "xp"
+					xp: 140
+				}
+			]
+		}
+		{
+			x: 12.0d
+			y: 0.0d
+			id: "00E347A423E86898"
+			title: "The Terminal"
+			description: ["Planks, chest, comparator, glass and glowstone.", "", "The Storage Terminal is the window into the pool. It must touch the", "connector, or reach it through cable.", "", "Type in the search box, sort with the buttons in the corner. Shift-click", "pulls a stack out the way it does everywhere else."]
+			dependencies: ["C4FCD1ECEBBBADF9"]
+			tasks: [
+				{
+					id: "8AC88DACDFF4E05F"
+					type: "item"
+					item: "toms_storage:ts.storage_terminal"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "C77871DCDBB81267"
+					type: "xp"
+					xp: 160
+				}
+			]
+		}
+		{
+			x: 12.0d
+			y: -2.0d
+			id: "2B04E82FE96F51B0"
+			title: "Trim The Edges"
+			description: ["Planks, sticks and a chest, two at a time.", "", "Inventory Trim extends the connector's reachable surface. Chests touching", "a trim block count as touching the connector.", "", "This is how a six-chest wall becomes a sixty-chest wall."]
+			dependencies: ["00E347A423E86898"]
+			tasks: [
+				{
+					id: "3BB1536B9C05CD54"
+					type: "item"
+					item: "toms_storage:ts.trim"
+					count: 8L
+				}
+			]
+			rewards: [
+				{
+					id: "C5E2032CBE616B9E"
+					type: "xp"
+					xp: 120
+				}
+			]
+		}
+		{
+			x: 14.0d
+			y: 0.0d
+			id: "7C6DBEA8043116CE"
+			title: "Craft From The Grid"
+			description: ["A Storage Terminal, a crafting table and a diamond.", "", "The Crafting Terminal is the Storage Terminal with a 3x3 attached that", "pulls ingredients straight out of the pool.", "", "Click a recipe in REI while it is open and it will fill the grid for you."]
+			dependencies: ["2B04E82FE96F51B0"]
+			tasks: [
+				{
+					id: "419B206DEA98BF82"
+					type: "item"
+					item: "toms_storage:ts.crafting_terminal"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "C8903D0564A29172"
+					type: "xp"
+					xp: 200
+				}
+			]
+		}
+		{
+			x: 14.0d
+			y: 2.0d
+			id: "B2130997F8F4A8C8"
+			title: "Cable It Out"
+			description: ["Inventory Cable is planks, sticks, a trapdoor and a chest -- six a craft.", "", "Cable alone carries nothing. It needs an Inventory Cable Connector at each", "end: one on the storage connector, one on the remote chest or terminal.", "", "The Filtered connector adds an item filter to that link, so you can send", "only cobblestone down one run."]
+			dependencies: ["7C6DBEA8043116CE"]
+			tasks: [
+				{
+					id: "2F27A1E2F813A76C"
+					type: "item"
+					item: "toms_storage:ts.inventory_cable"
+					count: 6L
+				},
+				{
+					id: "4DC21452AE439B37"
+					type: "item"
+					item: "toms_storage:ts.inventory_cable_connector"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "9CB4649DE343E784"
+					type: "xp"
+					xp: 200
+				}
+			]
+		}
+		{
+			x: 16.0d
+			y: 0.0d
+			id: "4B9BB83800D5CAC3"
+			title: "Filters"
+			description: ["Wool, redstone and a stick make a basic Item Filter.", "", "Add a comparator and a name tag for the Tag filter -- it matches an entire", "item tag, so #logs catches every wood at once.", "", "Add a comparator and a diamond for the Polymorphic filter, which matches", "items similar to the one you set rather than exactly it."]
+			dependencies: ["B2130997F8F4A8C8"]
+			tasks: [
+				{
+					id: "298AB4B3F1E4EC63"
+					type: "item"
+					item: "toms_storage:ts.item_filter"
+					count: 1L
+				},
+				{
+					id: "CFA33CE196DED2A3"
+					type: "item"
+					item: "toms_storage:ts.tag_item_filter"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "B858E5EC9C65FCE3"
+					type: "xp"
+					xp: 160
+				}
+			]
+		}
+		{
+			x: 16.0d
+			y: -2.0d
+			id: "F767807490E290A7"
+			title: "Level Emitter"
+			description: ["Planks, cable, a comparator and a redstone torch.", "", "Set an item and a count; it emits redstone when the pool crosses that", "threshold. That is your 'keep 2000 cobble, then shut the quarry off' wire."]
+			dependencies: ["4B9BB83800D5CAC3"]
+			tasks: [
+				{
+					id: "E5C096F568E07B7F"
+					type: "item"
+					item: "toms_storage:ts.level_emitter"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "4ACA13A2533AA786"
+					type: "xp"
+					xp: 160
+				}
+			]
+		}
+		{
+			x: 16.0d
+			y: 2.0d
+			id: "A229D56CD4FDE896"
+			title: "Crate And Proxy"
+			description: ["The Open Crate drops whatever is pushed into it onto the ground -- or into", "whatever is below it. Void unwanted quarry output with one.", "", "The Inventory Proxy makes the block behind it look like part of the", "network from a face it is not touching, and can filter what shows through."]
+			dependencies: ["F767807490E290A7"]
+			tasks: [
+				{
+					id: "FCF5CBFCDD4F17F7"
+					type: "item"
+					item: "toms_storage:ts.open_crate"
+					count: 1L
+				},
+				{
+					id: "D448A85A47631289"
+					type: "item"
+					item: "toms_storage:ts.inventory_proxy"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "EAD86F983D85218C"
+					type: "xp"
+					xp: 140
+				}
+			]
+		}
+		{
+			x: 18.0d
+			y: 0.0d
+			id: "1B7183FDD90A4D01"
+			title: "Wireless Terminal"
+			description: ["Planks, chest, comparator, glass, glowstone, an ender pearl and a spyglass.", "", "SNEAK-RIGHT-CLICK a Storage Terminal with it to bind it to that terminal.", "An unbound wireless terminal opens nothing.", "", "Limited range from the bound terminal."]
+			dependencies: ["A229D56CD4FDE896"]
+			tasks: [
+				{
+					id: "0CF1FFEBCB4D54FF"
+					type: "item"
+					item: "toms_storage:ts.wireless_terminal"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "E4D1D91D12E9CD6A"
+					type: "xp"
+					xp: 240
+				}
+			]
+		}
+		{
+			x: 20.0d
+			y: 0.0d
+			id: "B8A23D8BBDDA7ECA"
+			title: "Netherite Wireless"
+			description: ["Smithing table: Wireless Terminal, netherite upgrade template, netherite ingot.", "", "Longer range and it works across dimensions. The last thing this mod", "asks you for, and the point at which your storage stops being a room", "you have to walk to."]
+			dependencies: ["1B7183FDD90A4D01"]
+			tasks: [
+				{
+					id: "FBB346D63D77001D"
+					type: "item"
+					item: "toms_storage:ts.adv_wireless_terminal"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "F7E1DEAEFE792B3C"
+					type: "xp"
+					xp: 400
+				},
+				{
+					id: "37725704156B94A6"
+					type: "command"
+					title: "1 Skill Point"
+					command: "/puffish_skills points add @p tree 1"
+					player_command: false
+				}
+			]
+		}
+	]
+}

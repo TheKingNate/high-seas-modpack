@@ -6,7 +6,7 @@
 	filename: "the_forge"
 	title: "The Forge"
 	subtitle: ["Wheels and current"]
-	order_index: 3
+	order_index: 16
 	quests: [
 		{
 			x: 0.0d
@@ -96,13 +96,6 @@
 					id: "413AB8E0B637DB00"
 					type: "xp"
 					xp: 60
-				},
-				{
-					id: "B284A38E715810C0"
-					type: "command"
-					title: "1 Skill Point"
-					command: "/puffish_skills points add @p tree 1"
-					player_command: false
 				}
 			]
 		}

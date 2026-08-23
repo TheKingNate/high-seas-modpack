@@ -1,30 +1,36 @@
 {
 	id: "AFB76E3591510BCE"
 	group: "3B5CADE70BF7A16C"
-	icon: "minecraft:bread"
+	icon: "farmersdelight:cooking_pot"
 	default_quest_shape: ""
 	filename: "provision"
 	title: "Provision"
-	subtitle: ["Between fights"]
-	order_index: 9
+	subtitle: ["Cook it properly"]
+	order_index: 1
 	quests: [
 		{
 			x: 0.0d
 			y: 0.0d
-			id: "4A87E2864ED14A84"
-			title: "The Pot"
-			description: ["Craft a Farmer's Delight cooking pot."]
+			id: "514D3F2166D5E1CA"
+			title: "Knife Work"
+			description: ["Craft a Flint Knife and a Cutting Board.", "", "Place an item on the board, then right-click it holding a tool.", "A log gives planks plus Tree Bark, raw beef gives Minced Beef.", "Wrong tool, no result - the board tells you which one it wants."]
 			tasks: [
 				{
-					id: "9BAA59904D758D97"
+					id: "CC608210B43B718E"
 					type: "item"
-					item: "farmersdelight:cooking_pot"
+					item: "farmersdelight:flint_knife"
+					count: 1L
+				},
+				{
+					id: "ABFDDE503A0D4089"
+					type: "item"
+					item: "farmersdelight:cutting_board"
 					count: 1L
 				}
 			]
 			rewards: [
 				{
-					id: "B9C3FC08032D7FE2"
+					id: "8AE4689F4C3FB6E7"
 					type: "xp"
 					xp: 40
 				}
@@ -33,45 +39,91 @@
 		{
 			x: 2.0d
 			y: 0.0d
-			id: "BEB27B3F8E7508B2"
-			title: "Cook"
-			description: ["Cook five different dishes."]
-			dependencies: ["4A87E2864ED14A84"]
+			id: "4EEF51D2F58E4520"
+			title: "A Fire To Cook On"
+			description: ["Craft a Stove and a Cooking Pot.", "", "The pot needs heat directly underneath - stove, campfire or lit furnace.", "Six ingredient slots plus a container slot. Leave the container slot", "empty and any recipe needing a bowl will refuse to finish."]
+			dependencies: ["514D3F2166D5E1CA"]
 			tasks: [
 				{
-					id: "A2F5D3B067BF8DCB"
+					id: "DB920BAC8FF86783"
 					type: "item"
-					item: "farmersdelight:vegetable_soup"
+					item: "farmersdelight:stove"
 					count: 1L
 				},
 				{
-					id: "3871E1EF6CBAF3EA"
+					id: "C2C6A644E7BA4299"
 					type: "item"
-					item: "farmersdelight:chicken_soup"
-					count: 1L
-				},
-				{
-					id: "EB89174922EE2470"
-					type: "item"
-					item: "farmersdelight:beef_stew"
-					count: 1L
-				},
-				{
-					id: "A8600A46AC4CD1A0"
-					type: "item"
-					item: "farmersdelight:fish_stew"
-					count: 1L
-				},
-				{
-					id: "BD445094DBCA3C50"
-					type: "item"
-					item: "farmersdelight:pumpkin_soup"
+					item: "farmersdelight:cooking_pot"
 					count: 1L
 				}
 			]
 			rewards: [
 				{
-					id: "EF000490CE6A3BA7"
+					id: "0B7325A7D9479307"
+					type: "xp"
+					xp: 60
+				}
+			]
+		}
+		{
+			x: 2.0d
+			y: -2.0d
+			id: "77890380FE3726BC"
+			title: "Portable Cooking"
+			description: ["Craft a Skillet and cook with it in hand.", "", "Hold the skillet, stand near any heat source, and put food in your", "off-hand. It fries as you stand there. Sneak-place it as a block to", "cook one item at a time unattended."]
+			dependencies: ["4EEF51D2F58E4520"]
+			tasks: [
+				{
+					id: "7A8B72904CF63F8C"
+					type: "item"
+					item: "farmersdelight:skillet"
+					count: 1L
+				},
+				{
+					id: "96C698D731DD6263"
+					type: "advancement"
+					advancement: "farmersdelight:main/use_skillet"
+					criterion: ""
+				}
+			]
+			rewards: [
+				{
+					id: "E5398298D599DFD6"
+					type: "xp"
+					xp: 60
+				}
+			]
+		}
+		{
+			x: 2.0d
+			y: 2.0d
+			id: "40A94D3D224DCDD3"
+			title: "Butchery"
+			description: ["Break meat down on the cutting board.", "", "Cut meat feeds more people than whole meat: beef becomes Minced Beef,", "chicken becomes Cuts, pork becomes Bacon, cod and salmon become slices.", "A Fortune knife adds a 10% chance of a bonus drop."]
+			dependencies: ["77890380FE3726BC"]
+			tasks: [
+				{
+					id: "DD0BF3E867F7EF7C"
+					type: "advancement"
+					advancement: "farmersdelight:main/use_cutting_board"
+					criterion: ""
+				},
+				{
+					id: "D1C39C6E9746E305"
+					type: "item"
+					item: "farmersdelight:minced_beef"
+					count: 4L
+				},
+				{
+					id: "37EE946C1801FFC0"
+					type: "item"
+					item: "farmersdelight:chicken_cuts"
+					count: 4L
+				}
+			]
+			rewards: [
+				{
+					id: "DEFA81DBEDA1ECAA"
 					type: "xp"
 					xp: 60
 				}
@@ -80,75 +132,33 @@
 		{
 			x: 4.0d
 			y: 0.0d
-			id: "E2BB0F2DBFAD8942"
-			title: "Harvest"
-			description: ["Grow ten different Croptopia crops."]
-			dependencies: ["BEB27B3F8E7508B2"]
+			id: "6084B730112F5015"
+			title: "First Stews"
+			description: ["Cook three soups in the pot.", "", "Soups grant Comfort - natural regeneration no matter how hungry you are.", "AppleSkin is installed: hover any food to see its saturation, which is", "what actually decides how long it keeps you fed."]
+			dependencies: ["40A94D3D224DCDD3"]
 			tasks: [
 				{
-					id: "390C332BE826BB4E"
+					id: "09C98D22271D8973"
 					type: "item"
-					item: "croptopia:tomato"
+					item: "farmersdelight:vegetable_soup"
 					count: 1L
 				},
 				{
-					id: "A01FDEE540450149"
+					id: "FBF5ABC831DEE7BC"
 					type: "item"
-					item: "croptopia:corn"
+					item: "farmersdelight:chicken_soup"
 					count: 1L
 				},
 				{
-					id: "A26C4C3A0DAA54D8"
+					id: "254F952BC2925541"
 					type: "item"
-					item: "croptopia:onion"
-					count: 1L
-				},
-				{
-					id: "CB386ECD5E037AD1"
-					type: "item"
-					item: "croptopia:strawberry"
-					count: 1L
-				},
-				{
-					id: "62753A3791769F6C"
-					type: "item"
-					item: "croptopia:blueberry"
-					count: 1L
-				},
-				{
-					id: "49CBB777E1E2EA9B"
-					type: "item"
-					item: "croptopia:cucumber"
-					count: 1L
-				},
-				{
-					id: "93FEA15F1C550E08"
-					type: "item"
-					item: "croptopia:lettuce"
-					count: 1L
-				},
-				{
-					id: "C4CFEBD2ADF9EFBE"
-					type: "item"
-					item: "croptopia:pepper"
-					count: 1L
-				},
-				{
-					id: "8EBDB986CD230326"
-					type: "item"
-					item: "croptopia:grape"
-					count: 1L
-				},
-				{
-					id: "A33A42519F6A0887"
-					type: "item"
-					item: "croptopia:rice"
+					item: "farmersdelight:beef_stew"
 					count: 1L
 				}
 			]
 			rewards: [
 				{
-					id: "668159BD1644B242"
+					id: "EFE495049136A792"
 					type: "xp"
 					xp: 80
 				}
@@ -157,51 +167,62 @@
 		{
 			x: 6.0d
 			y: 0.0d
-			id: "50E5D7AC096F475E"
-			title: "A Full Net"
-			description: ["Catch six Fish of Thieves species."]
-			dependencies: ["E2BB0F2DBFAD8942"]
+			id: "10FCB638E3A69E7F"
+			title: "Plant Food"
+			description: ["Make Organic Compost and let it decay into Rich Soil.", "", "Compost is rotten flesh, bone meal, dirt and straw. Placed down it", "spreads into neighbouring dirt and slowly becomes Rich Soil.", "Rich Soil Farmland never dries out and gives a 20% bonus growth tick."]
+			dependencies: ["6084B730112F5015"]
 			tasks: [
 				{
-					id: "1E2442A90E950E87"
+					id: "A8A0B24FF270D3FA"
 					type: "item"
-					item: "fishofthieves:splashtail"
-					count: 1L
+					item: "farmersdelight:organic_compost"
+					count: 4L
 				},
 				{
-					id: "125C95D17C3E2E20"
+					id: "0C5EB013AEF6D136"
 					type: "item"
-					item: "fishofthieves:pondie"
-					count: 1L
+					item: "farmersdelight:rich_soil"
+					count: 8L
+				}
+			]
+			rewards: [
+				{
+					id: "90B59E38153B4221"
+					type: "xp"
+					xp: 80
+				}
+			]
+		}
+		{
+			x: 6.0d
+			y: -2.0d
+			id: "3BBD625A84CA93C6"
+			title: "Grasping At Straws"
+			description: ["Harvest Straw, then craft Rope and a Safety Net.", "", "Hit grass, wheat or rice with a knife for Straw. Rope hangs downward", "block by block and you climb it; a Safety Net at the bottom cancels", "the fall damage when you let go."]
+			dependencies: ["10FCB638E3A69E7F"]
+			tasks: [
+				{
+					id: "63B611F398740A54"
+					type: "item"
+					item: "farmersdelight:straw"
+					count: 16L
 				},
 				{
-					id: "10DDAE80F60889C0"
+					id: "ECFB3866F6879AC2"
 					type: "item"
-					item: "fishofthieves:islehopper"
-					count: 1L
+					item: "farmersdelight:rope"
+					count: 8L
 				},
 				{
-					id: "528E750BCF9161D6"
+					id: "E29A46F4FB067358"
 					type: "item"
-					item: "fishofthieves:ancientscale"
-					count: 1L
-				},
-				{
-					id: "CD6EDC07AA55E24C"
-					type: "item"
-					item: "fishofthieves:plentifin"
-					count: 1L
-				},
-				{
-					id: "4A49EF831A64C58D"
-					type: "item"
-					item: "fishofthieves:wildsplash"
+					item: "farmersdelight:safety_net"
 					count: 1L
 				}
 			]
 			rewards: [
 				{
-					id: "BD882AF3D195420C"
+					id: "91517F769B7AA81E"
 					type: "xp"
 					xp: 60
 				}
@@ -210,10 +231,570 @@
 		{
 			x: 8.0d
 			y: 0.0d
+			id: "1E33D85AD4F71FF6"
+			title: "Crops Of The Wild"
+			description: ["Collect all four Farmer's Delight crops.", "", "Break the wild bushes: Wild Tomatoes, Wild Cabbages, Wild Onions and", "Wild Rice, scattered across swamps, beaches, plains and jungles.", "There is no other source except the occasional chest."]
+			dependencies: ["3BBD625A84CA93C6"]
+			tasks: [
+				{
+					id: "EE19ADD912653D0D"
+					type: "item"
+					item: "farmersdelight:tomato_seeds"
+					count: 1L
+				},
+				{
+					id: "E685D23B4D37A373"
+					type: "item"
+					item: "farmersdelight:cabbage_seeds"
+					count: 1L
+				},
+				{
+					id: "003F99087A86ABE3"
+					type: "item"
+					item: "farmersdelight:rice_panicle"
+					count: 1L
+				},
+				{
+					id: "5FF515A19185FACF"
+					type: "item"
+					item: "farmersdelight:onion"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "326B31CA23D792F9"
+					type: "xp"
+					xp: 80
+				}
+			]
+		}
+		{
+			x: 8.0d
+			y: -2.0d
+			id: "E183C1EB40DCD7C5"
+			title: "Dipping Your Roots"
+			description: ["Plant rice and cook it.", "", "Rice only goes into shallow water - one block deep, over dirt or sand.", "Anywhere else the seed pops straight back out. Harvest the top for", "panicles to replant, the bottom for Rice."]
+			dependencies: ["1E33D85AD4F71FF6"]
+			tasks: [
+				{
+					id: "2D212B24067F407B"
+					type: "advancement"
+					advancement: "farmersdelight:main/plant_rice"
+					criterion: ""
+				},
+				{
+					id: "A04612AFDD92CB63"
+					type: "item"
+					item: "farmersdelight:cooked_rice"
+					count: 4L
+				}
+			]
+			rewards: [
+				{
+					id: "D16A1605056A4A37"
+					type: "xp"
+					xp: 80
+				}
+			]
+		}
+		{
+			x: 10.0d
+			y: 0.0d
+			id: "38E43F1191E24553"
+			title: "Tall-mato"
+			description: ["Grow a tomato vine up a rope and harvest it.", "", "Hang Rope above a planted tomato. The vine climbs it, grows taller and", "yields far more. Right-click a ripe vine to pick it without breaking it."]
+			dependencies: ["E183C1EB40DCD7C5"]
+			tasks: [
+				{
+					id: "AC358ACDB9BE0494"
+					type: "advancement"
+					advancement: "farmersdelight:main/harvest_ropelogged_tomato"
+					criterion: ""
+				}
+			]
+			rewards: [
+				{
+					id: "A530E67E5C99391C"
+					type: "xp"
+					xp: 100
+				}
+			]
+		}
+		{
+			x: 10.0d
+			y: 2.0d
+			id: "2927BFEBD79356D3"
+			title: "Fungus Among Us"
+			description: ["Grow a mushroom colony and shear it.", "", "Plant a mushroom on Rich Soil or Organic Compost in the dark. It grows", "into a colony block that regrows four mushrooms forever - shear it,", "do not break it, or you lose the colony."]
+			dependencies: ["38E43F1191E24553"]
+			tasks: [
+				{
+					id: "F872C930A233CE01"
+					type: "advancement"
+					advancement: "farmersdelight:main/get_mushroom_colony"
+					criterion: ""
+				},
+				{
+					id: "902A4947BE5BC7CD"
+					type: "item"
+					item: "farmersdelight:mushroom_rice"
+					count: 2L
+				}
+			]
+			rewards: [
+				{
+					id: "475A7CCC845538DC"
+					type: "xp"
+					xp: 100
+				}
+			]
+		}
+		{
+			x: 12.0d
+			y: 0.0d
+			id: "CAA831B2E4B156B0"
+			title: "Wild Butcher"
+			description: ["Get a Ham and smoke it.", "", "Hit a live pig or hoglin with a knife to carve off a Ham - it does not", "kill them. Smoke it for Smoked Ham, or glaze it in the pot with honey", "for a feast block."]
+			dependencies: ["2927BFEBD79356D3"]
+			tasks: [
+				{
+					id: "12FA8A19B1D4AC19"
+					type: "item"
+					item: "farmersdelight:ham"
+					count: 1L
+				},
+				{
+					id: "0E8EFAB3C5E2A856"
+					type: "item"
+					item: "farmersdelight:smoked_ham"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "8DE67E0EB005C48B"
+					type: "xp"
+					xp: 100
+				}
+			]
+		}
+		{
+			x: 12.0d
+			y: -2.0d
+			id: "994EC99A607D002D"
+			title: "Pasta"
+			description: ["Make dough, cut it into pasta, and plate a meal.", "", "Wheat plus a milk source makes Wheat Dough; a knife on the cutting", "board turns dough into Raw Pasta. Plated dishes need a bowl in the", "pot's container slot."]
+			dependencies: ["CAA831B2E4B156B0"]
+			tasks: [
+				{
+					id: "F9C01E944F394EDD"
+					type: "item"
+					item: "farmersdelight:wheat_dough"
+					count: 4L
+				},
+				{
+					id: "CC870814C39FD617"
+					type: "item"
+					item: "farmersdelight:raw_pasta"
+					count: 4L
+				},
+				{
+					id: "66B60F26F0E8050A"
+					type: "item"
+					item: "farmersdelight:pasta_with_meatballs"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "99B144217C2451DF"
+					type: "xp"
+					xp: 100
+				}
+			]
+		}
+		{
+			x: 14.0d
+			y: 0.0d
+			id: "3971774507135E45"
+			title: "A Glorious Feast"
+			description: ["Cook a Roast Chicken and a Honey Glazed Ham.", "", "Feasts are blocks, not items. Place one on a table and right-click with", "the container it names - bowl or plate - for four servings that grant", "Nourishment, which stops your food bar draining at all."]
+			dependencies: ["994EC99A607D002D"]
+			tasks: [
+				{
+					id: "53E77CAD75324DBE"
+					type: "item"
+					item: "farmersdelight:roast_chicken_block"
+					count: 1L
+				},
+				{
+					id: "2B0BFA69C23DDBAA"
+					type: "item"
+					item: "farmersdelight:honey_glazed_ham_block"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "C60898EC9915CB9D"
+					type: "xp"
+					xp: 140
+				}
+			]
+		}
+		{
+			x: 14.0d
+			y: 2.0d
+			id: "8234B95D29436CE1"
+			title: "Pastry"
+			description: ["Bake a Pie Crust, an Apple Pie and a Sweet Berry Cheesecake.", "", "The crust is three wheat around a milk source. Pies are placed blocks;", "cut them with any knife for four slices."]
+			dependencies: ["3971774507135E45"]
+			tasks: [
+				{
+					id: "1603A00450A85C16"
+					type: "item"
+					item: "farmersdelight:pie_crust"
+					count: 1L
+				},
+				{
+					id: "7B3FE3DD938B731E"
+					type: "item"
+					item: "farmersdelight:apple_pie"
+					count: 1L
+				},
+				{
+					id: "D438F8B707AE2F3C"
+					type: "item"
+					item: "farmersdelight:sweet_berry_cheesecake"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "C4816CC48B7C2F4D"
+					type: "xp"
+					xp: 120
+				}
+			]
+		}
+		{
+			x: 16.0d
+			y: 0.0d
+			id: "D05126C35AFE8D54"
+			title: "Master Chef"
+			description: ["Eat a course of every Farmer's Delight meal.", "", "Twenty-seven dishes, from Mixed Salad to Squid Ink Pasta. Open the", "cooking pot and use its recipe book to see what you are still missing.", "This is the mod's capstone and it takes a real farm to finish."]
+			dependencies: ["8234B95D29436CE1"]
+			tasks: [
+				{
+					id: "0E5A5E53C11B1CA1"
+					type: "advancement"
+					advancement: "farmersdelight:main/master_chef"
+					criterion: ""
+				}
+			]
+			rewards: [
+				{
+					id: "DCD095FDADB581D2"
+					type: "xp"
+					xp: 300
+				}
+			]
+		}
+		{
+			x: 16.0d
+			y: -2.0d
+			id: "B3FA938307636594"
+			title: "Sharper"
+			description: ["Upgrade the knife.", "", "Knives have their own mining tag - cobwebs, wool, leaves, plants - and", "swing fast enough to be a real sidearm. The netherite one costs a whole", "ingot, not a scrap."]
+			dependencies: ["D05126C35AFE8D54"]
+			tasks: [
+				{
+					id: "F50D90D86668D995"
+					type: "item"
+					item: "farmersdelight:iron_knife"
+					count: 1L
+				},
+				{
+					id: "E9AE6C735B0BF630"
+					type: "item"
+					item: "farmersdelight:diamond_knife"
+					count: 1L
+				},
+				{
+					id: "2A80ADB1232CD22E"
+					type: "item"
+					item: "farmersdelight:netherite_knife"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "7E94F0006CB17F95"
+					type: "xp"
+					xp: 140
+				}
+			]
+		}
+		{
+			x: 18.0d
+			y: 0.0d
+			id: "4DDA1DB95E1B6FE6"
+			title: "An Extra Seedy Place"
+			description: ["Break wild Croptopia plants for seeds, then grow three crops.", "", "Croptopia has no shop and no starter kit. All 46 crops begin as wild", "plants in specific biomes - hold a seed and read its tooltip to see", "which biomes will spawn it."]
+			dependencies: ["B3FA938307636594"]
+			tasks: [
+				{
+					id: "AEB062D7356F2739"
+					type: "advancement"
+					advancement: "croptopia:getseeds"
+					criterion: ""
+				},
+				{
+					id: "273D598F4A84C08F"
+					type: "item"
+					item: "croptopia:corn"
+					count: 1L
+				},
+				{
+					id: "E1C93ACD7D154F78"
+					type: "item"
+					item: "croptopia:tomato"
+					count: 1L
+				},
+				{
+					id: "5276FD8B8FD1673A"
+					type: "item"
+					item: "croptopia:strawberry"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "D294EB095FF88FDA"
+					type: "xp"
+					xp: 100
+				}
+			]
+		}
+		{
+			x: 18.0d
+			y: 2.0d
+			id: "AF0EA53C25D91C77"
+			title: "The Croptopia Kitchen"
+			description: ["Craft all five Croptopia kitchen tools.", "", "They are ingredients, not machines - a recipe lists the tool in the", "grid and hands it straight back. Frying Pan covers 56 recipes, Cooking", "Pot 38, Food Press 22. The Mortar and Knife cover a handful each."]
+			dependencies: ["4DDA1DB95E1B6FE6"]
+			tasks: [
+				{
+					id: "F0FE865F6C5E429B"
+					type: "item"
+					item: "croptopia:cooking_pot"
+					count: 1L
+				},
+				{
+					id: "4DBEA04AFDC6F7B8"
+					type: "item"
+					item: "croptopia:frying_pan"
+					count: 1L
+				},
+				{
+					id: "D7842403965DFA59"
+					type: "item"
+					item: "croptopia:food_press"
+					count: 1L
+				},
+				{
+					id: "68F64F04CE04B80A"
+					type: "item"
+					item: "croptopia:mortar_and_pestle"
+					count: 1L
+				},
+				{
+					id: "7C35EF24813BBB39"
+					type: "item"
+					item: "croptopia:knife"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "8887FBDF2C7C31D5"
+					type: "xp"
+					xp: 120
+				}
+			]
+		}
+		{
+			x: 20.0d
+			y: 0.0d
+			id: "1D0009E3F801BDCA"
+			title: "Forestree Territree"
+			description: ["Craft fruit saplings and plant an orchard.", "", "Any fruit plus an oak sapling gives that fruit's sapling. Grown trees", "sprout a crop block on the trunk - right-click it to pick the fruit;", "the tree keeps producing."]
+			dependencies: ["AF0EA53C25D91C77"]
+			tasks: [
+				{
+					id: "D08C8059CD4A0363"
+					type: "advancement"
+					advancement: "croptopia:getsapling"
+					criterion: ""
+				},
+				{
+					id: "767881450510E64C"
+					type: "item"
+					item: "croptopia:apple_sapling"
+					count: 1L
+				},
+				{
+					id: "CB850A6D082872BB"
+					type: "item"
+					item: "croptopia:orange_sapling"
+					count: 1L
+				},
+				{
+					id: "009D500A48DA0AE6"
+					type: "item"
+					item: "croptopia:banana_sapling"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "12D4C73C4848C1FE"
+					type: "xp"
+					xp: 120
+				}
+			]
+		}
+		{
+			x: 20.0d
+			y: -2.0d
+			id: "D074A67576B2E146"
+			title: "Salt And Cinnamon"
+			description: ["Mine salt and strip a cinnamon tree.", "", "Salt Ore generates as disks in river beds - dive and look down.", "You can also smelt a water bottle for salt if no river is near.", "Cinnamon trees grow in jungles; strip the log with an axe."]
+			dependencies: ["1D0009E3F801BDCA"]
+			tasks: [
+				{
+					id: "FAFCEB35E26A14ED"
+					type: "advancement"
+					advancement: "croptopia:salt"
+					criterion: ""
+				},
+				{
+					id: "7A2A1E864FEADE9A"
+					type: "item"
+					item: "croptopia:salt"
+					count: 8L
+				},
+				{
+					id: "4273E49C3611CA58"
+					type: "item"
+					item: "croptopia:cinnamon"
+					count: 4L
+				}
+			]
+			rewards: [
+				{
+					id: "73227ED3AA780E44"
+					type: "xp"
+					xp: 100
+				}
+			]
+		}
+		{
+			x: 22.0d
+			y: 0.0d
+			id: "F3BFE9E1DA732639"
+			title: "Larder Staples"
+			description: ["Produce flour, cheese, butter, olive oil and noodles.", "", "These five intermediates unlock most of Croptopia's 300 dishes.", "Flour is two grains in the grid, oil is olives through the Food Press,", "cheese is milk and salt in the Cooking Pot."]
+			dependencies: ["D074A67576B2E146"]
+			tasks: [
+				{
+					id: "4E9F10D715BF9F25"
+					type: "item"
+					item: "croptopia:flour"
+					count: 1L
+				},
+				{
+					id: "81D6A420524FA093"
+					type: "item"
+					item: "croptopia:cheese"
+					count: 1L
+				},
+				{
+					id: "E0320E9F6560C02F"
+					type: "item"
+					item: "croptopia:butter"
+					count: 1L
+				},
+				{
+					id: "5061B6EBF3830905"
+					type: "item"
+					item: "croptopia:olive_oil"
+					count: 1L
+				},
+				{
+					id: "1C16A7FB13C03DD3"
+					type: "item"
+					item: "croptopia:noodle"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "CD3979CD42AA2CBC"
+					type: "xp"
+					xp: 140
+				}
+			]
+		}
+		{
+			x: 22.0d
+			y: 2.0d
+			id: "811722BEFBA5BEA0"
+			title: "Fancy Water"
+			description: ["Brew wine, beer and coffee.", "", "All three are Food Press recipes with a glass bottle: two grapes for", "wine, hops and barley for beer, coffee beans for coffee.", "Eating Animation is installed - drinks now visibly tip up."]
+			dependencies: ["F3BFE9E1DA732639"]
+			tasks: [
+				{
+					id: "6F712CAA8B6CEBDC"
+					type: "advancement"
+					advancement: "croptopia:getdrinks"
+					criterion: ""
+				},
+				{
+					id: "925CC8AEB6588996"
+					type: "item"
+					item: "croptopia:wine"
+					count: 1L
+				},
+				{
+					id: "95B11510953E8552"
+					type: "item"
+					item: "croptopia:beer"
+					count: 1L
+				},
+				{
+					id: "5599AE590C74F492"
+					type: "item"
+					item: "croptopia:coffee"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "CB86FE11D15B2D01"
+					type: "xp"
+					xp: 120
+				}
+			]
+		}
+		{
+			x: 24.0d
+			y: 0.0d
 			id: "E50861B0685FA9E4"
 			title: "Out Of Season"
-			description: ["Grow and harvest a crop through a season change.", "", "Fabric Seasons is installed. Wheat, carrots and potatoes", "slow right down outside their season -- the calendar matters."]
-			dependencies: ["50E5D7AC096F475E"]
+			description: ["Grow and harvest a crop through a season change.", "", "Fabric Seasons runs 28-day seasons, 112 days to the year, overworld only.", "Crops grow fast in season, slow out of it, and some will not grow at all.", "Hold a seed and press the tooltip key for its per-season growth table."]
+			dependencies: ["811722BEFBA5BEA0"]
 			tasks: [
 				{
 					id: "F8C4135BC16AE442"
@@ -225,13 +806,100 @@
 				{
 					id: "7462181F66D5EAE2"
 					type: "xp"
-					xp: 80
+					xp: 100
+				}
+			]
+		}
+		{
+			x: 24.0d
+			y: -2.0d
+			id: "BAC1388D3124E9C4"
+			title: "Winter Stores"
+			description: ["Put food by before the cold.", "", "Winter stops most growth outright and snow buries unlit farmland.", "Jams keep indefinitely. Farmer's Delight crates hold nine of a crop in", "one block and uncraft back, which is how you store a harvest."]
+			dependencies: ["E50861B0685FA9E4"]
+			tasks: [
+				{
+					id: "8D5DC8406BCE1FEF"
+					type: "item"
+					item: "croptopia:grape_jam"
+					count: 2L
 				},
 				{
-					id: "005BA31E6FF5BDDA"
+					id: "FF4E1BF2EF7EC367"
+					type: "item"
+					item: "croptopia:strawberry_jam"
+					count: 2L
+				},
+				{
+					id: "78B3E2FD11618CF2"
+					type: "item"
+					item: "farmersdelight:carrot_crate"
+					count: 1L
+				},
+				{
+					id: "072151B438C48028"
+					type: "item"
+					item: "farmersdelight:onion_crate"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "078B722B657DB399"
+					type: "xp"
+					xp: 120
+				}
+			]
+		}
+		{
+			x: 26.0d
+			y: 0.0d
+			id: "49844142686B1EC9"
+			title: "Fully Stuffed"
+			description: ["Eat something made from five or more ingredients.", "", "Supreme Pizza, The Big Breakfast, a full Veggie Salad. Croptopia's deep", "recipes exist so that its 46 crops have somewhere to go."]
+			dependencies: ["BAC1388D3124E9C4"]
+			tasks: [
+				{
+					id: "CF64C7D6B1EB9086"
+					type: "advancement"
+					advancement: "croptopia:eatbig"
+					criterion: ""
+				}
+			]
+			rewards: [
+				{
+					id: "3F3EEB94C6B5BE09"
+					type: "xp"
+					xp: 160
+				}
+			]
+		}
+		{
+			x: 28.0d
+			y: 0.0d
+			id: "28862C2A0B9F60F6"
+			title: "Transcendental Breakfast"
+			description: ["Gather every ingredient for the Transcendental Breakfast.", "", "Mountain Salt, a Nether Star Cake, a Tuna Sandwich, a Dragon Egg", "Omelette, Cooked Ravager Meat and The Big Breakfast.", "The dragon egg is the hard part. There is one per world."]
+			dependencies: ["49844142686B1EC9"]
+			tasks: [
+				{
+					id: "DE02FE959BB6F7DE"
+					type: "advancement"
+					advancement: "croptopia:transcendental_breakfast"
+					criterion: ""
+				}
+			]
+			rewards: [
+				{
+					id: "FC46C5FB2F5F375E"
+					type: "xp"
+					xp: 400
+				},
+				{
+					id: "A5CE1AA5D4D267CD"
 					type: "command"
-					title: "2 Skill Points"
-					command: "/puffish_skills points add @p tree 2"
+					title: "1 Skill Point"
+					command: "/puffish_skills points add @p tree 1"
 					player_command: false
 				}
 			]

@@ -1,0 +1,725 @@
+{
+	id: "B6E33E699D7327B1"
+	group: "3B5CADE70BF7A16C"
+	icon: "supplementaries:notice_board"
+	default_quest_shape: ""
+	filename: "homestead"
+	title: "Homestead"
+	subtitle: ["A place worth coming back to"]
+	order_index: 2
+	quests: [
+		{
+			x: 0.0d
+			y: 0.0d
+			id: "398B4059B05B0277"
+			title: "Paper Work"
+			description: ["Craft a Decree.", "", "Paper, sticks, a gold ingot and purple dye. A blank decree becomes one", "trade type - farming, fishing, masonry, hunting - the first time a", "Bounty Board reads it. A board only offers what you have fed it."]
+			tasks: [
+				{
+					id: "1A1A8F2BDBEC5045"
+					type: "item"
+					item: "bountiful:decree"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "13837FF42CFA0935"
+					type: "xp"
+					xp: 60
+				}
+			]
+		}
+		{
+			x: 2.0d
+			y: 0.0d
+			id: "904683F06345BA14"
+			title: "Work For Hire"
+			description: ["Take a bounty off the board.", "", "Right-click the board, click a listing, and the contract goes into your", "inventory as a timed item. Right-click the board again to hand it in.", "Let the clock run out and it is void - the item stays as a receipt."]
+			dependencies: ["398B4059B05B0277"]
+			tasks: [
+				{
+					id: "1CC642626C0174BF"
+					type: "item"
+					item: "bountiful:bounty"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "FF73C71DD86C9B00"
+					type: "xp"
+					xp: 80
+				}
+			]
+		}
+		{
+			x: 2.0d
+			y: 2.0d
+			id: "A21F8828587C2A5A"
+			title: "A Full Board"
+			description: ["Feed three decrees into one board.", "", "More decrees means more bounty variety and a wider reward pool.", "Boards restock on their own. This is the pack's answer to running out", "of things to do."]
+			dependencies: ["904683F06345BA14"]
+			tasks: [
+				{
+					id: "4EC00C36AB826F8E"
+					type: "item"
+					item: "bountiful:decree"
+					count: 3L
+				}
+			]
+			rewards: [
+				{
+					id: "F301B93BAECB5798"
+					type: "xp"
+					xp: 100
+				}
+			]
+		}
+		{
+			x: 4.0d
+			y: 0.0d
+			id: "704196F693CD0ED6"
+			title: "The Bug Net"
+			description: ["Craft a Bug Net from bamboo and string.", "", "Right-click a butterfly, firefly, dragonfly, snail or caterpillar to", "catch it. Caught creatures become items you can carry, release, or", "put in a Supplementaries jar."]
+			dependencies: ["A21F8828587C2A5A"]
+			tasks: [
+				{
+					id: "7176AA423DE372D2"
+					type: "item"
+					item: "naturalist:bug_net"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "353357FB7D9F892D"
+					type: "xp"
+					xp: 60
+				}
+			]
+		}
+		{
+			x: 4.0d
+			y: -2.0d
+			id: "88A92A57D24F85E0"
+			title: "Metamorphosis"
+			description: ["Catch a caterpillar, then catch the butterfly it becomes.", "", "Release a caterpillar onto leaves. It spins a chrysalis and hatches", "into one of seven butterfly species. The chrysalis block only survives", "being collected with shears or Silk Touch."]
+			dependencies: ["704196F693CD0ED6"]
+			tasks: [
+				{
+					id: "4E8B3653CCBC0111"
+					type: "item"
+					item: "naturalist:caterpillar"
+					count: 1L
+				},
+				{
+					id: "286B18BFC063FAE9"
+					type: "item"
+					item: "naturalist:butterfly"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "1034EEFD92AA0DAF"
+					type: "xp"
+					xp: 100
+				}
+			]
+		}
+		{
+			x: 6.0d
+			y: 0.0d
+			id: "4E94060BB11E537B"
+			title: "Glow Goop"
+			description: ["Collect Glow Goop.", "", "Fireflies drop it, and smelting glow berries makes it too. Throw the", "raw goop to leave a glowing splat on a wall; cook it and it becomes", "spectral arrows."]
+			dependencies: ["88A92A57D24F85E0"]
+			tasks: [
+				{
+					id: "D236A0C48536E48D"
+					type: "item"
+					item: "naturalist:glow_goop"
+					count: 4L
+				}
+			]
+			rewards: [
+				{
+					id: "8BC2F8090BB90C34"
+					type: "xp"
+					xp: 80
+				}
+			]
+		}
+		{
+			x: 6.0d
+			y: 2.0d
+			id: "ECD36F5F051694D2"
+			title: "Venison"
+			description: ["Hunt deer and cook the meat.", "", "Deer bolt on sight, boars charge, and a brown bear will maul you if you", "walk between it and its cubs. Elephants, giraffes and rhinos drop", "Bushmeat instead, which cooks the same way."]
+			dependencies: ["4E94060BB11E537B"]
+			tasks: [
+				{
+					id: "B0C3B5B6CDF56A88"
+					type: "item"
+					item: "naturalist:venison"
+					count: 4L
+				},
+				{
+					id: "BC990C232667FB7F"
+					type: "item"
+					item: "naturalist:cooked_venison"
+					count: 4L
+				}
+			]
+			rewards: [
+				{
+					id: "A99ABE8D76BAF88C"
+					type: "xp"
+					xp: 100
+				}
+			]
+		}
+		{
+			x: 8.0d
+			y: 0.0d
+			id: "9353F994D99EC727"
+			title: "Honeycomb For A Bear"
+			description: ["Feed an adult brown bear a honeycomb.", "", "Drop the honeycomb on the ground beside it - the game watches the bear", "pick it up, not you right-clicking. Cubs do not count."]
+			dependencies: ["ECD36F5F051694D2"]
+			tasks: [
+				{
+					id: "53847DF2EA21B6C8"
+					type: "advancement"
+					advancement: "naturalist:husbandry/feed_bear_honeycomb"
+					criterion: ""
+				}
+			]
+			rewards: [
+				{
+					id: "832DB7D52C9F659F"
+					type: "xp"
+					xp: 120
+				}
+			]
+		}
+		{
+			x: 8.0d
+			y: -2.0d
+			id: "C1B13FA37AB38813"
+			title: "A Map On A Giraffe"
+			description: ["Ride a giraffe while holding a filled map.", "", "Giraffes spawn on savannas and are broken in and saddled like horses.", "Either hand works for the map."]
+			dependencies: ["9353F994D99EC727"]
+			tasks: [
+				{
+					id: "BE27277C29BE7CDA"
+					type: "advancement"
+					advancement: "naturalist:husbandry/ride_giraffe_with_map"
+					criterion: ""
+				}
+			]
+			rewards: [
+				{
+					id: "1E68C4459CEE7668"
+					type: "xp"
+					xp: 140
+				}
+			]
+		}
+		{
+			x: 10.0d
+			y: 0.0d
+			id: "F1953D5DD2E0E102"
+			title: "Shells"
+			description: ["Collect snail shells and craft Shellstone.", "", "Snails drop a shell about one time in ten. Two shells and two calcite", "in a checker pattern give eight Shellstone - a full building set with", "bricks, slabs, stairs, walls and a smooth variant."]
+			dependencies: ["C1B13FA37AB38813"]
+			tasks: [
+				{
+					id: "D53C47B4A0165492"
+					type: "item"
+					item: "naturalist:snail_shell"
+					count: 4L
+				},
+				{
+					id: "05DFEE04673922DF"
+					type: "item"
+					item: "naturalist:shellstone"
+					count: 8L
+				}
+			]
+			rewards: [
+				{
+					id: "DF9B3219B7E86C81"
+					type: "xp"
+					xp: 120
+				}
+			]
+		}
+		{
+			x: 10.0d
+			y: 2.0d
+			id: "F5E18604C1794819"
+			title: "Fur"
+			description: ["Take fur from bears and craft a Teddy Bear.", "", "Bears drop one or two Fur. The Teddy Bear is a block, and monsters", "give a wide berth to a child sleeping next to one."]
+			dependencies: ["F1953D5DD2E0E102"]
+			tasks: [
+				{
+					id: "791B72E53A01EA3E"
+					type: "item"
+					item: "naturalist:fur"
+					count: 4L
+				},
+				{
+					id: "9FA5023BFE7B5C4E"
+					type: "item"
+					item: "naturalist:teddy_bear"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "C99F9CA5CD6A8BAC"
+					type: "xp"
+					xp: 100
+				}
+			]
+		}
+		{
+			x: 12.0d
+			y: 0.0d
+			id: "EF23076E3A4F7535"
+			title: "The Notice Board"
+			description: ["Put up a Notice Board and a Sign Post.", "", "The board holds one book or map and shows it to anyone who clicks it.", "Sign posts attach to fences and point - right-click with a stick to", "rotate one, and each post carries text on both faces."]
+			dependencies: ["F5E18604C1794819"]
+			tasks: [
+				{
+					id: "16032A4E179F0282"
+					type: "item"
+					item: "supplementaries:notice_board"
+					count: 1L
+				},
+				{
+					id: "2C95504E0361FCC0"
+					type: "item"
+					item: "supplementaries:sign_post_oak"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "D38A32E9EC582BF4"
+					type: "xp"
+					xp: 80
+				}
+			]
+		}
+		{
+			x: 12.0d
+			y: -2.0d
+			id: "CFBB1D50CA02C7B2"
+			title: "Shelves And Jars"
+			description: ["Craft Item Shelves and Jars.", "", "Shelves put two items on a wall where you can grab them back.", "Jars hold one stackable item, or a fish, or a bug you netted, and you", "can see the contents from across the room."]
+			dependencies: ["EF23076E3A4F7535"]
+			tasks: [
+				{
+					id: "371C021EBD12E797"
+					type: "item"
+					item: "supplementaries:item_shelf"
+					count: 4L
+				},
+				{
+					id: "32DDB0B57BEC4470"
+					type: "item"
+					item: "supplementaries:jar"
+					count: 4L
+				}
+			]
+			rewards: [
+				{
+					id: "D11FB3608A8ACBEB"
+					type: "xp"
+					xp: 80
+				}
+			]
+		}
+		{
+			x: 14.0d
+			y: 0.0d
+			id: "11E56A1A0DA9BA36"
+			title: "Lock It"
+			description: ["Craft a Safe and a Key.", "", "Rename the key in an anvil first, then right-click the safe with it.", "Only a key with that exact name opens it again, and a safe keeps its", "contents when broken and carried away."]
+			dependencies: ["CFBB1D50CA02C7B2"]
+			tasks: [
+				{
+					id: "A61D08909F860B16"
+					type: "item"
+					item: "supplementaries:safe"
+					count: 1L
+				},
+				{
+					id: "C2E109FA56C821CB"
+					type: "item"
+					item: "supplementaries:key"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "3D99FA8732D0BEB9"
+					type: "xp"
+					xp: 100
+				}
+			]
+		}
+		{
+			x: 14.0d
+			y: 2.0d
+			id: "C82C3901C3EDA916"
+			title: "Light It"
+			description: ["Craft Candle Holders and Sconces.", "", "Both are cheap wall lights. Sconces can be lit and snuffed, and a", "Sconce Lever is a light source that is also a redstone switch.", "Amendments is installed, so lanterns and chains now swing when hung."]
+			dependencies: ["11E56A1A0DA9BA36"]
+			tasks: [
+				{
+					id: "EC9E9BD00E1B0655"
+					type: "item"
+					item: "supplementaries:candle_holder"
+					count: 4L
+				},
+				{
+					id: "6D1D7BCA3A2323DE"
+					type: "item"
+					item: "supplementaries:sconce"
+					count: 4L
+				}
+			]
+			rewards: [
+				{
+					id: "72A80585AD67D91C"
+					type: "xp"
+					xp: 80
+				}
+			]
+		}
+		{
+			x: 16.0d
+			y: 0.0d
+			id: "A7F8C1A14E64620E"
+			title: "Flax"
+			description: ["Find wild flax and farm it.", "", "Wild flax grows near water in plains and rivers. One flax crafts into", "one string, three make rope, and it is the base of awnings, sacks,", "doormats and fodder."]
+			dependencies: ["C82C3901C3EDA916"]
+			tasks: [
+				{
+					id: "C3D52DCAE35FCB29"
+					type: "item"
+					item: "supplementaries:flax_seeds"
+					count: 4L
+				},
+				{
+					id: "B1BA822B4D569B5F"
+					type: "item"
+					item: "supplementaries:flax"
+					count: 8L
+				}
+			]
+			rewards: [
+				{
+					id: "9C3C4C3F1D570843"
+					type: "xp"
+					xp: 100
+				}
+			]
+		}
+		{
+			x: 16.0d
+			y: -2.0d
+			id: "CB6691341FD240CA"
+			title: "The Lunch Basket"
+			description: ["Craft a Lunch Basket.", "", "A pocket container that only accepts food, and you can eat straight out", "of it without opening anything. Fill it with Farmer's Delight stews", "before a long voyage."]
+			dependencies: ["A7F8C1A14E64620E"]
+			tasks: [
+				{
+					id: "5692196ACB248663"
+					type: "item"
+					item: "supplementaries:lunch_basket"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "03E2474F54E99FA0"
+					type: "xp"
+					xp: 100
+				}
+			]
+		}
+		{
+			x: 18.0d
+			y: 0.0d
+			id: "5CFE608060C34CA3"
+			title: "Timber And Awnings"
+			description: ["Frame a building.", "", "Timber Frames overlay any block and take a wattle infill; sneak-click", "swaps the pattern. Awnings shelter a doorway and dye to any colour.", "Fodder feeds animals from a block instead of one item at a time."]
+			dependencies: ["CB6691341FD240CA"]
+			tasks: [
+				{
+					id: "399C9DCB25D92C99"
+					type: "item"
+					item: "supplementaries:timber_frame"
+					count: 8L
+				},
+				{
+					id: "260AA43DA36F1B03"
+					type: "item"
+					item: "supplementaries:awning"
+					count: 4L
+				},
+				{
+					id: "E3A34469992604CB"
+					type: "item"
+					item: "supplementaries:doormat"
+					count: 1L
+				},
+				{
+					id: "34A6856E886BE21C"
+					type: "item"
+					item: "supplementaries:fodder"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "E9F21F09A97FE92F"
+					type: "xp"
+					xp: 120
+				}
+			]
+		}
+		{
+			x: 20.0d
+			y: 0.0d
+			id: "138CC53BDE39CC16"
+			title: "No Longer Too Expensive"
+			description: ["Set up an anvil.", "", "Easy Anvils deletes the Too Expensive wall entirely and makes every", "rename free. Prior work adds a flat 4 levels instead of doubling.", "Sneak + right-click a name tag to rename it with no anvil at all,", "and repair a chipped anvil by clicking it with an iron block."]
+			dependencies: ["5CFE608060C34CA3"]
+			tasks: [
+				{
+					id: "3391D741FEB3457C"
+					type: "item"
+					item: "minecraft:anvil"
+					count: 1L
+				},
+				{
+					id: "20374EF3A967ED1F"
+					type: "item"
+					item: "minecraft:name_tag"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "228FEB6376761E31"
+					type: "xp"
+					xp: 80
+				}
+			]
+		}
+		{
+			x: 20.0d
+			y: 2.0d
+			id: "5225714D69D1D106"
+			title: "Reroll"
+			description: ["Build a full enchanting setup.", "", "Easy Magic names one enchantment up front and adds a Reroll button -", "one lapis and five experience points for a fresh set of three.", "Torches and carpets no longer block bookshelves, and chiseled", "bookshelves count if they face the table."]
+			dependencies: ["138CC53BDE39CC16"]
+			tasks: [
+				{
+					id: "116F793E2F8552FA"
+					type: "item"
+					item: "minecraft:enchanting_table"
+					count: 1L
+				},
+				{
+					id: "248E814F75DA5591"
+					type: "item"
+					item: "minecraft:bookshelf"
+					count: 15L
+				},
+				{
+					id: "B48B39CA971FA877"
+					type: "item"
+					item: "minecraft:lapis_lazuli"
+					count: 16L
+				}
+			]
+			rewards: [
+				{
+					id: "9F88F3E23251324D"
+					type: "xp"
+					xp: 120
+				}
+			]
+		}
+		{
+			x: 22.0d
+			y: 0.0d
+			id: "FD5D7AD20C3EF48D"
+			title: "Sharestones"
+			description: ["Craft a pair of Sharestones and a Warp Stone.", "", "Sharestones only link to other Sharestones of the same colour - a", "private network that ignores the public waystone list. The Warp Stone", "is reusable with a cooldown; scrolls are one shot."]
+			dependencies: ["5225714D69D1D106"]
+			tasks: [
+				{
+					id: "9FDD061DD449FC59"
+					type: "item"
+					item: "waystones:sharestone"
+					count: 2L
+				},
+				{
+					id: "F09A4E6533F681DE"
+					type: "item"
+					item: "waystones:warp_stone"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "E75CB9E2E35FBAE1"
+					type: "xp"
+					xp: 140
+				}
+			]
+		}
+		{
+			x: 22.0d
+			y: -2.0d
+			id: "08648E56D6C6CA8A"
+			title: "Scrolls"
+			description: ["Craft warp, return and bound scrolls.", "", "A Return Scroll takes you to your bed. A Warp Scroll opens the whole", "waystone list. A Bound Scroll is locked to one stone - sneak and use", "it on the waystone you want before it will do anything."]
+			dependencies: ["FD5D7AD20C3EF48D"]
+			tasks: [
+				{
+					id: "20344679E49C28E6"
+					type: "item"
+					item: "waystones:warp_scroll"
+					count: 4L
+				},
+				{
+					id: "37C176D3DBBCF319"
+					type: "item"
+					item: "waystones:return_scroll"
+					count: 4L
+				},
+				{
+					id: "F8CDD87AA2CB5113"
+					type: "item"
+					item: "waystones:bound_scroll"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "C49832CA29AB5CA7"
+					type: "xp"
+					xp: 120
+				}
+			]
+		}
+		{
+			x: 24.0d
+			y: 0.0d
+			id: "685434CD1DBAEC69"
+			title: "The Warp Plate"
+			description: ["Build a Warp Plate.", "", "Attune shards on the plate, then anything that steps on it is thrown to", "the linked waystone - players, mobs, dropped items. This is how you", "move cargo off an island without sailing it."]
+			dependencies: ["08648E56D6C6CA8A"]
+			tasks: [
+				{
+					id: "A153189B70F5F7C4"
+					type: "item"
+					item: "waystones:warp_plate"
+					count: 1L
+				},
+				{
+					id: "CD976C87D650BD27"
+					type: "item"
+					item: "waystones:attuned_shard"
+					count: 2L
+				}
+			]
+			rewards: [
+				{
+					id: "FB9B6717A96326EE"
+					type: "xp"
+					xp: 180
+				}
+			]
+		}
+		{
+			x: 26.0d
+			y: 0.0d
+			id: "38F9D51FC66B4D98"
+			title: "Pack Upgrades"
+			description: ["Upgrade the Traveler's Backpack.", "", "Tier upgrades go in a smithing table and add rows of slots. The", "crafting upgrade puts a 3x3 grid on your back; the smoker and blast", "furnace upgrades cook while you walk."]
+			dependencies: ["685434CD1DBAEC69"]
+			tasks: [
+				{
+					id: "A8DB2981D39B39A2"
+					type: "item"
+					item: "travelersbackpack:iron_tier_upgrade"
+					count: 1L
+				},
+				{
+					id: "D9C2614E2C0377B8"
+					type: "item"
+					item: "travelersbackpack:crafting_upgrade"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "634DDCB084BC28AE"
+					type: "xp"
+					xp: 160
+				}
+			]
+		}
+		{
+			x: 28.0d
+			y: 0.0d
+			id: "E076437A7ADDA195"
+			title: "Everything On Your Back"
+			description: ["Finish the backpack.", "", "Netherite tier, a magnet that pulls drops in, and a void upgrade that", "deletes whatever you blacklist. With the sleeping bag attached you", "never need to place a bed again."]
+			dependencies: ["38F9D51FC66B4D98"]
+			tasks: [
+				{
+					id: "1525FFECA1370072"
+					type: "item"
+					item: "travelersbackpack:netherite_tier_upgrade"
+					count: 1L
+				},
+				{
+					id: "620B7D8DDEE65A1C"
+					type: "item"
+					item: "travelersbackpack:magnet_upgrade"
+					count: 1L
+				},
+				{
+					id: "A63EF758F1BB8E48"
+					type: "item"
+					item: "travelersbackpack:void_upgrade"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "475C5736C54F72D4"
+					type: "xp"
+					xp: 300
+				},
+				{
+					id: "79F0406480AFF478"
+					type: "command"
+					title: "1 Skill Point"
+					command: "/puffish_skills points add @p tree 1"
+					player_command: false
+				}
+			]
+		}
+	]
+}

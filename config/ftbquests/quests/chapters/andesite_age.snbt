@@ -1,0 +1,578 @@
+{
+	id: "8BCD34CE3D5B9519"
+	group: "AB8CEE6310D5FD25"
+	icon: "create:andesite_alloy"
+	default_quest_shape: ""
+	filename: "andesite_age"
+	title: "Andesite Age"
+	subtitle: ["Create, from the first ingot"]
+	order_index: 17
+	quests: [
+		{
+			x: 0.0d
+			y: 0.0d
+			id: "0E0B985375A2E055"
+			title: "First Alloy"
+			description: ["Andesite Alloy is the backbone of every Create machine.", "", "Two Andesite and two Iron Nuggets, checkerboarded in a 2x2.", "Zinc Nuggets work in place of iron once you find zinc."]
+			tasks: [
+				{
+					id: "986EBA7F3AAC71B6"
+					type: "item"
+					item: "create:andesite_alloy"
+					count: 8L
+				}
+			]
+			rewards: [
+				{
+					id: "7424531F645812D6"
+					type: "xp"
+					xp: 40
+				}
+			]
+		}
+		{
+			x: 2.0d
+			y: 0.0d
+			id: "6F47B683CAF0542E"
+			title: "Wrench And Goggles"
+			description: ["The Wrench rotates kinetic blocks and, on sneak, picks them up", "without breaking them.", "", "Engineer's Goggles show speed, stress and machine contents.", "Wear them constantly. Nothing in Create explains itself without them."]
+			dependencies: ["0E0B985375A2E055"]
+			tasks: [
+				{
+					id: "E3743C42C2D963D8"
+					type: "item"
+					item: "create:wrench"
+					count: 1L
+				},
+				{
+					id: "F5EA25DC389E5787"
+					type: "item"
+					item: "create:goggles"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "7F312CBCD5C104EA"
+					type: "xp"
+					xp: 60
+				}
+			]
+		}
+		{
+			x: 4.0d
+			y: 0.0d
+			id: "07E0EE025742EB97"
+			title: "Shafts And Cogs"
+			description: ["Shafts carry rotation in a straight line. Cogwheels carry it", "sideways to another cog placed diagonally.", "", "Cheapest source of shafts: cut Andesite Alloy on a Mechanical Saw,", "six per alloy."]
+			dependencies: ["6F47B683CAF0542E"]
+			tasks: [
+				{
+					id: "2913604C95B43E20"
+					type: "item"
+					item: "create:shaft"
+					count: 8L
+				},
+				{
+					id: "C52F759631346452"
+					type: "item"
+					item: "create:cogwheel"
+					count: 4L
+				}
+			]
+			rewards: [
+				{
+					id: "8DE38F4946A24EBE"
+					type: "xp"
+					xp: 60
+				}
+			]
+		}
+		{
+			x: 6.0d
+			y: 0.0d
+			id: "AA609751C0B3F796"
+			title: "Shifting Gears"
+			description: ["Put a Large Cogwheel face to face with a small one.", "", "Large driving small doubles speed and halves torque.", "Small driving large does the reverse. This is your only gearbox", "until brass."]
+			dependencies: ["07E0EE025742EB97"]
+			tasks: [
+				{
+					id: "95A0F4EC8AE3E9B4"
+					type: "advancement"
+					advancement: "create:shifting_gears"
+					criterion: "0"
+				}
+			]
+			rewards: [
+				{
+					id: "70598B80B198FB10"
+					type: "xp"
+					xp: 80
+				}
+			]
+		}
+		{
+			x: 8.0d
+			y: 0.0d
+			id: "A928A0DF2CD82D06"
+			title: "Torque From Water"
+			description: ["Place a Water Wheel with flowing water hitting its side.", "", "More flowing faces means more torque. Water must flow, not sit.", "A Large Water Wheel is four times the output for less space."]
+			dependencies: ["AA609751C0B3F796"]
+			tasks: [
+				{
+					id: "EA677022C57DA1AE"
+					type: "advancement"
+					advancement: "create:water_wheel"
+					criterion: "0"
+				}
+			]
+			rewards: [
+				{
+					id: "9209A5C885AA8E57"
+					type: "xp"
+					xp: 80
+				}
+			]
+		}
+		{
+			x: 8.0d
+			y: -2.0d
+			id: "814919430FF7D982"
+			title: "A Mild Breeze"
+			description: ["Build a Windmill Bearing, attach at least eight Windmill Sails", "in front of it, then sneak-use the bearing to assemble.", "", "Sails must be on the contraption, not just nearby. Rain speeds it up."]
+			dependencies: ["A928A0DF2CD82D06"]
+			tasks: [
+				{
+					id: "17D0E2F2C558FECA"
+					type: "advancement"
+					advancement: "create:windmill"
+					criterion: "0"
+				}
+			]
+			rewards: [
+				{
+					id: "CF2D89BBC1CC613F"
+					type: "xp"
+					xp: 90
+				}
+			]
+		}
+		{
+			x: 10.0d
+			y: 0.0d
+			id: "26D32435D99C91DF"
+			title: "Andesite Casing"
+			description: ["Right-click a stripped log or stripped wood with Andesite Alloy.", "No crafting grid involved.", "", "Almost every andesite-tier machine is casing plus one more part."]
+			dependencies: ["814919430FF7D982"]
+			tasks: [
+				{
+					id: "68E234E588488B80"
+					type: "item"
+					item: "create:andesite_casing"
+					count: 8L
+				}
+			]
+			rewards: [
+				{
+					id: "F5C3D2E37B461A80"
+					type: "xp"
+					xp: 60
+				}
+			]
+		}
+		{
+			x: 12.0d
+			y: 0.0d
+			id: "8E92D9F01C388A83"
+			title: "The Press"
+			description: ["Shaft on top, Andesite Casing, Block of Iron underneath.", "", "Mount it one block above a Depot or a belt and it stamps", "whatever passes below into sheets."]
+			dependencies: ["26D32435D99C91DF"]
+			tasks: [
+				{
+					id: "030CFEA2678BAF35"
+					type: "advancement"
+					advancement: "create:mechanical_press"
+					criterion: "0"
+				}
+			]
+			rewards: [
+				{
+					id: "83B4C5A4E5FF406C"
+					type: "xp"
+					xp: 100
+				}
+			]
+		}
+		{
+			x: 14.0d
+			y: 0.0d
+			id: "156401F5C5AE0CCE"
+			title: "Belts, Funnels, Chutes"
+			description: ["A Mechanical Belt connects two shafts on the same axis and height.", "Funnels push items in and out of containers.", "Chutes do the same vertically, through solid blocks.", "", "Point a funnel with the Wrench if it faces the wrong way."]
+			dependencies: ["8E92D9F01C388A83"]
+			tasks: [
+				{
+					id: "FA90B9BD342610CF"
+					type: "advancement"
+					advancement: "create:belt"
+					criterion: "0"
+				},
+				{
+					id: "BAAD010CF487369E"
+					type: "advancement"
+					advancement: "create:funnel"
+					criterion: "0"
+				},
+				{
+					id: "002F6B75ED2FD8D5"
+					type: "advancement"
+					advancement: "create:chute"
+					criterion: "0"
+				}
+			]
+			rewards: [
+				{
+					id: "5AED5F190F7610C4"
+					type: "xp"
+					xp: 120
+				}
+			]
+		}
+		{
+			x: 16.0d
+			y: 0.0d
+			id: "CA59F2F556212317"
+			title: "The Mixer"
+			description: ["A Mechanical Mixer sits directly above a Basin.", "", "The Basin only ejects its result if a container, belt or depot sits", "one block below and one to the side. Otherwise it fills up and stalls."]
+			dependencies: ["156401F5C5AE0CCE"]
+			tasks: [
+				{
+					id: "69F27F5E9461C457"
+					type: "item"
+					item: "create:mechanical_mixer"
+					count: 1L
+				},
+				{
+					id: "AE957B6678EA74F3"
+					type: "item"
+					item: "create:basin"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "A36E4FBFDD279F3E"
+					type: "xp"
+					xp: 100
+				}
+			]
+		}
+		{
+			x: 16.0d
+			y: -2.0d
+			id: "F18C805BE68D3A69"
+			title: "The Millstone"
+			description: ["A Millstone grinds one item at a time, fed from above,", "and outputs to whatever is below or beside it.", "", "Slower than Crushing Wheels and no bonus drops, but it needs", "almost no power."]
+			dependencies: ["CA59F2F556212317"]
+			tasks: [
+				{
+					id: "4FBE728C7B12B5E6"
+					type: "advancement"
+					advancement: "create:millstone"
+					criterion: "0"
+				}
+			]
+			rewards: [
+				{
+					id: "AA6DFCE6160213B6"
+					type: "xp"
+					xp: 80
+				}
+			]
+		}
+		{
+			x: 18.0d
+			y: 0.0d
+			id: "43BFE08AF0AA7E99"
+			title: "Heat"
+			description: ["Craft an Empty Blaze Burner, take it to the Nether and use it", "on a Blaze to capture one.", "", "Feed it any furnace fuel to light it. A lit burner under a Basin", "unlocks heated recipes; Blaze Cake makes it superheated."]
+			dependencies: ["F18C805BE68D3A69"]
+			tasks: [
+				{
+					id: "D05A3EDA4A03DB33"
+					type: "item"
+					item: "create:blaze_burner"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "0C86A42E6610034B"
+					type: "xp"
+					xp: 140
+				}
+			]
+		}
+		{
+			x: 20.0d
+			y: 0.0d
+			id: "486B19792C94ECE2"
+			title: "Zinc"
+			description: ["Zinc Ore generates through the Overworld stone layers.", "", "Crush Raw Zinc rather than smelting it - crushing gives nuggets", "on top of the ingot."]
+			dependencies: ["43BFE08AF0AA7E99"]
+			tasks: [
+				{
+					id: "933570EE6F07FF26"
+					type: "item"
+					item: "create:zinc_ingot"
+					count: 8L
+				}
+			]
+			rewards: [
+				{
+					id: "42D6836B2E5DED4A"
+					type: "xp"
+					xp: 80
+				}
+			]
+		}
+		{
+			x: 22.0d
+			y: 0.0d
+			id: "675F4BA3ADD669EB"
+			title: "Brass"
+			description: ["One Copper Ingot and one Zinc Ingot in a heated Basin,", "mixed, gives two Brass Ingots.", "", "Heated means a lit Blaze Burner directly under the Basin.", "An unheated basin will simply refuse the recipe."]
+			dependencies: ["486B19792C94ECE2"]
+			tasks: [
+				{
+					id: "2980980DC5E4020E"
+					type: "advancement"
+					advancement: "create:brass"
+					criterion: "0"
+				}
+			]
+			rewards: [
+				{
+					id: "6F2D589D016CCB0C"
+					type: "xp"
+					xp: 160
+				}
+			]
+		}
+		{
+			x: 24.0d
+			y: 0.0d
+			id: "9E09E329E948A14B"
+			title: "Crushing Wheels"
+			description: ["Two wheels side by side, spinning towards each other.", "", "Drive them so they counter-rotate - a shaft through a Gearbox, or", "two cogs. Same direction and they jam. Items dropped between them", "are crushed with bonus ore output."]
+			dependencies: ["675F4BA3ADD669EB"]
+			tasks: [
+				{
+					id: "4C6841BD45A8CD19"
+					type: "advancement"
+					advancement: "create:crushing_wheel"
+					criterion: "0"
+				}
+			]
+			rewards: [
+				{
+					id: "7BB9317A1D86FF22"
+					type: "xp"
+					xp: 160
+				}
+			]
+		}
+		{
+			x: 24.0d
+			y: -2.0d
+			id: "F71E5E1338A24C1C"
+			title: "Bulk Washing"
+			description: ["An Encased Fan blowing through water, lava, fire or ice turns the", "air column in front of it into a processing zone.", "", "Run a belt through the column. Washing crushed ore is the single", "biggest early yield increase in the pack."]
+			dependencies: ["9E09E329E948A14B"]
+			tasks: [
+				{
+					id: "CD2BF668AD663F9E"
+					type: "advancement"
+					advancement: "create:fan_processing"
+					criterion: "0"
+				}
+			]
+			rewards: [
+				{
+					id: "D4C67CB932618964"
+					type: "xp"
+					xp: 140
+				}
+			]
+		}
+		{
+			x: 24.0d
+			y: 2.0d
+			id: "B1D2C4920DA85EB4"
+			title: "The Saw"
+			description: ["A Mechanical Saw pointing up cuts logs into planks and stone", "into slabs. Lying flat it doubles as a belt that cuts.", "", "On a moving contraption it fells whole trees."]
+			dependencies: ["F71E5E1338A24C1C"]
+			tasks: [
+				{
+					id: "FB27A96E21008922"
+					type: "advancement"
+					advancement: "create:saw_processing"
+					criterion: "0"
+				}
+			]
+			rewards: [
+				{
+					id: "9B8A6B5C69D1F7F0"
+					type: "xp"
+					xp: 120
+				}
+			]
+		}
+		{
+			x: 26.0d
+			y: 0.0d
+			id: "F1A4844C26284444"
+			title: "The Deployer"
+			description: ["A Deployer copies whatever you put in it - right-click it with an", "item to set what it holds.", "", "Aim it at a Depot or a belt. It is how you automate anything that", "normally needs a hand."]
+			dependencies: ["B1D2C4920DA85EB4"]
+			tasks: [
+				{
+					id: "FEB4FF730BE16395"
+					type: "advancement"
+					advancement: "create:deployer"
+					criterion: "0"
+				},
+				{
+					id: "C1116466D8F7887C"
+					type: "item"
+					item: "create:depot"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "E5EA37442E89F3C3"
+					type: "xp"
+					xp: 160
+				}
+			]
+		}
+		{
+			x: 28.0d
+			y: 0.0d
+			id: "D88BE1FB182BC750"
+			title: "Rose Quartz"
+			description: ["One Quartz plus eight Redstone Dust makes Rose Quartz.", "", "Polish it with Sand Paper: hold the sandpaper and use it while", "looking at the quartz on the ground, or let a Deployer do it.", "Polished Rose Quartz over an Iron Sheet gives an Electron Tube."]
+			dependencies: ["F1A4844C26284444"]
+			tasks: [
+				{
+					id: "8CEDE6F0615572BE"
+					type: "advancement"
+					advancement: "create:rose_quartz"
+					criterion: "0"
+				}
+			]
+			rewards: [
+				{
+					id: "4B6ED303317F6F57"
+					type: "xp"
+					xp: 140
+				}
+			]
+		}
+		{
+			x: 30.0d
+			y: -2.0d
+			id: "0076720C9F52C69D"
+			title: "Gearboxes And Clutches"
+			description: ["A Gearbox turns rotation around corners without cogs.", "A Clutch cuts the line on a redstone signal.", "A Gearshift reverses it instead.", "", "Never feed one network rotation from two directions - that is a", "stress fault and everything stops."]
+			dependencies: ["D88BE1FB182BC750"]
+			tasks: [
+				{
+					id: "ABF50C0297EB66CE"
+					type: "item"
+					item: "create:gearbox"
+					count: 1L
+				},
+				{
+					id: "53C0859438CDEB9B"
+					type: "item"
+					item: "create:clutch"
+					count: 1L
+				},
+				{
+					id: "845F09A85F52FF4C"
+					type: "item"
+					item: "create:gearshift"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "31A00A157CE55117"
+					type: "xp"
+					xp: 120
+				}
+			]
+		}
+		{
+			x: 30.0d
+			y: 2.0d
+			id: "7175EA5083FF8E8F"
+			title: "Reading Stress"
+			description: ["Place a Stressometer on the network and look at it in Goggles.", "", "Every machine costs stress units; every generator supplies them.", "Overstress it and the whole network locks."]
+			dependencies: ["0076720C9F52C69D"]
+			tasks: [
+				{
+					id: "42ADD877CC3AB365"
+					type: "advancement"
+					advancement: "create:stressometer"
+					criterion: "0"
+				}
+			]
+			rewards: [
+				{
+					id: "C14D198DF28F6F82"
+					type: "xp"
+					xp: 120
+				}
+			]
+		}
+		{
+			x: 30.0d
+			y: 0.0d
+			id: "C148A724236D872A"
+			title: "A Machine That Moves"
+			description: ["Super Glue a Drill, Saw or Harvester to a structure on a", "Mechanical Bearing, then sneak-use the bearing to assemble it.", "", "This is the whole point of Create: the machine moves, not the world."]
+			dependencies: ["7175EA5083FF8E8F"]
+			tasks: [
+				{
+					id: "37925E706BAC52A7"
+					type: "advancement"
+					advancement: "create:super_glue"
+					criterion: "0"
+				},
+				{
+					id: "9926D7BDE5322F99"
+					type: "advancement"
+					advancement: "create:contraption_actors"
+					criterion: "0"
+				}
+			]
+			rewards: [
+				{
+					id: "C25147A7B77DE0A8"
+					type: "xp"
+					xp: 220
+				},
+				{
+					id: "274664542B9A3F2E"
+					type: "command"
+					title: "1 Skill Point"
+					command: "/puffish_skills points add @p tree 1"
+					player_command: false
+				}
+			]
+		}
+	]
+}

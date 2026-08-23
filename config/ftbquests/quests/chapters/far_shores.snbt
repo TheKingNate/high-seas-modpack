@@ -1,0 +1,128 @@
+{
+	id: "02CBDCE282F36512"
+	group: "576D37503A70E241"
+	icon: "minecraft:crying_obsidian"
+	default_quest_shape: ""
+	filename: "far_shores"
+	title: "Far Shores"
+	subtitle: ["The other two skies"]
+	order_index: 34
+	quests: [
+		{
+			x: 0.0d
+			y: 0.0d
+			id: "3BA60BF95D7837B8"
+			title: "The Burning Coast"
+			description: ["Stand in an Incendium biome.", "", "Incendium rewrites the Nether into eight biomes: Infernal Dunes,", "Quartz Flats, Ash Barrens, Withered Forest, Volcanic Deltas, Weeping", "Valley, Inverted Forest and Toxic Heap. Each has its own mobs."]
+			tasks: [
+				{
+					id: "3E14D8AA4BCB45EC"
+					type: "biome"
+					biome: "#incendium:all_incendium_biomes"
+				}
+			]
+			rewards: [
+				{
+					id: "EBB3B633272E8DC0"
+					type: "xp"
+					xp: 100
+				}
+			]
+		}
+		{
+			x: 2.0d
+			y: 0.0d
+			id: "1235BFBB4FECE344"
+			title: "Piglin Village"
+			description: ["Find an Incendium piglin village.", "", "An actual settlement of piglin villagers -- blacksmith, butcher, farmer,", "lumberjack -- with houses worth looting. One of six 'lesser' Incendium", "structures; the others are the pipeline, quartz kitchen, ruined lab,", "abandoned tower and infernal altar."]
+			dependencies: ["3BA60BF95D7837B8"]
+			tasks: [
+				{
+					id: "CE362F1465C7B928"
+					type: "structure"
+					structure: "incendium:piglin_village"
+				}
+			]
+			rewards: [
+				{
+					id: "9B18D0B56EB71539"
+					type: "xp"
+					xp: 120
+				}
+			]
+		}
+		{
+			x: 4.0d
+			y: 0.0d
+			id: "3CC0D35462FD02A5"
+			title: "The Forbidden Castle"
+			description: ["Enter the Forbidden Castle.", "", "One of three 'greater' Incendium structures, in the Ash Barrens, held by", "a piglin garrison with Sentries. The other two are the Sanctum (illager,", "with a vault) and the Nether Reactor."]
+			dependencies: ["1235BFBB4FECE344"]
+			tasks: [
+				{
+					id: "D1F50037922B1C88"
+					type: "structure"
+					structure: "incendium:forbidden_castle"
+				}
+			]
+			rewards: [
+				{
+					id: "1DCCC5C82CA9B4E4"
+					type: "xp"
+					xp: 200
+				}
+			]
+		}
+		{
+			x: 6.0d
+			y: 0.0d
+			id: "EB7BB74391CCBDE1"
+			title: "Nullscape"
+			description: ["Stand in a Nullscape biome.", "", "Nullscape strips the End back to something bleak and enormous: Void", "Barrens, Shadowlands, Crystal Peaks. The outer islands are now a long", "haul with terrain worth crossing, not just filler."]
+			dependencies: ["3CC0D35462FD02A5"]
+			tasks: [
+				{
+					id: "7B2F1E2BD23222FE"
+					type: "biome"
+					biome: "#nullscape:all_nullscape_biomes"
+				}
+			]
+			rewards: [
+				{
+					id: "1F33979DC2C9C530"
+					type: "xp"
+					xp: 150
+				}
+			]
+		}
+		{
+			x: 8.0d
+			y: 0.0d
+			id: "C8CB4C3533DF9CEC"
+			title: "Bones At The Edge"
+			description: ["Find the Nullscape dragon skeleton.", "", "The one structure Nullscape adds, out past the main island. Structory", "Towers also puts an End Tower out there, and its Fortress Tower,", "Warped Outpost and Strange Outpost are in the Nether."]
+			dependencies: ["EB7BB74391CCBDE1"]
+			tasks: [
+				{
+					id: "20F3D8551D4A8CB0"
+					type: "structure"
+					structure: "nullscape:dragon_skeleton"
+				}
+			]
+			rewards: [
+				{
+					id: "B386A872128D21A7"
+					type: "xp"
+					xp: 250
+				},
+				{
+					id: "23E7E356CF0CBF80"
+					type: "command"
+					title: "1 Skill Point"
+					command: "/puffish_skills points add @p tree 1"
+					player_command: false
+				}
+			]
+		}
+	]
+}

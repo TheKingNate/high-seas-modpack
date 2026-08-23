@@ -1,0 +1,327 @@
+{
+	id: "688271FA64686183"
+	group: "3B5CADE70BF7A16C"
+	icon: "minecraft:spyglass"
+	default_quest_shape: ""
+	filename: "quality_of_life"
+	title: "Quality of Life"
+	subtitle: ["The mods with no items"]
+	order_index: 4
+	quests: [
+		{
+			x: 0.0d
+			y: 0.0d
+			id: "67DD9A0ACC8F3942"
+			title: "Look At Anything"
+			description: ["Jade draws a tooltip for whatever block or mob is under your crosshair.", "", "It reads tank contents, energy buffers, crop growth and mob health straight", "out of the block. Every machine in this cluster reports through it.", "", "Controls -> Jade -> Open Config turns individual lines on and off."]
+			tasks: [
+				{
+					id: "2E7ECB2B6629A950"
+					type: "checkmark"
+					title: "Read a machine's energy buffer off the Jade tooltip"
+				}
+			]
+			rewards: [
+				{
+					id: "839AE8923686B8AA"
+					type: "xp"
+					xp: 40
+				}
+			]
+		}
+		{
+			x: 2.0d
+			y: 0.0d
+			id: "439B273593C3458E"
+			title: "Look It Up"
+			description: ["Roughly Enough Items lists every item in the pack down the right edge.", "", "Left-click an item for its recipe. RIGHT-click it for what it is used in --", "that is the half people forget, and it is how you work forwards.", "", "Type @powah to filter by mod, #ingots to filter by tag."]
+			dependencies: ["67DD9A0ACC8F3942"]
+			tasks: [
+				{
+					id: "BAE64861BABF6304"
+					type: "checkmark"
+					title: "Find a recipe with REI, then right-click for its uses"
+				}
+			]
+			rewards: [
+				{
+					id: "70837802C1DC2D74"
+					type: "xp"
+					xp: 40
+				}
+			]
+		}
+		{
+			x: 2.0d
+			y: -2.0d
+			id: "C189FF8C98F660F3"
+			title: "Fix The Options Screen"
+			description: ["Two small mods that only matter because this pack is huge.", "", "Controlling adds a search box to Options -> Controls. Type an action name,", "or click the key field and press a key to see everything already bound to it.", "", "Mouse Tweaks: hold left-click and sweep across slots to move a row.", "Scroll the wheel over a slot to push items to the other container."]
+			dependencies: ["439B273593C3458E"]
+			tasks: [
+				{
+					id: "C30B736A4DD62D96"
+					type: "checkmark"
+					title: "Find a keybind conflict with Controlling's search"
+				}
+			]
+			rewards: [
+				{
+					id: "8EEC2634DC2CD8F6"
+					type: "xp"
+					xp: 40
+				}
+			]
+		}
+		{
+			x: 4.0d
+			y: 0.0d
+			id: "319F3671D3B6E7D9"
+			title: "Read The Hunger Bar"
+			description: ["AppleSkin overlays what a food will restore before you eat it.", "", "Ghost drumsticks are hunger. The darker bar behind them is SATURATION,", "which is the number that actually decides how long until you are hungry again.", "", "Held-item preview also shows on the exhaustion side, so you can see", "sprinting and swimming draining you."]
+			dependencies: ["C189FF8C98F660F3"]
+			tasks: [
+				{
+					id: "EDF2B7431367DC1A"
+					type: "checkmark"
+					title: "Compare the saturation of two different foods"
+				}
+			]
+			rewards: [
+				{
+					id: "C45CBD3A9317261D"
+					type: "xp"
+					xp: 40
+				}
+			]
+		}
+		{
+			x: 6.0d
+			y: 0.0d
+			id: "3100FDC4C1CF9712"
+			title: "Two Minimaps"
+			description: ["You are running two mapping systems and by default they overlap.", "", "Xaero's Minimap and Xaero's World Map are one pair; FTB Chunks ships its", "own minimap and full map. Pick one minimap and disable the other.", "", "Keep FTB Chunks' map: it is the only one that draws chunk claims."]
+			dependencies: ["319F3671D3B6E7D9"]
+			tasks: [
+				{
+					id: "82131749D1926A26"
+					type: "stat"
+					stat: "minecraft:walk_one_cm"
+					value: 300000
+				}
+			]
+			rewards: [
+				{
+					id: "D300317E6CE46082"
+					type: "xp"
+					xp: 80
+				}
+			]
+		}
+		{
+			x: 6.0d
+			y: 2.0d
+			id: "1F57DFA5876205B7"
+			title: "Generate It Early"
+			description: ["Terrain generating under you is what causes the stutter while sailing.", "Chunky builds it in advance.", "", "/chunky center 0 0 then /chunky radius 3000 then /chunky start.", "Track it with /chunky progress, stop it with /chunky pause -- it saves.", "", "It will saturate your CPU. Run it while you are not playing."]
+			dependencies: ["3100FDC4C1CF9712"]
+			tasks: [
+				{
+					id: "A73957031ACEBD48"
+					type: "checkmark"
+					title: "Finish a Chunky pregeneration task"
+				}
+			]
+			rewards: [
+				{
+					id: "8B0371F8107A372E"
+					type: "xp"
+					xp: 100
+				}
+			]
+		}
+		{
+			x: 8.0d
+			y: 0.0d
+			id: "27D36DAEDD5A42D5"
+			title: "Claim Your Ground"
+			description: ["Open the Claim Manager (Controls -> FTB Chunks) and left-click chunks.", "", "A claimed chunk stops other players breaking blocks or opening containers", "inside it. Your team shares the claim; allies can be let in per team.", "", "You get a fixed number of claims. Spend them on the base, not the ocean."]
+			dependencies: ["1F57DFA5876205B7"]
+			tasks: [
+				{
+					id: "240C248CEF5346B6"
+					type: "checkmark"
+					title: "Claim a chunk in the Claim Manager"
+				}
+			]
+			rewards: [
+				{
+					id: "664CDAED85E6D2F3"
+					type: "xp"
+					xp: 80
+				}
+			]
+		}
+		{
+			x: 8.0d
+			y: -2.0d
+			id: "1B34360A54C06418"
+			title: "Keep It Ticking"
+			description: ["SHIFT-click a claimed chunk in the Claim Manager to force-load it.", "", "Force-loaded chunks keep ticking when nobody is nearby. Without this every", "generator, quarry and farm in this cluster freezes the moment you sail off.", "", "Force-load allowance is far smaller than claim allowance. Cover the", "machine room, not the whole island."]
+			dependencies: ["27D36DAEDD5A42D5"]
+			tasks: [
+				{
+					id: "BD8904D8B756EC7A"
+					type: "checkmark"
+					title: "Force-load a chunk"
+				}
+			]
+			rewards: [
+				{
+					id: "D461ABD7D4ECCB24"
+					type: "xp"
+					xp: 100
+				}
+			]
+		}
+		{
+			x: 10.0d
+			y: 0.0d
+			id: "0C3A4533771ED722"
+			title: "Find Your Crew"
+			description: ["Open your inventory and click the My Team button in the sidebar.", "Create a Party -- you cannot make one from a command in this pack.", "", "Party members share quest progress, chunk claims and quest rewards.", "Ally another team from the same screen to let them past your claims.", "", "Essential adds a friends list and invites on top, if you use it."]
+			dependencies: ["1B34360A54C06418"]
+			tasks: [
+				{
+					id: "84EB1B910F4E93B0"
+					type: "checkmark"
+					title: "Create or join a party"
+				}
+			]
+			rewards: [
+				{
+					id: "AB1952D6228ECEEC"
+					type: "xp"
+					xp: 80
+				}
+			]
+		}
+		{
+			x: 12.0d
+			y: 0.0d
+			id: "99566CB606B318B4"
+			title: "Say Something"
+			description: ["Simple Voice Chat is proximity audio. Bind Push to Talk under", "Options -> Controls -> Voice Chat, then open the Voice Chat Menu", "to choose your microphone and test the level.", "", "Whisper shortens your range. Groups let a crew talk across the whole", "map -- which is the only sane way to run a ship with someone up the mast."]
+			dependencies: ["0C3A4533771ED722"]
+			tasks: [
+				{
+					id: "CEFE86B2E10913FC"
+					type: "checkmark"
+					title: "Talk to another player on voice chat"
+				}
+			]
+			rewards: [
+				{
+					id: "98BB1F168D692C9F"
+					type: "xp"
+					xp: 60
+				}
+			]
+		}
+		{
+			x: 14.0d
+			y: 0.0d
+			id: "8C84C5715A2B78D1"
+			title: "See Past The Horizon"
+			description: ["Distant Horizons renders low-detail terrain far beyond your render distance.", "On an ocean pack that is the difference between sailing blind and seeing land.", "", "Set VANILLA render distance low and DH's LOD distance high. That pairing", "is the whole point -- raising both just costs you the framerate twice.", "", "DH can only draw chunks that have been generated, so pregenerate first."]
+			dependencies: ["99566CB606B318B4"]
+			tasks: [
+				{
+					id: "825929690C1099B6"
+					type: "checkmark"
+					title: "Enable Distant Horizons and set a far LOD distance"
+				}
+			]
+			rewards: [
+				{
+					id: "1956DCCB4D708CBC"
+					type: "xp"
+					xp: 80
+				}
+			]
+		}
+		{
+			x: 14.0d
+			y: 2.0d
+			id: "E711E0DF1E8100AF"
+			title: "Turn On The Light"
+			description: ["Iris loads shaders. The pack ships Complementary Reimagined in", "shaderpacks/, and Euphoria Patches is installed to extend it.", "", "Options -> Video Settings -> Shader Packs.", "", "If the framerate collapses, lower the shader's own profile before you", "touch render distance. Shaders cost far more than chunks do."]
+			dependencies: ["8C84C5715A2B78D1"]
+			tasks: [
+				{
+					id: "2DF886274BA09B8D"
+					type: "checkmark"
+					title: "Enable a shader pack"
+				}
+			]
+			rewards: [
+				{
+					id: "6F9F94E4C6A65DB4"
+					type: "xp"
+					xp: 60
+				}
+			]
+		}
+		{
+			x: 16.0d
+			y: 0.0d
+			id: "AD9F7788B6DC94A8"
+			title: "When It Stutters"
+			description: ["Sodium replaces the renderer, Lithium the server tick, ModernFix the load", "path, Entity Culling and ImmediatelyFast the draw calls. All already on.", "", "When it still stutters: F3 shows chunk updates and memory pressure.", "Sodium's own options are under Video Settings, and Reese's Sodium Options", "exposes sliders vanilla hides.", "", "Do not remove these to 'debug' a problem. They are not the problem."]
+			dependencies: ["E711E0DF1E8100AF"]
+			tasks: [
+				{
+					id: "FFB8367A3568CB40"
+					type: "checkmark"
+					title: "Open Sodium's video settings and check your frame time"
+				}
+			]
+			rewards: [
+				{
+					id: "E8EEDDA3743DDCFC"
+					type: "xp"
+					xp: 40
+				}
+			]
+		}
+		{
+			x: 16.0d
+			y: -2.0d
+			id: "DF6F3C14CEAA7A8D"
+			title: "Packs You Never Enabled"
+			description: ["Global Packs loads datapacks from globalpacks/datapacks/ into every world", "you make, so pack-wide loot and worldgen apply without per-save fiddling.", "", "BlazeandCave's Advancements Pack rides in this way.", "", "/datapack list will show them. If one is missing, that folder is where to look."]
+			dependencies: ["AD9F7788B6DC94A8"]
+			tasks: [
+				{
+					id: "20204ED5BC4165DA"
+					type: "checkmark"
+					title: "Run /datapack list and find a global pack"
+				}
+			]
+			rewards: [
+				{
+					id: "1C852DEE34CB469C"
+					type: "xp"
+					xp: 40
+				},
+				{
+					id: "8223FC2D7EA0B4F3"
+					type: "command"
+					title: "1 Skill Point"
+					command: "/puffish_skills points add @p tree 1"
+					player_command: false
+				}
+			]
+		}
+	]
+}

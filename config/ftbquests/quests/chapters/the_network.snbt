@@ -1,76 +1,158 @@
 {
 	id: "B5C1707AECEC05B2"
 	group: "AB8CEE6310D5FD25"
-	icon: "minecraft:redstone"
+	icon: "ae2:controller"
 	default_quest_shape: ""
 	filename: "the_network"
 	title: "The Network"
-	subtitle: ["Your half"]
-	order_index: 7
+	subtitle: ["Matter as data"]
+	order_index: 27
 	quests: [
 		{
 			x: 0.0d
 			y: 0.0d
-			id: "3D57E293066B57C1"
-			title: "Certus"
-			description: ["Collect 16 certus quartz."]
+			id: "5D59A1650A8574BB"
+			title: "Crank The Charger"
+			description: ["AE2 starts with one machine. The Charger is 8 iron and 2 copper and", "needs no power at all if you crank it.", "", "Place a Wooden Crank against its side and right-click the crank. Put", "a Book in the Charger and it comes out as the AE2 Guide."]
 			tasks: [
 				{
-					id: "E236CBEF12705CE0"
+					id: "145DD4A6176C24D8"
 					type: "item"
-					item: "ae2:certus_quartz_crystal"
-					count: 16L
+					item: "ae2:charger"
+					count: 1L
+				},
+				{
+					id: "FF500DF2E3365727"
+					type: "item"
+					item: "ae2:crank"
+					count: 1L
+				},
+				{
+					id: "A744179372E87970"
+					type: "item"
+					item: "ae2:guide"
+					count: 1L
 				}
 			]
 			rewards: [
 				{
-					id: "3C41F744A24FF48F"
+					id: "3E6DAF0365484240"
 					type: "xp"
-					xp: 40
+					xp: 60
 				}
 			]
 		}
 		{
 			x: 2.0d
 			y: 0.0d
-			id: "7FB88DD604B85344"
-			title: "Controller"
-			description: ["Craft an ME Controller."]
-			dependencies: ["3D57E293066B57C1"]
+			id: "516FDC0E7E6BE4E6"
+			title: "Needle For Sky Iron"
+			description: ["There is no certus quartz ore in the ground any more. All of it comes", "from meteorites, and meteorites are buried.", "", "Charge a vanilla Compass in the Charger. The Meteorite Compass points", "at the nearest one and spins when you stand on top of it."]
+			dependencies: ["5D59A1650A8574BB"]
 			tasks: [
 				{
-					id: "2C80B7A3F92C22F5"
+					id: "09783A2232368934"
 					type: "item"
-					item: "ae2:controller"
+					item: "ae2:meteorite_compass"
 					count: 1L
 				}
 			]
 			rewards: [
 				{
-					id: "9C0E8B9EEEC702A2"
+					id: "5CC2E3811C0F6022"
 					type: "xp"
-					xp: 100
+					xp: 60
 				}
 			]
 		}
 		{
 			x: 4.0d
 			y: 0.0d
-			id: "C1E6F2A7B126B828"
-			title: "Wireless"
-			description: ["Craft a wireless terminal."]
-			dependencies: ["7FB88DD604B85344"]
+			id: "4907FF36261AF47D"
+			title: "Fallen Sky"
+			description: ["Dig down where the compass spins. Sky Stone is very blast resistant", "but a plain pickaxe breaks it fine.", "", "The hut inside holds a Sky Stone Chest. Do not blast the crater open -", "explosions destroy the chest and everything in it."]
+			dependencies: ["516FDC0E7E6BE4E6"]
 			tasks: [
 				{
-					id: "9B47F5A0806FBB03"
+					id: "79CD390CA7DA969A"
 					type: "item"
-					item: "ae2:wireless_terminal"
+					item: "ae2:sky_stone_block"
+					count: 16L
+				}
+			]
+			rewards: [
+				{
+					id: "D952D1AA4E48E388"
+					type: "xp"
+					xp: 80
+				}
+			]
+		}
+		{
+			x: 4.0d
+			y: -2.0d
+			id: "5A4A45B34668C877"
+			title: "Unknown Technology"
+			description: ["The four Inscriber Presses exist only in meteorite chests. They are", "never consumed, so one of each is all you will ever need.", "", "Loot meteorites until you have all four. The compass keeps pointing at", "the next nearest one once you leave the first."]
+			dependencies: ["4907FF36261AF47D"]
+			tasks: [
+				{
+					id: "40B4D5EA5F013C74"
+					type: "item"
+					item: "ae2:silicon_press"
+					count: 1L
+				},
+				{
+					id: "A4E69A094638DD46"
+					type: "item"
+					item: "ae2:logic_processor_press"
+					count: 1L
+				},
+				{
+					id: "1D33DE8CFA086A74"
+					type: "item"
+					item: "ae2:calculation_processor_press"
+					count: 1L
+				},
+				{
+					id: "5BAB15B5DEF4D718"
+					type: "item"
+					item: "ae2:engineering_processor_press"
 					count: 1L
 				}
 			]
 			rewards: [
 				{
-					id: "BDF8090F3F1887B4"
+					id: "162AF8E5EADEBCFB"
+					type: "xp"
+					xp: 200
+				}
+			]
+		}
+		{
+			x: 6.0d
+			y: 0.0d
+			id: "C4A6E08D6E97397E"
+			title: "First Crystals"
+			description: ["Certus Quartz Clusters grow on the budding blocks in the meteorite.", "Break the clusters, not the budding block underneath.", "", "Charge a crystal in the Charger for Charged Certus Quartz - the reagent", "in nearly every AE2 in-world recipe."]
+			dependencies: ["5A4A45B34668C877"]
+			tasks: [
+				{
+					id: "B0ED6BEAF02E7E66"
+					type: "item"
+					item: "ae2:certus_quartz_crystal"
+					count: 16L
+				},
+				{
+					id: "9F2C958F8F3EEFB7"
+					type: "item"
+					item: "ae2:charged_certus_quartz_crystal"
+					count: 4L
+				}
+			]
+			rewards: [
+				{
+					id: "D3FF8AF934E41156"
 					type: "xp"
 					xp: 80
 				}
@@ -78,21 +160,34 @@
 		}
 		{
 			x: 6.0d
-			y: 0.0d
-			id: "85E553955F7AC688"
-			title: "Autocraft"
-			description: ["Autocraft something with more than one step."]
-			dependencies: ["C1E6F2A7B126B828"]
+			y: 2.0d
+			id: "70C4D17F1B2A964B"
+			title: "Seed The Budding"
+			description: ["A budding block degrades one step each time a cluster is harvested,", "and mining one only ever drops the tier below it. Never mine them.", "", "Grow your own: throw Charged Certus Quartz and a Certus Quartz Block", "into water for Damaged Budding, repeat to step it up to Flawed.", "Growth Accelerators placed against the block speed the buds, on FE."]
+			dependencies: ["C4A6E08D6E97397E"]
 			tasks: [
 				{
-					id: "F1D598027A1CFA37"
-					type: "checkmark"
-					title: "Autocraft a multi-step recipe"
+					id: "EAB2925EEFB0753D"
+					type: "item"
+					item: "ae2:damaged_budding_quartz"
+					count: 1L
+				},
+				{
+					id: "63023857259BB09D"
+					type: "item"
+					item: "ae2:flawed_budding_quartz"
+					count: 1L
+				},
+				{
+					id: "DC16C977AE3C1363"
+					type: "item"
+					item: "ae2:growth_accelerator"
+					count: 4L
 				}
 			]
 			rewards: [
 				{
-					id: "3B3DE42D9C6B4D51"
+					id: "009DA9FF84902CE2"
 					type: "xp"
 					xp: 150
 				}
@@ -101,58 +196,1133 @@
 		{
 			x: 8.0d
 			y: 0.0d
-			id: "7BBE903275ACB994"
-			title: "Reactor"
-			description: ["Build a Powah reactor."]
-			dependencies: ["85E553955F7AC688"]
+			id: "99E16B7E489FBD54"
+			title: "Fluix"
+			description: ["Fluix is the alloy that makes a network work. Throw a Charged Certus", "Quartz, a Redstone and a Nether Quartz into any water block.", "", "The items transform where they float. Do it in a hole so the drops", "cannot wash away downstream."]
+			dependencies: ["70C4D17F1B2A964B"]
 			tasks: [
 				{
-					id: "05320B618C833D37"
+					id: "783BE09E0CB23E4B"
 					type: "item"
-					item: "powah:reactor_starter"
-					count: 36L
+					item: "ae2:fluix_crystal"
+					count: 8L
 				}
 			]
 			rewards: [
 				{
-					id: "63380E10F05A7123"
+					id: "820AF10291D10AB8"
 					type: "xp"
-					xp: 200
+					xp: 80
 				}
 			]
 		}
 		{
 			x: 10.0d
 			y: 0.0d
-			id: "7E7A903247411719"
-			title: "Grid"
-			description: ["Move power across a distance with Flux Networks."]
-			dependencies: ["7BBE903275ACB994"]
+			id: "F572A6B7C315EDB0"
+			title: "The Inscriber"
+			description: ["The Inscriber has a top, middle and bottom slot and runs on FE - feed", "it from an Energy Acceptor, or hand-crank it early.", "", "Grind Certus Quartz in the middle slot for dust, then blast the dust", "into Silicon. Sky Stone in the middle gives Sky Stone Dust."]
+			dependencies: ["99E16B7E489FBD54"]
 			tasks: [
 				{
-					id: "909D5D01A5E477BA"
+					id: "65FE92D28C405F54"
 					type: "item"
-					item: "fluxnetworks:flux_plug"
+					item: "ae2:inscriber"
 					count: 1L
 				},
 				{
-					id: "53CC0CF8F5F65319"
+					id: "D942141B5BC22C09"
 					type: "item"
-					item: "fluxnetworks:flux_point"
+					item: "ae2:silicon"
+					count: 8L
+				}
+			]
+			rewards: [
+				{
+					id: "6FB1DE45C8CCAEB2"
+					type: "xp"
+					xp: 100
+				}
+			]
+		}
+		{
+			x: 12.0d
+			y: 0.0d
+			id: "25177B5DEB03BDEB"
+			title: "Printed Circuits"
+			description: ["Press mode: press on top, material in the middle, nothing else.", "Silicon Press + silicon, Logic Press + gold, Calculation Press +", "certus quartz, Engineering Press + diamond.", "", "Prints are half-finished. They are not processors yet."]
+			dependencies: ["F572A6B7C315EDB0"]
+			tasks: [
+				{
+					id: "5E2E238943B15295"
+					type: "item"
+					item: "ae2:printed_silicon"
+					count: 1L
+				},
+				{
+					id: "C2EF5F57210DDB68"
+					type: "item"
+					item: "ae2:printed_logic_processor"
+					count: 1L
+				},
+				{
+					id: "8776AEB666564C89"
+					type: "item"
+					item: "ae2:printed_calculation_processor"
+					count: 1L
+				},
+				{
+					id: "13689F15DC8AE405"
+					type: "item"
+					item: "ae2:printed_engineering_processor"
 					count: 1L
 				}
 			]
 			rewards: [
 				{
-					id: "D68C52B395128859"
+					id: "DAE38127FB337F79"
 					type: "xp"
 					xp: 120
+				}
+			]
+		}
+		{
+			x: 12.0d
+			y: -2.0d
+			id: "C9FB21043C527B2D"
+			title: "Bigger Machines"
+			description: ["AE2Things adds two upgrades to the grind. The Advanced Inscriber keeps", "its press loaded and buffers input, so it runs unattended.", "", "The Crystal Growth Chamber takes a budding block and turns power into", "Certus Quartz Crystals - no clusters, no degradation."]
+			dependencies: ["25177B5DEB03BDEB"]
+			tasks: [
+				{
+					id: "744B451F7BE73EEF"
+					type: "item"
+					item: "ae2things:advanced_inscriber"
+					count: 1L
 				},
 				{
-					id: "7986DAF793529794"
+					id: "6022749A4C378E41"
+					type: "item"
+					item: "ae2things:crystal_growth"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "040F58F2F819293B"
+					type: "xp"
+					xp: 150
+				}
+			]
+		}
+		{
+			x: 14.0d
+			y: 0.0d
+			id: "ED6E11609A40B87A"
+			title: "Three Processors"
+			description: ["A full processor uses all three slots at once: printed circuit on top,", "redstone in the middle, Printed Silicon on the bottom.", "", "Everything from here eats these by the stack. Build a row of Inscribers", "before you start hand-feeding one."]
+			dependencies: ["C9FB21043C527B2D"]
+			tasks: [
+				{
+					id: "870E36ACA2772025"
+					type: "item"
+					item: "ae2:logic_processor"
+					count: 8L
+				},
+				{
+					id: "C69A8B636F6C8FAA"
+					type: "item"
+					item: "ae2:calculation_processor"
+					count: 8L
+				},
+				{
+					id: "C561201394052578"
+					type: "item"
+					item: "ae2:engineering_processor"
+					count: 8L
+				}
+			]
+			rewards: [
+				{
+					id: "6E2695E56B837E8F"
+					type: "xp"
+					xp: 150
+				}
+			]
+		}
+		{
+			x: 16.0d
+			y: 0.0d
+			id: "0AC5E3CD4C40B46E"
+			title: "Cable And Channel"
+			description: ["ME Glass Cable carries 8 channels. Every terminal, drive, bus and", "monitor eats one; cables, anchors and facades eat none.", "", "The Energy Acceptor is how outside FE enters the network. Point Powah", "or Create at it and the whole system runs off that."]
+			dependencies: ["ED6E11609A40B87A"]
+			tasks: [
+				{
+					id: "760A2D2944591E71"
+					type: "item"
+					item: "ae2:fluix_glass_cable"
+					count: 16L
+				},
+				{
+					id: "F7F91C7D86D68F9B"
+					type: "item"
+					item: "ae2:energy_acceptor"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "CB21FFB889CA5952"
+					type: "xp"
+					xp: 100
+				}
+			]
+		}
+		{
+			x: 16.0d
+			y: 2.0d
+			id: "3D5EFDB9A9FBD2D5"
+			title: "Diagnostics"
+			description: ["The Network Tool clips into any AE2 machine screen and reports the", "whole network: channels used, power draw, device counts.", "", "The Memory Card copies bus settings - shift-right-click the configured", "one to copy, right-click the rest to paste."]
+			dependencies: ["0AC5E3CD4C40B46E"]
+			tasks: [
+				{
+					id: "7CB24A715186CC37"
+					type: "item"
+					item: "ae2:network_tool"
+					count: 1L
+				},
+				{
+					id: "450B5D5074CDF9E8"
+					type: "item"
+					item: "ae2:memory_card"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "6A0FF37648BA7AC7"
+					type: "xp"
+					xp: 80
+				}
+			]
+		}
+		{
+			x: 18.0d
+			y: 0.0d
+			id: "265B5ED37F7213D6"
+			title: "The Controller"
+			description: ["With no Controller a network is ad-hoc and capped at 8 channels total.", "Each Controller block face supplies 32.", "", "Controllers must form a connected cluster no larger than 7x7x7 and no", "2x2x2 solid cube. Dense cable carries 32; smart cable shows the load."]
+			dependencies: ["3D5EFDB9A9FBD2D5"]
+			tasks: [
+				{
+					id: "A7F4E29918424376"
+					type: "item"
+					item: "ae2:controller"
+					count: 4L
+				},
+				{
+					id: "ECC9FA77339A37A8"
+					type: "item"
+					item: "ae2:fluix_smart_dense_cable"
+					count: 4L
+				}
+			]
+			rewards: [
+				{
+					id: "E9772025BD88E1E7"
+					type: "xp"
+					xp: 150
+				}
+			]
+		}
+		{
+			x: 20.0d
+			y: 0.0d
+			id: "E406771FE5FCAB11"
+			title: "The Terminal"
+			description: ["The ME Terminal is the window into storage: Formation Core,", "Annihilation Core, Logic Processor and an Illuminated Panel.", "", "It is a cable part, not a block. Hold it and right-click the side of a", "cable to attach it."]
+			dependencies: ["265B5ED37F7213D6"]
+			tasks: [
+				{
+					id: "1330DB0CE803B418"
+					type: "item"
+					item: "ae2:terminal"
+					count: 1L
+				},
+				{
+					id: "F7A801726ADE9918"
+					type: "item"
+					item: "ae2:monitor"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "0082CEC89FBA6B66"
+					type: "xp"
+					xp: 100
+				}
+			]
+		}
+		{
+			x: 22.0d
+			y: 0.0d
+			id: "D78E339E42207D71"
+			title: "Somewhere To Put It"
+			description: ["The ME Drive holds ten storage cells. A 1k cell is 1024 bytes, one", "byte per 8 items of a type it already stores.", "", "Types are the expensive part - each new item type costs 8 bytes up", "front. Do not dump 63 kinds of junk into a 1k cell."]
+			dependencies: ["E406771FE5FCAB11"]
+			tasks: [
+				{
+					id: "96C2C78766272FE3"
+					type: "item"
+					item: "ae2:drive"
+					count: 1L
+				},
+				{
+					id: "B636979B7C5864E9"
+					type: "item"
+					item: "ae2:item_storage_cell_1k"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "138D5593064BEC20"
+					type: "xp"
+					xp: 120
+				}
+			]
+		}
+		{
+			x: 22.0d
+			y: -2.0d
+			id: "7A5E747E408CA103"
+			title: "DISK Drives"
+			description: ["AE2Things DISKs keep their contents in world save data instead of item", "NBT, so they never bloat a stack or lag a server.", "", "Craft a DISK Housing and a 1k DISK Drive; they slot into a normal ME", "Drive. A lost DISK can be recovered by an operator from its UUID."]
+			dependencies: ["D78E339E42207D71"]
+			tasks: [
+				{
+					id: "FBE7FEE63583B9B8"
+					type: "item"
+					item: "ae2things:disk_housing"
+					count: 1L
+				},
+				{
+					id: "B9A15844C352A828"
+					type: "item"
+					item: "ae2things:disk_drive_1k"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "E768CFC5FBBD6C5A"
+					type: "xp"
+					xp: 150
+				}
+			]
+		}
+		{
+			x: 24.0d
+			y: 0.0d
+			id: "85FD05020DA47777"
+			title: "Denser Cells"
+			description: ["Cells step 1k, 4k, 16k, 64k, 256k. Each tier is the previous storage", "component surrounded by a fresh housing.", "", "Every tier still holds only 63 item types. The tier buys capacity, not", "variety - that is what more cells are for."]
+			dependencies: ["7A5E747E408CA103"]
+			tasks: [
+				{
+					id: "5BC45724E29F4286"
+					type: "item"
+					item: "ae2:item_storage_cell_4k"
+					count: 1L
+				},
+				{
+					id: "57BAA25B05067752"
+					type: "item"
+					item: "ae2:item_storage_cell_16k"
+					count: 1L
+				},
+				{
+					id: "A08E24D259E56948"
+					type: "item"
+					item: "ae2:item_storage_cell_64k"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "78E04E4350B0C9B2"
+					type: "xp"
+					xp: 150
+				}
+			]
+		}
+		{
+			x: 24.0d
+			y: 2.0d
+			id: "E5B73318669A14C7"
+			title: "Moving Cells"
+			description: ["The ME IO Port empties cells into the network or fills them from it.", "It is the only sane way to migrate to a bigger tier.", "", "The Cell Workbench partitions a cell to a fixed item list. A View Cell", "filters what a terminal shows without touching storage."]
+			dependencies: ["85FD05020DA47777"]
+			tasks: [
+				{
+					id: "09F729B4459BC63D"
+					type: "item"
+					item: "ae2:io_port"
+					count: 1L
+				},
+				{
+					id: "3B8EF11B2A3E0427"
+					type: "item"
+					item: "ae2:cell_workbench"
+					count: 1L
+				},
+				{
+					id: "B2F90C4B4CED99B6"
+					type: "item"
+					item: "ae2:view_cell"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "BB9A2A697DD3523B"
+					type: "xp"
+					xp: 120
+				}
+			]
+		}
+		{
+			x: 26.0d
+			y: 0.0d
+			id: "5BF0C45A0D06E8D4"
+			title: "Buses"
+			description: ["Three parts do all the I/O. Import Bus pulls from the block it faces", "into the network. Export Bus pushes the other way. Storage Bus makes", "that block part of the network as though it were a cell.", "", "Each costs a channel. Filter them or they will move everything you own."]
+			dependencies: ["E5B73318669A14C7"]
+			tasks: [
+				{
+					id: "904D765F5FFF6185"
+					type: "item"
+					item: "ae2:import_bus"
+					count: 1L
+				},
+				{
+					id: "75F6BBF5CB56F024"
+					type: "item"
+					item: "ae2:export_bus"
+					count: 1L
+				},
+				{
+					id: "99E404B8EE17F6B8"
+					type: "item"
+					item: "ae2:storage_bus"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "8F48510A1E559589"
+					type: "xp"
+					xp: 150
+				}
+			]
+		}
+		{
+			x: 26.0d
+			y: 2.0d
+			id: "0560A43CE92841E8"
+			title: "Recursive Networking"
+			description: ["Place a Storage Bus on an ME Interface.", "", "This is how a subnet reads the main network's stock. Point one at its", "own interface instead and you have built a genuine infinite loop."]
+			dependencies: ["5BF0C45A0D06E8D4"]
+			tasks: [
+				{
+					id: "74DB7C328ABCED52"
+					type: "advancement"
+					advancement: "ae2:main/recursive"
+					criterion: "recursive"
+				}
+			]
+			rewards: [
+				{
+					id: "3C6FB7412978C45A"
+					type: "xp"
+					xp: 120
+				}
+			]
+		}
+		{
+			x: 26.0d
+			y: -2.0d
+			id: "B7E691D5BAF91507"
+			title: "Upgrade Cards"
+			description: ["Every bus and machine has upgrade slots. Acceleration multiplies speed,", "Capacity adds filter slots, Fuzzy ignores damage and NBT.", "", "A Crafting Card on an Export Bus makes it request autocrafting instead", "of stalling when stock runs dry."]
+			dependencies: ["0560A43CE92841E8"]
+			tasks: [
+				{
+					id: "C3C2CBE5B871E1B6"
+					type: "item"
+					item: "ae2:speed_card"
+					count: 4L
+				},
+				{
+					id: "EC5D424F0D58C04C"
+					type: "item"
+					item: "ae2:capacity_card"
+					count: 1L
+				},
+				{
+					id: "C392B87781D73735"
+					type: "item"
+					item: "ae2:fuzzy_card"
+					count: 1L
+				},
+				{
+					id: "4D1A08E8BD82C4DE"
+					type: "item"
+					item: "ae2:crafting_card"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "2D9883CD3CDD5E58"
+					type: "xp"
+					xp: 120
+				}
+			]
+		}
+		{
+			x: 28.0d
+			y: 0.0d
+			id: "64A5858908C0E785"
+			title: "Crafting Terminal"
+			description: ["A terminal with a 3x3 grid that pulls ingredients straight out of the", "network - a Logic Processor away from the plain one.", "", "Shift-click the result to craft as many as your stock allows."]
+			dependencies: ["B7E691D5BAF91507"]
+			tasks: [
+				{
+					id: "C73794D76ACB7F5E"
+					type: "item"
+					item: "ae2:crafting_terminal"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "1CFEC93631D97D82"
+					type: "xp"
+					xp: 100
+				}
+			]
+		}
+		{
+			x: 30.0d
+			y: 0.0d
+			id: "F477DB6BE370D6AB"
+			title: "Patterns"
+			description: ["The Pattern Encoding Terminal writes Blank Patterns. Crafting patterns", "are made by assemblers; processing patterns describe a real machine.", "", "The Pattern Access Terminal lists every provider on the network so you", "can edit patterns without walking to them."]
+			dependencies: ["64A5858908C0E785"]
+			tasks: [
+				{
+					id: "95A817474951B308"
+					type: "item"
+					item: "ae2:pattern_encoding_terminal"
+					count: 1L
+				},
+				{
+					id: "561B0F7380D0465A"
+					type: "item"
+					item: "ae2:blank_pattern"
+					count: 16L
+				},
+				{
+					id: "F5620D4CAD07A164"
+					type: "item"
+					item: "ae2:pattern_access_terminal"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "91DBE0F4078182DC"
+					type: "xp"
+					xp: 150
+				}
+			]
+		}
+		{
+			x: 32.0d
+			y: 0.0d
+			id: "01C0613469170A4F"
+			title: "The Assembler Line"
+			description: ["A Pattern Provider pushes ingredients into whatever block touches it.", "Surround one with Molecular Assemblers and it becomes a crafting cell.", "", "Assemblers only run crafting patterns. Processing patterns must be", "aimed at the machine that actually does the work."]
+			dependencies: ["F477DB6BE370D6AB"]
+			tasks: [
+				{
+					id: "32C1C48357110C84"
+					type: "item"
+					item: "ae2:pattern_provider"
+					count: 2L
+				},
+				{
+					id: "1DBB255D2A3D1ED3"
+					type: "item"
+					item: "ae2:molecular_assembler"
+					count: 4L
+				}
+			]
+			rewards: [
+				{
+					id: "7EC6CECA7F6CBF70"
+					type: "xp"
+					xp: 200
+				}
+			]
+		}
+		{
+			x: 34.0d
+			y: 0.0d
+			id: "E595FD97D1DDD910"
+			title: "A Real CPU"
+			description: ["Autocrafting needs a CPU: a solid rectangle of Crafting Units with at", "least one Crafting Storage in it, touching the network.", "", "Co-Processing Units add parallel threads. The Crafting Monitor shows", "the current job. Storage size caps how large a job can be."]
+			dependencies: ["01C0613469170A4F"]
+			tasks: [
+				{
+					id: "375E5E7FFE522603"
+					type: "item"
+					item: "ae2:crafting_unit"
+					count: 4L
+				},
+				{
+					id: "9250042EFE6FA3AB"
+					type: "item"
+					item: "ae2:1k_crafting_storage"
+					count: 1L
+				},
+				{
+					id: "7590FA750BAF756D"
+					type: "item"
+					item: "ae2:crafting_accelerator"
+					count: 2L
+				},
+				{
+					id: "661013EAFFB05592"
+					type: "item"
+					item: "ae2:crafting_monitor"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "A3EF0B9B9B3C16CA"
+					type: "xp"
+					xp: 250
+				}
+			]
+		}
+		{
+			x: 36.0d
+			y: 0.0d
+			id: "E7DF780F1918917B"
+			title: "Eight Channels"
+			description: ["Run eight channel-using devices on one network at the same time.", "", "If parts go dark on a smart cable you are out of channels. Add a", "Controller face, or move the load onto a subnet."]
+			dependencies: ["E595FD97D1DDD910"]
+			tasks: [
+				{
+					id: "24690A683348A2BB"
+					type: "advancement"
+					advancement: "ae2:main/network1"
+					criterion: "cable"
+				}
+			]
+			rewards: [
+				{
+					id: "0D82445C93E27F8A"
+					type: "xp"
+					xp: 150
+				}
+			]
+		}
+		{
+			x: 38.0d
+			y: 0.0d
+			id: "F6900833678EEC7E"
+			title: "Cut The Cord"
+			description: ["The Wireless Access Point costs a channel and power and projects a", "signal. Wireless Boosters slotted into it multiply the radius.", "", "The Wireless Terminal arrives empty - charge it in a Charger or it", "will not open."]
+			dependencies: ["E7DF780F1918917B"]
+			tasks: [
+				{
+					id: "E99FEA1D008EA2FD"
+					type: "item"
+					item: "ae2:wireless_access_point"
+					count: 1L
+				},
+				{
+					id: "12551DA12F1E67F6"
+					type: "item"
+					item: "ae2:wireless_terminal"
+					count: 1L
+				},
+				{
+					id: "48DB4DE1D65455E3"
+					type: "item"
+					item: "ae2:wireless_booster"
+					count: 4L
+				}
+			]
+			rewards: [
+				{
+					id: "1ED6FCE8179C17E6"
+					type: "xp"
+					xp: 200
+				}
+			]
+		}
+		{
+			x: 38.0d
+			y: 2.0d
+			id: "96F62A2AE697FFA6"
+			title: "Universal Terminal"
+			description: ["AE2WTLib folds every wireless terminal into one item - combine the", "crafting, pattern access and pattern encoding versions into it.", "", "The Magnet Card sends picked-up items straight to storage, but it does", "nothing until you set its mode with the Magnet Card hotkey."]
+			dependencies: ["F6900833678EEC7E"]
+			tasks: [
+				{
+					id: "E555E66B3EB02717"
+					type: "item"
+					item: "ae2wtlib:wireless_universal_terminal"
+					count: 1L
+				},
+				{
+					id: "0FDB3BB2A0776853"
+					type: "item"
+					item: "ae2wtlib:magnet_card"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "0EAA6BBECFE59575"
+					type: "xp"
+					xp: 200
+				}
+			]
+		}
+		{
+			x: 38.0d
+			y: -2.0d
+			id: "F8C04EF2CEE4A9D9"
+			title: "Watch The Numbers"
+			description: ["An ME Storage Monitor locks to one item and prints its count on the", "cable. A Conversion Monitor also lets you click stacks in and out.", "", "A Level Emitter sends redstone when stock crosses a threshold. This is", "the standard way to gate a machine on how much you already have."]
+			dependencies: ["96F62A2AE697FFA6"]
+			tasks: [
+				{
+					id: "4190FAD2A6B535E2"
+					type: "item"
+					item: "ae2:storage_monitor"
+					count: 1L
+				},
+				{
+					id: "FACD88073B04C635"
+					type: "item"
+					item: "ae2:conversion_monitor"
+					count: 1L
+				},
+				{
+					id: "D1CA65F9AC9787C6"
+					type: "item"
+					item: "ae2:level_emitter"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "40585A3BB8BB437F"
+					type: "xp"
+					xp: 150
+				}
+			]
+		}
+		{
+			x: 40.0d
+			y: 0.0d
+			id: "86E4FB681CAEA219"
+			title: "Point To Point"
+			description: ["A P2P Tunnel pair carries an entire cable's worth of traffic through", "one channel of the network it is riding on.", "", "Attune a tunnel by right-clicking it with the thing it should carry,", "then bind with a Memory Card: shift-click input, click each output."]
+			dependencies: ["F8C04EF2CEE4A9D9"]
+			tasks: [
+				{
+					id: "9FB20DC2B4AF4087"
+					type: "item"
+					item: "ae2:me_p2p_tunnel"
+					count: 4L
+				}
+			]
+			rewards: [
+				{
+					id: "580C60842F79CCD9"
+					type: "xp"
+					xp: 200
+				}
+			]
+		}
+		{
+			x: 42.0d
+			y: 0.0d
+			id: "6722D69E963C4A70"
+			title: "Quantum Bridge"
+			description: ["Eight Quantum Rings around one Quantum Link Chamber form a wireless", "bridge between two networks. Both ends need power.", "", "Blow up a Singularity with Ender Dust to get an entangled pair, then", "put one half in each link chamber."]
+			dependencies: ["86E4FB681CAEA219"]
+			tasks: [
+				{
+					id: "3289D956711F59D7"
+					type: "item"
+					item: "ae2:quantum_ring"
+					count: 8L
+				},
+				{
+					id: "1175D9BD85840FE9"
+					type: "item"
+					item: "ae2:quantum_link"
+					count: 1L
+				},
+				{
+					id: "56DBADC0F605B3AC"
+					type: "item"
+					item: "ae2:quantum_entangled_singularity"
+					count: 2L
+				}
+			]
+			rewards: [
+				{
+					id: "50B8C9AAF06B6185"
+					type: "xp"
+					xp: 300
+				}
+			]
+		}
+		{
+			x: 42.0d
+			y: -2.0d
+			id: "030AED221338C91F"
+			title: "Unlimited Range"
+			description: ["The Quantum Bridge Card slots into any AE2WTLib wireless terminal.", "", "With a live quantum bridge on the network the terminal works at any", "distance and across dimensions - no access points, no boosters."]
+			dependencies: ["6722D69E963C4A70"]
+			tasks: [
+				{
+					id: "BA4E3B5455745155"
+					type: "item"
+					item: "ae2wtlib:quantum_bridge_card"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "96F7F05F85D5A7FF"
+					type: "xp"
+					xp: 200
+				}
+			]
+		}
+		{
+			x: 44.0d
+			y: 0.0d
+			id: "A467219ECE2B8E7E"
+			title: "The Condenser"
+			description: ["The Matter Condenser destroys items for value: 256 of anything makes", "a Matter Ball, 256,000 makes a Singularity.", "", "It needs a storage cell in its slot before it will accept input. Feed", "it with a Storage Bus and it becomes your trash can."]
+			dependencies: ["030AED221338C91F"]
+			tasks: [
+				{
+					id: "8DC1023CF8569235"
+					type: "item"
+					item: "ae2:condenser"
+					count: 1L
+				},
+				{
+					id: "6C6B1B580C61F75A"
+					type: "item"
+					item: "ae2:matter_ball"
+					count: 4L
+				},
+				{
+					id: "95E15891F500F0E4"
+					type: "item"
+					item: "ae2:singularity"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "750B2AB118B23739"
+					type: "xp"
+					xp: 250
+				}
+			]
+		}
+		{
+			x: 46.0d
+			y: 0.0d
+			id: "6352931C6009EB9D"
+			title: "Spatial Storage"
+			description: ["Spatial IO stores a region of blocks in a cell. Build a frame of", "Spatial Pylons around the volume and wire them to the Spatial IO Port.", "", "A 2-cube cell moves 2x2x2 blocks. The swap costs an enormous burst of", "power, so charge energy cells before you pull the lever."]
+			dependencies: ["A467219ECE2B8E7E"]
+			tasks: [
+				{
+					id: "815A469C77CC602F"
+					type: "item"
+					item: "ae2:spatial_io_port"
+					count: 1L
+				},
+				{
+					id: "580C8C54807863CC"
+					type: "item"
+					item: "ae2:spatial_pylon"
+					count: 6L
+				},
+				{
+					id: "98EE78ADC3BCB728"
+					type: "item"
+					item: "ae2:spatial_storage_cell_2"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "933CCFDF049CE620"
+					type: "xp"
+					xp: 250
+				}
+			]
+		}
+		{
+			x: 48.0d
+			y: 0.0d
+			id: "2D4F34D43123A746"
+			title: "To Boldly Go"
+			description: ["Be inside a region when it is stored in a spatial cell.", "", "The pocket dimension is a real place with your blocks in it. Bring a", "way out, or a friend at the IO Port."]
+			dependencies: ["6352931C6009EB9D"]
+			tasks: [
+				{
+					id: "C98F3D706E5851A4"
+					type: "advancement"
+					advancement: "ae2:main/spatial_explorer"
+					criterion: "explorer"
+				}
+			]
+			rewards: [
+				{
+					id: "4B030758BE7B7826"
+					type: "xp"
+					xp: 300
+				}
+			]
+		}
+		{
+			x: 48.0d
+			y: -2.0d
+			id: "42E2A74A8CCA9733"
+			title: "Spatial Anchor"
+			description: ["A Spatial Anchor keeps every chunk its network touches loaded, and", "charges power per chunk for the privilege.", "", "Compact the network first. The 128-cube cell is the largest region", "AE2 can move at once."]
+			dependencies: ["2D4F34D43123A746"]
+			tasks: [
+				{
+					id: "9A96DE43047B3444"
+					type: "item"
+					item: "ae2:spatial_anchor"
+					count: 1L
+				},
+				{
+					id: "AEBBE6E59F1F3BD2"
+					type: "item"
+					item: "ae2:spatial_storage_cell_128"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "D84D2029DCF1090B"
+					type: "xp"
+					xp: 250
+				}
+			]
+		}
+		{
+			x: 50.0d
+			y: 0.0d
+			id: "07EA038C247904A4"
+			title: "Sky Steel"
+			description: ["MEGA Cells opens with an in-world transform like fluix, but hotter.", "Throw Charged Certus Quartz, an Iron Ingot and a Sky Stone block", "into lava.", "", "Two Sky Steel Ingots float back out. Nothing in MEGA works without them."]
+			dependencies: ["42E2A74A8CCA9733"]
+			tasks: [
+				{
+					id: "F274D8CC5B5AA525"
+					type: "item"
+					item: "megacells:sky_steel_ingot"
+					count: 8L
+				}
+			]
+			rewards: [
+				{
+					id: "20512695C9A843F0"
+					type: "xp"
+					xp: 200
+				}
+			]
+		}
+		{
+			x: 52.0d
+			y: 0.0d
+			id: "FB79B10E51336EB7"
+			title: "Accumulation"
+			description: ["The Accumulation Press is inscribed, not looted: Engineering Press on", "top, a Singularity in the middle, Calculation Press on the bottom.", "", "Press Sky Steel with it for a print, then inscribe print + fluix dust", "+ printed silicon into an Accumulation Processor."]
+			dependencies: ["07EA038C247904A4"]
+			tasks: [
+				{
+					id: "1DEF2365F07CF943"
+					type: "item"
+					item: "megacells:accumulation_processor_press"
+					count: 1L
+				},
+				{
+					id: "4B3C53B8B53D1AC4"
+					type: "item"
+					item: "megacells:accumulation_processor"
+					count: 4L
+				}
+			]
+			rewards: [
+				{
+					id: "06918F0233030EA8"
+					type: "xp"
+					xp: 300
+				}
+			]
+		}
+		{
+			x: 54.0d
+			y: 0.0d
+			id: "EA8450CDEA3A5D96"
+			title: "MEGA Cells"
+			description: ["MEGA cells run 1M to 256M bytes on the same 63 type limit. A 1M", "component is a 256k component ring around Vibrant Quartz Glass.", "", "The ME Cell Dock holds a single cell as a cable part - dock a portable", "cell there to drain it into the network."]
+			dependencies: ["FB79B10E51336EB7"]
+			tasks: [
+				{
+					id: "8ABB0F2986F94EB6"
+					type: "item"
+					item: "megacells:cell_component_1m"
+					count: 1L
+				},
+				{
+					id: "CA61F2C4435172C1"
+					type: "item"
+					item: "megacells:item_storage_cell_1m"
+					count: 1L
+				},
+				{
+					id: "EB4A5C341C858A4B"
+					type: "item"
+					item: "megacells:cell_dock"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "E514CAEAB9DC245C"
+					type: "xp"
+					xp: 250
+				}
+			]
+		}
+		{
+			x: 54.0d
+			y: -2.0d
+			id: "FA05C35C33ECAB75"
+			title: "MEGA Crafting"
+			description: ["MEGA Crafting Units replace AE2's for very large jobs, and one MEGA", "Co-Processing Unit is worth four normal accelerators.", "", "The MEGA Pattern Provider is a plain provider plus an Accumulation", "Processor, and holds far more patterns."]
+			dependencies: ["EA8450CDEA3A5D96"]
+			tasks: [
+				{
+					id: "9DAD183A0464B460"
+					type: "item"
+					item: "megacells:mega_crafting_unit"
+					count: 1L
+				},
+				{
+					id: "158EF50E6DE7B6CE"
+					type: "item"
+					item: "megacells:1m_crafting_storage"
+					count: 1L
+				},
+				{
+					id: "6C543DC5A179DFF8"
+					type: "item"
+					item: "megacells:mega_crafting_accelerator"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "A8799DCAAB460023"
+					type: "xp"
+					xp: 300
+				}
+			]
+		}
+		{
+			x: 56.0d
+			y: 0.0d
+			id: "91C35922482A5F85"
+			title: "Bulk Storage"
+			description: ["A MEGA Bulk Item Cell holds one item type in unlimited quantity.", "", "Partition it in a Cell Workbench first - an unpartitioned bulk cell", "locks onto whatever lands in it first. A Compression Card makes it", "store an entire compression chain as a single type."]
+			dependencies: ["FA05C35C33ECAB75"]
+			tasks: [
+				{
+					id: "A1F5A9FDB370FE22"
+					type: "item"
+					item: "megacells:bulk_item_cell"
+					count: 1L
+				},
+				{
+					id: "24235E6EE49DBCEE"
+					type: "item"
+					item: "megacells:compression_card"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "56E85613D1ACA72A"
+					type: "xp"
+					xp: 300
+				}
+			]
+		}
+		{
+			x: 58.0d
+			y: 0.0d
+			id: "DBB1A584B848B24D"
+			title: "Network Engineer"
+			description: ["Run 128 channels at once on one network.", "", "That means a real Controller, dense cable trunks, and P2P or subnets", "everywhere the count would otherwise blow out."]
+			dependencies: ["91C35922482A5F85"]
+			tasks: [
+				{
+					id: "38F22C2326820D5B"
+					type: "advancement"
+					advancement: "ae2:main/network2"
+					criterion: "cable"
+				}
+			]
+			rewards: [
+				{
+					id: "29532BA01608174F"
+					type: "xp"
+					xp: 400
+				},
+				{
+					id: "2F1A93B76D924093"
 					type: "command"
-					title: "2 Skill Points"
-					command: "/puffish_skills points add @p tree 2"
+					title: "1 Skill Point"
+					command: "/puffish_skills points add @p tree 1"
 					player_command: false
 				}
 			]

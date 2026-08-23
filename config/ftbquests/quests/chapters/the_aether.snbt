@@ -1,12 +1,12 @@
 {
 	id: "E29268CB224C5D2A"
-	group: "923242509E887B15"
+	group: "576D37503A70E241"
 	icon: "aether:ambrosium_shard"
 	default_quest_shape: ""
 	filename: "the_aether"
 	title: "The Aether"
 	subtitle: ["Up, not down"]
-	order_index: 13
+	order_index: 33
 	quests: [
 		{
 			x: 0.0d
@@ -295,8 +295,8 @@
 				{
 					id: "01285AD82D2F5EB7"
 					type: "command"
-					title: "4 Skill Points"
-					command: "/puffish_skills points add @p tree 4"
+					title: "1 Skill Point"
+					command: "/puffish_skills points add @p tree 1"
 					player_command: false
 				}
 			]

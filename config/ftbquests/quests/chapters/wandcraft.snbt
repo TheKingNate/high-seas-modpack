@@ -1,0 +1,225 @@
+{
+	id: "11065910E2DAC781"
+	group: "AB8CEE6310D5FD25"
+	icon: "wands:diamond_wand"
+	default_quest_shape: ""
+	filename: "wandcraft"
+	title: "Wandcraft"
+	subtitle: ["Build by the hundred"]
+	order_index: 28
+	quests: [
+		{
+			x: 0.0d
+			y: 0.0d
+			id: "E70BC618161C6E35"
+			title: "A Wand Of Cobble"
+			description: ["Cobblestone and two sticks. The Stone Wand extends what you click.", "", "Hold blocks in your offhand or inventory, click a block face, and the wand", "repeats that block along the face until it runs out of range or material.", "", "Deepslate cobble works too if that is what you have."]
+			tasks: [
+				{
+					id: "482B0C0971377888"
+					type: "item"
+					item: "wands:stone_wand"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "3D853A68B967325D"
+					type: "xp"
+					xp: 60
+				}
+			]
+		}
+		{
+			x: 2.0d
+			y: 0.0d
+			id: "B15313D0FFA158FA"
+			title: "Put A Tool In It"
+			description: ["Copper Wand. Now open the Wand Menu (bind it in Controls -> Building Wands).", "", "Version 3 wands hold a TOOL. Drop a pickaxe, shovel or axe into the wand's", "tool slot -- without one, Destroy and Replace actions refuse to run and you", "get 'No tool -- add a tool to wand'. The tool takes the durability.", "", "The four Actions are Place, Replace, Destroy and Use."]
+			dependencies: ["E70BC618161C6E35"]
+			tasks: [
+				{
+					id: "A23C9639E78E7E49"
+					type: "item"
+					item: "wands:copper_wand"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "8A7636BF05BCEDB0"
+					type: "xp"
+					xp: 80
+				}
+			]
+		}
+		{
+			x: 2.0d
+			y: -2.0d
+			id: "3C5775A29AB200BE"
+			title: "The Palette"
+			description: ["An item frame and a chest. The Palette holds a set of blocks and feeds them", "to the wand instead of a single block type.", "", "Palette Mode cycles how it picks: Sequential walks the list in order,", "Random scatters, Gradient blends across the build.", "", "This is how you get mixed stone walls without placing anything by hand."]
+			dependencies: ["B15313D0FFA158FA"]
+			tasks: [
+				{
+					id: "96A740BAA2FCF8C6"
+					type: "item"
+					item: "wands:palette"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "C7997EE6C1337AB1"
+					type: "xp"
+					xp: 80
+				}
+			]
+		}
+		{
+			x: 4.0d
+			y: 0.0d
+			id: "38C6145D4E01854E"
+			title: "Iron Wand"
+			description: ["More range, more blocks per swing. Now learn the modes.", "", "Mode key cycles: Direction, Row/Column, Line, Grid, Circle, Sphere, Box,", "Fill, Area, Vein, Copy, Paste, Rock, Blast.", "", "Line and Fill take two clicks -- first point, then second. Area floods", "across connected blocks of the same type. Undo has its own key; use it."]
+			dependencies: ["3C5775A29AB200BE"]
+			tasks: [
+				{
+					id: "F2F0848A16716BC9"
+					type: "item"
+					item: "wands:iron_wand"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "B6F575D4E6B62FB6"
+					type: "xp"
+					xp: 100
+				}
+			]
+		}
+		{
+			x: 4.0d
+			y: 2.0d
+			id: "ACDF6F6D84E316C6"
+			title: "Magic Bag"
+			description: ["String, rabbit hide, purple dye and an ender pearl.", "", "A Magic Bag holds building stock and the wand pulls from it directly,", "so you are not carrying nine stacks of stone in your hotbar.", "", "Open it with the Magic Bag Menu key."]
+			dependencies: ["38C6145D4E01854E"]
+			tasks: [
+				{
+					id: "0ED3840757D14C10"
+					type: "item"
+					item: "wands:magic_bag_1"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "0A73E0435C34C31D"
+					type: "xp"
+					xp: 80
+				}
+			]
+		}
+		{
+			x: 6.0d
+			y: 0.0d
+			id: "D4C144E72C2D0196"
+			title: "Diamond Wand"
+			description: ["The working wand. Range and block limit are high enough for real structures.", "", "Open Configuration for the settings that matter: Limit caps blocks per", "action, Reach extends how far you can click, Replace decides whether you", "only fill air, or also fluids and plants, or overwrite anything.", "", "Replace = all needs a tool in the wand, because it breaks what is there."]
+			dependencies: ["ACDF6F6D84E316C6"]
+			tasks: [
+				{
+					id: "A0A04D92BF935ADC"
+					type: "item"
+					item: "wands:diamond_wand"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "25051CBA2C78D058"
+					type: "xp"
+					xp: 140
+				}
+			]
+		}
+		{
+			x: 6.0d
+			y: 2.0d
+			id: "44A4F81E082EC189"
+			title: "Bigger Bag"
+			description: ["Tier 2 needs an Eye of Ender instead of a pearl.", "", "More slots. Pair it with the Palette -- bag holds the stock, palette", "decides the pattern."]
+			dependencies: ["D4C144E72C2D0196"]
+			tasks: [
+				{
+					id: "8111FB009B968E35"
+					type: "item"
+					item: "wands:magic_bag_2"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "4769177831CB957C"
+					type: "xp"
+					xp: 100
+				}
+			]
+		}
+		{
+			x: 8.0d
+			y: 0.0d
+			id: "EF7FBFE9316C0398"
+			title: "Netherite Wand"
+			description: ["A smithing table job: Diamond Wand, netherite ingot, netherite upgrade template.", "", "Top range, top block limit. Copy and Paste modes become genuinely useful", "here -- select a region, copy it, and stamp it along a coastline.", "", "Pattern Rotate and Mirror flip the pasted copy without re-selecting it."]
+			dependencies: ["44A4F81E082EC189"]
+			tasks: [
+				{
+					id: "119D9664BE035E21"
+					type: "item"
+					item: "wands:netherite_wand"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "BA803CE208AF54CF"
+					type: "xp"
+					xp: 200
+				}
+			]
+		}
+		{
+			x: 8.0d
+			y: -2.0d
+			id: "5937CCC38003444A"
+			title: "Bag Of Stars"
+			description: ["Tier 3 costs a Nether Star. Largest capacity in the mod.", "", "Worth it only if you are building at Netherite Wand scale."]
+			dependencies: ["EF7FBFE9316C0398"]
+			tasks: [
+				{
+					id: "4CEDFC5F4B80AEB5"
+					type: "item"
+					item: "wands:magic_bag_3"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "E4219104A2EB3DCF"
+					type: "xp"
+					xp: 200
+				},
+				{
+					id: "94F09B0EEA9211B6"
+					type: "command"
+					title: "1 Skill Point"
+					command: "/puffish_skills points add @p tree 1"
+					player_command: false
+				}
+			]
+		}
+	]
+}

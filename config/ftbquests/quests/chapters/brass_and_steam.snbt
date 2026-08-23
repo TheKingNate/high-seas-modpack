@@ -1,0 +1,433 @@
+{
+	id: "9C5604747616B9B2"
+	group: "AB8CEE6310D5FD25"
+	icon: "create:brass_casing"
+	default_quest_shape: ""
+	filename: "brass_and_steam"
+	title: "Brass And Steam"
+	subtitle: ["Automation, fluids, pressure"]
+	order_index: 18
+	quests: [
+		{
+			x: 0.0d
+			y: 0.0d
+			id: "67744F3E75AC8FCD"
+			title: "Brass Casing"
+			description: ["Right-click a stripped log with a Brass Ingot.", "", "Brass gates every machine that can think: filters, arms, crafters."]
+			tasks: [
+				{
+					id: "F3947158C8409FE9"
+					type: "item"
+					item: "create:brass_casing"
+					count: 4L
+				}
+			]
+			rewards: [
+				{
+					id: "ED29ED6811D85D5D"
+					type: "xp"
+					xp: 100
+				}
+			]
+		}
+		{
+			x: 2.0d
+			y: 0.0d
+			id: "B25FA424C81C5E85"
+			title: "Electron Tubes"
+			description: ["Polished Rose Quartz on top of an Iron Sheet.", "", "Electron Tubes go into everything that reads or reports:", "signals, displays, vendors, bank terminals."]
+			dependencies: ["67744F3E75AC8FCD"]
+			tasks: [
+				{
+					id: "213ACDA9EB991C12"
+					type: "item"
+					item: "create:electron_tube"
+					count: 4L
+				}
+			]
+			rewards: [
+				{
+					id: "CAF741B25D32A060"
+					type: "xp"
+					xp: 100
+				}
+			]
+		}
+		{
+			x: 2.0d
+			y: -2.0d
+			id: "AF27EEC094885DB2"
+			title: "Smart Sorting"
+			description: ["A Brass Funnel has a filter slot and an exact count.", "A Brass Tunnel splits a belt - use it to pick Round Robin,", "Forced Split, Prefer Nearest or Randomize.", "", "A List Filter holds several items at once; put it in the funnel."]
+			dependencies: ["B25FA424C81C5E85"]
+			tasks: [
+				{
+					id: "E2B28634F5BACD2B"
+					type: "item"
+					item: "create:brass_funnel"
+					count: 1L
+				},
+				{
+					id: "72278B1800BAC44E"
+					type: "item"
+					item: "create:brass_tunnel"
+					count: 1L
+				},
+				{
+					id: "C97633B5EFBDAF8E"
+					type: "item"
+					item: "create:filter"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "A3CACD15CCCF39DD"
+					type: "xp"
+					xp: 120
+				}
+			]
+		}
+		{
+			x: 4.0d
+			y: 0.0d
+			id: "BC5F64BDC4B93A2A"
+			title: "The Mechanical Arm"
+			description: ["Before placing it, hold the Arm item and right-click your targets:", "first pass sets inputs, right-click again to flip a target to output.", "", "Then place the Arm within five blocks of them and give it rotation."]
+			dependencies: ["AF27EEC094885DB2"]
+			tasks: [
+				{
+					id: "07013819A1842B5E"
+					type: "advancement"
+					advancement: "create:mechanical_arm"
+					criterion: "0"
+				}
+			]
+			rewards: [
+				{
+					id: "96D23A6F5A1E1DC3"
+					type: "xp"
+					xp: 160
+				}
+			]
+		}
+		{
+			x: 6.0d
+			y: 0.0d
+			id: "C319D529F0EE7201"
+			title: "Mechanical Crafters"
+			description: ["Lay crafters out in the shape of the recipe, then Wrench each", "arrow so they all point along one path to a single output crafter.", "", "Give the group rotation. A broken arrow path is why nothing crafts."]
+			dependencies: ["BC5F64BDC4B93A2A"]
+			tasks: [
+				{
+					id: "92B70F2630D56A08"
+					type: "advancement"
+					advancement: "create:mechanical_crafter"
+					criterion: "0"
+				}
+			]
+			rewards: [
+				{
+					id: "1B9776A1447C7CF8"
+					type: "xp"
+					xp: 180
+				}
+			]
+		}
+		{
+			x: 8.0d
+			y: 0.0d
+			id: "55200223FDC72E70"
+			title: "Precision Mechanism"
+			description: ["A sequenced assembly, five loops, on a Golden Sheet:", "deploy a Cogwheel, a Large Cogwheel, then an Iron Nugget,", "and repeat around a belt loop.", "", "Get the order wrong and you get scrap back."]
+			dependencies: ["C319D529F0EE7201"]
+			tasks: [
+				{
+					id: "B79F2084F978D9F5"
+					type: "advancement"
+					advancement: "create:precision_mechanism"
+					criterion: "0"
+				}
+			]
+			rewards: [
+				{
+					id: "5D9C5686269D69A0"
+					type: "xp"
+					xp: 220
+				}
+			]
+		}
+		{
+			x: 8.0d
+			y: -2.0d
+			id: "D0229CC2D752B256"
+			title: "Display Links"
+			description: ["Attach a Display Link to a source - a Stressometer, a tank,", "a Threshold Switch - then aim it at a Nixie Tube, sign or", "Display Board.", "", "It reads the source and writes it out. No redstone involved."]
+			dependencies: ["55200223FDC72E70"]
+			tasks: [
+				{
+					id: "8BC6A2B643FDA63E"
+					type: "advancement"
+					advancement: "create:display_link"
+					criterion: "0"
+				}
+			]
+			rewards: [
+				{
+					id: "F1A51E3845A651F5"
+					type: "xp"
+					xp: 140
+				}
+			]
+		}
+		{
+			x: 10.0d
+			y: 0.0d
+			id: "6F0359923586327E"
+			title: "Copper Casing"
+			description: ["Copper Ingot on stripped wood.", "", "Copper is the waterproof tier: pipes, pumps, spouts and drains", "all hang off it."]
+			dependencies: ["D0229CC2D752B256"]
+			tasks: [
+				{
+					id: "245DC57E98CDE085"
+					type: "item"
+					item: "create:copper_casing"
+					count: 4L
+				}
+			]
+			rewards: [
+				{
+					id: "0F90AC8C94137C38"
+					type: "xp"
+					xp: 100
+				}
+			]
+		}
+		{
+			x: 12.0d
+			y: 0.0d
+			id: "A6CF725B3D470105"
+			title: "Pulling Water"
+			description: ["Fluid Pipes do nothing on their own. A Mechanical Pump in the line", "gives the network a direction - the arrow shows which way.", "", "An open pipe end next to a source block is your intake."]
+			dependencies: ["6F0359923586327E"]
+			tasks: [
+				{
+					id: "2F76D1D0A7AA0DDE"
+					type: "advancement"
+					advancement: "create:water_supply"
+					criterion: "0"
+				},
+				{
+					id: "9E53F7E8B2E672CF"
+					type: "advancement"
+					advancement: "create:mechanical_pump_0"
+					criterion: "0"
+				}
+			]
+			rewards: [
+				{
+					id: "B350E235BE7379E1"
+					type: "xp"
+					xp: 160
+				}
+			]
+		}
+		{
+			x: 12.0d
+			y: -2.0d
+			id: "794AD7E24C93F5B1"
+			title: "Valves And Tanks"
+			description: ["A Fluid Valve needs rotation to open - a Valve Handle on its shaft", "is the manual version.", "", "Fluid Tanks stack into a multiblock: taller and wider means more", "capacity, and window blocks let you see the level."]
+			dependencies: ["A6CF725B3D470105"]
+			tasks: [
+				{
+					id: "B1FAD2ACABD48328"
+					type: "item"
+					item: "create:fluid_valve"
+					count: 1L
+				},
+				{
+					id: "8C4AD2D429C48BE9"
+					type: "item"
+					item: "create:fluid_tank"
+					count: 8L
+				}
+			]
+			rewards: [
+				{
+					id: "75AD1F8683C00924"
+					type: "xp"
+					xp: 140
+				}
+			]
+		}
+		{
+			x: 14.0d
+			y: 0.0d
+			id: "A6058ACB2EAF2083"
+			title: "The Spout"
+			description: ["A Spout fills items passing underneath it on a belt or depot.", "", "This is how you fill buckets, bottles, and - later - cannon", "casings and shells."]
+			dependencies: ["794AD7E24C93F5B1"]
+			tasks: [
+				{
+					id: "44B5EF0E31B7868B"
+					type: "advancement"
+					advancement: "create:spout"
+					criterion: "0"
+				}
+			]
+			rewards: [
+				{
+					id: "E31D4ED8E8B4D729"
+					type: "xp"
+					xp: 160
+				}
+			]
+		}
+		{
+			x: 14.0d
+			y: -2.0d
+			id: "793CB32014158BBD"
+			title: "The Item Drain"
+			description: ["An Item Drain empties fluid containers rolled onto it and hands", "back the empty container.", "", "Chain several in a row for bulk emptying."]
+			dependencies: ["A6058ACB2EAF2083"]
+			tasks: [
+				{
+					id: "BEEBE32BA083903C"
+					type: "advancement"
+					advancement: "create:drain"
+					criterion: "0"
+				}
+			]
+			rewards: [
+				{
+					id: "87C9A52F95F47E0C"
+					type: "xp"
+					xp: 140
+				}
+			]
+		}
+		{
+			x: 16.0d
+			y: 0.0d
+			id: "B8483934DA1BC287"
+			title: "The Hose Pulley"
+			description: ["Rotation lowers the hose; reverse it to pull it back up.", "", "A body of fluid larger than ten thousand blocks counts as", "infinite and will never drain. Oceans qualify."]
+			dependencies: ["793CB32014158BBD"]
+			tasks: [
+				{
+					id: "CCB07DBBEEAA6EDF"
+					type: "advancement"
+					advancement: "create:hose_pulley"
+					criterion: "0"
+				}
+			]
+			rewards: [
+				{
+					id: "AB365C6E9E56336D"
+					type: "xp"
+					xp: 180
+				}
+			]
+		}
+		{
+			x: 18.0d
+			y: 0.0d
+			id: "163491D08E38718E"
+			title: "Steam Power"
+			description: ["Build a Fluid Tank multiblock, pipe water into it, and light", "Blaze Burners underneath. Bolt Steam Engines to the tank sides", "and put a shaft on each.", "", "Goggles on the tank show the boiler level. Level zero means", "not enough water, heat, or tank."]
+			dependencies: ["B8483934DA1BC287"]
+			tasks: [
+				{
+					id: "C2844E123EF59C12"
+					type: "advancement"
+					advancement: "create:steam_engine"
+					criterion: "0"
+				}
+			]
+			rewards: [
+				{
+					id: "BEEF41109C8EC92B"
+					type: "xp"
+					xp: 250
+				}
+			]
+		}
+		{
+			x: 18.0d
+			y: -2.0d
+			id: "685881EDD325630D"
+			title: "Whistles"
+			description: ["Steam Whistles mount on top of a Fluid Tank and sound when", "given a redstone signal.", "", "Stack extensions under one to change its pitch."]
+			dependencies: ["163491D08E38718E"]
+			tasks: [
+				{
+					id: "4BC4CA5A4CFDF9E0"
+					type: "advancement"
+					advancement: "create:steam_whistle"
+					criterion: "0"
+				}
+			]
+			rewards: [
+				{
+					id: "753B0F6A6A462CFB"
+					type: "xp"
+					xp: 120
+				}
+			]
+		}
+		{
+			x: 20.0d
+			y: -2.0d
+			id: "AA31D603A0C427B9"
+			title: "Diving Gear"
+			description: ["A Copper Backtank must be spun by rotation to build pressure", "before it holds any air.", "", "Wear it with a Copper Diving Helmet and the ocean stops being", "a timer. You will want this for salvage."]
+			dependencies: ["685881EDD325630D"]
+			tasks: [
+				{
+					id: "751E6DF20BC65B1C"
+					type: "advancement"
+					advancement: "create:diving_suit"
+					criterion: "0"
+				}
+			]
+			rewards: [
+				{
+					id: "B50E09D9A97B2B7B"
+					type: "xp"
+					xp: 180
+				}
+			]
+		}
+		{
+			x: 20.0d
+			y: 0.0d
+			id: "A25BDA240B769328"
+			title: "A Full Boiler"
+			description: ["Run a boiler at maximum level.", "", "Level nine wants a very large tank, a lot of water pumped in fast,", "and eighteen Blaze Burners superheated on Blaze Cake."]
+			dependencies: ["AA31D603A0C427B9"]
+			tasks: [
+				{
+					id: "3FF8B11948BFFDF5"
+					type: "advancement"
+					advancement: "create:steam_engine_maxed"
+					criterion: "0"
+				}
+			]
+			rewards: [
+				{
+					id: "A9398E0F55E2411E"
+					type: "xp"
+					xp: 350
+				},
+				{
+					id: "B100009EA0F5E3BA"
+					type: "command"
+					title: "1 Skill Point"
+					command: "/puffish_skills points add @p tree 1"
+					player_command: false
+				}
+			]
+		}
+	]
+}

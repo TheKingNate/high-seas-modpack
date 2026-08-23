@@ -1,0 +1,526 @@
+{
+	id: "DACBDCC0281E60B3"
+	group: "8E1B3CDD0E4E9C32"
+	icon: "spell_engine:spell_binding"
+	default_quest_shape: ""
+	filename: "spellcraft"
+	title: "Spellcraft"
+	subtitle: ["Runes, tomes, staves"]
+	order_index: 14
+	quests: [
+		{
+			x: 0.0d
+			y: 0.0d
+			id: "64B2D4BC074748D0"
+			title: "A Table Of Your Own"
+			description: ["Craft a Spell Binding Table: book on top, amethyst-gold-amethyst,", "three polished diorite along the bottom.", "", "Every tome and every spell in the pack is made at this block.", "Unlike an enchanting table it does not care about bookshelves."]
+			tasks: [
+				{
+					id: "BD9004283E8091BF"
+					type: "item"
+					item: "spell_engine:spell_binding"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "D1D9D1141D62BD53"
+					type: "xp"
+					xp: 60
+				}
+			]
+		}
+		{
+			x: 2.0d
+			y: 0.0d
+			id: "DDFA9912CE36374E"
+			title: "First Tome"
+			description: ["Open the table and turn a plain Book into a Tome.", "", "Pick a school in the left slot -- Arcane, Fire or Frost.", "Costs one experience level. The Tome is your spell book:", "it holds the spells, your wand or staff only fires them."]
+			dependencies: ["64B2D4BC074748D0"]
+			tasks: [
+				{
+					id: "712EF47FF510FFBF"
+					type: "advancement"
+					advancement: "rpg_series:classes"
+					criterion: "book"
+				}
+			]
+			rewards: [
+				{
+					id: "2375BE1A07C74116"
+					type: "xp"
+					xp: 80
+				}
+			]
+		}
+		{
+			x: 4.0d
+			y: -2.0d
+			id: "B07DD8CBB41D9C24"
+			title: "Tome Of Fire"
+			description: ["Create a Tome of Fire.", "", "Fire is the direct damage school: Scorch, Fireball, Fire Breath,", "Meteor, Wall of Flames. Cheapest runes in the game back it."]
+			dependencies: ["DDFA9912CE36374E"]
+			tasks: [
+				{
+					id: "048A09D9C623F812"
+					type: "item"
+					item: "wizards:fire_spell_book"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "393599F429409001"
+					type: "xp"
+					xp: 60
+				}
+			]
+		}
+		{
+			x: 4.0d
+			y: 2.0d
+			id: "C0545D6F4CE17019"
+			title: "Tome Of Frost"
+			description: ["Create a Tome of Frost.", "", "Frost is control: Frost Shard, Frostbolt, Frost Nova, Frost Shield,", "Blizzard. Frozen targets take extra frost damage."]
+			dependencies: ["B07DD8CBB41D9C24"]
+			tasks: [
+				{
+					id: "32B4ED2F705EEA99"
+					type: "item"
+					item: "wizards:frost_spell_book"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "68C8B4A5B8E24794"
+					type: "xp"
+					xp: 60
+				}
+			]
+		}
+		{
+			x: 6.0d
+			y: 0.0d
+			id: "E7418A4AE28EA26E"
+			title: "Tome Of Arcane"
+			description: ["Create a Tome of Arcane.", "", "Arcane is the combo school. Arcane Blast stacks Arcane Charge", "(+15% arcane damage each), and Arcane Beam spends every stack."]
+			dependencies: ["C0545D6F4CE17019"]
+			tasks: [
+				{
+					id: "601960E4181F7165"
+					type: "item"
+					item: "wizards:arcane_spell_book"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "D06DB6F90576E032"
+					type: "xp"
+					xp: 60
+				}
+			]
+		}
+		{
+			x: 8.0d
+			y: 0.0d
+			id: "B02A0BB05F51B117"
+			title: "Stone And Reagent"
+			description: ["Runes are spell ammunition. Casting a bound spell eats one rune", "of that spell's school straight out of your inventory.", "", "Shapeless: one cobblestone, blackstone or cobbled deepslate plus", "one reagent. Coal makes 2 Fire, snowball 2 Frost, amethyst shard", "2 Arcane, gold nugget 2 Healing."]
+			dependencies: ["E7418A4AE28EA26E"]
+			tasks: [
+				{
+					id: "BCFD6BA343EB85DB"
+					type: "item"
+					item: "runes:fire_stone"
+					count: 16L
+				},
+				{
+					id: "D7475D02318EF2CE"
+					type: "item"
+					item: "runes:frost_stone"
+					count: 16L
+				},
+				{
+					id: "084D65DB218B8E4D"
+					type: "item"
+					item: "runes:arcane_stone"
+					count: 16L
+				},
+				{
+					id: "E989965B6B57E2F5"
+					type: "item"
+					item: "runes:healing_stone"
+					count: 8L
+				}
+			]
+			rewards: [
+				{
+					id: "015E932494734DFC"
+					type: "xp"
+					xp: 80
+				}
+			]
+		}
+		{
+			x: 10.0d
+			y: -2.0d
+			id: "B646CF298479A474"
+			title: "The Rune Altar"
+			description: ["Craft a Rune Crafting Altar: five stone (or smooth stone, polished", "diorite, polished andesite) and two gold ingots.", "", "Right-click it for its own two-slot grid."]
+			dependencies: ["B02A0BB05F51B117"]
+			tasks: [
+				{
+					id: "3A2C4DA2E6DA9D79"
+					type: "item"
+					item: "runes:crafting_altar"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "3F8F615B3A481D9E"
+					type: "xp"
+					xp: 80
+				}
+			]
+		}
+		{
+			x: 10.0d
+			y: 2.0d
+			id: "D880705441C79A45"
+			title: "Four For One"
+			description: ["Craft runes at the Altar instead of the crafting grid.", "", "Same two ingredients, four times the output: 8 runes instead of 2.", "Blaze powder or ender pearl at the Altar gives 16 at a time.", "Once you have the Altar, never hand-craft a rune again."]
+			dependencies: ["B646CF298479A474"]
+			tasks: [
+				{
+					id: "B63B8DB4095903EC"
+					type: "advancement"
+					advancement: "rpg_series:rune_crafter"
+					criterion: "craft"
+				}
+			]
+			rewards: [
+				{
+					id: "F0F22CDF06D0425A"
+					type: "xp"
+					xp: 100
+				}
+			]
+		}
+		{
+			x: 12.0d
+			y: 0.0d
+			id: "45E2B538AB2DF7D2"
+			title: "Your First Wand"
+			description: ["Craft a Novice Wand: one coal above one stick, diagonally.", "", "It has Scorch built in and costs nothing to make. A wand also", "acts as a proxy -- it casts whatever is in your equipped Tome."]
+			dependencies: ["D880705441C79A45"]
+			tasks: [
+				{
+					id: "C33011D197D142D7"
+					type: "item"
+					item: "wizards:wand_novice"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "59E6A2DBA3E8263A"
+					type: "xp"
+					xp: 60
+				}
+			]
+		}
+		{
+			x: 14.0d
+			y: 0.0d
+			id: "2D44335A30F82952"
+			title: "Bind A Spell"
+			description: ["Put a Tome of Fire in the Spell Binding Table with lapis lazuli", "and buy a spell with experience levels.", "", "Spells are tiered 0-4 and the level price climbs with the tier.", "Fireball is tier 1, Fire Breath 2, Meteor 3, Wall of Flames 4."]
+			dependencies: ["45E2B538AB2DF7D2"]
+			tasks: [
+				{
+					id: "69B51A9341D8A99E"
+					type: "advancement"
+					advancement: "rpg_series:spell_novice_fire"
+					criterion: "bind"
+				}
+			]
+			rewards: [
+				{
+					id: "E20E6A371E0D830A"
+					type: "xp"
+					xp: 120
+				}
+			]
+		}
+		{
+			x: 16.0d
+			y: -2.0d
+			id: "D48123755CD0287E"
+			title: "Three Wands"
+			description: ["One wand per school, all two-ingredient diagonals:", "", "Arcane = amethyst shard + gold ingot. Fire = gunpowder + gold.", "Frost = snowball + iron ingot. Each has a free tier-0 spell", "of its own on top of whatever your Tome holds."]
+			dependencies: ["2D44335A30F82952"]
+			tasks: [
+				{
+					id: "CDDF1F63DFDE7EE9"
+					type: "item"
+					item: "wizards:wand_arcane"
+					count: 1L
+				},
+				{
+					id: "374083DB79C2C1C8"
+					type: "item"
+					item: "wizards:wand_fire"
+					count: 1L
+				},
+				{
+					id: "1C96B4340968103B"
+					type: "item"
+					item: "wizards:wand_frost"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "4BC40371C50EC6A8"
+					type: "xp"
+					xp: 100
+				}
+			]
+		}
+		{
+			x: 16.0d
+			y: 2.0d
+			id: "AF19FE9181C1615D"
+			title: "The Wizard Staff"
+			description: ["Craft a Wizard Staff: one quartz and two sticks.", "", "Better Combat makes staves two-handed with 3.0 blocks of reach.", "Two-handed means no shield and no offhand item at all."]
+			dependencies: ["D48123755CD0287E"]
+			tasks: [
+				{
+					id: "B7AE3CD8426FCD08"
+					type: "item"
+					item: "wizards:staff_wizard"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "7E1D23950B0EF198"
+					type: "xp"
+					xp: 80
+				}
+			]
+		}
+		{
+			x: 18.0d
+			y: 0.0d
+			id: "6BB03AAA03F3BFDB"
+			title: "Three Staves"
+			description: ["Arcane = 2 amethyst + ender pearl + gold + stick.", "Fire = 2 nether brick + blaze powder + gold + stick.", "Frost = 2 snowball + prismarine crystals + iron + stick.", "", "Staves hit harder than wands and carry more spell power."]
+			dependencies: ["AF19FE9181C1615D"]
+			tasks: [
+				{
+					id: "1956F070640AB35A"
+					type: "item"
+					item: "wizards:staff_arcane"
+					count: 1L
+				},
+				{
+					id: "FF0DCC0FA605CAD0"
+					type: "item"
+					item: "wizards:staff_fire"
+					count: 1L
+				},
+				{
+					id: "9A7DBD78EE28DF08"
+					type: "item"
+					item: "wizards:staff_frost"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "38DF3C6F546BCB1A"
+					type: "xp"
+					xp: 150
+				}
+			]
+		}
+		{
+			x: 20.0d
+			y: -2.0d
+			id: "9DD6ED9BF2DD17FF"
+			title: "Wizard Robes"
+			description: ["Hat, top, bottom and boots. Each piece is wool plus lapis lazuli", "in an armour pattern -- chest is 5 wool and 3 lapis.", "", "Robes are the only armour that carries spell power. Plate gives", "you none of it."]
+			dependencies: ["6BB03AAA03F3BFDB"]
+			tasks: [
+				{
+					id: "DFA9B7010B9B73DC"
+					type: "advancement"
+					advancement: "rpg_series:obtain_wizard_robes"
+					criterion: "wizard_robes"
+				}
+			]
+			rewards: [
+				{
+					id: "FE41E7EF6C30A7EC"
+					type: "xp"
+					xp: 120
+				}
+			]
+		}
+		{
+			x: 20.0d
+			y: 2.0d
+			id: "BA5B8F4B76DE3988"
+			title: "Robes Of The Schools"
+			description: ["Same pattern, better filler: ender pearl for Arcane, blaze powder", "for Fire, prismarine shard for Frost.", "", "These give specialised spell power instead of a flat spread.", "Match the robe to the Tome you actually cast from."]
+			dependencies: ["9DD6ED9BF2DD17FF"]
+			tasks: [
+				{
+					id: "E7812EB53DEEDB60"
+					type: "item"
+					item: "wizards:arcane_robe_chest"
+					count: 1L
+				},
+				{
+					id: "7B7A692DDA7A2C36"
+					type: "item"
+					item: "wizards:fire_robe_chest"
+					count: 1L
+				},
+				{
+					id: "0B3567F6B04F1960"
+					type: "item"
+					item: "wizards:frost_robe_chest"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "9D0925F742AFED7F"
+					type: "xp"
+					xp: 150
+				}
+			]
+		}
+		{
+			x: 22.0d
+			y: 0.0d
+			id: "15366B04F6E44349"
+			title: "Fill A Tome"
+			description: ["Bind all four Fire spells into one Tome of Fire.", "", "A Tome holds the whole pool. You cannot unbind, so a wasted", "slot is wasted for good -- read the tooltips before you pay."]
+			dependencies: ["BA5B8F4B76DE3988"]
+			tasks: [
+				{
+					id: "DD6BE25DF225CC81"
+					type: "advancement"
+					advancement: "rpg_series:spell_master_fire"
+					criterion: "bind"
+				}
+			]
+			rewards: [
+				{
+					id: "B2A6A74287E4AB49"
+					type: "xp"
+					xp: 200
+				}
+			]
+		}
+		{
+			x: 24.0d
+			y: 0.0d
+			id: "5E205D852FE47306"
+			title: "Master Of All Three"
+			description: ["Fill a Frost Tome and an Arcane Tome the same way.", "", "Swap Tomes in your trinket charm slot to change loadout.", "Warning: you cannot unequip a Tome while any of its spells", "is still on cooldown."]
+			dependencies: ["15366B04F6E44349"]
+			tasks: [
+				{
+					id: "CCD24EEDF66C9590"
+					type: "advancement"
+					advancement: "rpg_series:spell_master_frost"
+					criterion: "bind"
+				},
+				{
+					id: "9D3F082F4167B971"
+					type: "advancement"
+					advancement: "rpg_series:spell_master_arcane"
+					criterion: "bind"
+				}
+			]
+			rewards: [
+				{
+					id: "E41AB1FB7411BABB"
+					type: "xp"
+					xp: 300
+				}
+			]
+		}
+		{
+			x: 26.0d
+			y: 0.0d
+			id: "689F0751CC7F4BEB"
+			title: "Power And Haste"
+			description: ["Enchant a staff or wand for Spell Power and Spell Haste.", "", "Robes take the specialised power enchants plus Spell Volatility", "and Amplify Spell. Nothing else in the pack accepts them.", "Spell Infinity is registered but no item is eligible for it."]
+			dependencies: ["5E205D852FE47306"]
+			tasks: [
+				{
+					id: "0812D398B2A9D979"
+					type: "checkmark"
+					title: "Enchant a staff or wand with a Spell Power enchantment"
+				}
+			]
+			rewards: [
+				{
+					id: "4AF59252764DD4CA"
+					type: "xp"
+					xp: 200
+				}
+			]
+		}
+		{
+			x: 28.0d
+			y: 0.0d
+			id: "D6766F362EC6542E"
+			title: "Netherite Wizard"
+			description: ["Smithing table, netherite upgrade template, netherite ingot.", "Every tier-2 wand, staff and robe piece upgrades.", "", "This is the top of the Wizards tree here. The crystal, ruby and", "smaragdant staves need Better End / Better Nether, which are", "not in this pack -- do not go hunting for them."]
+			dependencies: ["689F0751CC7F4BEB"]
+			tasks: [
+				{
+					id: "AC5DD86D7FDC82BF"
+					type: "item"
+					item: "wizards:wand_netherite_arcane"
+					count: 1L
+				},
+				{
+					id: "F8BE44A10DEB53BF"
+					type: "item"
+					item: "wizards:staff_netherite_fire"
+					count: 1L
+				},
+				{
+					id: "586A5FD7855A2BBF"
+					type: "item"
+					item: "wizards:netherite_frost_robe_chest"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "09215DCFC4606AB7"
+					type: "xp"
+					xp: 400
+				},
+				{
+					id: "7B6BFAF1652C73EC"
+					type: "command"
+					title: "1 Skill Point"
+					command: "/puffish_skills points add @p tree 1"
+					player_command: false
+				}
+			]
+		}
+	]
+}

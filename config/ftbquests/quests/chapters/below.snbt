@@ -1,19 +1,19 @@
 {
 	id: "6D7D8F7D1780765D"
 	group: "8E1B3CDD0E4E9C32"
-	icon: "minecraft:heart_of_the_sea"
+	icon: "hybrid_aquatic:diving_helmet"
 	default_quest_shape: ""
 	filename: "below"
 	title: "Below"
 	subtitle: ["The ocean has a floor"]
-	order_index: 4
+	order_index: 10
 	quests: [
 		{
 			x: 0.0d
 			y: 0.0d
 			id: "2F3B856A6450F88B"
 			title: "Lungs"
-			description: ["Craft Hybrid Aquatic diving armor."]
+			description: ["Craft all four pieces of Hybrid Aquatic diving gear.", "", "Helmet: 8 copper around a glass pane. Suit and leggings: copper and", "leather. Boots: 4 copper. Wear the whole set -- it is the set, not the", "helmet, that keeps you down there."]
 			tasks: [
 				{
 					id: "5785A38360AF9547"
@@ -44,17 +44,86 @@
 				{
 					id: "25C1242B831A7335"
 					type: "xp"
-					xp: 60
+					xp: 80
+				}
+			]
+		}
+		{
+			x: 0.0d
+			y: -2.0d
+			id: "30818737C8B48110"
+			title: "The Fast Way Down"
+			description: ["Craft a Diving Weight.", "", "Eight iron ingots around an iron block. Carrying it stops you bobbing", "back to the surface, which is most of what wastes your air."]
+			dependencies: ["2F3B856A6450F88B"]
+			tasks: [
+				{
+					id: "B1A165E8CB90DC33"
+					type: "item"
+					item: "hybrid_aquatic:diving_weight"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "2E1285B37BDA6AF5"
+					type: "xp"
+					xp: 50
 				}
 			]
 		}
 		{
 			x: 2.0d
 			y: 0.0d
+			id: "1D5A9162E71C4264"
+			title: "Light In The Abyss"
+			description: ["Craft four Glowsticks.", "", "Glowslime drops from Barreleye and Crown Jellyfish, or comes from a slime", "ball plus a glow ink sac. Stick + glowslime = 4 glowsticks, which light", "underwater where torches will not, and upgrade armour to the glowing set."]
+			dependencies: ["30818737C8B48110"]
+			tasks: [
+				{
+					id: "E418605ABE01153B"
+					type: "item"
+					item: "hybrid_aquatic:glowstick"
+					count: 4L
+				}
+			]
+			rewards: [
+				{
+					id: "321202A027F48765"
+					type: "xp"
+					xp: 60
+				}
+			]
+		}
+		{
+			x: 2.0d
+			y: 2.0d
+			id: "705C39253760F470"
+			title: "Not Quite A Bucket"
+			description: ["Craft a Fishing Net.", "", "Two sticks and two string. Right-click a sea creature to scoop it up,", "right-click again to release it. It holds the things a water bucket", "refuses -- crabs, jellyfish, sharks, anything Hybrid Aquatic added."]
+			dependencies: ["1D5A9162E71C4264"]
+			tasks: [
+				{
+					id: "5CDC2851629015A4"
+					type: "item"
+					item: "hybrid_aquatic:fishing_net"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "4AC8FCBF0C664B86"
+					type: "xp"
+					xp: 50
+				}
+			]
+		}
+		{
+			x: 4.0d
+			y: 0.0d
 			id: "518F8118EA914990"
 			title: "Sunken"
-			description: ["Find a Hopo underwater ruin."]
-			dependencies: ["2F3B856A6450F88B"]
+			description: ["Enter a Hopo underwater structure.", "", "Hopo replaces vanilla ocean ruins with proper ruins, bone fossils and,", "rarely, a city. All four are in the dolphin-located tag, so a dolphin", "fed raw cod will swim you to the nearest one."]
+			dependencies: ["705C39253760F470"]
 			tasks: [
 				{
 					id: "2A5E1AA9485AEB65"
@@ -66,62 +135,244 @@
 				{
 					id: "538A2A75DC2A9EF4"
 					type: "xp"
-					xp: 50
+					xp: 70
 				}
 			]
 		}
 		{
 			x: 4.0d
-			y: 0.0d
-			id: "96B5CFE777BDEC18"
-			title: "The Monument"
-			description: ["Reach an ocean monument."]
+			y: -2.0d
+			id: "54D58A565E323D62"
+			title: "Whale Fall"
+			description: ["Find a Whale Fall.", "", "A dead whale on the deep ocean floor, roughly one per 16-chunk grid.", "Giant isopods and spider crabs spawn on the carcass and nowhere else", "in such numbers. Bone blocks, and the crabs drop claws."]
 			dependencies: ["518F8118EA914990"]
 			tasks: [
 				{
-					id: "A21068AC1F626CD5"
-					type: "item"
-					item: "minecraft:prismarine_shard"
-					count: 16L
+					id: "D7209B41DB1CA0CB"
+					type: "structure"
+					structure: "hybrid_aquatic:whale_fall"
 				}
 			]
 			rewards: [
 				{
-					id: "E47BC5F8AC0AF262"
+					id: "3103E5190C25A482"
 					type: "xp"
-					xp: 80
+					xp: 70
 				}
 			]
 		}
 		{
 			x: 6.0d
 			y: 0.0d
-			id: "5FBFB687F07AE952"
-			title: "Salvaged Air"
-			description: ["Collect 8 nautilus shells."]
-			dependencies: ["96B5CFE777BDEC18"]
+			id: "0D0B7DC25E57AECB"
+			title: "Bait"
+			description: ["Collect earthworms, grubs and leeches.", "", "Dig dirt for earthworms, sand for grubs, mud or sand for leeches --", "they drop at random. Keep them in your offhand: casting a rod attaches", "one automatically, fishing 10% faster and skewing toward its fish."]
+			dependencies: ["54D58A565E323D62"]
 			tasks: [
 				{
-					id: "AE3302C7AF52FB8A"
+					id: "49E07773CC5BD540"
 					type: "item"
-					item: "minecraft:nautilus_shell"
-					count: 8L
+					item: "fishofthieves:earthworms"
+					count: 4L
+				},
+				{
+					id: "8A2544000637110A"
+					type: "item"
+					item: "fishofthieves:grubs"
+					count: 4L
+				},
+				{
+					id: "442BEC45712A2BD0"
+					type: "item"
+					item: "fishofthieves:leeches"
+					count: 4L
 				}
 			]
 			rewards: [
 				{
-					id: "981E246BF0EEC01B"
+					id: "3074FDD89718A303"
 					type: "xp"
 					xp: 60
+				}
+			]
+		}
+		{
+			x: 6.0d
+			y: 2.0d
+			id: "C81BC208B9A9229D"
+			title: "Ten Thieves"
+			description: ["Catch four different Fish of Thieves species.", "", "Ten species, each with its own water: Splashtail in any ocean, Pondie in", "rivers and forest, Ancientscale in lukewarm ocean and lush caves,", "Islehopper almost anywhere. Each has colour variants and a rare Trophy roll."]
+			dependencies: ["0D0B7DC25E57AECB"]
+			tasks: [
+				{
+					id: "F6BE609F996CB6E5"
+					type: "item"
+					item: "fishofthieves:splashtail"
+					count: 1L
 				},
 				{
-					id: "4D59E52AE3130AC7"
+					id: "5D866CC17CA73C4B"
+					type: "item"
+					item: "fishofthieves:pondie"
+					count: 1L
+				},
+				{
+					id: "A9F52D5F31F320BC"
+					type: "item"
+					item: "fishofthieves:islehopper"
+					count: 1L
+				},
+				{
+					id: "6964DCE1C3C5DE40"
+					type: "item"
+					item: "fishofthieves:ancientscale"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "4CF337564C73CBDA"
+					type: "xp"
+					xp: 80
+				}
+			]
+		}
+		{
+			x: 8.0d
+			y: 0.0d
+			id: "236A1E6B6A4DFF27"
+			title: "The Seapost"
+			description: ["Find a Seapost.", "", "Fish of Thieves' own structure: a stilted trading post out in shallow", "ocean, one per 64-chunk grid -- never in deep water. Fish of Thieves also", "grows tropical islands with coconut, banana, pineapple and mango on them."]
+			dependencies: ["C81BC208B9A9229D"]
+			tasks: [
+				{
+					id: "9B5D0D1E833E4170"
+					type: "structure"
+					structure: "fishofthieves:seapost"
+				}
+			]
+			rewards: [
+				{
+					id: "5F00E7D6F2DAA5C8"
+					type: "xp"
+					xp: 80
+				}
+			]
+		}
+		{
+			x: 10.0d
+			y: 0.0d
+			id: "9FDAE2571150A208"
+			title: "Reinforced"
+			description: ["Upgrade a diving helmet at a smithing table.", "", "The Diving Armor Upgrade Template is in suspicious sand on beaches -- take", "a brush. Duplicate it with 7 prismarine shards and 1 crystal. Template +", "diving piece + Black Pearl = Reinforced; use Glowslime instead for Glowing."]
+			dependencies: ["236A1E6B6A4DFF27"]
+			tasks: [
+				{
+					id: "AB00070437F7EFE3"
+					type: "item"
+					item: "hybrid_aquatic:diving_armor_upgrade_template"
+					count: 1L
+				},
+				{
+					id: "FFAF7952792047A7"
+					type: "item"
+					item: "hybrid_aquatic:reinforced_diving_helmet"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "6F0B208D1AC4549A"
+					type: "xp"
+					xp: 120
+				}
+			]
+		}
+		{
+			x: 12.0d
+			y: 0.0d
+			id: "96B5CFE777BDEC18"
+			title: "The Monument"
+			description: ["Clear a Better Ocean Monument.", "", "YUNG's rebuild is far bigger than vanilla's and holds a real treasure", "vault. Mining Fatigue lasts until every Elder Guardian is dead, so kill", "them first and mine second."]
+			dependencies: ["9FDAE2571150A208"]
+			tasks: [
+				{
+					id: "A21068AC1F626CD5"
+					type: "structure"
+					structure: "#betteroceanmonuments:better_ocean_monuments"
+				},
+				{
+					id: "D9D559C08E892AE1"
+					type: "kill"
+					entity: "minecraft:elder_guardian"
+					value: 3L
+				}
+			]
+			rewards: [
+				{
+					id: "E47BC5F8AC0AF262"
+					type: "xp"
+					xp: 180
+				},
+				{
+					id: "78D1C6F52D505D5F"
 					type: "item"
 					item: "minecraft:heart_of_the_sea"
 					count: 1
+				}
+			]
+		}
+		{
+			x: 12.0d
+			y: -2.0d
+			id: "7C8C089B9E626545"
+			title: "Karkinos"
+			description: ["Kill Karkinos.", "", "Hybrid Aquatic's crab miniboss. It summons Karcinogen and Karcinoma", "adds while you fight it, so bring something with reach. Drops the", "Karkinos Claw."]
+			dependencies: ["96B5CFE777BDEC18"]
+			tasks: [
+				{
+					id: "A461C7BAD0E10686"
+					type: "kill"
+					entity: "hybrid_aquatic:karkinos"
+					value: 1L
 				},
 				{
-					id: "4DFE4045C250677D"
+					id: "2EF1D0F93A477170"
+					type: "item"
+					item: "hybrid_aquatic:karkinos_claw"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "5AFDF809F95D0A01"
+					type: "xp"
+					xp: 200
+				}
+			]
+		}
+		{
+			x: 14.0d
+			y: 0.0d
+			id: "CB306BEA9A29D663"
+			title: "Deep City"
+			description: ["Find the Hopo underwater city.", "", "The rarest thing in the ocean, deep ocean only. Deeper Oceans is also", "installed and has pushed the sea floor much further down, so budget", "air for the descent as well as the fight."]
+			dependencies: ["7C8C089B9E626545"]
+			tasks: [
+				{
+					id: "186D0803BE33547E"
+					type: "structure"
+					structure: "hopo:underwater/underwater_city"
+				}
+			]
+			rewards: [
+				{
+					id: "558A52B6BC90EAD2"
+					type: "xp"
+					xp: 200
+				},
+				{
+					id: "2C44E1D942853868"
 					type: "command"
 					title: "1 Skill Point"
 					command: "/puffish_skills points add @p tree 1"

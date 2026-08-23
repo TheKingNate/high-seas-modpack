@@ -1,0 +1,338 @@
+{
+	id: "A109CA378947DBA9"
+	group: "AB8CEE6310D5FD25"
+	icon: "quarryplus:quarry"
+	default_quest_shape: ""
+	filename: "the_quarry"
+	title: "The Quarry"
+	subtitle: ["Strip mining, automated"]
+	order_index: 26
+	quests: [
+		{
+			x: 0.0d
+			y: 0.0d
+			id: "0E151CA7968BCD60"
+			title: "Flexible Markers"
+			description: ["Glowstone, lapis and a redstone torch. Markers define where a machine digs.", "", "Place one and RIGHT-CLICK it to open its GUI: you type the area size in", "directly rather than dragging out a rectangle.", "", "Note: the plain Marker Plus has no recipe in this version. Flexible Markers", "and Chunk Markers are the two you actually build."]
+			tasks: [
+				{
+					id: "76253E7ADDC451D7"
+					type: "item"
+					item: "quarryplus:flex_marker"
+					count: 3L
+				}
+			]
+			rewards: [
+				{
+					id: "068EE85D66335385"
+					type: "xp"
+					xp: 80
+				}
+			]
+		}
+		{
+			x: 2.0d
+			y: 0.0d
+			id: "3E0F99CDE76361BD"
+			title: "Chunk Markers"
+			description: ["Three Flexible Markers make one Chunk Marker.", "", "A Chunk Marker snaps its area to chunk boundaries, which is what you want", "for anything long-running -- a chunk-aligned dig is a chunk you can", "force-load exactly."]
+			dependencies: ["0E151CA7968BCD60"]
+			tasks: [
+				{
+					id: "08BF7A96D2EF09AC"
+					type: "item"
+					item: "quarryplus:marker16"
+					count: 4L
+				}
+			]
+			rewards: [
+				{
+					id: "16D0D9FF7FAB2FA3"
+					type: "xp"
+					xp: 100
+				}
+			]
+		}
+		{
+			x: 2.0d
+			y: -2.0d
+			id: "5D60C08B05460E6C"
+			title: "Status Checker"
+			description: ["Glass, iron and any marker.", "", "Right-click a machine with it to read its energy Requires and Receives", "figures and its installed enchantments. When a quarry sits there doing", "nothing, this is the tool that tells you it is simply underfed."]
+			dependencies: ["3E0F99CDE76361BD"]
+			tasks: [
+				{
+					id: "1D5AECE78E5C7160"
+					type: "item"
+					item: "quarryplus:status_checker"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "97F3379484BCD860"
+					type: "xp"
+					xp: 60
+				}
+			]
+		}
+		{
+			x: 2.0d
+			y: 2.0d
+			id: "0BD4215CB44FE3AD"
+			title: "Y Setter"
+			description: ["Glass, lapis and any marker.", "", "Right-click a quarry with it to set the Y level it stops at. It answers", "'Quarry digs to <y>'.", "", "Without one the quarry goes to bedrock. Set a floor when you only want", "the deepslate layer and not the whole column."]
+			dependencies: ["5D60C08B05460E6C"]
+			tasks: [
+				{
+					id: "B1B5E433E075C9C9"
+					type: "item"
+					item: "quarryplus:y_setter"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "D307F5AA8C76566A"
+					type: "xp"
+					xp: 60
+				}
+			]
+		}
+		{
+			x: 4.0d
+			y: 0.0d
+			id: "BF8180F1D0C8B5D9"
+			title: "Quarry Plus"
+			description: ["Two gold pickaxes, a dropper, a redstone block, iron and obsidian.", "", "Place the quarry TOUCHING a marker and the marker's area becomes the dig", "area. It builds a frame around the region, then strips everything inside", "down to bedrock and pushes the drops into whatever inventory it faces.", "", "It needs energy -- the same FE Powah makes. Feed it a cable, not a hope."]
+			dependencies: ["0BD4215CB44FE3AD"]
+			tasks: [
+				{
+					id: "9758C0DEA6DD4FC0"
+					type: "item"
+					item: "quarryplus:quarry"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "93950E5695E4BD3D"
+					type: "xp"
+					xp: 200
+				}
+			]
+		}
+		{
+			x: 6.0d
+			y: 0.0d
+			id: "CCCC495133ABDC4C"
+			title: "Enchant It First"
+			description: ["QuarryPlus machines carry enchantments, and you apply them to the ITEM", "in an anvil BEFORE you place the block.", "", "Quarry and Chunk Destroyer take Efficiency, Unbreaking, Fortune and Silk", "Touch. Advanced Pump takes Efficiency, Unbreaking and Fortune.", "", "Efficiency is speed, Unbreaking cuts energy cost, and Fortune and Silk", "Touch do exactly what they do on a pickaxe. Silk Touch and Fortune", "conflict -- pick one."]
+			dependencies: ["BF8180F1D0C8B5D9"]
+			tasks: [
+				{
+					id: "51D1B8F7BDDAC51D"
+					type: "checkmark"
+					title: "Place a quarry that has an enchantment on it"
+				}
+			]
+			rewards: [
+				{
+					id: "79F435D40424BA45"
+					type: "xp"
+					xp: 160
+				}
+			]
+		}
+		{
+			x: 6.0d
+			y: -2.0d
+			id: "CC5F103D53B63CE6"
+			title: "Two Reasons It Stopped"
+			description: ["'Area is too small' means the markers do not enclose enough space.", "", "'Area contains protected chunks. Quarry has stopped.' means the dig", "region overlaps an FTB Chunks claim that is not yours. A quarry will not", "eat another team's claim, and it will not warn you until it hits one.", "", "Chunk-align the markers and claim the whole dig before you start."]
+			dependencies: ["CCCC495133ABDC4C"]
+			tasks: [
+				{
+					id: "9C12D20B6CB4C5FD"
+					type: "checkmark"
+					title: "Read a quarry's stop reason and fix its area"
+				}
+			]
+			rewards: [
+				{
+					id: "EBBF2449635F4193"
+					type: "xp"
+					xp: 100
+				}
+			]
+		}
+		{
+			x: 8.0d
+			y: 0.0d
+			id: "D8B30EEE5B645526"
+			title: "Chunk Destroyer"
+			description: ["A Quarry, four Chunk Markers, two emeralds and green dye.", "", "The Chunk Destroyer clears its whole marked region in one pass rather", "than head-by-head, and by default it VOIDS common material -- stone, dirt,", "gravel -- keeping only what is worth keeping.", "", "This is the machine that gets you uraninite and diamonds in bulk."]
+			dependencies: ["CC5F103D53B63CE6"]
+			tasks: [
+				{
+					id: "815E9A7E4F344057"
+					type: "item"
+					item: "quarryplus:adv_quarry"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "AEBB22D3DCDFBC22"
+					type: "xp"
+					xp: 300
+				}
+			]
+		}
+		{
+			x: 8.0d
+			y: -2.0d
+			id: "A5124D7A0F93C4F5"
+			title: "Through Bedrock"
+			description: ["Obsidian and two markers make a Remove Bedrock Module.", "", "You do not place it. Put the module and a Quarry or Chunk Destroyer", "together in a crafting grid to install it into that machine.", "", "The machine then mines bedrock. In the Nether that means the roof too."]
+			dependencies: ["D8B30EEE5B645526"]
+			tasks: [
+				{
+					id: "0646F2A19736CE56"
+					type: "item"
+					item: "quarryplus:remove_bedrock_module"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "0823DBF03C2B0045"
+					type: "xp"
+					xp: 200
+				}
+			]
+		}
+		{
+			x: 10.0d
+			y: 0.0d
+			id: "31A282BBD03E4750"
+			title: "Advanced Pump"
+			description: ["A Quarry, two diamonds, buckets, markers and green dye.", "", "The Advanced Pump is standalone -- it does not attach to a quarry.", "Place it directly ABOVE a fluid block and it drains the body out.", "", "Its Delete toggle voids what it pulls instead of tanking it, which is how", "you dry out an ocean trench before digging it. Frame toggle stops it", "building the visible frame."]
+			dependencies: ["A5124D7A0F93C4F5"]
+			tasks: [
+				{
+					id: "C8DC2347F791491B"
+					type: "item"
+					item: "quarryplus:adv_pump"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "4636862E3639E624"
+					type: "xp"
+					xp: 200
+				}
+			]
+		}
+		{
+			x: 10.0d
+			y: 2.0d
+			id: "EF4AB9B202BA585E"
+			title: "The Filler"
+			description: ["Iron, a ladder and an iron axe. The Filler is the quarry run backwards.", "", "Give it a marker area and a stack of blocks and it fills the region,", "or just builds the frame, depending on mode.", "", "The fastest way to floor a hole a Chunk Destroyer just made."]
+			dependencies: ["31A282BBD03E4750"]
+			tasks: [
+				{
+					id: "DA19E7B2FF905EF5"
+					type: "item"
+					item: "quarryplus:filler"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "B614125CFF1399EA"
+					type: "xp"
+					xp: 160
+				}
+			]
+		}
+		{
+			x: 12.0d
+			y: 0.0d
+			id: "167507A062D68030"
+			title: "Placer Plus"
+			description: ["A dispenser, gold, mossy cobble, redstone and iron.", "", "Placer Plus actually PLACES blocks from its inventory instead of shooting", "them out like a dispenser does.", "", "Right-click it with a redstone torch to change its redstone mode."]
+			dependencies: ["EF4AB9B202BA585E"]
+			tasks: [
+				{
+					id: "579CB4C10DA5ED0A"
+					type: "item"
+					item: "quarryplus:placer_plus"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "C6E201C88E9F25AB"
+					type: "xp"
+					xp: 140
+				}
+			]
+		}
+		{
+			x: 12.0d
+			y: 2.0d
+			id: "655F4C8518F566E2"
+			title: "Remote Placer"
+			description: ["Placer Plus, two diamonds, iron and two ender pearls.", "", "Same job at a distance -- it places into a remote position you configure", "rather than the block in front of its face."]
+			dependencies: ["167507A062D68030"]
+			tasks: [
+				{
+					id: "72AB55B4957D88E8"
+					type: "item"
+					item: "quarryplus:remote_placer"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "6D011925BFE849FE"
+					type: "xp"
+					xp: 160
+				}
+			]
+		}
+		{
+			x: 14.0d
+			y: 0.0d
+			id: "59B949BEE13B90A2"
+			title: "Underwater Markers"
+			description: ["A marker plus green dye gives its waterlogged twin.", "", "Ordinary markers break the water column when you place them, which floods", "your build site the moment you pull them. Waterlogged ones do not.", "", "On an ocean pack this is not optional."]
+			dependencies: ["655F4C8518F566E2"]
+			tasks: [
+				{
+					id: "9E929FB456C9FEAE"
+					type: "item"
+					item: "quarryplus:waterlogged_marker16"
+					count: 1L
+				}
+			]
+			rewards: [
+				{
+					id: "D3460790224C316B"
+					type: "xp"
+					xp: 120
+				},
+				{
+					id: "0F2C290725C34425"
+					type: "command"
+					title: "1 Skill Point"
+					command: "/puffish_skills points add @p tree 1"
+					player_command: false
+				}
+			]
+		}
+	]
+}
