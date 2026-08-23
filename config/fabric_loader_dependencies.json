@@ -1,24 +1,5 @@
 {
   "version": 1,
-  "_comment": [
-    "Fabric Loader dependency overrides. See DependencyOverrides in the loader:",
-    "keys are '+depends' (add), '-depends' (remove), 'depends' (replace).",
-    "",
-    "rpgsp 1.0.4 declares 'rpgmana': '=1.0.8.2' - an exact pin, which Fabric",
-    "enforces literally, so the pack would not launch with rpgmana 1.0.8.4:",
-    "  'requires version 1.0.8.2 of rpgmana, but only the wrong version is present'.",
-    "",
-    "The pin is an upstream oversight, not a real constraint. rpgsp 1.0.4 was",
-    "published 2025-03-20, eight months AFTER rpgmana's final 1.0.8.4 (2024-07-17).",
-    "Verified at bytecode level: the only difference between 1.0.8.2 and 1.0.8.4 is",
-    "a removed PRIVATE method, ManaComponentMixin.getRegenSpeed. The four classes",
-    "rpgsp actually references - Rpgmana, api/ManaInterface, api/SpellcostMixinInterface",
-    "and config/ServerConfig - are signature-identical across the two versions.",
-    "",
-    "Downgrading rpgmana instead does NOT work: 1.0.8.2 pins 'archon': '0.6.2'",
-    "(also exact), and the pack ships archon 0.8.1, so it just moves the crash one",
-    "link down the chain. Relaxing the pin here keeps every mod at its newest build."
-  ],
   "overrides": {
     "rpgsp": {
       "-depends": { "rpgmana": "*" },

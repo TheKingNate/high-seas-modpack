@@ -2,7 +2,7 @@ hash-format = "sha256"
 
 [[files]]
 file = "config/fabric_loader_dependencies.json"
-hash = "ae0db5e397854b78452fa273419aa1abc12ee381e034f885bc34c2e0882aa3cc"
+hash = "12d72244b3d77dc5e12845a88e7305080cf5712a24da638dffb0dc7eb22b1a23"
 
 [[files]]
 file = "config/ftbquests/quests/chapter_groups.snbt"
