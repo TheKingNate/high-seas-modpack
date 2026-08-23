@@ -903,11 +903,6 @@ hash = "2c8150979336b3b0acfdee14cf7e5a4b166e66b0b9fffa2104c029b7ceaffc56"
 metafile = true
 
 [[files]]
-file = "mods/vs-collision-damage.pw.toml"
-hash = "413ef58149766107f58dcf1bc87487c95cd3e6df1b4f22aff018c42f63b4dfbf"
-metafile = true
-
-[[files]]
 file = "mods/vs-crumbles.pw.toml"
 hash = "ddf5f0b3c4c757479d0784a79731e24cf2779654c95b1bb1b38d58b1ae9042d4"
 metafile = true
