@@ -153,9 +153,89 @@ file = "config/ftbquests/quests/data.snbt"
 hash = "25068f828a32bea65ad83c1bda71498570af080836e9b97ca66cd03d78c93c7f"
 
 [[files]]
+file = "config/pirates/config.acfg"
+hash = "ac9e583a792255674ded0b20cd30bf4863557d0c0e1cd2d0cfaed5bdb6be62be"
+
+[[files]]
 file = "global_packs/required_data/blazeandcaves-advancements-pack.pw.toml"
 hash = "9ba27f4b83b2653af61c9d642a77ba842be25c51aac8c1e24385c5169ceb9cdd"
 metafile = true
+
+[[files]]
+file = "global_packs/required_data/salvage-pirates/data/pirates_eureka/structures/ship/anetum-contatum.nbt"
+hash = "5f32031d6e0879dc391293f954663b1873bb604146d704610034fac16c15488a"
+
+[[files]]
+file = "global_packs/required_data/salvage-pirates/data/pirates_eureka/structures/ship/antelope.nbt"
+hash = "4a8d007a27dcd1472c53d33abb9f23ff367fa15d4f34d128e8085ea035b44b43"
+
+[[files]]
+file = "global_packs/required_data/salvage-pirates/data/pirates_eureka/structures/ship/barnacle-hopper.nbt"
+hash = "4dd14679ffbd20f57eb8023913846c1e8b35bf9199064c0656cb97c98b3e79c4"
+
+[[files]]
+file = "global_packs/required_data/salvage-pirates/data/pirates_eureka/structures/ship/deep-sea-moray.nbt"
+hash = "cadd00e9df6b514e1a10ed231d8e9b58f3580deebc71fe9cb9bebd437b0bf332"
+
+[[files]]
+file = "global_packs/required_data/salvage-pirates/data/pirates_eureka/structures/ship/eye-of-horus.nbt"
+hash = "65230dbbe6b12de5859b1f7b1c32bb340d97b700bc3c4b498da40afe7b879e72"
+
+[[files]]
+file = "global_packs/required_data/salvage-pirates/data/pirates_eureka/structures/ship/hispaniola.nbt"
+hash = "d5177ea9b48a3fa479395d835fcb743732a91b04c77d9042c35c33b493b2f8b5"
+
+[[files]]
+file = "global_packs/required_data/salvage-pirates/data/pirates_eureka/structures/ship/midnight-barracuda.nbt"
+hash = "86d189580b5f012f4cde10613ab8078c08e5a9d3686ef0e200a9a4533403a757"
+
+[[files]]
+file = "global_packs/required_data/salvage-pirates/data/pirates_eureka/structures/ship/queen-annes-revenge.nbt"
+hash = "9d1af1f3b8c245649f712d6abeb08ef83e463f5ec22fabf590526e790e732f74"
+
+[[files]]
+file = "global_packs/required_data/salvage-pirates/data/pirates_eureka/structures/ship/revenge.nbt"
+hash = "4585265e89fdbe9c54028e0bc87f22d0ec3e842d02a637e46b1b6166c245c980"
+
+[[files]]
+file = "global_packs/required_data/salvage-pirates/data/pirates_eureka/structures/ship/the-heart-attack.nbt"
+hash = "3afe75c75da9072f8443a9ccf2d01b70157e2623c03776b4d959a975ed591201"
+
+[[files]]
+file = "global_packs/required_data/salvage-pirates/data/pirates_eureka/structures/ship/the-phantom-leviathan.nbt"
+hash = "9850e33fad95cade5768edfe8bbc6f83845dabdf89000cbe1f1f33223d3e30a3"
+
+[[files]]
+file = "global_packs/required_data/salvage-pirates/data/pirates_eureka/structures/ship/whydah-ghost.nbt"
+hash = "efe612475825e55b48681dd15349683231868c599c6a597492eeb1834ff0d52b"
+
+[[files]]
+file = "global_packs/required_data/salvage-pirates/data/pirates_eureka/structures/ship/whydah.nbt"
+hash = "10aacc6b076ce3a60c54bb803ba611b59b61336359b61314f53a9ba3e0a272e9"
+
+[[files]]
+file = "global_packs/required_data/salvage-pirates/data/pirates_sky/structures/ship/wreckerideal.nbt"
+hash = "0dce7151004fb52a677097d826da986c11776b17880d0884fd81452ec95d90b2"
+
+[[files]]
+file = "global_packs/required_data/salvage-pirates/data/pirates_sky/worldgen/structure/ship.json"
+hash = "f7d61c5258b7471b928c4f6e6a8f7a89d0fad1b7fd53212c2d971305b0bf28e7"
+
+[[files]]
+file = "global_packs/required_data/salvage-pirates/data/pirates_sky/worldgen/structure_set/ships.json"
+hash = "16e9a1d0e3b1e13d7a2c7e520b7410bf829da6e1df868efcdd1cc15ad71ce911"
+
+[[files]]
+file = "global_packs/required_data/salvage-pirates/data/pirates_sky/worldgen/template_pool/ship.json"
+hash = "7c2b995cbbd77285142f92c988e7b297710320bc898f2d323bd7c4b5213ce0fb"
+
+[[files]]
+file = "global_packs/required_data/salvage-pirates/data/vlib/structure-settings/pirates_sky.json"
+hash = "2d1b62fdd58f043a13b5ceb58c5e089aa94ea85debdb3c4e5d5acb1e129ea642"
+
+[[files]]
+file = "global_packs/required_data/salvage-pirates/pack.mcmeta"
+hash = "38797de55581beedc8048c186adee6b6af81a87e395ea721473d94d664a53815"
 
 [[files]]
 file = "global_packs/required_data/salvage-tweaks/data/simplyskills/puffish_skills/categories/tree/category.json"

@@ -1,0 +1,48 @@
+#General config for Valkyrien Pirates
+
+
+#The minimum rate the pirates will fire their cannons at
+cannon-firing-pause=40
+
+#The speed the cannonballs will fire at, default=1.7
+cannon-range=1.7
+
+#The max amount of blocks for the new ship builder, set to -1 to use the Eureka/VS version
+max-ship-blocks=-1
+
+#How many ticks should it take for an NPC controlled ship to change its target position, default 50
+controlled-ship-updates=100
+
+#Base power for cannonball shot entity, default=2.2
+base-shot-power=2.2
+
+#Based squared distance to trigger NPC ship pursuit default=10000
+pursuit-distance=10000
+
+#Planned for removal: max size of ship in blocks to spawn as a pirate ship
+max-ship-blocks=5000
+
+#Custom crew from config
+#Only reached when a crew spawner block's crew_spawn_type is custom_0..custom_3.
+#Nothing shipped in the mod uses those, so the salvage-pirates datapack rewrites a
+#share of each ship's spawners to point here. Without that datapack these lines do nothing.
+custom-crew-entity-0=minecraft:vindicator
+custom-crew-entity-1=minecraft:pillager
+custom-crew-entity-2=minecraft:evoker
+custom-crew-entity-3=minecraft:witch
+
+#Custom crew equipments- mainhand,offhand,helmet,chest,leggings,boots
+#0 leaves the slot empty. Evokers and witches are left bare on purpose: their threat is
+#fangs, vexes and thrown potions, and armour renders badly over the robe.
+custom-crew-equipment-0=minecraft:diamond_axe,0,minecraft:diamond_helmet,minecraft:diamond_chestplate,minecraft:diamond_leggings,minecraft:diamond_boots
+custom-crew-equipment-1=minecraft:crossbow,0,minecraft:iron_helmet,minecraft:iron_chestplate,minecraft:iron_leggings,minecraft:iron_boots
+custom-crew-equipment-2=0,0,0,0,0,0
+custom-crew-equipment-3=0,0,0,0,0,0
+
+#Whether flying pirates should spawn in the world or not (default true) BETA!
+#Dead key - parsed into Pirates.shouldEnableFlyingPirates and never read again.
+#The real switch is the flying_ships datapack, shipped via global_packs/required_data/salvage-pirates.
+should-enable-flying-pirates=true
+
+#what item should be used to recruit friendly pirates in the format "minecraft:golden_apple,1" to mean 1 golden apple
+recruit-cost=minecraft:golden_apple,1
