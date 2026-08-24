@@ -8,8 +8,10 @@ Shows every step up front, explains what each one does before it
 runs, and reports what happened after.
 """
 
+import hashlib
 import json
 import platform
+import re
 import shutil
 import subprocess
 import sys
@@ -41,6 +43,8 @@ INSTANCE = "Salvage"
 MC_VERSION = "1.20.1"
 FABRIC = "0.19.3"
 
+QUARANTINE = ".salvage-quarantine"
+
 BG = "#1b1e24"
 CARD = "#242832"
 FG = "#eceff4"
@@ -71,11 +75,22 @@ def prism_candidates():
     return c
 
 
+def prism_roots():
+    """Every Prism data folder present, not just the first one found.
+
+    The Flatpak and the distro package can both be installed, and the
+    pack may live under either. Looking only at the first hit is how a
+    real install gets reported as "nothing here".
+    """
+    return [d for d in prism_candidates() if (d / "instances").is_dir()]
+
+
 def find_prism():
-    for d in prism_candidates():
-        if (d / "instances").is_dir():
+    roots = prism_roots()
+    for d in roots:
+        if pack_instances(d, OLD_URL) or pack_instances(d, PACK_URL):
             return d
-    return None
+    return roots[0] if roots else None
 
 
 def total_ram_mb():
@@ -129,6 +144,460 @@ def trash_self():
         return False
 
 
+# -- repair: reading an instance -------------------------------------
+
+def salvage_instances():
+    """Instance folders belonging to this pack, across every Prism root.
+
+    packwiz.json is the stronger signal of the two: an instance the
+    player renamed, or one still pointing at the old channel, keeps it.
+    """
+    out = []
+    for root in prism_roots():
+        try:
+            entries = sorted((root / "instances").iterdir())
+        except Exception:
+            continue
+        for inst in entries:
+            if not inst.is_dir():
+                continue
+            if (inst / "minecraft" / "packwiz.json").is_file():
+                out.append(inst)
+                continue
+            try:
+                text = (inst / "instance.cfg").read_text(errors="ignore")
+            except Exception:
+                continue
+            if OLD_URL in text or PACK_URL in text:
+                out.append(inst)
+    return out
+
+
+def cfg_value(text, key):
+    for line in text.splitlines():
+        if line.startswith(key + "="):
+            return line.split("=", 1)[1].strip()
+    return ""
+
+
+def channel_of(cfg_text):
+    if OLD_URL in cfg_text:
+        return "main"
+    if PACK_URL in cfg_text:
+        return "release"
+    return "unknown"
+
+
+def hash_file(path, algo):
+    """Hex digest, or None if we cannot compute that algorithm.
+
+    packwiz mixes sha512, sha1 and sha256 in one file. Anything we do
+    not recognise has to read as "not checked" -- calling it corrupt
+    would quarantine perfectly good jars.
+    """
+    try:
+        h = hashlib.new(algo)
+    except ValueError:
+        return None
+    try:
+        with open(path, "rb") as f:
+            for chunk in iter(lambda: f.read(1 << 20), b""):
+                h.update(chunk)
+    except OSError:
+        return None
+    return h.hexdigest()
+
+
+def hash_bytes(data, algo):
+    try:
+        h = hashlib.new(algo)
+    except ValueError:
+        return None
+    h.update(data)
+    return h.hexdigest()
+
+
+def digest_matches(path, spec):
+    """True / False / None, where None means we could not check."""
+    algo = (spec.get("type") or "").lower()
+    want = (spec.get("value") or "").lower()
+    if not algo or not want:
+        return None
+    got = hash_file(path, algo)
+    if got is None:
+        return None
+    return got.lower() == want
+
+
+def fetch(url, timeout=20):
+    with urllib.request.urlopen(url, timeout=timeout) as r:
+        return r.read()
+
+
+def pack_meta(text):
+    """name, version and the index filename out of a pack.toml."""
+    meta = {"name": "", "version": "", "index": "index.toml"}
+    section = ""
+    for raw in text.splitlines():
+        line = raw.strip()
+        if line.startswith("[") and line.endswith("]"):
+            section = line[1:-1]
+        elif "=" in line and not line.startswith("#"):
+            k, v = line.split("=", 1)
+            k, v = k.strip(), v.strip().strip('"')
+            if section == "" and k in ("name", "version"):
+                meta[k] = v
+            elif section == "index" and k == "file":
+                meta["index"] = v
+    return meta
+
+
+def java_of(cfg_text):
+    """(version string, major number). Major 0 means unknown."""
+    ver = cfg_value(cfg_text, "JavaVersion")
+    if not ver:
+        exe = cfg_value(cfg_text, "JavaPath") or "java"
+        try:
+            r = subprocess.run([exe, "-version"], capture_output=True,
+                               text=True, timeout=15)
+            m = re.search(r'version "([^"]+)"', r.stderr + r.stdout)
+            ver = m.group(1) if m else ""
+        except Exception:
+            ver = ""
+    m = re.match(r"(\d+)(?:\.(\d+))?", ver or "")
+    major = 0
+    if m:
+        major = int(m.group(1))
+        if major == 1 and m.group(2):      # 1.8.0_402 style
+            major = int(m.group(2))
+    return ver, major
+
+
+EXC_LINE = re.compile(r"^[\w.$]+(?:Exception|Error|Throwable)\b")
+
+
+def last_crash(mc):
+    d = mc / "crash-reports"
+    if not d.is_dir():
+        return None
+    files = [p for p in d.iterdir() if p.is_file()]
+    if not files:
+        return None
+    newest = max(files, key=lambda p: p.stat().st_mtime)
+    try:
+        lines = newest.read_text(errors="ignore").splitlines()
+    except Exception:
+        return None
+    exc, frames = "", []
+    for i, raw in enumerate(lines):
+        if EXC_LINE.match(raw.strip()):
+            exc = raw.strip()
+            for nxt in lines[i + 1:]:
+                s = nxt.strip()
+                if s.startswith("at "):
+                    frames.append(s)
+                    if len(frames) == 3:
+                        break
+                elif frames:
+                    break
+            break
+    return {
+        "file": newest.name,
+        "when": time.strftime("%Y-%m-%d %H:%M",
+                              time.localtime(newest.stat().st_mtime)),
+        "exception": exc,
+        "frames": frames,
+    }
+
+
+def diagnose(inst, log, progress):
+    """Rung 0. Reads an instance and writes nothing at all."""
+    mc = inst / "minecraft"
+    try:
+        cfg_text = (inst / "instance.cfg").read_text(errors="ignore")
+    except Exception:
+        cfg_text = ""
+
+    r = {
+        "inst": inst,
+        "mc": mc,
+        "label": cfg_value(cfg_text, "name") or inst.name,
+        "channel": channel_of(cfg_text),
+        "pack": "", "version": "",
+        "tracked": 0, "jars": 0,
+        "orphans": [], "corrupt": [], "missing": [], "unchecked": [],
+        "warnings": [],
+        "tracking": "not checked",
+        "crash": last_crash(mc),
+    }
+
+    ver, major = java_of(cfg_text)
+    r["java"] = ver or "unknown"
+    if major and major < 17:
+        r["warnings"].append(
+            "java %s is too old, the pack needs 17 or newer" % ver)
+    elif not major:
+        r["warnings"].append(
+            "could not tell which java this instance will use")
+
+    try:
+        alloc = int(cfg_value(cfg_text, "MaxMemAlloc") or 0)
+    except ValueError:
+        alloc = 0
+    r["ram_alloc"] = alloc
+    r["ram_total"] = total_ram_mb()
+    if alloc and alloc < 4096:
+        r["warnings"].append(
+            "only %d MB of memory allocated, the pack wants 4096 or more"
+            % alloc)
+    if alloc and alloc > r["ram_total"] - 1024:
+        r["warnings"].append(
+            "%d MB allocated of %d MB physical, which leaves nothing for "
+            "the rest of the system" % (alloc, r["ram_total"]))
+
+    jar = mc / "packwiz-installer-bootstrap.jar"
+    if not jar.is_file():
+        r["bootstrap"] = "missing"
+        r["warnings"].append(
+            "the updater jar is missing, so this instance cannot update")
+    elif jar.stat().st_size <= 10000:
+        r["bootstrap"] = "damaged, %d bytes" % jar.stat().st_size
+        r["warnings"].append("the updater jar is too small to be real")
+    else:
+        r["bootstrap"] = "present, %d KB" % (jar.stat().st_size // 1024)
+
+    if r["channel"] == "main":
+        r["warnings"].append(
+            "on the main channel, players should be on release")
+    elif r["channel"] == "unknown":
+        r["warnings"].append(
+            "no packwiz pre-launch command, so this instance never "
+            "updates itself")
+
+    pj = mc / "packwiz.json"
+    data = {}
+    if not pj.is_file():
+        r["warnings"].append(
+            "no packwiz.json, so there is no record of what this "
+            "instance should contain")
+    else:
+        try:
+            data = json.loads(pj.read_text(errors="ignore"))
+        except Exception as e:
+            r["warnings"].append("packwiz.json is unreadable: %s" % e)
+
+    entries = data.get("cachedFiles") or {}
+    # onlyOtherSide entries are server-side mods the client correctly
+    # never downloaded. They have no cachedLocation and are not missing.
+    checkable = [(k, v) for k, v in entries.items()
+                 if not v.get("onlyOtherSide") and v.get("cachedLocation")]
+    checkable.sort(key=lambda kv: kv[0])
+    r["tracked"] = len(checkable)
+    skipped = len(entries) - len(checkable)
+    if skipped:
+        log("  %d server-side entries skipped, as expected" % skipped)
+
+    known = set()
+    total = len(checkable)
+    for n, (_key, e) in enumerate(checkable, 1):
+        loc = e["cachedLocation"]
+        known.add(loc)
+        progress(n, total, loc)
+        p = mc / loc
+        if not p.is_file():
+            r["missing"].append(loc)
+            continue
+        # A jar entry carries linkedFileHash for the jar itself; hash
+        # describes the .pw.toml, which is not on disk.
+        spec = e.get("linkedFileHash") or e.get("hash") or {}
+        ok = digest_matches(p, spec)
+        if ok is None:
+            r["unchecked"].append(loc)
+        elif not ok:
+            r["corrupt"].append(loc)
+
+    mods = mc / "mods"
+    if mods.is_dir():
+        jars = sorted(p for p in mods.rglob("*.jar") if p.is_file())
+        r["jars"] = len(jars)
+        # No usable record means no way to tell a stray jar from a real
+        # one, and calling all of them orphans would quarantine the whole
+        # mods folder. Say so instead; option 2 is the fix for that.
+        if not entries:
+            r["warnings"].append(
+                "cannot tell which mods belong to the pack without a "
+                "readable packwiz.json, so stray files were not looked "
+                "for")
+        else:
+            for p in jars:
+                rel = p.relative_to(mc).as_posix()
+                if rel not in known:
+                    r["orphans"].append(rel)
+
+    if data:
+        url = OLD_URL if r["channel"] == "main" else PACK_URL
+        log("  comparing the tracking file with the live pack")
+        try:
+            raw = fetch(url)
+        except Exception as e:
+            r["tracking"] = "could not check, no connection to GitHub"
+            log("  %s" % e)
+        else:
+            meta = pack_meta(raw.decode("utf-8", "replace"))
+            r["pack"], r["version"] = meta["name"], meta["version"]
+            drift = []
+            want = data.get("packFileHash") or {}
+            got = hash_bytes(raw, (want.get("type") or "sha256").lower())
+            if got and got.lower() != (want.get("value") or "").lower():
+                drift.append("pack.toml")
+            iurl = url.rsplit("/", 1)[0] + "/" + meta["index"]
+            try:
+                iraw = fetch(iurl)
+            except Exception:
+                iraw = None
+            if iraw is not None:
+                want = data.get("indexFileHash") or {}
+                got = hash_bytes(iraw,
+                                 (want.get("type") or "sha256").lower())
+                if got and got.lower() != (want.get("value") or "").lower():
+                    drift.append("index.toml")
+            if drift:
+                r["tracking"] = ("out of date, %s changed since this "
+                                 "instance last synced" % " and ".join(drift))
+                # Without this check an unsynced instance looks perfect:
+                # its packwiz.json still lists everything it once had.
+                r["warnings"].append(
+                    "this instance has not synced with the current pack, "
+                    "so its own file list is out of date")
+            else:
+                r["tracking"] = "up to date"
+
+    r["problems"] = len(r["orphans"]) + len(r["corrupt"]) + len(r["missing"])
+    return r
+
+
+# -- repair: changing an instance ------------------------------------
+
+def quarantine(mc, rels, stamp, log):
+    """Move files into .salvage-quarantine/<stamp>/, keeping their paths.
+
+    Nothing is ever deleted. A stale packwiz.json would otherwise make
+    this eat mods the player added on purpose, with no way back.
+    """
+    moved = []
+    for rel in rels:
+        src = mc / rel
+        if not src.exists():
+            continue
+        dest = mc / QUARANTINE / stamp / rel
+        try:
+            dest.parent.mkdir(parents=True, exist_ok=True)
+            shutil.move(str(src), str(dest))
+        except Exception as e:
+            log("  could not move %s: %s" % (rel, e))
+            continue
+        moved.append(rel)
+        log("  moved %s" % rel)
+    return moved
+
+
+def reset_targets(mc):
+    """Everything rung 3 clears out of mods/ and config/.
+
+    config/*.txt is left in place: those are the keybind and settings
+    files mods write, and losing them is precisely the cost of the
+    clean reinstall this tool exists to avoid.
+    """
+    rels = []
+    mods = mc / "mods"
+    if mods.is_dir():
+        rels += [p.relative_to(mc).as_posix()
+                 for p in sorted(mods.rglob("*")) if p.is_file()]
+    cfg = mc / "config"
+    if cfg.is_dir():
+        rels += [p.relative_to(mc).as_posix()
+                 for p in sorted(cfg.rglob("*"))
+                 if p.is_file() and p.suffix.lower() != ".txt"]
+    return rels
+
+
+# -- repair: the report ----------------------------------------------
+
+def report_dir():
+    d = Path.home() / "Desktop"
+    return d if d.is_dir() else Path.home()
+
+
+def write_report(results, changes, stamp):
+    rule = "-" * 62
+    out = ["Salvage install report",
+           time.strftime("%Y-%m-%d %H:%M:%S"),
+           "",
+           "System:          %s %s" % (platform.system(),
+                                       platform.machine()),
+           "Physical memory: %d MB" % total_ram_mb(),
+           "Instances found: %d" % len(results)]
+
+    for r in results:
+        pack = ("%s %s" % (r["pack"], r["version"])).strip() or "unknown"
+        out += ["", rule,
+                "Instance: %s" % r["label"],
+                "  path:      %s" % r["inst"],
+                "  pack:      %s" % pack,
+                "  channel:   %s" % r["channel"],
+                "  java:      %s" % r["java"],
+                "  memory:    %d MB allocated of %d MB physical"
+                % (r["ram_alloc"], r["ram_total"]),
+                "  updater:   %s" % r["bootstrap"],
+                "  tracking:  %s" % r["tracking"],
+                "",
+                "Counts",
+                "  tracked files: %d" % r["tracked"],
+                "  jars on disk:  %d" % r["jars"],
+                "  orphans:       %d" % len(r["orphans"]),
+                "  corrupt:       %d" % len(r["corrupt"]),
+                "  missing:       %d" % len(r["missing"]),
+                "  not checked:   %d" % len(r["unchecked"]),
+                "",
+                "Problems"]
+        found = ["  setup    %s" % w for w in r["warnings"]]
+        found += ["  orphan   %s" % f for f in r["orphans"]]
+        found += ["  corrupt  %s" % f for f in r["corrupt"]]
+        found += ["  missing  %s" % f for f in r["missing"]]
+        found += ["  unknown hash type, not checked  %s" % f
+                  for f in r["unchecked"]]
+        out += found or ["  none"]
+
+        c = r["crash"]
+        if c:
+            out += ["", "Last crash (%s, %s)" % (c["file"], c["when"]),
+                    "  %s" % (c["exception"] or "no exception line found")]
+            out += ["    %s" % f for f in c["frames"]]
+
+    out += ["", rule, "What this run changed"]
+    out += ["  %s" % c for c in changes]
+    out += ["", "Send this file to your server operator.", ""]
+
+    path = report_dir() / ("salvage-report-%s.txt" % stamp)
+    path.write_text("\n".join(out))
+    return path
+
+
+RUNGS = [
+    ("Leave it alone for now",
+     "Keep the report, change nothing."),
+    ("1.  Targeted fix",
+     "Quarantine mods that aren't part of the pack, and any file that "
+     "fails its checksum. The updater re-downloads them next launch."),
+    ("2.  Resync",
+     "The targeted fix, plus the tracking file, so the updater "
+     "re-checks every single file next launch."),
+    ("3.  Full reset",
+     "Quarantine all of mods/ and config/ and let the updater rebuild "
+     "them. Your world, settings and keybinds stay where they are."),
+]
+
+
 BLURB = {
     "Get Prism Launcher":
         "Prism Launcher is the app that runs modded Minecraft.\n\n"
@@ -156,6 +625,346 @@ BLURB = {
         "Checks the auto-update file is present and undamaged, and "
         "re-downloads it if needed.",
 }
+
+
+class Repair(tk.Toplevel):
+    """Rung 0, then the 1-2-3 ladder. Separate window, own worker."""
+
+    def __init__(self, master):
+        super().__init__(master)
+        self.title("Salvage -- check for problems")
+        self.configure(bg=BG)
+        self.geometry("700x720")
+        self.minsize(660, 620)
+
+        self.results = []
+        self.stamp = time.strftime("%Y%m%d-%H%M%S")
+        self.report = None
+        self.done = False
+        self.pick_inst = tk.IntVar(value=0)
+        self.pick_rung = tk.IntVar(value=0)
+
+        self._build()
+        self.transient(master)
+        self.lift()
+        self.after(200, lambda: threading.Thread(
+            target=self._work_diagnose, daemon=True).start())
+
+    def _build(self):
+        tk.Label(self, text="Check for problems", bg=BG, fg=FG,
+                 font=(UI, 24, "bold")).pack(pady=(20, 0))
+        tk.Label(self,
+                 text="Nothing is ever deleted. Anything this moves goes "
+                      "into .salvage-quarantine inside the instance, and "
+                      "your world and settings are never touched.",
+                 bg=BG, fg=DIM, font=(UI, 10), wraplength=560,
+                 justify="center").pack(pady=(4, 14))
+
+        card = tk.Frame(self, bg=CARD)
+        card.pack(fill="x", padx=36)
+        self.head = tk.Label(card, text="Looking at your install", bg=CARD,
+                             fg=FG, font=(UI, 15, "bold"), anchor="w",
+                             wraplength=560, justify="left")
+        self.head.pack(fill="x", padx=18, pady=(14, 6))
+        self.body = tk.Label(card,
+                             text="This step only reads. It changes "
+                                  "nothing until you pick an option.",
+                             bg=CARD, fg=DIM, font=(UI, 11), anchor="w",
+                             wraplength=560, justify="left")
+        self.body.pack(fill="x", padx=18, pady=(0, 14))
+
+        self.bar = ttk.Progressbar(self, mode="determinate", maximum=100,
+                                   style="Bar.Horizontal.TProgressbar")
+        self.bar.pack(fill="x", padx=36, pady=(12, 0))
+
+        self.status = tk.Label(self, text="starting", bg=BG, fg=DIM,
+                               font=(UI, 10))
+        self.status.pack(pady=(4, 0))
+
+        self.choice = tk.Frame(self, bg=BG)
+
+        self.details = tk.Label(self, text="Details", bg=BG, fg=DIM,
+                                font=(UI, 9, "bold"), anchor="w")
+        self.details.pack(fill="x", padx=36, pady=(14, 4))
+        self.out = scrolledtext.ScrolledText(
+            self, height=10, bg="#14161b", fg=DIM, relief="flat",
+            font=(MONO, 9), wrap="word", padx=12, pady=8, borderwidth=0,
+            highlightthickness=0)
+        self.out.pack(fill="both", expand=True, padx=36, pady=(0, 12))
+        self.out.configure(state="disabled")
+
+        row = tk.Frame(self, bg=BG)
+        row.pack(pady=(0, 20))
+        self.btn = ttk.Button(row, text="Working...", style="Go.TButton",
+                              command=self._go)
+        self.btn.pack(side="left")
+        self.btn.state(["disabled"])
+        ttk.Button(row, text="Close", style="Quiet.TButton",
+                   command=self.destroy).pack(side="left", padx=(10, 0))
+
+    # -- called from the worker thread -------------------------------
+    def post(self, fn, *args):
+        """Hand work back to the UI thread, quietly if the window is gone.
+
+        The worker outlives a close, and hashing 160 jars is long enough
+        for someone to shut the window halfway through.
+        """
+        try:
+            if self.winfo_exists():
+                self.after(0, fn, *args)
+        except tk.TclError:
+            pass
+
+    def log(self, msg=""):
+        self.post(self._log, msg)
+
+    def _log(self, msg):
+        self.out.configure(state="normal")
+        self.out.insert("end", msg + "\n")
+        self.out.see("end")
+        self.out.configure(state="disabled")
+
+    def progress(self, n, total, label):
+        self.post(self._progress, n, total, label)
+
+    def _progress(self, n, total, label):
+        self.bar.configure(maximum=max(total, 1), value=n)
+        self.status.config(text="checking %d of %d -- %s"
+                                % (n, total, Path(label).name))
+
+    def _card(self, head, body, colour=FG):
+        self.head.config(text=head, fg=colour)
+        self.body.config(text=body)
+
+    # -- rung 0 ------------------------------------------------------
+    def _work_diagnose(self):
+        try:
+            self._diagnose()
+        except Exception as e:
+            self.log("")
+            self.log("Stopped: %s" % e)
+            self.post(self._card, "Couldn't finish the check",
+                      str(e) + "\n\nClose this and try again.", BAD)
+            self.post(self._offer_close)
+
+    def _diagnose(self):
+        found = salvage_instances()
+        if not found:
+            self.log("No Salvage install found on this computer.")
+            for d in prism_candidates():
+                self.log("  looked in %s" % (d / "instances"))
+            self.post(self._card, "Nothing to check",
+                      "No Salvage instance was found, so there is "
+                      "nothing to report on. If Prism is installed "
+                      "somewhere unusual, say so and it can be added.",
+                      BAD)
+            self.post(self._offer_close)
+            return
+
+        self.log("Found %d instance(s)." % len(found))
+        for inst in found:
+            self.log("")
+            self.log("%s" % inst.name)
+            r = diagnose(inst, self.log, self.progress)
+            self.results.append(r)
+            self.log("  %d tracked, %d jars on disk"
+                     % (r["tracked"], r["jars"]))
+            self.log("  %d orphan, %d corrupt, %d missing"
+                     % (len(r["orphans"]), len(r["corrupt"]),
+                        len(r["missing"])))
+            self.log("  tracking: %s" % r["tracking"])
+            for w in r["warnings"]:
+                self.log("  note: %s" % w)
+
+        self.report = write_report(self.results,
+                                   ["nothing (diagnose only)"], self.stamp)
+        self.log("")
+        self.log("Report written to %s" % self.report)
+        self.post(self._diagnosed)
+
+    def _diagnosed(self):
+        self.bar.configure(value=self.bar["maximum"])
+        worst = max(self.results, key=lambda r: r["problems"])
+        self.pick_inst.set(self.results.index(worst))
+        total = sum(r["problems"] for r in self.results)
+
+        if total:
+            self._card(
+                "Found %d thing(s) worth fixing" % total,
+                "The report below lists them all. Pick the smallest "
+                "option first -- each one does more than the last, and "
+                "each is reversible.")
+            self.pick_rung.set(1)
+        else:
+            # "problems" counts files only. Every warning - stale tracking, java
+            # below 17, a missing updater jar, the wrong channel - contributed
+            # nothing here, so an instance that genuinely had not synced was told
+            # "No damaged or stray files" and preselected the do-nothing option.
+            # That defeats the check the spec calls load-bearing: it runs, then its
+            # result is discarded at the one point where it would change what the
+            # player does.
+            warned = [w for r in self.results for w in r["warnings"]]
+            if warned:
+                self._card(
+                    "No damaged or stray files, but %d thing(s) need "
+                    "attention" % len(warned),
+                    "\n".join("- " + w for w in warned[:6]) +
+                    "\n\nThe report below has the detail.")
+                # Stale tracking is exactly what option 2 fixes: it drops the
+                # record so the updater re-checks every file next launch.
+                if any(r.get("tracking", "").startswith("out of date")
+                       for r in self.results):
+                    self.pick_rung.set(2)
+            else:
+                self._card(
+                    "No damaged or stray files",
+                    "Every tracked file matches its checksum. If the game "
+                    "still misbehaves, send the report on: the answer may "
+                    "be in the crash or the settings rather than the mods.")
+        self.status.config(text=str(self.report))
+        self._build_choice()
+        self.btn.config(text="Do the selected thing")
+        self.btn.state(["!disabled"])
+
+    def _build_choice(self):
+        # before= matters: pack() appends, and the log and buttons are
+        # already in the order, so without it the options land underneath
+        # them at the bottom of the window.
+        self.choice.pack(fill="x", padx=36, pady=(14, 0),
+                         before=self.details)
+
+        if len(self.results) > 1:
+            # Room for one row per instance, so the buttons stay visible.
+            self.geometry("700x%d" % (720 + 26 * len(self.results)))
+            tk.Label(self.choice, text="Which instance", bg=BG, fg=DIM,
+                     font=(UI, 9, "bold"), anchor="w").pack(fill="x")
+            for i, r in enumerate(self.results):
+                tk.Radiobutton(
+                    self.choice,
+                    text="%s  --  %d problem(s)" % (r["label"],
+                                                    r["problems"]),
+                    variable=self.pick_inst, value=i, bg=BG, fg=FG,
+                    selectcolor=CARD, activebackground=BG,
+                    activeforeground=FG, highlightthickness=0, bd=0,
+                    font=(UI, 11), anchor="w").pack(fill="x")
+            tk.Label(self.choice, text="", bg=BG).pack()
+
+        tk.Label(self.choice, text="What to do", bg=BG, fg=DIM,
+                 font=(UI, 9, "bold"), anchor="w").pack(fill="x")
+        for i, (name, note) in enumerate(RUNGS):
+            tk.Radiobutton(
+                self.choice, text=name, variable=self.pick_rung, value=i,
+                bg=BG, fg=FG, selectcolor=CARD, activebackground=BG,
+                activeforeground=FG, highlightthickness=0, bd=0,
+                font=(UI, 11), anchor="w").pack(fill="x")
+            tk.Label(self.choice, text=note, bg=BG, fg=DIM,
+                     font=(UI, 9), anchor="w", justify="left",
+                     wraplength=560).pack(fill="x", padx=(26, 0),
+                                          pady=(0, 4))
+
+    # -- rungs 1-3 ---------------------------------------------------
+    def _go(self):
+        if self.done:
+            return self.destroy()
+        rung = self.pick_rung.get()
+        if rung == 0:
+            self._card("Report saved",
+                       "Nothing was changed. Send the report on:\n\n%s"
+                       % self.report, GOOD)
+            self.log("")
+            self.log("Nothing changed.")
+            return self._offer_close()
+
+        r = self.results[self.pick_inst.get()]
+        self.choice.pack_forget()
+        self.btn.state(["disabled"])
+        self.btn.config(text="Working...")
+        self.bar.configure(mode="indeterminate")
+        self.bar.start(12)
+        self._card("Repairing %s" % r["label"],
+                   "Moving files into the quarantine folder. Leave this "
+                   "open until it finishes.")
+        threading.Thread(target=self._work_repair, args=(r, rung),
+                         daemon=True).start()
+
+    def _work_repair(self, r, rung):
+        try:
+            self._repair(r, rung)
+        except Exception as e:
+            self.log("")
+            self.log("Stopped: %s" % e)
+            self.post(self._card, "Couldn't finish the repair",
+                      "%s\n\nNothing was deleted. Anything already "
+                      "moved is in %s inside the instance."
+                      % (e, QUARANTINE), BAD)
+            self.post(self._offer_close)
+
+    def _repair(self, r, rung):
+        mc = r["mc"]
+        self.log("")
+        self.log("Repairing %s at rung %d" % (r["label"], rung))
+
+        if rung == 3:
+            targets = reset_targets(mc)
+            self.log("  clearing mods/ and config/ (%d files)"
+                     % len(targets))
+        else:
+            # Only mods/ and config/ are in scope. The pack also tracks
+            # resourcepacks/*.zip and shaderpacks/*.zip, and both are on the
+            # never-touch list - the closing copy promises the player their shaders
+            # and keybinds were left exactly as they were.
+            scoped, skipped = [], []
+            for t in r["orphans"] + r["corrupt"]:
+                (scoped if t.split("/")[0] in ("mods", "config") else skipped).append(t)
+            for t in skipped:
+                self.log("failed its check but left in place, outside mods "
+                         "and config: %s" % t)
+            targets = scoped
+
+        moved = quarantine(mc, targets, self.stamp, self.log)
+        if rung >= 2:
+            # The updater trusts packwiz.json. Removing it is what
+            # forces a full re-check of every file on the next launch.
+            moved += quarantine(mc, ["packwiz.json"], self.stamp, self.log)
+
+        changes = []
+        if moved:
+            changes.append("%s: moved %d file(s) to %s/%s/"
+                           % (r["label"], len(moved), QUARANTINE,
+                              self.stamp))
+            # Option 3 moves a few hundred files. The quarantine folder
+            # is the real record; the report only needs to be readable.
+            changes += ["  " + f for f in moved[:40]]
+            if len(moved) > 40:
+                changes.append("  ... and %d more, all listed in that "
+                               "folder" % (len(moved) - 40))
+        else:
+            changes.append("%s: nothing needed moving" % r["label"])
+        changes.append("repair option %d was used" % rung)
+
+        self.report = write_report(self.results, changes, self.stamp)
+        self.log("")
+        self.log("Moved %d file(s)." % len(moved))
+        self.log("Report updated: %s" % self.report)
+        self.post(self._repaired, len(moved))
+
+    def _repaired(self, count):
+        self.bar.stop()
+        self.bar.configure(mode="determinate", value=100, maximum=100)
+        self._card(
+            "Done -- %d file(s) quarantined" % count,
+            "Launch the game now. If it still crashes, run this again "
+            "and pick the next option.\n\nThe first launch after a "
+            "repair re-downloads what was moved, so give it a few "
+            "minutes.\n\nReport: %s" % self.report, GOOD)
+        self.status.config(text=str(self.report))
+        self._offer_close()
+
+    def _offer_close(self):
+        self.done = True
+        self.bar.stop()
+        self.btn.config(text="Close")
+        self.btn.state(["!disabled"])
 
 
 class App(tk.Tk):
@@ -196,6 +1005,11 @@ class App(tk.Tk):
         s.map("Go.TButton",
               background=[("active", "#4a8ce0"), ("disabled", "#3a4050")],
               foreground=[("disabled", "#7a818f")])
+        s.configure("Quiet.TButton", font=(UI, 11), padding=(14, 7),
+                    background=CARD, foreground=DIM, borderwidth=0)
+        s.map("Quiet.TButton",
+              background=[("active", "#2d323e")],
+              foreground=[("active", FG), ("disabled", "#4d535f")])
         s.configure("Bar.Horizontal.TProgressbar", troughcolor=CARD,
                     background=ACCENT, borderwidth=0, thickness=4)
 
@@ -228,6 +1042,12 @@ class App(tk.Tk):
                               style="Go.TButton", command=self._go)
         self.btn.pack(pady=(18, 4))
         self.btn.state(["disabled"])
+
+        # Reachable at any point, so a player can be asked to "run it
+        # and send the report" without going through the setup steps.
+        self.fix = ttk.Button(self, text="Check this install for problems",
+                              style="Quiet.TButton", command=self.open_fix)
+        self.fix.pack(pady=(4, 2))
 
         self.status = tk.Label(self, text="", bg=BG, fg=DIM, font=(UI, 10))
         self.status.pack()
@@ -322,10 +1142,15 @@ class App(tk.Tk):
                 ("Verify the updater", self._s_boot_all),
             ]
             head = "You already have Salvage"
-            body = ("This points your copy at the stable release channel, "
-                    "so you only get changes once they've been tested.\n\n"
-                    "Your world, settings, keybinds, shaders and video "
-                    "options will not be touched.")
+            body = ("Two things this can do.\n\n"
+                    "Start points your copy at the stable release "
+                    "channel, so you only get changes once they've been "
+                    "tested.\n\n"
+                    "The button below it looks for damaged, missing or "
+                    "stray mod files and writes a report you can send "
+                    "on.\n\n"
+                    "Either way your world, settings, keybinds, shaders "
+                    "and video options are left alone.")
         else:
             self.mode = "install"
             self.say("No existing Salvage instance -- fresh install")
@@ -346,6 +1171,12 @@ class App(tk.Tk):
         self.set_status("")
         self.btn.config(text="Start")
         self.btn.state(["!disabled"])
+
+    def open_fix(self):
+        if getattr(self, "_fixwin", None) and self._fixwin.winfo_exists():
+            self._fixwin.lift()
+            return
+        self._fixwin = Repair(self)
 
     # -- flow --------------------------------------------------------
     def present(self):
@@ -369,6 +1200,7 @@ class App(tk.Tk):
 
         self.busy = True
         self.btn.state(["disabled"])
+        self.fix.state(["disabled"])
         self.btn.config(text="Working...")
         self.bar.pack(fill="x", padx=40, pady=(8, 0), before=self.status)
         self.bar.start(12)
@@ -388,12 +1220,14 @@ class App(tk.Tk):
             msg = str(e)
             self.after(0, lambda: self._fail(
                 "Unexpected problem: " + msg,
-                "Send a screenshot of this window to Josh."))
+                "Send a screenshot of this window to your server "
+                "operator."))
 
     def _ok(self):
         self.bar.stop()
         self.bar.pack_forget()
         self.mark(self.idx, "done")
+        self.fix.state(["!disabled"])
         self.busy = False
         self.idx += 1
         self.say()
@@ -403,6 +1237,7 @@ class App(tk.Tk):
         self.bar.stop()
         self.bar.pack_forget()
         self.mark(self.idx, "fail")
+        self.fix.state(["!disabled"])
         self.busy = False
         self.halted = True
         self.head.config(text="Couldn't finish that step", fg=BAD)
