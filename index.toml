@@ -350,6 +350,11 @@ hash = "0ed502ad7d53ca1936079cb7508b2e085909610ac51337fff2a3ce0fa6dcae28"
 metafile = true
 
 [[files]]
+file = "mods/cc-tweaked.pw.toml"
+hash = "591f60984051ca4e54885225cc4746d50d07544f7f95da2d11f3d8c74bc593ca"
+metafile = true
+
+[[files]]
 file = "mods/chunky-pregenerator.pw.toml"
 hash = "8f3e01ad47042d186087576cd17e91f78576295e7ca16fb885550910cb97caa4"
 metafile = true
