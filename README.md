@@ -1,6 +1,6 @@
 # Salvage
 
-Minecraft 1.20.1 Fabric modpack. v1.3.1, 220 mods.
+Minecraft 1.20.1 Fabric modpack. v1.3.2, 220 mods.
 
 Buildable, flyable ships from Valkyrien Skies and Clockwork,
 plus Applied Energistics, Create, magic, and sixteen structure
