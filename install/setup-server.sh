@@ -88,18 +88,132 @@ exec java -Xms$RAM -Xmx$RAM -XX:+UseG1GC -XX:+ParallelRefProcEnabled \\
   -jar fabric-server-launch.jar nogui
 START
 
+cat > wait-ready.sh <<'WAIT'
+#!/usr/bin/env bash
+# Wait until the Minecraft server has finished booting. Sourced by restart.sh
+# and update.sh so both agree on what "up" means.
+#
+# The old check was:
+#     grep -q 'Done (' logs/latest.log && [ mtime newer than 300s ]
+#
+# Both of those are true of the PREVIOUS session's log the moment you restart:
+# it contains "Done (" from its own successful boot, and shutdown has just
+# written to it so the mtime is seconds old. `systemctl restart` returns before
+# Minecraft has replaced latest.log - measured at ~2s on this box - so the very
+# first poll matched the old file and printed "up." while the server was still
+# starting. It reported success essentially always, and instantly.
+#
+# The fix keys on the log FILE rather than its contents: capture the inode
+# before restarting, then wait for a different inode (Minecraft rotates
+# latest.log and creates a fresh one on every boot) and only then look for
+# "Done (" inside it.
+
+# Call BEFORE stopping/restarting.
+mark_log() {
+    OLD_LOG_INODE=$(stat -c %i logs/latest.log 2>/dev/null || echo none)
+}
+
+# Call AFTER. wait_ready [timeout_seconds]
+wait_ready() {
+    local limit=${1:-420} waited=0 inode
+    # Boots on this pack measure 76-83s once warm. The first boot after a large
+    # release is longer - new datapacks, fresh chunk generation - so the default
+    # is generous. The old 180s budget was not the problem, but neither was it
+    # enough for a post-release boot.
+    while [ "$waited" -lt "$limit" ]; do
+        if ! systemctl is-active --quiet salvage; then
+            echo
+            echo "salvage is not running - it stopped or failed to start." >&2
+            echo "  journalctl -u salvage -n 40" >&2
+            return 1
+        fi
+        inode=$(stat -c %i logs/latest.log 2>/dev/null || echo none)
+        if [ "$inode" != "none" ] && [ "$inode" != "$OLD_LOG_INODE" ] \
+           && grep -q 'Done (' logs/latest.log 2>/dev/null; then
+            echo
+            grep 'Done (' logs/latest.log | tail -1
+            echo "up."
+            return 0
+        fi
+        printf '.'
+        sleep 2
+        waited=$((waited + 2))
+    done
+    echo
+    echo "not up after $((limit / 60)) min." >&2
+    echo "  tail -20 logs/latest.log   # it may just still be generating chunks" >&2
+    echo "  journalctl -u salvage -n 40" >&2
+    return 1
+}
+WAIT
+
 cat > update.sh <<'UPD'
 #!/usr/bin/env bash
 set -uo pipefail
 cd "$(dirname "$0")"
-B=$(md5sum mods/*.jar 2>/dev/null | md5sum)
-RUN=0; systemctl is-active --quiet salvage && RUN=1
-java -jar packwiz-installer-bootstrap.jar -g -s server \
-  https://raw.githubusercontent.com/TheKingNate/high-seas-modpack/release/pack.toml || exit 1
-[ "$B" = "$(md5sum mods/*.jar 2>/dev/null | md5sum)" ] && { echo "no changes"; exit 0; }
-[ "$RUN" -eq 1 ] && sudo systemctl restart salvage || sudo systemctl start salvage
-echo "restarted"
+. ./wait-ready.sh
+
+PACK_URL="https://raw.githubusercontent.com/TheKingNate/high-seas-modpack/release/pack.toml"
+
+# Hash the whole managed tree, not just mods/*.jar. A config-only release - new
+# quest chapters, a datapack, a loader override - changes no jar, so the old
+# check reported "no changes" and skipped the restart, leaving the new files on
+# disk unapplied until some unrelated restart picked them up.
+fingerprint() {
+    { md5sum mods/*.jar 2>/dev/null
+      find config global_packs globalpacks defaultconfigs -type f 2>/dev/null \
+        | sort | xargs -r md5sum 2>/dev/null
+    } | md5sum
+}
+
+BEFORE=$(fingerprint)
+RUNNING=0
+systemctl is-active --quiet salvage && RUNNING=1
+
+echo "== checking for changes"
+if ! java -jar packwiz-installer-bootstrap.jar -g -s server "$PACK_URL"; then
+    echo "packwiz failed - nothing changed" >&2
+    exit 1
+fi
+
+if [ "$BEFORE" = "$(fingerprint)" ]; then
+    echo "no changes - leaving server alone"
+    exit 0
+fi
+
+echo "== pack changed, restarting"
+mark_log
+if [ "$RUNNING" -eq 1 ]; then
+    sudo systemctl restart salvage
+else
+    sudo systemctl start salvage
+fi
+wait_ready 420
 UPD
+
+cat > restart.sh <<'RST'
+#!/usr/bin/env bash
+set -uo pipefail
+cd "$(dirname "$0")"
+. ./wait-ready.sh
+
+mark_log                      # must happen BEFORE the restart
+sudo systemctl restart salvage
+wait_ready 420
+RST
+
+cat > stop.sh <<'STOP'
+#!/usr/bin/env bash
+sudo systemctl stop salvage
+echo stopped
+STOP
+
+cat > console.sh <<'CON'
+#!/usr/bin/env bash
+# Attach to the live server console. Detach with ctrl-a then d -
+# ctrl-c would kill the server.
+screen -r salvage
+CON
 
 cat > backup.sh <<'BAK'
 #!/usr/bin/env bash
@@ -121,7 +235,7 @@ grep -h 'not white-listed' logs/latest.log logs/*.log.gz 2>/dev/null |
   grep -oP 'name=\K[A-Za-z0-9_]{3,16}' | sort -u
 PEN
 
-chmod +x start.sh update.sh backup.sh pending.sh
+chmod +x start.sh update.sh backup.sh pending.sh wait-ready.sh restart.sh stop.sh console.sh
 
 say "done"
 cat <<DONE
