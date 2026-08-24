@@ -1,0 +1,76 @@
+# Shipped by the Salvage pack. ForgeConfigAPIPort seeds world/serverconfig/ from
+# defaultconfigs/ when a world is first loaded, so this is the only way to make the
+# settings below apply to a NEW world or a fresh server - editing world/serverconfig
+# only fixes the world already running.
+#
+# Why tree falling is off:
+#   VSplit turns a chopped tree into a falling VS ship. Leaf decay then severs it and
+#   each fragment becomes its OWN permanent physics ship, named like
+#   +decay+tree-185+part-0003. 81 of them had accumulated in the live world and
+#   vs_ship_data.dat was still growing. Every "Too many physics frames in the physics
+#   frame queue" burst on the server coincided with a tick stall, the worst a 59
+#   second freeze - the physics thread was simulating tree litter.
+#
+#   decay_method is NO_SPLIT because VSplit's own comment calls it "better for
+#   performance", and ship_clean_period is 600s rather than 10800s so the built-in
+#   sweeper can actually keep up with what does get created.
+
+#General settings
+[general]
+	#Player cutted tree will form a falling ship.
+	enable_tree_falling = false
+	#Decay method.
+	#DEFAULT: just destroy decaying block.
+	#NO_SPLIT: destroy decaying block and blocks splitting out (better for performance).
+	#Allowed Values: DEFAULT, NO_SPLIT
+	decay_method = "NO_SPLIT"
+	#Use async ship assembly, this will improve split performance but can also cause some unknown issues.
+	async_ship_split = false
+	#Should try split ship when block changed.
+	enable_ship_split = true
+
+#Ship cleanup settings
+[cleanup]
+	#Cleanup messages.
+	#FULL: Show cleanup warn, and all other messages.
+	#NO_WARN: Do not show cleanup warn.
+	#MINIMUM: Only show cleaned ship count.
+	#NONE: Do not show any messages.
+	#Allowed Values: FULL, NO_WARN, MINIMUM, NONE
+	cleanup_message_level = "FULL"
+	#Ship cleanup period in seconds. Note that ship's actual removal time is inbetween this period and double of it.
+	#Range: > 0
+	ship_clean_period = 600
+	#Ship remove method.
+	#DESTROY: destroy all blocks on the ship and leave item drops.
+	#REMOVE: simply remove the ship.
+	#Allowed Values: DESTROY, REMOVE
+	ship_clean_method = "REMOVE"
+	#Should mark and clean ships periodically.
+	enable_ship_periodic_cleanup = true
+
+	#Block count cleaner settings
+	[cleanup.block_count_cleaner]
+		#Cleanup ships that do not have enough blocks and/or do not have Core blocks present.
+		enable_block_count_cleanup = true
+		#The minimum blocks a ship needs to prevent cleanup.
+		#Range: > 0
+		minimum_blocks_ship_needs = 20
+		#Blocks that are considered as Cores.
+		core_blocks = ["computercraft:computer_advanced", "computercraft:computer_normal"]
+		#Core blocks behaviour during ship cleanup.
+		#IGNORED: Cores do not have any effect to ship cleanup at all.
+		#OPTIONAL: A ship will not be cleaned when it has enough blocks or has a core block.
+		#REQUIRED: A ship must has enough blocks and a core block present to not be cleaned.
+		#Allowed Values: IGNORED, OPTIONAL, REQUIRED
+		core_block_behaviour = "OPTIONAL"
+
+	#Clean protection settings
+	[cleanup.clean_protection]
+		#Prevent ship cleanup within player's certain distance.
+		enable_player_protection = true
+		#The distance in chunks a player can prevent ship cleanup.
+		#Range: 0 ~ 65536
+		player_protection_radius = 2
+		#Prevent ships has transform providers to be cleaned (e.g. Create: Interactive contraptions)
+		enable_transform_provider_protection = true

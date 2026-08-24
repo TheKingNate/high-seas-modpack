@@ -153,6 +153,10 @@ file = "config/ftbquests/quests/data.snbt"
 hash = "25068f828a32bea65ad83c1bda71498570af080836e9b97ca66cd03d78c93c7f"
 
 [[files]]
+file = "defaultconfigs/vsplit-server.toml"
+hash = "b26fbd223b946b1261b22ea2d8632d7c5e1de41da61b096945b2d66f84145f37"
+
+[[files]]
 file = "global_packs/required_data/blazeandcaves-advancements-pack.pw.toml"
 hash = "9ba27f4b83b2653af61c9d642a77ba842be25c51aac8c1e24385c5169ceb9cdd"
 metafile = true
