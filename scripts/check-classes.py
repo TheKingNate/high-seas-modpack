@@ -248,24 +248,38 @@ def main():
                 break
             if not src or src == name:       # unattributable, or the mod's own class
                 continue
-            # Only a real break if this mod DECLARES a dependency on that mod.
-            if mod_id_of.get(src) not in deps:
+            # Normally we only trust a finding when the mod DECLARES a dependency
+            # on the owner - that is what took this check from 245 false positives
+            # to 0. But an UNDECLARED call into another mod's internals is the more
+            # dangerous case, not the safer one: Fabric cannot version-check what
+            # was never declared, so it fails at runtime instead of at load.
+            #
+            # valkyrienrelogs 0.3.0 is exactly that. It declares no dependency on
+            # valkyrienskies yet calls ValkyrienSkiesMod.getVsCore(), which VS 2.4.11
+            # no longer has, and on 2026-08-24 it killed the live server's tick loop
+            # from the player-disconnect handler. An earlier version of this rule
+            # dropped that finding for want of a declared dependency.
+            declared = mod_id_of.get(src) in deps
+            if not declared and len(owners.get(prefixes(r).get(OWNER_DEPTHS[-1]), ())) != 1:
                 continue
-            bad[name].append((r, src, from_class in mixins.get(name, ())))
+            bad[name].append((r, src, from_class in mixins.get(name, ()), declared))
 
     hard = total = 0
     for name in sorted(bad):
         misses = sorted(set(bad[name]))
         for is_mixin in (False, True):
-            sel = [(r, src) for r, src, mx in misses if mx is is_mixin]
+            sel = [(r, src, dc) for r, src, mx, dc in misses if mx is is_mixin]
             if not sel:
                 continue
             total += len(sel)
             if not is_mixin:
                 hard += len(sel)
             by_owner = defaultdict(list)
-            for r, src in sel:
+            undeclared = set()
+            for r, src, dc in sel:
                 by_owner[src].append(r)
+                if not dc:
+                    undeclared.add(src)
             tag = "MIXIN " if is_mixin else "BROKEN"
             print(f"  {tag}  {name}  ({want.get(name, '?')})")
             for src, ms in sorted(by_owner.items()):
@@ -275,6 +289,9 @@ def main():
                     print(f"            {m}")
                 if len(ms) > 4:
                     print(f"            ... and {len(ms) - 4} more")
+                if src in undeclared:
+                    print(f"          !! {name} declares NO dependency on {src}, so Fabric")
+                    print(f"             cannot version-check it. This fails at RUNTIME.")
             print("          -> logged and skipped at load; that part of the mod "
                   "silently does nothing." if is_mixin
                   else "          -> NoClassDefFoundError at load.")
