@@ -158,6 +158,36 @@ $log.Location = New-Object Drawing.Point(40,492)
 $log.Size = New-Object Drawing.Size(580,178)
 $form.Controls.Add($log)
 
+# Sits with the diagnostics rather than in the main button row, and stays hidden
+# until a run has produced something to copy. Copying is never automatic:
+# replacing whatever the player had on their clipboard with no warning is the kind
+# of thing that makes a tool feel untrustworthy, and a silent clipboard write is
+# indistinguishable from nothing having happened.
+$btnCopy = New-Object Windows.Forms.Button
+$btnCopy.Text = "Copy summary"
+$btnCopy.Font = New-Object Drawing.Font("Segoe UI",9,[Drawing.FontStyle]::Regular)
+$btnCopy.BackColor = $C_CARD
+$btnCopy.ForeColor = $C_FG
+$btnCopy.FlatStyle = "Flat"
+$btnCopy.FlatAppearance.BorderSize = 1
+$btnCopy.FlatAppearance.BorderColor = [Drawing.Color]::FromArgb(85,90,99)
+$btnCopy.Size = New-Object Drawing.Size(120,24)
+$btnCopy.Location = New-Object Drawing.Point(500,466)
+$btnCopy.Visible = $false
+$form.Controls.Add($btnCopy)
+$script:Summary = $null
+$btnCopy.Add_Click({
+    if (-not $script:Summary) { return }
+    if (Copy-Summary $script:Summary) { $btnCopy.Text = "Copied" }
+    else { $btnCopy.Text = "Clipboard unavailable" }
+})
+
+function Offer-Copy($text) {
+    $script:Summary = $text
+    $btnCopy.Text = "Copy summary"
+    $btnCopy.Visible = $true
+}
+
 function Say($m) { $log.AppendText("$m`r`n"); [Windows.Forms.Application]::DoEvents() }
 function Status($m) { $lblStatus.Text = $m; [Windows.Forms.Application]::DoEvents() }
 function Card($h,$b) { $lblHead.Text = $h; $lblHead.ForeColor = $C_FG; $lblBody.Text = $b; [Windows.Forms.Application]::DoEvents() }
@@ -760,9 +790,8 @@ function Write-Report($diags,$action,$noneText) {
     if (-not $any) { $o.Add("  $noneText") }
     else { $o.Add(""); $o.Add("  Nothing was deleted.") }
     $o.Add("")
-    $o.Add("  The summary has been copied to your clipboard - paste that to")
-    $o.Add("  your server operator. This file has the full detail if they")
-    $o.Add("  ask for it.")
+    $o.Add("  Send this to your server operator. The installer can also put a")
+    $o.Add("  short version on your clipboard - use the Copy summary button.")
     try { ($o -join "`r`n") | Set-Content -LiteralPath $path -Encoding UTF8 -EA Stop } catch { return $null }
     return $path
 }
@@ -772,7 +801,7 @@ function Write-Report($diags,$action,$noneText) {
 # The report file is the wrong unit for the handoff: a player has to notice a
 # .txt on the Desktop, work out where to put it, and attach it. In practice
 # that is where the loop dies. So every run also puts a short version on the
-# clipboard and the closing panel says it is already copied.
+# clipboard when the player asks for it with the Copy summary button.
 #
 # Rules, per REPAIR-SPEC.md: under 1800 characters, same vocabulary as the
 # report, no absolute paths (a pasted summary must not carry someone's user
@@ -905,8 +934,7 @@ function Repair-Results($action,$noneText) {
     $path = Write-Report $script:Diag $action $noneText
     if ($path) { Say "Report written to $path" } else { Say "Could not write the report to your Desktop." }
     $leaf = if ($path) { Split-Path $path -Leaf } else { $null }
-    $script:Copied = Copy-Summary (Get-Summary $script:Diag $action $leaf)
-    if ($script:Copied) { Say "Summary copied to your clipboard." }
+    Offer-Copy (Get-Summary $script:Diag $action $leaf)
 
     $sum = ""
     foreach ($d in $script:Diag) {
@@ -917,13 +945,11 @@ function Repair-Results($action,$noneText) {
     } else {
         $lblHead.Text = "No problems found"; $lblHead.ForeColor = $C_GOOD
     }
-    if ($script:Copied) {
-        $sum += "`r`nThe summary is already copied - paste it to your server operator."
-        if ($path) { $sum += "`r`nThe full report is on your Desktop if they ask for it." }
-    } elseif ($path) {
-        $sum += "`r`nSend this file to your server operator: " + (Split-Path $path -Leaf)
+    if ($path) {
+        $sum += "`r`nSend this to your server operator: " + (Split-Path $path -Leaf)
+        $sum += "`r`nOr use Copy summary, below, for a short version to paste into a chat."
     } else {
-        $sum += "`r`nThe report could not be saved to your Desktop."
+        $sum += "`r`nThe report could not be saved to your Desktop. Copy summary, below, still works."
     }
     $lblBody.Text = $sum
     Status ""
@@ -1007,18 +1033,15 @@ function Repair-Run($rung) {
     $path = Write-Report $script:Diag $name "nothing needed moving"
     if ($path) { Say "Report written to $path" } else { Say "Could not write the report to your Desktop." }
     $leaf = if ($path) { Split-Path $path -Leaf } else { $null }
-    $script:Copied = Copy-Summary (Get-Summary $script:Diag $name $leaf)
-    if ($script:Copied) { Say "Summary copied to your clipboard." }
+    Offer-Copy (Get-Summary $script:Diag $name $leaf)
     $script:Rung = $rung + 1
 
     $lblHead.Text = "Repair done"; $lblHead.ForeColor = $C_GOOD
     $body = "Launch the game now. If it still crashes, run this again and pick the next option."
     if ($rung -ge 2) { $body += "`r`n`r`nThe next launch re-checks every file, so give it a few minutes. It may ask you about optional mods again." }
-    if ($script:Copied) {
-        $body += "`r`n`r`nThe summary is already copied - paste it to your server operator."
-        if ($path) { $body += "`r`nThe full report is on your Desktop if they ask for it." }
-    } elseif ($path) {
-        $body += "`r`n`r`nSend this file to your server operator: " + (Split-Path $path -Leaf)
+    if ($path) {
+        $body += "`r`n`r`nSend this to your server operator: " + (Split-Path $path -Leaf)
+        $body += "`r`nOr use Copy summary, below, for a short version to paste into a chat."
     }
     $lblBody.Text = $body
     $btn.BackColor = $C_GOOD

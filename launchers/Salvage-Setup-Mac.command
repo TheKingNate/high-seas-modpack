@@ -80,6 +80,33 @@ note() {
 default button \"OK\" with title \"$TITLE\"" >/dev/null 2>&1
 }
 
+# Same as note(), plus an explicit Copy summary button. The copy only happens if
+# the player asks for it, and they get told it worked - a silent clipboard write
+# is indistinguishable from nothing having happened.
+note_copy() {   # note_copy <message> <ran description>
+    local answer
+    answer=$(osascript -e "display dialog \"$1\" \
+buttons {\"Copy summary\", \"OK\"} default button \"Copy summary\" \
+with title \"$TITLE\"" 2>/dev/null)
+    case "$answer" in
+        *"Copy summary"*) ;;
+        *) return 0 ;;
+    esac
+    if copy_summary "$2"; then
+        note "Copied. Paste it to your server operator.
+
+The full report is still on your Desktop:
+
+$(basename "$REPORT")"
+    else
+        note "Could not reach the clipboard.
+
+Send this file to your server operator instead:
+
+$(basename "$REPORT")"
+    fi
+}
+
 oops() {
     bad "$1"
     printf '\n'
@@ -623,7 +650,7 @@ append_report() {   # append_report <instance dir> <scratch dir>  -- to stdout
 # The report file is the wrong unit for the handoff: a player has to notice a
 # .txt on the Desktop, work out where to put it, and attach it. In practice
 # that is where the loop dies. So every run also puts a short version on the
-# clipboard and the closing dialog says it is already copied.
+# clipboard when the player asks for it with the Copy summary button.
 #
 # Rules, per REPAIR-SPEC.md: under 1800 characters, same vocabulary as the
 # report, no absolute paths (a pasted summary must not carry someone's home
@@ -665,9 +692,13 @@ append_summary() {   # append_summary <instance dir> <scratch dir> -- to stdout
     return 0
 }
 
+# Never called automatically. Replacing whatever a player had on their clipboard
+# with no warning is the kind of thing that makes a tool feel untrustworthy - they
+# may have been mid-copy of something else, and nothing on screen said it happened.
+# The dialogs offer it as a button instead. Returns 0 only if the copy took.
 copy_summary() {   # copy_summary <ran description>
     COPIED=""
-    [ -s "$WORK/summary.txt" ] || return 0
+    [ -s "$WORK/summary.txt" ] || return 1
     {
         printf 'Salvage check - %s\n' "$(date '+%Y-%m-%d %H:%M')"
         printf 'macOS %s %s, %s MB\n' \
@@ -676,16 +707,13 @@ copy_summary() {   # copy_summary <ran description>
         printf '\nran: %s\n' "$1"
         printf 'full report on my Desktop: %s\n' "$(basename "$REPORT")"
     } | cut -c1-1800 | pbcopy 2>/dev/null && COPIED=yes
-    return 0
+    [ -n "$COPIED" ]
 }
 
 handoff() {   # what to tell the player to send
-    if [ -n "$COPIED" ]; then
-        printf 'The summary is already copied - paste it to your server operator.\n'
-        printf 'The full report is on your Desktop if they ask for it.'
-    else
-        printf 'Send this file to your server operator:\n\n%s' "$(basename "$REPORT")"
-    fi
+    printf 'Send this to your server operator:\n\n%s\n\n' "$(basename "$REPORT")"
+    printf 'It is on your Desktop. Copy summary puts a short version on your\n'
+    printf 'clipboard instead, which is easier to paste into a chat.'
 }
 
 publish_report() {   # publish_report <ran description>
@@ -701,11 +729,9 @@ publish_report() {   # publish_report <ran description>
         else
             printf '  nothing (diagnose only)\n'
         fi
-        printf '\n  The summary has been copied to your clipboard - paste that to\n'
-        printf '  your server operator. This file has the full detail if they\n'
-        printf '  ask for it.\n'
+        printf '\n  Send this to your server operator. The installer can also put a\n'
+        printf '  short version on your clipboard - use the Copy summary button.\n'
     } > "$REPORT" 2>/dev/null
-    copy_summary "$1"
 }
 
 # --- rungs 1-3: repair ------------------------------------------------
@@ -897,16 +923,15 @@ LIST
     publish_report "diagnose only"
     printf '\n'
     good "Report written to $REPORT"
-    [ -n "$COPIED" ] && good "Summary copied to your clipboard"
     printf '\n'
 
-    note "Check finished.
+    note_copy "Check finished.
 
 $sum_orphan leftover file(s), $sum_corrupt failed checksum(s), $sum_missing missing file(s), $sum_stale copy(s) with out-of-date update tracking.
 
 $(handoff)
 
-The next box offers to fix what was found."
+The next box offers to fix what was found." "diagnose only"
 
     # Rung 0 covers every copy. A repair should not: pick one.
     inst=$(head -1 "$WORK/instances.txt")
@@ -985,10 +1010,9 @@ default button \"Do it\" with title \"$TITLE\"" 2>/dev/null)" in
     publish_report "$(rung_name "$rung")"
     printf '\n'
     good "Done. Report updated: $REPORT"
-    [ -n "$COPIED" ] && good "Summary copied to your clipboard"
     printf '\n'
 
-    note "Repair finished.
+    note_copy "Repair finished.
 
 Launch the game now. If it still crashes, run this again and pick the next option.
 
@@ -996,7 +1020,7 @@ Nothing was deleted. Anything moved is in $QUAR inside the instance folder.
 
 $(handoff)
 
-Keep this file so you can run it again."
+Keep this file so you can run it again." "$(rung_name "$rung")"
     exit 0
 }
 

@@ -188,8 +188,14 @@ Ends with the two lines that tell the player what to do with it - see **Clipboar
 The report file is the wrong unit for the handoff. A player has to notice a `.txt` on their
 Desktop, work out where to put it, and attach it; in practice that is where the loop dies.
 
-So every run **also copies a short summary to the system clipboard**, and the closing dialog
-tells the player it is already copied rather than telling them to find a file.
+So every run **also builds a short summary** and offers it behind a **Copy summary** button.
+
+**The copy is never automatic.** Silently replacing whatever the player had on their clipboard
+is the kind of thing that makes a tool feel untrustworthy - they may have been mid-copy of
+something else, and nothing on screen said it happened. A silent clipboard write is also
+indistinguishable from nothing having happened, so the one case it is meant to help - the
+player who does not know what to do next - is the case it helps least. The button says what
+it will do, and confirms when it has done it.
 
 Rules:
 
@@ -199,8 +205,11 @@ Rules:
 - **No absolute paths.** The full file has them; a pasted summary should not carry the
   player's home directory into a group chat.
 - **Never fatal.** If the clipboard is unavailable - no `pbcopy`, a headless session, a
-  locked clipboard - the run continues silently and the closing dialog falls back to naming
-  the file. A repair that has already moved files must never fail on a cosmetic step.
+  locked clipboard - the button reports that and the report file remains the handoff. A
+  repair that has already moved files must never fail on a cosmetic step.
+- **Always reachable.** The button appears as soon as a run has produced a summary, and stays
+  available until the window closes. The player may want it after reading the report, not
+  before.
 
 Shape:
 
@@ -219,8 +228,8 @@ Shape:
 
 The closing dialog then reads:
 
-> The summary is already copied - paste it to your server operator.
-> The full report is on your Desktop if they ask for it.
+> Send this to your server operator: salvage-report-20260824-124107.txt
+> Or use Copy summary for a short version to paste into a chat.
 
 ---
 

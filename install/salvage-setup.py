@@ -614,9 +614,8 @@ def write_report(results, changes, stamp, ran="diagnose only"):
     out += [RULE_MINOR, "  what this run changed", RULE_MINOR, ""]
     out += ["  %s" % c for c in changes]
     out += ["",
-            "  The summary has been copied to your clipboard - paste that to",
-            "  your server operator. This file has the full detail if they",
-            "  ask for it.",
+            "  Send this to your server operator. The installer can also put a",
+            "  short version on your clipboard - use the Copy summary button.",
             ""]
 
     path = report_dir() / ("salvage-report-%s.txt" % stamp)
@@ -804,8 +803,28 @@ class Repair(tk.Toplevel):
                               command=self._go)
         self.btn.pack(side="left")
         self.btn.state(["disabled"])
+        # Hidden until a run has produced a summary. Copying is never automatic:
+        # replacing whatever the player had on their clipboard with no warning is
+        # the kind of thing that makes a tool feel untrustworthy, and a silent
+        # clipboard write is indistinguishable from nothing having happened.
+        self.copy_btn = ttk.Button(row, text="Copy summary",
+                                   style="Quiet.TButton", command=self._copy)
         ttk.Button(row, text="Close", style="Quiet.TButton",
                    command=self.destroy).pack(side="left", padx=(10, 0))
+
+    def _copy(self):
+        if not getattr(self, "summary", None):
+            return
+        if copy_clipboard(self, self.summary):
+            self.copy_btn.config(text="Copied")
+            self.after(2500, lambda: self.copy_btn.config(text="Copy summary"))
+        else:
+            self.copy_btn.config(text="Clipboard unavailable")
+
+    def _offer_copy(self, text):
+        """Stash the summary and reveal the button. Called on the UI thread."""
+        self.summary = text
+        self.copy_btn.pack(side="left", padx=(10, 0))
 
     # -- called from the worker thread -------------------------------
     def post(self, fn, *args):
@@ -884,13 +903,10 @@ class Repair(tk.Toplevel):
         self.report = write_report(self.results,
                                    ["nothing (diagnose only)"], self.stamp,
                                    "diagnose only")
-        self.copied = copy_clipboard(
-            self, summary_text(self.results, "diagnose only",
-                               self.report.name))
+        text = summary_text(self.results, "diagnose only", self.report.name)
         self.log("")
         self.log("Report written to %s" % self.report)
-        if self.copied:
-            self.log("Summary copied to your clipboard.")
+        self.post(self._offer_copy, text)
         self.post(self._diagnosed)
 
     def _diagnosed(self):
@@ -1055,13 +1071,11 @@ class Repair(tk.Toplevel):
 
         ran = "%s, %d file(s) quarantined" % (RUNGS[rung][0].strip(), len(moved))
         self.report = write_report(self.results, changes, self.stamp, ran)
-        self.copied = copy_clipboard(
-            self, summary_text(self.results, ran, self.report.name))
+        text = summary_text(self.results, ran, self.report.name)
         self.log("")
         self.log("Moved %d file(s)." % len(moved))
         self.log("Report updated: %s" % self.report)
-        if self.copied:
-            self.log("Summary copied to your clipboard.")
+        self.post(self._offer_copy, text)
         self.post(self._repaired, len(moved))
 
     def _repaired(self, count):
@@ -1077,13 +1091,11 @@ class Repair(tk.Toplevel):
         self._offer_close()
 
     def _handoff(self):
-        """What to tell the player to send. The clipboard is the handoff that
-        actually works; the file is the fallback when it did not copy."""
-        if getattr(self, "copied", False):
-            return ("The summary is already copied - paste it to your server "
-                    "operator.\nThe full report is on your Desktop if they "
-                    "ask for it.")
-        return "Send this file to your server operator:\n%s" % self.report
+        """What to tell the player to send, and how to get it there."""
+        return ("Send this to your server operator:\n%s\n\n"
+                "Copy summary puts a short version on your clipboard "
+                "instead, which is easier to paste into a chat."
+                % self.report.name)
 
     def _offer_close(self):
         self.done = True
