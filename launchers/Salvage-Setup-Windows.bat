@@ -628,79 +628,187 @@ function Problem-Count($d) {
     return $n
 }
 
+# Every problem class gets exactly one word, and all three installers use the
+# same one. See "Fixed vocabulary" in install/REPAIR-SPEC.md - these drifted
+# once already and two reports of the same fault read as two different faults.
+$W_ORPHAN  = "orphan"
+$W_HASH    = "failed hash"
+$W_MISSING = "missing"
+$RULE_MAJOR = "=============================================================="
+$RULE_MINOR = "--------------------------------------------------------------"
+
+function Fld($label,$value) { return ("  {0,-13} {1}" -f $label,$value) }
+
+function Setup-Problems($d) {
+    # Problems that are not a file: channel, tracking, updater, java. Shared by
+    # the report and the clipboard summary so the two can never disagree.
+    $out = New-Object System.Collections.Generic.List[string]
+    if (-not $d.HasPack)              { $out.Add("no readable packwiz.json - this copy has never finished a sync") }
+    if ($d.Tracking -eq "out of date"){ $out.Add("this copy is behind the published pack") }
+    if ($d.Channel -eq "main")        { $out.Add("on the main channel, should be release") }
+    if ($d.Boot -ne "present")        { $out.Add("packwiz-installer-bootstrap.jar is $($d.Boot)") }
+    if (($d.JavaMajor -gt 0) -and ($d.JavaMajor -lt 17)) { $out.Add("$($d.Java) is too old, the pack needs 17 or newer") }
+    return $out
+}
+
+function Has-Problems($d) {
+    return (((@(Setup-Problems $d)).Count + @($d.Orphans).Count + @($d.Corrupt).Count + @($d.Missing).Count) -gt 0)
+}
+
 function Write-Report($diags,$action,$noneText) {
     $desk = [Environment]::GetFolderPath("DesktopDirectory")
     if (-not $desk) { $desk = [Environment]::GetFolderPath("Desktop") }
     if ((-not $desk) -or (-not (Test-Path -LiteralPath $desk))) { $desk = Join-Path $env:USERPROFILE "Desktop" }
     if (-not (Test-Path -LiteralPath $desk)) { $desk = $env:TEMP }
     $path = Join-Path $desk ("salvage-report-" + (Get-Date -Format "yyyyMMdd-HHmmss") + ".txt")
+
     $o = New-Object System.Collections.Generic.List[string]
     $os = Get-CimInstance Win32_OperatingSystem -EA SilentlyContinue
     $hh,$ram = Heap
-    $o.Add("Salvage repair report")
-    $o.Add("Generated  " + (Get-Date -Format "yyyy-MM-dd HH:mm:ss"))
-    $o.Add("Ran        $action")
-    $o.Add("Computer   $($os.Caption) $($os.Version)")
-    $o.Add("Memory     $ram MB physical")
+
+    $o.Add($RULE_MAJOR)
+    $o.Add("  SALVAGE  -  install report")
+    $o.Add($RULE_MAJOR)
     $o.Add("")
+    $o.Add((Fld "generated" (Get-Date -Format "yyyy-MM-dd HH:mm:ss")))
+    $o.Add((Fld "ran" $action))
+    $o.Add((Fld "system" "$($os.Caption) $($os.Version), $ram MB memory"))
+    $o.Add((Fld "copies found" $diags.Count))
+    $o.Add("")
+
     foreach ($d in $diags) {
-        $o.Add("--------------------------------------------------------------")
-        $o.Add("Instance   $($d.Name)")
-        $o.Add("Pack       $($d.PackName) $($d.PackVer)")
-        $o.Add("Path       $($d.Path)")
-        $o.Add("Channel    $($d.Channel)")
-        if ($d.PackUrl) { $o.Add("Pack URL   $($d.PackUrl)") }
-        $jn = ""
-        if ($d.JavaMajor -eq 0) { $jn = "   (could not determine)" }
-        elseif ($d.JavaMajor -lt 17) { $jn = "   TOO OLD - the pack needs 17 or newer" }
-        $o.Add("Java       $($d.Java)$jn")
-        if ($d.Alloc -gt 0) { $o.Add("Memory     $($d.Alloc) MB allocated of $ram MB physical") }
-        else { $o.Add("Memory     using the Prism default of $ram MB physical") }
-        $o.Add("Updater    packwiz-installer-bootstrap.jar $($d.Boot)")
-        $o.Add("Tracking   $($d.Tracking)")
+        $mark = if (Has-Problems $d) { "[ !! ]" } else { "[ OK ]" }
+        $o.Add($RULE_MINOR)
+        $o.Add("  $mark  $($d.Name)")
+        $o.Add($RULE_MINOR)
         $o.Add("")
-        $o.Add("  tracked files   $($d.Tracked)")
-        $o.Add("  jars on disk    $($d.Jars)")
-        $o.Add("  orphans         $($d.Orphans.Count)")
-        $o.Add("  corrupt         $($d.Corrupt.Count)")
-        $o.Add("  missing         $($d.Missing.Count)")
-        if ($d.Unchecked -gt 0) { $o.Add("  not checkable   $($d.Unchecked)") }
+        $o.Add((Fld "path" $d.Path))
+        $o.Add((Fld "pack" (("$($d.PackName) $($d.PackVer)").Trim())))
+        $o.Add((Fld "channel" $d.Channel))
+        if ($d.PackUrl) { $o.Add((Fld "pack url" $d.PackUrl)) }
+        $o.Add((Fld "java" $d.Java))
+        if ($d.Alloc -gt 0) { $o.Add((Fld "memory" "$($d.Alloc) MB allocated of $ram MB")) }
+        else                { $o.Add((Fld "memory" "launcher default, of $ram MB")) }
+        $o.Add((Fld "updater" "packwiz-installer-bootstrap.jar $($d.Boot)"))
+        $o.Add((Fld "tracking" $d.Tracking))
         $o.Add("")
-        $o.Add("Problems found by the check")
+        $o.Add("  tracked $($d.Tracked)  |  jars $($d.Jars)  |  orphans $($d.Orphans.Count)  |  $W_HASH $($d.Corrupt.Count)  |  $W_MISSING $($d.Missing.Count)")
+        if ($d.Unchecked -gt 0) { $o.Add("  ($($d.Unchecked) file(s) use a hash we do not know and were not checked)") }
+        $o.Add("")
+
+        $o.Add("  problems")
         $n = 0
-        if (-not $d.HasPack) { $o.Add("  tracking  no readable packwiz.json - this copy has never finished a sync"); $n++ }
-        if ($d.Tracking -eq "out of date") { $o.Add("  tracking  this copy is behind the published pack"); $n++ }
-        if ($d.Channel -eq "main") { $o.Add("  channel   on the main channel, should be release"); $n++ }
-        if ($d.Boot -ne "present") { $o.Add("  updater   packwiz-installer-bootstrap.jar is $($d.Boot)"); $n++ }
-        if (($d.JavaMajor -gt 0) -and ($d.JavaMajor -lt 17)) { $o.Add("  java      $($d.Java) is too old"); $n++ }
-        foreach ($x in $d.Orphans) { $o.Add("  orphan    $x"); $n++ }
+        foreach ($x in (Setup-Problems $d)) { $o.Add(("    {0,-12} {1}" -f "setup",$x)); $n++ }
+        foreach ($x in $d.Orphans) { $o.Add(("    {0,-12} {1}" -f $W_ORPHAN,$x)); $n++ }
         foreach ($x in $d.Corrupt) {
-            if (Locked $x) { $o.Add("  corrupt   $x  (left in place, no rung touches that folder)") }
-            else { $o.Add("  corrupt   $x") }
+            if (Locked $x) { $o.Add(("    {0,-12} {1}" -f $W_HASH,"$x  (left in place, no rung touches that folder)")) }
+            else           { $o.Add(("    {0,-12} {1}" -f $W_HASH,$x)) }
             $n++
         }
-        foreach ($x in $d.Missing) { $o.Add("  missing   $x"); $n++ }
-        if ($n -eq 0) { $o.Add("  none") }
+        foreach ($x in $d.Missing) { $o.Add(("    {0,-12} {1}" -f $W_MISSING,$x)); $n++ }
+        if ($n -eq 0) { $o.Add("    none") }
         $o.Add("")
-        $o.Add("Changed by this run")
-        if ($d.Changed.Count -eq 0) { $o.Add("  $noneText") }
-        else {
-            $o.Add("  moved to minecraft\.salvage-quarantine\$($d.Stamp)\  (nothing was deleted)")
-            foreach ($x in $d.Changed) { $o.Add("    $x") }
-        }
-        $o.Add("")
+
+        $o.Add("  last crash")
         if ($d.CrashFile) {
-            $o.Add("Last crash  $($d.CrashFile)")
-            if ($d.Crash.Count -eq 0) { $o.Add("  no exception line found in that file") }
-            foreach ($x in $d.Crash) { $o.Add("  $x") }
+            $o.Add("    $($d.CrashFile)")
+            if ($d.Crash.Count -eq 0) { $o.Add("    no exception line found in that file") }
+            foreach ($x in $d.Crash) { $o.Add("    $x") }
         } else {
-            $o.Add("Last crash  none recorded")
+            $o.Add("    none recorded")
         }
         $o.Add("")
+
     }
-    $o.Add("Send this file to your server operator.")
+
+    $o.Add($RULE_MINOR)
+    $o.Add("  what this run changed")
+    $o.Add($RULE_MINOR)
+    $o.Add("")
+    $any = $false
+    foreach ($d in $diags) {
+        if ($d.Changed.Count -eq 0) { continue }
+        $any = $true
+        $o.Add("  $($d.Name): $($d.Changed.Count) file(s) moved to quarantine")
+        foreach ($x in $d.Changed) { $o.Add("    $x") }
+        $o.Add("    all of it in minecraft\.salvage-quarantine\$($d.Stamp)\")
+    }
+    if (-not $any) { $o.Add("  $noneText") }
+    else { $o.Add(""); $o.Add("  Nothing was deleted.") }
+    $o.Add("")
+    $o.Add("  The summary has been copied to your clipboard - paste that to")
+    $o.Add("  your server operator. This file has the full detail if they")
+    $o.Add("  ask for it.")
     try { ($o -join "`r`n") | Set-Content -LiteralPath $path -Encoding UTF8 -EA Stop } catch { return $null }
     return $path
+}
+
+# --- the clipboard summary -------------------------------------------
+#
+# The report file is the wrong unit for the handoff: a player has to notice a
+# .txt on the Desktop, work out where to put it, and attach it. In practice
+# that is where the loop dies. So every run also puts a short version on the
+# clipboard and the closing panel says it is already copied.
+#
+# Rules, per REPAIR-SPEC.md: under 1800 characters, same vocabulary as the
+# report, no absolute paths (a pasted summary must not carry someone's user
+# folder into a group chat), and never fatal.
+
+$SUMMARY_MAX = 1800
+$SUMMARY_LIST_CAP = 5
+
+function Summary-List($word,$items) {
+    $out = New-Object System.Collections.Generic.List[string]
+    $n = 0
+    foreach ($f in $items) {
+        $n++
+        if ($n -gt $SUMMARY_LIST_CAP) { break }
+        $out.Add(("  {0,-12} {1}" -f $word,(Split-Path $f -Leaf)))
+    }
+    if ($items.Count -gt $SUMMARY_LIST_CAP) {
+        $out.Add(("  {0,-12} ... and {1} more" -f "",($items.Count - $SUMMARY_LIST_CAP)))
+    }
+    return $out
+}
+
+function Get-Summary($diags,$action,$reportName) {
+    $os = Get-CimInstance Win32_OperatingSystem -EA SilentlyContinue
+    $hh,$ram = Heap
+    $o = New-Object System.Collections.Generic.List[string]
+    $o.Add("Salvage check - " + (Get-Date -Format "yyyy-MM-dd HH:mm"))
+    $o.Add("$($os.Caption) $($os.Version), $ram MB")
+
+    foreach ($d in $diags) {
+        $mark = if (Has-Problems $d) { "!!" } else { "OK" }
+        $o.Add("")
+        $o.Add("[$mark] $($d.Name) - $($d.Channel), pack $((("$($d.PackName) $($d.PackVer)").Trim()))")
+        $o.Add("  orphans $($d.Orphans.Count) | $W_HASH $($d.Corrupt.Count) | $W_MISSING $($d.Missing.Count) | tracking $($d.Tracking)")
+        foreach ($x in (Setup-Problems $d)) { $o.Add(("  {0,-12} {1}" -f "setup",$x)) }
+        foreach ($x in (Summary-List $W_ORPHAN  $d.Orphans)) { $o.Add($x) }
+        foreach ($x in (Summary-List $W_HASH    $d.Corrupt)) { $o.Add($x) }
+        foreach ($x in (Summary-List $W_MISSING $d.Missing)) { $o.Add($x) }
+        if ($d.Crash.Count -gt 0) {
+            $o.Add(("  {0,-12} {1}" -f "crash",$d.Crash[0]))
+            if ($d.Crash.Count -gt 1) { $o.Add(("  {0,-12} {1}" -f "",$d.Crash[1])) }
+        }
+    }
+
+    $o.Add("")
+    $o.Add("ran: $action")
+    if ($reportName) { $o.Add("full report on my Desktop: $reportName") }
+    $text = ($o -join "`r`n")
+    if ($text.Length -gt $SUMMARY_MAX) { $text = $text.Substring(0,$SUMMARY_MAX - 20).TrimEnd() + "`r`n... (truncated)" }
+    return $text
+}
+
+function Copy-Summary($text) {
+    # Best effort, twice over. Set-Clipboard needs PS 5.0+ and an STA thread;
+    # clip.exe needs neither. A repair that has already moved files must never
+    # fail on a cosmetic step, so both paths swallow everything.
+    if (-not $text) { return $false }
+    try { Set-Clipboard -Value $text -EA Stop; return $true } catch { }
+    try { $text | clip.exe; return $true } catch { }
+    return $false
 }
 
 # Indexed by rung number, so slot 0 is a placeholder.
@@ -764,7 +872,7 @@ function Repair-Begin {
     }
     Mark 0 "done"
     $script:Rung = 1
-    Repair-Results "a check only, nothing was changed" "nothing (diagnose only)"
+    Repair-Results "diagnose only" "nothing (diagnose only)"
 }
 
 function Repair-Results($action,$noneText) {
@@ -772,18 +880,27 @@ function Repair-Results($action,$noneText) {
     foreach ($d in $script:Diag) { $total += (Problem-Count $d) }
     $path = Write-Report $script:Diag $action $noneText
     if ($path) { Say "Report written to $path" } else { Say "Could not write the report to your Desktop." }
+    $leaf = if ($path) { Split-Path $path -Leaf } else { $null }
+    $script:Copied = Copy-Summary (Get-Summary $script:Diag $action $leaf)
+    if ($script:Copied) { Say "Summary copied to your clipboard." }
 
     $sum = ""
     foreach ($d in $script:Diag) {
-        $sum += "$($d.Name): $(Problem-Count $d) problem(s) - $($d.Orphans.Count) orphan, $($d.Corrupt.Count) corrupt, $($d.Missing.Count) missing.`r`n"
+        $sum += "$($d.Name): $(Problem-Count $d) problem(s) - $($d.Orphans.Count) $W_ORPHAN, $($d.Corrupt.Count) $W_HASH, $($d.Missing.Count) $W_MISSING.`r`n"
     }
     if ($total -gt 0) {
         $lblHead.Text = "Found $total problem(s)"; $lblHead.ForeColor = $C_BAD
     } else {
         $lblHead.Text = "No problems found"; $lblHead.ForeColor = $C_GOOD
     }
-    if ($path) { $sum += "`r`nSaved to your Desktop as " + (Split-Path $path -Leaf) }
-    else { $sum += "`r`nThe report could not be saved to your Desktop." }
+    if ($script:Copied) {
+        $sum += "`r`nThe summary is already copied - paste it to your server operator."
+        if ($path) { $sum += "`r`nThe full report is on your Desktop if they ask for it." }
+    } elseif ($path) {
+        $sum += "`r`nSend this file to your server operator: " + (Split-Path $path -Leaf)
+    } else {
+        $sum += "`r`nThe report could not be saved to your Desktop."
+    }
     $lblBody.Text = $sum
     Status ""
 
@@ -863,14 +980,22 @@ function Repair-Run($rung) {
     Status ""
     Mark 1 "done"
     $name = $RUNG_NAME[$rung]
-    $path = Write-Report $script:Diag "repair level $rung - $name" "nothing needed moving"
+    $path = Write-Report $script:Diag $name "nothing needed moving"
     if ($path) { Say "Report written to $path" } else { Say "Could not write the report to your Desktop." }
+    $leaf = if ($path) { Split-Path $path -Leaf } else { $null }
+    $script:Copied = Copy-Summary (Get-Summary $script:Diag $name $leaf)
+    if ($script:Copied) { Say "Summary copied to your clipboard." }
     $script:Rung = $rung + 1
 
     $lblHead.Text = "Repair done"; $lblHead.ForeColor = $C_GOOD
     $body = "Launch the game now. If it still crashes, run this again and pick the next option."
     if ($rung -ge 2) { $body += "`r`n`r`nThe next launch re-checks every file, so give it a few minutes. It may ask you about optional mods again." }
-    if ($path) { $body += "`r`n`r`nReport on your Desktop: " + (Split-Path $path -Leaf) }
+    if ($script:Copied) {
+        $body += "`r`n`r`nThe summary is already copied - paste it to your server operator."
+        if ($path) { $body += "`r`nThe full report is on your Desktop if they ask for it." }
+    } elseif ($path) {
+        $body += "`r`n`r`nSend this file to your server operator: " + (Split-Path $path -Leaf)
+    }
     $lblBody.Text = $body
     $btn.BackColor = $C_GOOD
     $script:OnPrimary = { $form.Close() }

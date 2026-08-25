@@ -528,59 +528,164 @@ def report_dir():
     return d if d.is_dir() else Path.home()
 
 
-def write_report(results, changes, stamp):
-    rule = "-" * 62
-    out = ["Salvage install report",
-           time.strftime("%Y-%m-%d %H:%M:%S"),
+RULE_MAJOR = "=" * 62
+RULE_MINOR = "-" * 62
+
+# Every problem class gets exactly one word, and all three installers use the
+# same one. See "Fixed vocabulary" in install/REPAIR-SPEC.md - these drifted
+# once already and two reports of the same fault read as two different faults.
+W_ORPHAN = "orphan"
+W_HASH = "failed hash"
+W_MISSING = "missing"
+W_UNCHECKED = "not checked"
+
+
+def os_label():
+    """platform.system() says "Darwin", which nobody calls it."""
+    sysname = platform.system()
+    return {"Darwin": "macOS", "Windows": "Windows"}.get(sysname, sysname)
+
+
+def _field(label, value):
+    return "  %-13s %s" % (label, value)
+
+
+def _problems(r):
+    """Problem lines for one instance, in report order. Vocabulary is fixed."""
+    out = []
+    for w in r["warnings"]:
+        out.append("    %-12s %s" % ("setup", w))
+    for f in r["orphans"]:
+        out.append("    %-12s %s" % (W_ORPHAN, f))
+    for f in r["corrupt"]:
+        out.append("    %-12s %s" % (W_HASH, f))
+    for f in r["missing"]:
+        out.append("    %-12s %s" % (W_MISSING, f))
+    for f in r["unchecked"]:
+        out.append("    %-12s %s" % (W_UNCHECKED, f))
+    return out
+
+
+def write_report(results, changes, stamp, ran="diagnose only"):
+    out = [RULE_MAJOR,
+           "  SALVAGE  -  install report",
+           RULE_MAJOR,
            "",
-           "System:          %s %s" % (platform.system(),
-                                       platform.machine()),
-           "Physical memory: %d MB" % total_ram_mb(),
-           "Instances found: %d" % len(results)]
+           _field("generated", time.strftime("%Y-%m-%d %H:%M:%S")),
+           _field("ran", ran),
+           _field("system", "%s %s, %d MB memory"
+                  % (os_label(), platform.machine(), total_ram_mb())),
+           _field("copies found", str(len(results))),
+           ""]
 
     for r in results:
+        probs = _problems(r)
         pack = ("%s %s" % (r["pack"], r["version"])).strip() or "unknown"
-        out += ["", rule,
-                "Instance: %s" % r["label"],
-                "  path:      %s" % r["inst"],
-                "  pack:      %s" % pack,
-                "  channel:   %s" % r["channel"],
-                "  java:      %s" % r["java"],
-                "  memory:    %d MB allocated of %d MB physical"
-                % (r["ram_alloc"], r["ram_total"]),
-                "  updater:   %s" % r["bootstrap"],
-                "  tracking:  %s" % r["tracking"],
+        out += [RULE_MINOR,
+                "  %s  %s" % ("[ !! ]" if probs else "[ OK ]", r["label"]),
+                RULE_MINOR,
                 "",
-                "Counts",
-                "  tracked files: %d" % r["tracked"],
-                "  jars on disk:  %d" % r["jars"],
-                "  orphans:       %d" % len(r["orphans"]),
-                "  corrupt:       %d" % len(r["corrupt"]),
-                "  missing:       %d" % len(r["missing"]),
-                "  not checked:   %d" % len(r["unchecked"]),
+                _field("path", r["inst"]),
+                _field("pack", pack),
+                _field("channel", r["channel"]),
+                _field("java", r["java"]),
+                _field("memory", "%d MB allocated of %d MB"
+                       % (r["ram_alloc"], r["ram_total"])),
+                _field("updater", r["bootstrap"]),
+                _field("tracking", r["tracking"]),
                 "",
-                "Problems"]
-        found = ["  setup    %s" % w for w in r["warnings"]]
-        found += ["  orphan   %s" % f for f in r["orphans"]]
-        found += ["  corrupt  %s" % f for f in r["corrupt"]]
-        found += ["  missing  %s" % f for f in r["missing"]]
-        found += ["  unknown hash type, not checked  %s" % f
-                  for f in r["unchecked"]]
-        out += found or ["  none"]
-
+                "  tracked %d  |  jars %d  |  orphans %d  |  %s %d  |  %s %d"
+                % (r["tracked"], r["jars"], len(r["orphans"]),
+                   W_HASH, len(r["corrupt"]),
+                   W_MISSING, len(r["missing"])),
+                "",
+                "  problems"]
+        out += probs or ["    none"]
+        out += ["", "  last crash"]
         c = r["crash"]
         if c:
-            out += ["", "Last crash (%s, %s)" % (c["file"], c["when"]),
-                    "  %s" % (c["exception"] or "no exception line found")]
-            out += ["    %s" % f for f in c["frames"]]
+            out.append("    %s (%s)" % (c["file"], c["when"]))
+            out.append("    %s" % (c["exception"] or "no exception line found"))
+            out += ["      %s" % f for f in c["frames"]]
+        else:
+            out.append("    none recorded")
+        out.append("")
 
-    out += ["", rule, "What this run changed"]
+    out += [RULE_MINOR, "  what this run changed", RULE_MINOR, ""]
     out += ["  %s" % c for c in changes]
-    out += ["", "Send this file to your server operator.", ""]
+    out += ["",
+            "  The summary has been copied to your clipboard - paste that to",
+            "  your server operator. This file has the full detail if they",
+            "  ask for it.",
+            ""]
 
     path = report_dir() / ("salvage-report-%s.txt" % stamp)
     path.write_text("\n".join(out))
     return path
+
+
+SUMMARY_MAX = 1800
+SUMMARY_LIST_CAP = 5
+
+
+def _summary_list(word, items):
+    """At most SUMMARY_LIST_CAP entries, then a count. Basenames only - a
+    pasted summary must not carry the player's home directory into a chat."""
+    out = []
+    for f in items[:SUMMARY_LIST_CAP]:
+        out.append("  %-12s %s" % (word, Path(f).name))
+    if len(items) > SUMMARY_LIST_CAP:
+        out.append("  %-12s ... and %d more"
+                   % ("", len(items) - SUMMARY_LIST_CAP))
+    return out
+
+
+def summary_text(results, ran, report_name):
+    """The abridged report, sized for a chat message. Same vocabulary as the
+    file - this is the report shortened, never a second format."""
+    out = ["Salvage check - %s" % time.strftime("%Y-%m-%d %H:%M"),
+           "%s %s, %d MB" % (os_label(), platform.machine(),
+                             total_ram_mb())]
+
+    for r in results:
+        probs = _problems(r)
+        pack = ("%s %s" % (r["pack"], r["version"])).strip() or "unknown"
+        out += ["",
+                "[%s] %s - %s, pack %s"
+                % ("!!" if probs else "OK", r["label"], r["channel"], pack),
+                "  orphans %d | %s %d | %s %d | tracking %s"
+                % (len(r["orphans"]), W_HASH, len(r["corrupt"]),
+                   W_MISSING, len(r["missing"]), r["tracking"])]
+        for w in r["warnings"]:
+            out.append("  %-12s %s" % ("setup", w))
+        out += _summary_list(W_ORPHAN, r["orphans"])
+        out += _summary_list(W_HASH, r["corrupt"])
+        out += _summary_list(W_MISSING, r["missing"])
+        c = r["crash"]
+        if c and c["exception"]:
+            out.append("  crash        %s" % c["exception"])
+            if c["frames"]:
+                out.append("               %s" % c["frames"][0])
+
+    out += ["", "ran: %s" % ran, "full report on my Desktop: %s" % report_name]
+
+    text = "\n".join(out)
+    if len(text) > SUMMARY_MAX:
+        text = text[:SUMMARY_MAX - 20].rstrip() + "\n... (truncated)"
+    return text
+
+
+def copy_clipboard(widget, text):
+    """Best effort. A repair that has already moved files must never fail on a
+    cosmetic step, so every failure here is swallowed - the caller falls back
+    to naming the report file."""
+    try:
+        widget.clipboard_clear()
+        widget.clipboard_append(text)
+        widget.update()      # without this the clipboard is empty after exit
+        return True
+    except Exception:
+        return False
 
 
 RUNGS = [
@@ -777,9 +882,15 @@ class Repair(tk.Toplevel):
                 self.log("  note: %s" % w)
 
         self.report = write_report(self.results,
-                                   ["nothing (diagnose only)"], self.stamp)
+                                   ["nothing (diagnose only)"], self.stamp,
+                                   "diagnose only")
+        self.copied = copy_clipboard(
+            self, summary_text(self.results, "diagnose only",
+                               self.report.name))
         self.log("")
         self.log("Report written to %s" % self.report)
+        if self.copied:
+            self.log("Summary copied to your clipboard.")
         self.post(self._diagnosed)
 
     def _diagnosed(self):
@@ -942,10 +1053,15 @@ class Repair(tk.Toplevel):
             changes.append("%s: nothing needed moving" % r["label"])
         changes.append("repair option %d was used" % rung)
 
-        self.report = write_report(self.results, changes, self.stamp)
+        ran = "%s, %d file(s) quarantined" % (RUNGS[rung][0].strip(), len(moved))
+        self.report = write_report(self.results, changes, self.stamp, ran)
+        self.copied = copy_clipboard(
+            self, summary_text(self.results, ran, self.report.name))
         self.log("")
         self.log("Moved %d file(s)." % len(moved))
         self.log("Report updated: %s" % self.report)
+        if self.copied:
+            self.log("Summary copied to your clipboard.")
         self.post(self._repaired, len(moved))
 
     def _repaired(self, count):
@@ -956,9 +1072,18 @@ class Repair(tk.Toplevel):
             "Launch the game now. If it still crashes, run this again "
             "and pick the next option.\n\nThe first launch after a "
             "repair re-downloads what was moved, so give it a few "
-            "minutes.\n\nReport: %s" % self.report, GOOD)
+            "minutes.\n\n%s" % self._handoff(), GOOD)
         self.status.config(text=str(self.report))
         self._offer_close()
+
+    def _handoff(self):
+        """What to tell the player to send. The clipboard is the handoff that
+        actually works; the file is the fallback when it did not copy."""
+        if getattr(self, "copied", False):
+            return ("The summary is already copied - paste it to your server "
+                    "operator.\nThe full report is on your Desktop if they "
+                    "ask for it.")
+        return "Send this file to your server operator:\n%s" % self.report
 
     def _offer_close(self):
         self.done = True

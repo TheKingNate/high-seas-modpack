@@ -116,17 +116,111 @@ before asking to proceed.
 
 ### Report
 
-Written to the Desktop as `salvage-report-<YYYYMMDD-HHMMSS>.txt`, plain text, and the
-path is shown to the player so they can send it on. Contents, in order:
+Written to the Desktop as `salvage-report-<YYYYMMDD-HHMMSS>.txt`, plain text.
 
-1. Pack name and version, instance path, channel (`main` / `release`)
-2. OS, Java version, RAM allocated and physical
-3. Counts: tracked files, jars on disk, orphans, corrupt, missing
-4. Each problem found, one per line, with the filename
-5. What the run changed — or `nothing (diagnose only)`
-6. The newest crash exception, if any
+**ASCII only.** No box-drawing characters, no bullets, no arrows. This file is opened in
+Notepad and TextEdit and pasted into chat, and each of those mangles a different subset of
+UTF-8. A rule is `=` or `-`; a separator inside a line is `|`.
 
-Ends with: *"Send this file to your server operator."*
+**Fixed vocabulary.** All three implementations emit these exact words. They have drifted
+before - macOS said `failed hash` where Windows and Python said `corrupt`, and the three
+titles, tracking labels and section headings all differed - which made two reports of the
+same problem look like two different problems.
+
+| thing | the word |
+|---|---|
+| a jar in `mods/` that the pack does not track | `orphan` |
+| a tracked file whose hash does not match | `failed hash` |
+| a tracked file that is not on disk | `missing` |
+| a tracked file whose hash algorithm we do not know | `not checked` |
+| the pre-launch command points at `main` | `channel` |
+| `packwiz.json` absent or behind the published pack | `tracking` |
+| `packwiz-installer-bootstrap.jar` absent or too small | `updater` |
+| the instance will run on Java below 17 | `java` |
+
+**Layout.** Header block, then one block per instance, then what changed. Each instance
+block opens with a status marker so the operator can see at a glance which copy is the
+problem:
+
+    ==============================================================
+      SALVAGE  -  install report
+    ==============================================================
+
+      generated     2026-08-24 12:41:07
+      ran           diagnose only
+      system        macOS 15.6 arm64, 32768 MB memory
+      copies found  1
+
+    --------------------------------------------------------------
+      [ OK ]  Salvage
+    --------------------------------------------------------------
+
+      path          /Users/nate/.../instances/Salvage
+      pack          Salvage 1.4.0
+      channel       release
+      java          17.0.15 (Microsoft)
+      memory        12288 MB allocated of 32768 MB
+      updater       present
+      tracking      up to date
+
+      tracked 168  |  jars 168  |  orphans 0  |  failed hash 0  |  missing 0
+
+      problems
+        none
+
+      last crash
+        none recorded
+
+    --------------------------------------------------------------
+      what this run changed
+    --------------------------------------------------------------
+
+      nothing (diagnose only)
+
+The marker is `[ OK ]` when the instance has no problems and `[ !! ]` when it has any.
+Field labels are left-aligned in a 14-character column. Problem lines are indented four
+spaces and prefixed with the vocabulary word padded to 12 characters, then the filename.
+
+Ends with the two lines that tell the player what to do with it - see **Clipboard summary**.
+
+### Clipboard summary
+
+The report file is the wrong unit for the handoff. A player has to notice a `.txt` on their
+Desktop, work out where to put it, and attach it; in practice that is where the loop dies.
+
+So every run **also copies a short summary to the system clipboard**, and the closing dialog
+tells the player it is already copied rather than telling them to find a file.
+
+Rules:
+
+- **Under 1800 characters.** It has to survive being pasted into a chat message intact. Cap
+  each problem list at five entries and append `... and N more` when it is longer.
+- **Same vocabulary as the report.** It is the report, abridged - never a second format.
+- **No absolute paths.** The full file has them; a pasted summary should not carry the
+  player's home directory into a group chat.
+- **Never fatal.** If the clipboard is unavailable - no `pbcopy`, a headless session, a
+  locked clipboard - the run continues silently and the closing dialog falls back to naming
+  the file. A repair that has already moved files must never fail on a cosmetic step.
+
+Shape:
+
+    Salvage check - 2026-08-24 12:41
+    macOS 15.6 arm64, 32768 MB
+
+    [!!] Salvage - release, pack 1.4.0
+      orphans 2 | failed hash 1 | missing 0 | tracking stale
+      orphan       veinmining-fabric-1.5.0+1.20.1.jar
+      failed hash  create-fabric-6.0.8.1.jar
+      crash  java.lang.NullPointerException
+             at com.example.Foo.bar(Foo.java:42)
+
+    ran: targeted repair, 3 file(s) quarantined
+    full report on my Desktop: salvage-report-20260824-124107.txt
+
+The closing dialog then reads:
+
+> The summary is already copied - paste it to your server operator.
+> The full report is on your Desktop if they ask for it.
 
 ---
 

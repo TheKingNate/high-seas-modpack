@@ -232,6 +232,7 @@ QUAR=".salvage-quarantine"
 WORK=""       # scratch dir, made on first use
 STAMP=""      # one timestamp per run; report and quarantine folder share it
 REPORT=""
+COPIED=""   # set by copy_summary when pbcopy succeeded
 CHANGED=""    # file the current instance's moves are logged to
 
 # Bash has no records, so diagnose_instance fills these in and the report
@@ -519,13 +520,35 @@ diagnose_instance() {   # diagnose_instance <instance dir> <scratch dir>
     D_MISSING=$(wc -l < "$s/missing.txt" | tr -d ' ')
 }
 
+# Every problem class gets exactly one word, and all three installers use the
+# same one. See "Fixed vocabulary" in install/REPAIR-SPEC.md -- these drifted
+# once already and two reports of the same fault read as two different faults.
+W_ORPHAN="orphan"
+W_HASH="failed hash"
+W_MISSING="missing"
+RULE_MAJOR="=============================================================="
+RULE_MINOR="--------------------------------------------------------------"
+
+field() {   # field <label> <value>
+    printf '  %-13s %s\n' "$1" "$2"
+}
+
+problem_lines() {   # problem_lines <word> <file>
+    [ -s "$2" ] || return 0
+    while IFS= read -r f; do
+        [ -n "$f" ] && printf '    %-12s %s\n' "$1" "$f"
+    done < "$2"
+}
+
 crash_lines() {   # crash_lines <mcdir> -- the exception line and three frames
     local newest
     newest=$(ls -t "$1/crash-reports"/*.txt 2>/dev/null | head -1)
-    [ -n "$newest" ] || return 0
-    printf '\n  Last crash (%s)\n' "$(basename "$newest")"
+    if [ -z "$newest" ]; then
+        printf '    none recorded\n'
+        return 0
+    fi
+    printf '    %s\n' "$(basename "$newest")"
     awk -v n=-1 '
-        /^Description:/ && !desc { print "    " $0; desc = 1; next }
         n < 0 && $0 !~ /^[ \t]/ && ($0 ~ /Exception/ || $0 ~ /Error/) {
             print "    " $0; n = 0; next }
         n >= 0 && n < 3 && $0 ~ /^[ \t]*at / {
@@ -533,55 +556,144 @@ crash_lines() {   # crash_lines <mcdir> -- the exception line and three frames
     ' "$newest"
 }
 
+crash_one_line() {   # crash_one_line <mcdir> -- exception + top frame, for the summary
+    local newest
+    newest=$(ls -t "$1/crash-reports"/*.txt 2>/dev/null | head -1)
+    [ -n "$newest" ] || return 0
+    awk -v n=-1 '
+        n < 0 && $0 !~ /^[ \t]/ && ($0 ~ /Exception/ || $0 ~ /Error/) {
+            printf "  %-12s %s\n", "crash", $0; n = 0; next }
+        n >= 0 && n < 1 && $0 ~ /^[ \t]*at / {
+            sub(/^[ \t]*/, ""); printf "  %-12s %s\n", "", $0; n++ }
+    ' "$newest"
+}
+
 append_report() {   # append_report <instance dir> <scratch dir>  -- to stdout
-    local inst="$1" s="$2"
+    local inst="$1" s="$2" mark="[ OK ]"
 
-    printf '\nInstance: %s\n' "$D_NAME"
-    printf '  path:              %s\n' "$inst"
-    printf '  pack:              %s\n' "$D_PACK"
-    printf '  channel:           %s\n' "$D_CHANNEL"
-    [ "$D_CHANNEL" = "main" ] && printf '%s\n' \
-        "                     (should be release; main is the untested channel)"
-    printf '  java:              %s\n' "$D_JAVA"
+    if [ -s "$s/orphan.txt" ] || [ -s "$s/corrupt.txt" ] \
+       || [ -s "$s/missing.txt" ] || [ -s "$s/note.txt" ]; then
+        mark="[ !! ]"
+    fi
+
+    printf '%s\n' "$RULE_MINOR"
+    printf '  %s  %s\n' "$mark" "$D_NAME"
+    printf '%s\n\n' "$RULE_MINOR"
+
+    field "path" "$inst"
+    field "pack" "$D_PACK"
+    field "channel" "$D_CHANNEL"
+    [ "$D_CHANNEL" = "main" ] && \
+        printf '  %-13s %s\n' "" "(should be release; main is the untested channel)"
+    field "java" "$D_JAVA"
     if [ -n "$D_HEAP" ]; then
-        printf '  memory allocated:  %s MB of %s MB physical\n' "$D_HEAP" "$(ram_mb)"
+        field "memory" "$D_HEAP MB allocated of $(ram_mb) MB"
     else
-        printf '  memory allocated:  launcher default, of %s MB physical\n' "$(ram_mb)"
+        field "memory" "launcher default, of $(ram_mb) MB"
     fi
-    printf '  updater jar:       %s\n' "$D_BOOT"
-    printf '  update tracking:   %s\n' "$D_SYNC"
-    printf '  tracked files:     %s (plus %s server-side, not expected here)\n' \
-        "$D_TRACKED" "$D_SERVER"
-    printf '  jars in mods:      %s\n' "$D_JARS"
-    printf '  orphans:           %s\n' "$D_ORPHAN"
-    printf '  failed hash:       %s\n' "$D_CORRUPT"
-    printf '  missing:           %s\n' "$D_MISSING"
+    field "updater" "$D_BOOT"
+    field "tracking" "$D_SYNC"
 
-    if [ -s "$s/orphan.txt" ] || [ -s "$s/corrupt.txt" ] || [ -s "$s/missing.txt" ]
-    then
-        printf '\n  Problems found\n'
-        sed 's/^/    orphan        /' "$s/orphan.txt"
-        sed 's/^/    failed hash   /' "$s/corrupt.txt"
-        sed 's/^/    missing       /' "$s/missing.txt"
+    printf '\n  tracked %s  |  jars %s  |  orphans %s  |  %s %s  |  %s %s\n' \
+        "$D_TRACKED" "$D_JARS" "$D_ORPHAN" "$W_HASH" "$D_CORRUPT" \
+        "$W_MISSING" "$D_MISSING"
+    [ "$D_SERVER" -gt 0 ] && printf '  (%s further file(s) are server-side and not expected here)\n' "$D_SERVER"
+
+    printf '\n  problems\n'
+    if [ -s "$s/orphan.txt" ] || [ -s "$s/corrupt.txt" ] \
+       || [ -s "$s/missing.txt" ] || [ -s "$s/note.txt" ]; then
+        problem_lines "setup" "$s/note.txt"
+        problem_lines "$W_ORPHAN" "$s/orphan.txt"
+        problem_lines "$W_HASH" "$s/corrupt.txt"
+        problem_lines "$W_MISSING" "$s/missing.txt"
     elif [ "$D_TRACKED" -eq 0 ]; then
-        printf '\n  No file check was possible. See Notes below.\n'
+        printf '    no file check was possible - this copy has never finished a sync\n'
     else
-        printf '\n  No file problems found.\n'
+        printf '    none\n'
     fi
 
-    if [ -s "$s/note.txt" ]; then
-        printf '\n  Notes\n'
-        sed 's/^/    /' "$s/note.txt"
-    fi
-
+    printf '\n  last crash\n'
     crash_lines "$inst/minecraft"
+    printf '\n'
     return 0
 }
 
-publish_report() {
+# --- the clipboard summary -------------------------------------------
+#
+# The report file is the wrong unit for the handoff: a player has to notice a
+# .txt on the Desktop, work out where to put it, and attach it. In practice
+# that is where the loop dies. So every run also puts a short version on the
+# clipboard and the closing dialog says it is already copied.
+#
+# Rules, per REPAIR-SPEC.md: under 1800 characters, same vocabulary as the
+# report, no absolute paths (a pasted summary must not carry someone's home
+# directory into a group chat), and never fatal.
+
+SUMMARY_LIST_CAP=5
+
+summary_list() {   # summary_list <word> <file>
+    local n=0 total
+    [ -s "$2" ] || return 0
+    total=$(wc -l < "$2" | tr -d ' ')
+    while IFS= read -r f; do
+        [ -n "$f" ] || continue
+        n=$((n + 1))
+        [ "$n" -gt "$SUMMARY_LIST_CAP" ] && break
+        printf '  %-12s %s\n' "$1" "$(basename "$f")"
+    done < "$2"
+    [ "$total" -gt "$SUMMARY_LIST_CAP" ] && \
+        printf '  %-12s ... and %s more\n' "" "$((total - SUMMARY_LIST_CAP))"
+    return 0
+}
+
+append_summary() {   # append_summary <instance dir> <scratch dir> -- to stdout
+    local inst="$1" s="$2" mark="OK"
+
+    if [ -s "$s/orphan.txt" ] || [ -s "$s/corrupt.txt" ] \
+       || [ -s "$s/missing.txt" ] || [ -s "$s/note.txt" ]; then
+        mark="!!"
+    fi
+
+    printf '\n[%s] %s - %s, pack %s\n' "$mark" "$D_NAME" "$D_CHANNEL" "$D_PACK"
+    printf '  orphans %s | %s %s | %s %s | tracking %s\n' \
+        "$D_ORPHAN" "$W_HASH" "$D_CORRUPT" "$W_MISSING" "$D_MISSING" "$D_SYNC"
+    summary_list "setup" "$s/note.txt"
+    summary_list "$W_ORPHAN" "$s/orphan.txt"
+    summary_list "$W_HASH" "$s/corrupt.txt"
+    summary_list "$W_MISSING" "$s/missing.txt"
+    crash_one_line "$inst/minecraft"
+    return 0
+}
+
+copy_summary() {   # copy_summary <ran description>
+    COPIED=""
+    [ -s "$WORK/summary.txt" ] || return 0
+    {
+        printf 'Salvage check - %s\n' "$(date '+%Y-%m-%d %H:%M')"
+        printf 'macOS %s %s, %s MB\n' \
+            "$(sw_vers -productVersion 2>/dev/null)" "$(uname -m)" "$(ram_mb)"
+        cat "$WORK/summary.txt"
+        printf '\nran: %s\n' "$1"
+        printf 'full report on my Desktop: %s\n' "$(basename "$REPORT")"
+    } | cut -c1-1800 | pbcopy 2>/dev/null && COPIED=yes
+    return 0
+}
+
+handoff() {   # what to tell the player to send
+    if [ -n "$COPIED" ]; then
+        printf 'The summary is already copied - paste it to your server operator.\n'
+        printf 'The full report is on your Desktop if they ask for it.'
+    else
+        printf 'Send this file to your server operator:\n\n%s' "$(basename "$REPORT")"
+    fi
+}
+
+publish_report() {   # publish_report <ran description>
     {
         cat "$WORK/report.txt"
-        printf '\nWhat this run changed\n'
+        printf '%s\n' "$RULE_MINOR"
+        printf '  what this run changed\n'
+        printf '%s\n\n' "$RULE_MINOR"
         if [ -s "$WORK/changed.txt" ]; then
             sed 's/^/  /' "$WORK/changed.txt"
             printf '\n  Nothing was deleted. Everything above was moved into\n'
@@ -589,8 +701,11 @@ publish_report() {
         else
             printf '  nothing (diagnose only)\n'
         fi
-        printf '\nSend this file to your server operator.\n'
+        printf '\n  The summary has been copied to your clipboard - paste that to\n'
+        printf '  your server operator. This file has the full detail if they\n'
+        printf '  ask for it.\n'
     } > "$REPORT" 2>/dev/null
+    copy_summary "$1"
 }
 
 # --- rungs 1-3: repair ------------------------------------------------
@@ -628,6 +743,15 @@ quarantine() {   # quarantine <mcdir> <relative path>
         printf 'could not move: %s\n' "$rel" >> "$CHANGED"
     fi
     return 0
+}
+
+rung_name() {   # rung_name <1|2|3>
+    case "$1" in
+        1) printf 'targeted repair' ;;
+        2) printf 'resync' ;;
+        3) printf 'full reset' ;;
+        *) printf 'repair' ;;
+    esac
 }
 
 run_rung() {   # run_rung <instance dir> <scratch dir> <1|2|3>
@@ -718,17 +842,18 @@ check_flow() {
     [ -d "$HOME/Desktop" ] || REPORT="$HOME/salvage-report-$STAMP.txt"
     : > "$WORK/changed.txt"
     : > "$WORK/instances.txt"
+    : > "$WORK/summary.txt"
     count=$(printf '%s\n' "$list" | wc -l | tr -d ' ')
 
     {
-        printf 'Salvage repair report\n'
-        printf 'generated:  %s\n' "$(date '+%Y-%m-%d %H:%M:%S')"
-        printf 'tool:       Salvage Setup for macOS\n'
-        printf '\nSystem\n'
-        printf '  macOS:            %s (%s)\n' \
-            "$(sw_vers -productVersion 2>/dev/null)" "$(uname -m)"
-        printf '  physical memory:  %s MB\n' "$(ram_mb)"
-        printf '  copies found:     %s\n' "$count"
+        printf '%s\n' "$RULE_MAJOR"
+        printf '  SALVAGE  -  install report\n'
+        printf '%s\n\n' "$RULE_MAJOR"
+        field "generated" "$(date '+%Y-%m-%d %H:%M:%S')"
+        field "ran" "diagnose only"
+        field "system" "macOS $(sw_vers -productVersion 2>/dev/null) $(uname -m), $(ram_mb) MB memory"
+        field "copies found" "$count"
+        printf '\n'
     } > "$WORK/report.txt"
 
     i=0
@@ -740,6 +865,7 @@ check_flow() {
         s="$WORK/i$i"
         diagnose_instance "$inst" "$s"
         append_report "$inst" "$s" >> "$WORK/report.txt"
+        append_summary "$inst" "$s" >> "$WORK/summary.txt"
 
         info "$D_TRACKED tracked files, $D_JARS jars in mods, channel $D_CHANNEL"
         if [ "$D_ORPHAN" -gt 0 ]
@@ -768,20 +894,19 @@ check_flow() {
 $list
 LIST
 
-    publish_report
+    publish_report "diagnose only"
     printf '\n'
     good "Report written to $REPORT"
+    [ -n "$COPIED" ] && good "Summary copied to your clipboard"
     printf '\n'
 
     note "Check finished.
 
 $sum_orphan leftover file(s), $sum_corrupt failed checksum(s), $sum_missing missing file(s), $sum_stale copy(s) with out-of-date update tracking.
 
-The full report is on your Desktop:
+$(handoff)
 
-$(basename "$REPORT")
-
-Send that file to your server operator. The next box offers to fix what was found."
+The next box offers to fix what was found."
 
     # Rung 0 covers every copy. A repair should not: pick one.
     inst=$(head -1 "$WORK/instances.txt")
@@ -852,14 +977,15 @@ default button \"Do it\" with title \"$TITLE\"" 2>/dev/null)" in
     # Write the report before the updater check: get_bootstrap can bail out
     # on a failed download, and the record of what just moved must survive
     # that.
-    publish_report
+    publish_report "$(rung_name "$rung")"
 
     step_header 2 2 "Checking the updater"
     get_bootstrap "$inst/minecraft"
 
-    publish_report
+    publish_report "$(rung_name "$rung")"
     printf '\n'
     good "Done. Report updated: $REPORT"
+    [ -n "$COPIED" ] && good "Summary copied to your clipboard"
     printf '\n'
 
     note "Repair finished.
@@ -868,7 +994,7 @@ Launch the game now. If it still crashes, run this again and pick the next optio
 
 Nothing was deleted. Anything moved is in $QUAR inside the instance folder.
 
-The report on your Desktop has been updated with what changed. Send it to your server operator.
+$(handoff)
 
 Keep this file so you can run it again."
     exit 0
