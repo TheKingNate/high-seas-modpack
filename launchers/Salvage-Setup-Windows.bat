@@ -1,8 +1,32 @@
 @echo off
+setlocal
 set "PS1=%TEMP%\salvage-setup.ps1"
-more +5 "%~f0" > "%PS1%"
+set "ERR=%TEMP%\salvage-setup-error.txt"
+more +29 "%~f0" > "%PS1%"
+del "%ERR%" 2>nul
+rem Check the script parses BEFORE launching it detached. The real run uses
+rem -WindowStyle Hidden, so a damaged download or a syntax error is otherwise a
+rem silent no-op: the player double-clicks, nothing happens at all, and there is
+rem nowhere for them to go. This costs about half a second and turns that into a
+rem message they can actually send on. It fails OPEN: if the parser type is not
+rem available the catch exits 0 and we launch anyway, so this can never be the
+rem reason someone cannot run the installer.
+powershell -NoProfile -ExecutionPolicy Bypass -Command "try{$e=$null;[void][System.Management.Automation.Language.Parser]::ParseFile('%PS1%',[ref]$null,[ref]$e);if($e){$e|Out-File -Encoding utf8 '%ERR%';exit 1}}catch{exit 0}"
+if errorlevel 1 goto broken
 start "" powershell -NoProfile -ExecutionPolicy Bypass -WindowStyle Hidden -File "%PS1%"
 exit /b
+:broken
+echo.
+echo   Salvage Setup could not start.
+echo.
+echo   The setup file looks damaged - this usually means the download was
+echo   interrupted. Download it again and run it once more.
+echo.
+echo   If it keeps happening, send your server operator this file:
+echo   %ERR%
+echo.
+pause
+exit /b 1
 Add-Type -AssemblyName System.Windows.Forms
 Add-Type -AssemblyName System.Drawing
 [System.Windows.Forms.Application]::EnableVisualStyles()
@@ -824,9 +848,9 @@ $RUNG_DESC = @("",
 function Repair-Again($rung) {
     # The ladder always goes back through the check. Binding the next rung straight to
     # Repair-Run reused the diagnosis taken BEFORE the previous rung ran, so the player
-    # escalated blind and the report listed the same files as both "problems found" and
-    # "changed by this run" - which reads as self-contradictory to the operator it is
-    # addressed to.
+    # escalated blind and the report listed the same files under both "problems" and
+    # "what this run changed" - which reads as self-contradictory to the operator it
+    # is addressed to.
     $script:Rung = $rung
     Say ""
     Say "Re-checking after the last repair - nothing will be changed."
