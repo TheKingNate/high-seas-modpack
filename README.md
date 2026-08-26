@@ -1,6 +1,6 @@
 # Salvage
 
-Minecraft 1.20.1 Fabric modpack. v1.3.2, 220 mods.
+Minecraft 1.20.1 Fabric modpack. v1.3.3, 216 mods.
 
 Buildable, flyable ships from Valkyrien Skies and Clockwork,
 plus Applied Energistics, Create, magic, and sixteen structure
@@ -83,8 +83,6 @@ scripts.
 - Deeper Oceans
 - Distant Horizons
 - Druids of Storm and Spirit
-- Easy Anvils
-- Easy Magic
 - Eating Animation
 - Elemental Wizards (More RPG Classes)
 - Enhanced Block Entities
@@ -180,7 +178,6 @@ scripts.
 - Presence Footsteps
 - Pufferfish's Attributes
 - Pufferfish's Skills
-- Puzzles Lib
 - Ranged Weapon API
 - Reese's Sodium Options
 - Ritchie's Projectile Library
@@ -232,7 +229,6 @@ scripts.
 - VS Grapples
 - VS Safe and Sound
 - VS: Ship Retrieval Service
-- VSplit
 - Wakes
 - Waystones
 - When Dungeons Arise
