@@ -1,0 +1,21 @@
+#!/bin/sh
+# Strip AI co-author trailers before the commit is written.
+#
+# GitHub counts Co-Authored-By trailers toward the repo Contributors list, so a
+# single one puts a bot account in the sidebar next to the owner. Removing it
+# afterwards means rewriting history and force-pushing, which for tagged
+# releases means moving published tags. Cheaper to never let it in.
+#
+# Only lines naming claude/anthropic are removed; real human co-authors pass
+# through untouched.
+f="$1"
+[ -f "$f" ] || exit 0
+if grep -qiE "^[[:space:]]*(co-authored-by:.*(claude|anthropic)|.*generated with \[?claude)" "$f"; then
+  tmp="$f.strip.$$"
+  grep -viE "^[[:space:]]*(co-authored-by:.*(claude|anthropic)|.*generated with \[?claude)" "$f" > "$tmp"
+  # collapse any trailing blank lines the removal left behind
+  awk "NF{last=NR} {lines[NR]=\$0} END{for(i=1;i<=last;i++) print lines[i]}" "$tmp" > "$f"
+  rm -f "$tmp"
+  echo "commit-msg hook: removed AI co-author trailer" >&2
+fi
+exit 0

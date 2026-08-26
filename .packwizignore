@@ -9,3 +9,4 @@ missing.txt
 .questcache
 __pycache__
 *.pyc
+.githooks
