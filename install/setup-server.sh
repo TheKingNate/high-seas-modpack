@@ -215,18 +215,14 @@ cat > console.sh <<'CON'
 screen -r salvage
 CON
 
-cat > backup.sh <<'BAK'
-#!/usr/bin/env bash
-set -uo pipefail
-cd "$(dirname "$0")"
-mkdir -p backups
-systemctl is-active --quiet salvage && {
-  screen -S salvage -X stuff "save-off\n"
-  screen -S salvage -X stuff "save-all flush\n"; sleep 10; }
-tar -czf "backups/world-$(date +%Y%m%d-%H%M).tar.gz" world
-systemctl is-active --quiet salvage && screen -S salvage -X stuff "save-on\n"
-ls -1t backups/world-*.tar.gz | tail -n +15 | xargs -r rm --
-BAK
+# Backups and restore are big enough to be their own files, and they change on
+# their own schedule, so they are fetched rather than embedded here. If GitHub is
+# unreachable the server still installs; you just have no backups until you rerun.
+RAW="https://raw.githubusercontent.com/TheKingNate/high-seas-modpack/release/install/server"
+for f in backup.sh rollback.sh peek-player.py; do
+    curl -sfL -o "$f" "$RAW/$f" && say "fetched $f" \
+        || say "WARNING: could not fetch $f - no backups until you rerun this"
+done
 
 cat > pending.sh <<'PEN'
 #!/usr/bin/env bash
@@ -235,7 +231,7 @@ grep -h 'not white-listed' logs/latest.log logs/*.log.gz 2>/dev/null |
   grep -oP 'name=\K[A-Za-z0-9_]{3,16}' | sort -u
 PEN
 
-chmod +x start.sh update.sh backup.sh pending.sh wait-ready.sh restart.sh stop.sh console.sh
+chmod +x start.sh update.sh backup.sh rollback.sh peek-player.py pending.sh wait-ready.sh restart.sh stop.sh console.sh 2>/dev/null
 
 say "done"
 cat <<DONE
@@ -265,7 +261,17 @@ cat <<DONE
     screen -r salvage
 
   Ports:  25565/tcp  and  25565/udp (voice chat)
-  Backups: add to cron -> 0 */6 * * * $DIR/backup.sh
+  Backups: add both lines to cron (crontab -e)
+
+      */20 * * * * $DIR/backup.sh world
+      */5  * * * * $DIR/backup.sh player
+
+    The world tier excludes the Distant Horizons LOD cache, which is otherwise
+    94% of the archive and is regenerable. A snapshot is ~260 MB, not 5 GB.
+
+  Restore: $DIR/rollback.sh
+    find <player>   which snapshots still have their items
+    player <p> <s>  restore one player, affecting nobody else
   Whitelist is ON. Have people try to join, then ./pending.sh
 
 DONE
