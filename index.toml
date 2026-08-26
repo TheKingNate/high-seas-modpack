@@ -1256,11 +1256,6 @@ hash = "6b76c34d7ba2043815bfbab1a1fdf7ea335b581d4f353d386cdf5e65cdca0ce0"
 metafile = true
 
 [[files]]
-file = "mods/vsplit.pw.toml"
-hash = "0aaae9fe7d70c7970cff8d03505eab249e90b911e5c262d1b57a8669292e64ac"
-metafile = true
-
-[[files]]
 file = "mods/wakes.pw.toml"
 hash = "24cfa457173f8fd0aec773a4437c86dc22a9ef41c73514a2237160b514ff837d"
 metafile = true
