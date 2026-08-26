@@ -37,7 +37,7 @@ the copy is healthy, and how to fix it when it is not.
 
 The only screen that opens on start. Everything else is reached from it and returns to it.
 
-    Salvage                                        v1.4.0 · release
+    Salvage                                        v1.3.2 · release
     ──────────────────────────────────────────────────────────────
       Prism Launcher      installed
       Salvage instance    ready · 168 files · up to date
@@ -132,7 +132,7 @@ because it is derived from it. A hand-written manifest would reintroduce exactly
 
 **What the player sees.** One quiet row on Home:
 
-    Update available - v1.4.1              [ Update and restart ]
+    Update available - v1.3.3              [ Update and restart ]
 
 Nothing happens until they press it. No prompt on launch, no modal, no silent restart. Same on
 both platforms.

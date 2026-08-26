@@ -156,7 +156,7 @@ problem:
     --------------------------------------------------------------
 
       path          /Users/nate/.../instances/Salvage
-      pack          Salvage 1.4.0
+      pack          Salvage 1.3.2
       channel       release
       java          17.0.15 (Microsoft)
       memory        12288 MB allocated of 32768 MB
@@ -216,7 +216,7 @@ Shape:
     Salvage check - 2026-08-24 12:41
     macOS 15.6 arm64, 32768 MB
 
-    [!!] Salvage - release, pack 1.4.0
+    [!!] Salvage - release, pack 1.3.2
       orphans 2 | failed hash 1 | missing 0 | tracking stale
       orphan       veinmining-fabric-1.5.0+1.20.1.jar
       failed hash  create-fabric-6.0.8.1.jar
