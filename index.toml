@@ -526,16 +526,6 @@ hash = "29e8861a41263c0f455d85fd2ed69df50f4f322fa246b8589163e781d81154b8"
 metafile = true
 
 [[files]]
-file = "mods/easy-anvils.pw.toml"
-hash = "e9ba6ffa1109ca957fef061ef4b41a46300b3cfb382ef4ae24f96c54309fd31f"
-metafile = true
-
-[[files]]
-file = "mods/easy-magic.pw.toml"
-hash = "2748a91387d8bd583894ed2271eea4f3889095ebb0c72372b79e3a4878110710"
-metafile = true
-
-[[files]]
 file = "mods/eating-animation.pw.toml"
 hash = "5af1714d668d18cf7c500218ad61a9e904fbfce74884c5ae5364434a6c9dc43f"
 metafile = true
@@ -1008,11 +998,6 @@ metafile = true
 [[files]]
 file = "mods/presence-footsteps.pw.toml"
 hash = "a9769ced0531122518321833966d375196753db1c3a47b975aed4bb6837fae7a"
-metafile = true
-
-[[files]]
-file = "mods/puzzles-lib.pw.toml"
-hash = "a1eff7b33a54586b6989c7bfd89992f9d315f1c656b7596649d9af7017c6af7b"
 metafile = true
 
 [[files]]
